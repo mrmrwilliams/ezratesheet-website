@@ -52,7 +52,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/logo-no-slogan.jpg"
+              src="/images/logo-no-slogan.png"
               alt="EZ Rate Sheet"
               width={160}
               height={48}

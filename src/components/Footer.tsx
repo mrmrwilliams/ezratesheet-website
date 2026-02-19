@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company */}
           <div className="space-y-4">
             <Image
-              src="/images/logo-white.jpg"
+              src="/images/logo-white.png"
               alt="EZ Rate Sheet"
               width={160}
               height={48}
