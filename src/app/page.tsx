@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-brand-50 via-white to-slate-50">
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-brand-50 via-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6">
