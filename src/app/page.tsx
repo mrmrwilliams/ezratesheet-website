@@ -37,31 +37,31 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: 'Luis Rodriguez',
-      role: 'Senior Loan Officer',
-      company: 'Pinnacle Lending',
-      quote: "Switched from expensive legacy tools and never looked back. EZ Rate Sheet saves me $2,000+ monthly while delivering better results for my clients.",
+      name: 'Luis R.',
+      role: '',
+      company: 'HIS Capital',
+      quote: "EZ Rate Sheet is incredible. It's easy to use, and it's saving us $1,200/mo over the tool we were using previously. That adds up fast!",
       rating: 5
     },
     {
-      name: 'Damien Martinez',
-      role: 'Mortgage Broker',
-      company: 'Elite Mortgage Group',
-      quote: "The ease of use is incredible. What used to take me hours now takes minutes. My team adopted it instantly and our productivity skyrocketed.",
+      name: 'Damien M.',
+      role: '',
+      company: 'MicroBanking Method',
+      quote: "I've been lending for a long time, so I was resistant to changing my process, but I am SO glad I did. EZ Rate Sheet is a game-changer!",
       rating: 5
     },
     {
-      name: 'Rick Morrison', 
-      role: 'Branch Manager',
-      company: 'First Choice Mortgage',
-      quote: "The professional term sheets have transformed how we present to clients. Our close rate improved by 30% in the first quarter alone.",
+      name: 'Rick M.',
+      role: '',
+      company: 'Verified Investor',
+      quote: "EZ Rate Sheet gives us a branded experience that's easy for my team and our borrowers to use, saving time for everyone in the lending process.",
       rating: 5
     },
     {
-      name: 'Derek Chen',
-      role: 'Independent Broker',
-      company: 'Chen Mortgage Solutions',
-      quote: "Cost savings are massive. Between the software efficiency and lending network access, I'm saving over $5,000 per month in operational costs.",
+      name: 'Derek C.',
+      role: '',
+      company: 'Carmichael Intl',
+      quote: "I've worked with a lot of large lenders and they don't even have a tool like this. What a game changer.",
       rating: 5
     }
   ];
@@ -216,7 +216,7 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="font-semibold text-slate-900">{testimonial.name}</div>
-                    <div className="text-slate-600">{testimonial.role}, {testimonial.company}</div>
+                    <div className="text-slate-600">{testimonial.role ? `${testimonial.role}, ${testimonial.company}` : testimonial.company}</div>
                   </div>
                 </div>
               </div>
