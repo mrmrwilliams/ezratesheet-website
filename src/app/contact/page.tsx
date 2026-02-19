@@ -91,7 +91,7 @@ export default function Contact() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen pt-20 bg-gradient-to-br from-blue-50 via-white to-slate-50 flex items-center justify-center">
+      <div className="min-h-screen pt-20 bg-gradient-to-br from-brand-50 via-white to-slate-50 flex items-center justify-center">
         <div className="max-w-md mx-auto px-4 text-center">
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <div className="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -114,7 +114,7 @@ export default function Contact() {
                   message: ''
                 });
               }}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
             >
               Send Another Message
             </button>
@@ -127,11 +127,11 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-slate-50">
+      <section className="py-16 bg-gradient-to-br from-brand-50 via-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             Get in Touch
-            <span className="block text-blue-600">We're Here to Help</span>
+            <span className="block text-brand-600">We're Here to Help</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
             Have questions about EZ Rate Sheet? Need help getting started? 
@@ -153,7 +153,7 @@ export default function Contact() {
             {contactMethods.map((method, index) => (
               <div key={index} className="bg-slate-50 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-200">
                 <div className={`inline-flex p-4 rounded-full mb-6 ${
-                  method.color === 'primary' ? 'bg-blue-100 text-blue-600' :
+                  method.color === 'primary' ? 'bg-brand-100 text-brand-600' :
                   method.color === 'secondary' ? 'bg-slate-100 text-slate-600' :
                   'bg-success-100 text-emerald-600'
                 }`}>
@@ -168,7 +168,7 @@ export default function Contact() {
                 <Link
                   href={method.link}
                   className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors ${
-                    method.color === 'primary' ? 'bg-blue-600 text-white hover:bg-blue-700' :
+                    method.color === 'primary' ? 'bg-brand-600 text-white hover:bg-brand-700' :
                     method.color === 'secondary' ? 'bg-slate-600 text-white hover:bg-slate-700' :
                     'bg-emerald-600 text-white hover:bg-success-700'
                   }`}
@@ -208,7 +208,7 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
                     placeholder="Your full name"
                   />
                 </div>
@@ -223,7 +223,7 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -240,7 +240,7 @@ export default function Contact() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
                     placeholder="Your company name"
                   />
                 </div>
@@ -254,7 +254,7 @@ export default function Contact() {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
                   >
                     <option value="general">General Inquiry</option>
                     <option value="sales">Sales & Pricing</option>
@@ -277,7 +277,7 @@ export default function Contact() {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
                   placeholder="Tell us how we can help you..."
                 />
               </div>
@@ -286,7 +286,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-brand-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-brand-700 transition-colors inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -337,7 +337,7 @@ export default function Contact() {
             </p>
             <Link
               href="#contact-form"
-              className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1"
+              className="text-brand-600 hover:text-brand-700 font-semibold inline-flex items-center gap-1"
             >
               Ask us directly
               <ArrowRightIcon className="w-4 h-4" />
@@ -347,25 +347,25 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-brand-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-brand-100 mb-8">
             Don't wait – try EZ Rate Sheet free for 5 days and see the difference for yourself.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="https://app.ezratesheet.com/register"
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
+              className="bg-white text-brand-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-brand-50 transition-colors inline-flex items-center gap-2"
             >
               Start Your Free Trial
               <ArrowRightIcon className="w-5 h-5" />
             </Link>
             <Link
               href="https://crm.risehub.ai"
-              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-brand-600 transition-colors"
             >
               Schedule Demo
             </Link>

@@ -148,12 +148,12 @@ export default function LendingNetwork() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-slate-50">
+      <section className="py-16 bg-gradient-to-br from-brand-50 via-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               The Exclusive Lending Network
-              <span className="block text-blue-600">Your Competition Can't Access</span>
+              <span className="block text-brand-600">Your Competition Can't Access</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-4xl mx-auto">
               Connect with 500+ vetted lenders, access wholesale rates, and close deals 
@@ -163,14 +163,14 @@ export default function LendingNetwork() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <Link
                 href="https://app.ezratesheet.com/register"
-                className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="bg-brand-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-brand-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Get Network Access Now
                 <ArrowRightIcon className="w-5 h-5" />
               </Link>
               <Link
                 href="https://crm.risehub.ai"
-                className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200"
+                className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-brand-600 hover:text-brand-600 transition-all duration-200"
               >
                 See Network Demo
               </Link>
@@ -181,7 +181,7 @@ export default function LendingNetwork() {
               {networkStats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl mb-2">{stat.icon}</div>
-                  <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+                  <div className="text-3xl md:text-4xl font-bold text-brand-600 mb-2">
                     {stat.value}
                   </div>
                   <div className="text-slate-600 font-medium">{stat.label}</div>
@@ -213,7 +213,7 @@ export default function LendingNetwork() {
                   <h3 className="text-xl font-semibold text-slate-900">
                     {category.name}
                   </h3>
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-medium">
                     {category.count}
                   </span>
                 </div>
@@ -234,13 +234,13 @@ export default function LendingNetwork() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-brand-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Why Our Network is Different
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 max-w-3xl mx-auto">
               It's not just about quantity – it's about access, quality, and performance.
             </p>
           </div>
@@ -254,7 +254,7 @@ export default function LendingNetwork() {
                 <h3 className="text-xl font-semibold text-white mb-4">
                   {benefit.title}
                 </h3>
-                <p className="text-blue-100 leading-relaxed">
+                <p className="text-brand-100 leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
@@ -282,8 +282,8 @@ export default function LendingNetwork() {
                   "{testimonial.quote}"
                 </blockquote>
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-blue-600 font-semibold text-lg">
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-brand-600 font-semibold text-lg">
                       {testimonial.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
@@ -317,7 +317,7 @@ export default function LendingNetwork() {
 
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg border">
             <table className="w-full">
-              <thead className="bg-blue-600 text-white">
+              <thead className="bg-brand-600 text-white">
                 <tr>
                   <th className="px-6 py-4 text-left font-semibold">Feature</th>
                   <th className="px-6 py-4 text-center font-semibold">EZ Rate Sheet</th>
@@ -330,7 +330,7 @@ export default function LendingNetwork() {
                 {comparisonFeatures.map((row, index) => (
                   <tr key={index} className={index % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
                     <td className="px-6 py-4 font-medium text-slate-900">{row.feature}</td>
-                    <td className="px-6 py-4 text-center font-semibold text-blue-600">{row.ezratesheet}</td>
+                    <td className="px-6 py-4 text-center font-semibold text-brand-600">{row.ezratesheet}</td>
                     <td className="px-6 py-4 text-center text-slate-600">{row.competitor1}</td>
                     <td className="px-6 py-4 text-center text-slate-600">{row.competitor2}</td>
                     <td className="px-6 py-4 text-center font-medium text-emerald-600">{row.advantage}</td>
@@ -353,7 +353,7 @@ export default function LendingNetwork() {
 
           <div className="space-y-8">
             <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+              <div className="flex-shrink-0 w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
                 1
               </div>
               <div className="flex-grow text-center md:text-left">
@@ -367,7 +367,7 @@ export default function LendingNetwork() {
             </div>
 
             <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+              <div className="flex-shrink-0 w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
                 2
               </div>
               <div className="flex-grow text-center md:text-left">
@@ -381,7 +381,7 @@ export default function LendingNetwork() {
             </div>
 
             <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+              <div className="flex-shrink-0 w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
                 3
               </div>
               <div className="flex-grow text-center md:text-left">
@@ -398,12 +398,12 @@ export default function LendingNetwork() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-brand-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Access the Network?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-brand-100 mb-8">
             Join thousands of mortgage professionals who are already leveraging our exclusive 
             lending network to close more deals and grow their business.
           </p>
@@ -411,20 +411,20 @@ export default function LendingNetwork() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Link
               href="https://app.ezratesheet.com/register"
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
+              className="bg-white text-brand-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-brand-50 transition-colors inline-flex items-center gap-2"
             >
               Start Your Free Trial
               <ArrowRightIcon className="w-5 h-5" />
             </Link>
             <Link
               href="https://crm.risehub.ai"
-              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-brand-600 transition-colors"
             >
               Schedule Network Demo
             </Link>
           </div>
 
-          <div className="flex items-center justify-center gap-2 text-blue-100">
+          <div className="flex items-center justify-center gap-2 text-brand-100">
             <CheckIcon className="w-5 h-5" />
             <span>5-day free trial</span>
             <span className="mx-2">•</span>

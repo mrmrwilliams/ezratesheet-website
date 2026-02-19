@@ -65,7 +65,7 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               href="/features" 
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-slate-700 hover:text-brand-600 font-medium transition-colors"
             >
               Features
             </Link>
@@ -74,7 +74,7 @@ const Navigation = () => {
             <div className="relative">
               <button
                 onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                className="flex items-center space-x-1 text-slate-700 hover:text-blue-600 font-medium transition-colors"
+                className="flex items-center space-x-1 text-slate-700 hover:text-brand-600 font-medium transition-colors"
               >
                 <span>Solutions</span>
                 <ChevronDownIcon className={`w-4 h-4 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} />
@@ -99,21 +99,21 @@ const Navigation = () => {
 
             <Link 
               href="/pricing" 
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-slate-700 hover:text-brand-600 font-medium transition-colors"
             >
               Pricing
             </Link>
 
             <Link 
               href="/about" 
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-slate-700 hover:text-brand-600 font-medium transition-colors"
             >
               About
             </Link>
 
             <Link 
               href="/blog" 
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-slate-700 hover:text-brand-600 font-medium transition-colors"
             >
               Blog
             </Link>
@@ -123,13 +123,13 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               href="https://app.ezratesheet.com/login"
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-slate-700 hover:text-brand-600 font-medium transition-colors"
             >
               Login
             </Link>
             <Link
               href="https://app.ezratesheet.com/register"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="bg-brand-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-brand-700 transition-colors"
             >
               Start Free Trial
             </Link>
@@ -138,7 +138,7 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-slate-700 hover:text-blue-600"
+            className="md:hidden p-2 text-slate-700 hover:text-brand-600"
           >
             {isMobileMenuOpen ? (
               <XMarkIcon className="w-6 h-6" />
@@ -154,7 +154,7 @@ const Navigation = () => {
             <div className="space-y-4">
               <Link 
                 href="/features" 
-                className="block text-slate-700 hover:text-blue-600 font-medium"
+                className="block text-slate-700 hover:text-brand-600 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Features
@@ -167,7 +167,7 @@ const Navigation = () => {
                     <Link
                       key={solution.name}
                       href={solution.href}
-                      className="block text-slate-600 hover:text-blue-600"
+                      className="block text-slate-600 hover:text-brand-600"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {solution.name}
@@ -178,7 +178,7 @@ const Navigation = () => {
 
               <Link 
                 href="/pricing" 
-                className="block text-slate-700 hover:text-blue-600 font-medium"
+                className="block text-slate-700 hover:text-brand-600 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
@@ -186,7 +186,7 @@ const Navigation = () => {
 
               <Link 
                 href="/about" 
-                className="block text-slate-700 hover:text-blue-600 font-medium"
+                className="block text-slate-700 hover:text-brand-600 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About
@@ -194,7 +194,7 @@ const Navigation = () => {
 
               <Link 
                 href="/blog" 
-                className="block text-slate-700 hover:text-blue-600 font-medium"
+                className="block text-slate-700 hover:text-brand-600 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Blog
@@ -203,14 +203,14 @@ const Navigation = () => {
               <div className="pt-4 border-t border-slate-200 space-y-2">
                 <Link
                   href="https://app.ezratesheet.com/login"
-                  className="block text-slate-700 hover:text-blue-600 font-medium"
+                  className="block text-slate-700 hover:text-brand-600 font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Login
                 </Link>
                 <Link
                   href="https://app.ezratesheet.com/register"
-                  className="block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium text-center hover:bg-blue-700 transition-colors"
+                  className="block bg-brand-600 text-white px-6 py-2 rounded-lg font-medium text-center hover:bg-brand-700 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Start Free Trial

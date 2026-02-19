@@ -175,11 +175,11 @@ export default function Features() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-slate-50">
+      <section className="py-16 bg-gradient-to-br from-brand-50 via-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             Every Feature You Need to 
-            <span className="block text-blue-600">Dominate Your Market</span>
+            <span className="block text-brand-600">Dominate Your Market</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
             Stop settling for basic tools. EZ Rate Sheet delivers enterprise-grade features 
@@ -187,7 +187,7 @@ export default function Features() {
           </p>
           <Link
             href="https://app.ezratesheet.com/register"
-            className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-200 inline-flex items-center gap-2"
+            className="bg-brand-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-brand-700 transition-all duration-200 inline-flex items-center gap-2"
           >
             Try All Features Free
             <ArrowRightIcon className="w-5 h-5" />
@@ -219,7 +219,7 @@ export default function Features() {
                   </ul>
                 </div>
                 <div className="flex-1">
-                  <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-2xl p-8 h-64 flex items-center justify-center">
+                  <div className="bg-gradient-to-br from-brand-50 to-slate-50 rounded-2xl p-8 h-64 flex items-center justify-center">
                     <div className="text-6xl opacity-50">{feature.icon}</div>
                   </div>
                 </div>
@@ -244,7 +244,7 @@ export default function Features() {
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-blue-600 text-white">
+                <thead className="bg-brand-600 text-white">
                   <tr>
                     {comparison.headers.map((header, index) => (
                       <th key={index} className="px-6 py-4 text-left font-semibold">
@@ -284,26 +284,26 @@ export default function Features() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-brand-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Experience All These Features?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-brand-100 mb-8">
             Don't just read about them – try every feature risk-free for 5 days. 
             No credit card required, no setup fees, no commitment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="https://app.ezratesheet.com/register"
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
+              className="bg-white text-brand-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-brand-50 transition-colors inline-flex items-center gap-2"
             >
               Start Your Free Trial
               <ArrowRightIcon className="w-5 h-5" />
             </Link>
             <Link
               href="https://crm.risehub.ai"
-              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-brand-600 transition-colors"
             >
               Schedule Demo
             </Link>
