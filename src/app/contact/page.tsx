@@ -91,16 +91,16 @@ export default function Contact() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen pt-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center">
+      <div className="min-h-screen pt-20 bg-gradient-to-br from-blue-50 via-white to-slate-50 flex items-center justify-center">
         <div className="max-w-md mx-auto px-4 text-center">
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <div className="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Message Sent!</h2>
-            <p className="text-secondary-600 mb-6">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Message Sent!</h2>
+            <p className="text-slate-600 mb-6">
               Thank you for reaching out. We'll get back to you within 2 hours during business hours.
             </p>
             <button
@@ -114,7 +114,7 @@ export default function Contact() {
                   message: ''
                 });
               }}
-              className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
               Send Another Message
             </button>
@@ -127,13 +127,13 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             Get in Touch
-            <span className="block text-primary-600">We're Here to Help</span>
+            <span className="block text-blue-600">We're Here to Help</span>
           </h1>
-          <p className="text-xl md:text-2xl text-secondary-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
             Have questions about EZ Rate Sheet? Need help getting started? 
             Our team is standing by to assist you.
           </p>
@@ -144,33 +144,33 @@ export default function Contact() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
               Choose Your Preferred Way to Connect
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {contactMethods.map((method, index) => (
-              <div key={index} className="bg-secondary-50 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-200">
+              <div key={index} className="bg-slate-50 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-200">
                 <div className={`inline-flex p-4 rounded-full mb-6 ${
-                  method.color === 'primary' ? 'bg-primary-100 text-primary-600' :
-                  method.color === 'secondary' ? 'bg-secondary-100 text-secondary-600' :
-                  'bg-success-100 text-success-600'
+                  method.color === 'primary' ? 'bg-blue-100 text-blue-600' :
+                  method.color === 'secondary' ? 'bg-slate-100 text-slate-600' :
+                  'bg-success-100 text-emerald-600'
                 }`}>
                   {method.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-secondary-900 mb-4">
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">
                   {method.title}
                 </h3>
-                <p className="text-secondary-600 mb-6 leading-relaxed">
+                <p className="text-slate-600 mb-6 leading-relaxed">
                   {method.description}
                 </p>
                 <Link
                   href={method.link}
                   className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors ${
-                    method.color === 'primary' ? 'bg-primary-600 text-white hover:bg-primary-700' :
-                    method.color === 'secondary' ? 'bg-secondary-600 text-white hover:bg-secondary-700' :
-                    'bg-success-600 text-white hover:bg-success-700'
+                    method.color === 'primary' ? 'bg-blue-600 text-white hover:bg-blue-700' :
+                    method.color === 'secondary' ? 'bg-slate-600 text-white hover:bg-slate-700' :
+                    'bg-emerald-600 text-white hover:bg-success-700'
                   }`}
                 >
                   {method.action}
@@ -183,13 +183,13 @@ export default function Contact() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-secondary-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
               Send Us a Message
             </h2>
-            <p className="text-xl text-secondary-600">
+            <p className="text-xl text-slate-600">
               Fill out the form below and we'll get back to you within 2 hours
             </p>
           </div>
@@ -198,7 +198,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-secondary-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -208,12 +208,12 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                     placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-secondary-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -223,7 +223,7 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -231,7 +231,7 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-secondary-700 mb-2">
+                  <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">
                     Company Name
                   </label>
                   <input
@@ -240,12 +240,12 @@ export default function Contact() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                     placeholder="Your company name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-secondary-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">
                     Subject *
                   </label>
                   <select
@@ -254,7 +254,7 @@ export default function Contact() {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                   >
                     <option value="general">General Inquiry</option>
                     <option value="sales">Sales & Pricing</option>
@@ -267,7 +267,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-secondary-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                   Message *
                 </label>
                 <textarea
@@ -277,7 +277,7 @@ export default function Contact() {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                   placeholder="Tell us how we can help you..."
                 />
               </div>
@@ -286,7 +286,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-700 transition-colors inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -310,21 +310,21 @@ export default function Contact() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
               Common Questions
             </h2>
-            <p className="text-xl text-secondary-600">
+            <p className="text-xl text-slate-600">
               Quick answers to the questions we hear most often
             </p>
           </div>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-secondary-50 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-3">
+              <div key={index} className="bg-slate-50 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">
                   {faq.question}
                 </h3>
-                <p className="text-secondary-600 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
@@ -332,12 +332,12 @@ export default function Contact() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-secondary-600 mb-4">
+            <p className="text-slate-600 mb-4">
               Don't see your question here?
             </p>
             <Link
               href="#contact-form"
-              className="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center gap-1"
+              className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1"
             >
               Ask us directly
               <ArrowRightIcon className="w-4 h-4" />
@@ -347,25 +347,25 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-600">
+      <section className="py-20 bg-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-primary-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8">
             Don't wait – try EZ Rate Sheet free for 5 days and see the difference for yourself.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="https://app.ezratesheet.com/register"
-              className="bg-white text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-50 transition-colors inline-flex items-center gap-2"
+              className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
             >
               Start Your Free Trial
               <ArrowRightIcon className="w-5 h-5" />
             </Link>
             <Link
               href="https://crm.risehub.ai"
-              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
             >
               Schedule Demo
             </Link>

@@ -163,9 +163,9 @@ export default function Features() {
 
   const renderComparisonValue = (value: any) => {
     if (value === true) {
-      return <CheckIcon className="w-5 h-5 text-success-500 mx-auto" />;
+      return <CheckIcon className="w-5 h-5 text-emerald-500 mx-auto" />;
     } else if (value === false) {
-      return <XMarkIcon className="w-5 h-5 text-error-500 mx-auto" />;
+      return <XMarkIcon className="w-5 h-5 text-red-500 mx-auto" />;
     } else if (typeof value === 'string') {
       return <span className="text-sm">{value}</span>;
     }
@@ -175,19 +175,19 @@ export default function Features() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             Every Feature You Need to 
-            <span className="block text-primary-600">Dominate Your Market</span>
+            <span className="block text-blue-600">Dominate Your Market</span>
           </h1>
-          <p className="text-xl md:text-2xl text-secondary-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
             Stop settling for basic tools. EZ Rate Sheet delivers enterprise-grade features 
             at a fraction of the cost of legacy solutions.
           </p>
           <Link
             href="https://app.ezratesheet.com/register"
-            className="bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-700 transition-all duration-200 inline-flex items-center gap-2"
+            className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-200 inline-flex items-center gap-2"
           >
             Try All Features Free
             <ArrowRightIcon className="w-5 h-5" />
@@ -203,23 +203,23 @@ export default function Features() {
               <div key={feature.id} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
                 <div className="flex-1">
                   <div className="text-5xl mb-4">{feature.icon}</div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                     {feature.name}
                   </h2>
-                  <p className="text-xl text-secondary-600 mb-8 leading-relaxed">
+                  <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                     {feature.description}
                   </p>
                   <ul className="space-y-3">
                     {feature.details.map((detail, detailIndex) => (
                       <li key={detailIndex} className="flex items-start gap-3">
-                        <CheckIcon className="w-5 h-5 text-success-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-secondary-700">{detail}</span>
+                        <CheckIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-700">{detail}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="flex-1">
-                  <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 h-64 flex items-center justify-center">
+                  <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-2xl p-8 h-64 flex items-center justify-center">
                     <div className="text-6xl opacity-50">{feature.icon}</div>
                   </div>
                 </div>
@@ -230,13 +230,13 @@ export default function Features() {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-20 bg-secondary-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
               How We Stack Up Against the Competition
             </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               See why mortgage professionals are making the switch from outdated tools to EZ Rate Sheet.
             </p>
           </div>
@@ -244,7 +244,7 @@ export default function Features() {
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-primary-600 text-white">
+                <thead className="bg-blue-600 text-white">
                   <tr>
                     {comparison.headers.map((header, index) => (
                       <th key={index} className="px-6 py-4 text-left font-semibold">
@@ -255,8 +255,8 @@ export default function Features() {
                 </thead>
                 <tbody>
                   {comparison.rows.map((row, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-secondary-50' : 'bg-white'}>
-                      <td className="px-6 py-4 font-medium text-secondary-900">
+                    <tr key={index} className={index % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
+                      <td className="px-6 py-4 font-medium text-slate-900">
                         {row.feature}
                       </td>
                       <td className="px-6 py-4 text-center">
@@ -284,26 +284,26 @@ export default function Features() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-600">
+      <section className="py-20 bg-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Experience All These Features?
           </h2>
-          <p className="text-xl text-primary-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8">
             Don't just read about them – try every feature risk-free for 5 days. 
             No credit card required, no setup fees, no commitment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="https://app.ezratesheet.com/register"
-              className="bg-white text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-50 transition-colors inline-flex items-center gap-2"
+              className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
             >
               Start Your Free Trial
               <ArrowRightIcon className="w-5 h-5" />
             </Link>
             <Link
               href="https://crm.risehub.ai"
-              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
             >
               Schedule Demo
             </Link>

@@ -4,21 +4,21 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary-900 text-white">
+    <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">EZ</span>
               </div>
               <span className="text-xl font-bold">EZ Rate Sheet</span>
             </div>
-            <p className="text-secondary-300 text-sm leading-relaxed">
+            <p className="text-slate-300 text-sm leading-relaxed">
               Professional rate sheet software for mortgage professionals. Streamline your lending process with our comprehensive platform.
             </p>
-            <div className="text-sm text-secondary-400">
+            <div className="text-sm text-slate-400">
               <p>EZ Rate Sheet LLC</p>
               <p>DBA of Copy Machines LLC</p>
               <p>Florida, USA</p>
@@ -28,7 +28,7 @@ const Footer = () => {
           {/* Product */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Product</h4>
-            <div className="space-y-2 text-secondary-300">
+            <div className="space-y-2 text-slate-300">
               <Link href="/features" className="block hover:text-white transition-colors">
                 Features
               </Link>
@@ -50,7 +50,7 @@ const Footer = () => {
           {/* Company */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Company</h4>
-            <div className="space-y-2 text-secondary-300">
+            <div className="space-y-2 text-slate-300">
               <Link href="/about" className="block hover:text-white transition-colors">
                 About Us
               </Link>
@@ -69,7 +69,7 @@ const Footer = () => {
           {/* Support */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Support</h4>
-            <div className="space-y-2 text-secondary-300">
+            <div className="space-y-2 text-slate-300">
               <Link href="/contact" className="block hover:text-white transition-colors">
                 Help Center
               </Link>
@@ -87,9 +87,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-secondary-800 mt-12 pt-8">
+        <div className="border-t border-slate-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-secondary-400">
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-slate-400">
               <p>&copy; {currentYear} EZ Rate Sheet LLC. All rights reserved.</p>
               <div className="flex space-x-6">
                 <Link href="/privacy" className="hover:text-white transition-colors">
@@ -108,7 +108,7 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a 
                 href="#" 
-                className="text-secondary-400 hover:text-white transition-colors"
+                className="text-slate-400 hover:text-white transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@ const Footer = () => {
               </a>
               <a 
                 href="#" 
-                className="text-secondary-400 hover:text-white transition-colors"
+                className="text-slate-400 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
