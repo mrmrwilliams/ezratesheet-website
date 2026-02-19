@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,12 +10,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">EZ</span>
-              </div>
-              <span className="text-xl font-bold">EZ Rate Sheet</span>
-            </div>
+            <Image
+              src="/images/logo-white.jpg"
+              alt="EZ Rate Sheet"
+              width={160}
+              height={48}
+              className="h-10 w-auto"
+            />
             <p className="text-slate-300 text-sm leading-relaxed">
               Professional rate sheet software for mortgage professionals. Streamline your lending process with our comprehensive platform.
             </p>
