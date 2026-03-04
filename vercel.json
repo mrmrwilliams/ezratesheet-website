@@ -1,4 +1,7 @@
 {
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "framework": null,
   "rewrites": [
     { "source": "/app/:path*", "destination": "https://34.111.179.208/app/:path*" }
   ],
@@ -9,5 +12,7 @@
         { "key": "X-Forwarded-Host", "value": "ezratesheet.com" }
       ]
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
