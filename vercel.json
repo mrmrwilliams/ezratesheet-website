@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/app/:path*", "destination": "https://34.111.179.208/app/:path*" }
+  ],
+  "headers": [
+    {
+      "source": "/app/(.*)",
+      "headers": [
+        { "key": "X-Forwarded-Host", "value": "ezratesheet.com" }
+      ]
+    }
+  ]
+}
