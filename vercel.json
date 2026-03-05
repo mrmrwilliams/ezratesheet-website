@@ -3,7 +3,7 @@
   "outputDirectory": ".",
   "framework": null,
   "rewrites": [
-    { "source": "/app/:path*", "destination": "https://34.111.179.208/app/:path*" }
+    { "source": "/app/:path*", "destination": "https://origin.ezratesheet.com/app/:path*" }
   ],
   "headers": [
     {
