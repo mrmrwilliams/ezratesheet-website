@@ -2,16 +2,14 @@
   "buildCommand": "",
   "outputDirectory": ".",
   "framework": null,
-  "rewrites": [
-    { "source": "/app/:path*", "destination": "https://origin.ezratesheet.com/app/:path*" }
-  ],
-  "headers": [
-    {
-      "source": "/app/(.*)",
-      "headers": [
-        { "key": "X-Forwarded-Host", "value": "ezratesheet.com" }
-      ]
+  "functions": {
+    "api/proxy.js": {
+      "memory": 256,
+      "maxDuration": 30
     }
+  },
+  "rewrites": [
+    { "source": "/app/:path*", "destination": "/api/proxy" }
   ],
   "cleanUrls": true,
   "trailingSlash": false
