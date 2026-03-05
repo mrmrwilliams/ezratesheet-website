@@ -4,6 +4,32 @@ import http from 'http';
 const ORIGIN_IP = '34.111.179.208';
 const ORIGIN_HOST = 'ezratesheet.com';
 
+function makeRequest(options, body) {
+  return new Promise((resolve, reject) => {
+    const proxyReq = https.request(options, (proxyRes) => {
+      const chunks = [];
+      proxyRes.on('data', (chunk) => chunks.push(chunk));
+      proxyRes.on('end', () => {
+        resolve({
+          status: proxyRes.statusCode,
+          headers: proxyRes.headers,
+          body: Buffer.concat(chunks),
+        });
+      });
+    });
+
+    proxyReq.on('error', reject);
+    proxyReq.setTimeout(30000, () => {
+      proxyReq.destroy(new Error('Request timeout'));
+    });
+
+    if (body) {
+      proxyReq.write(body);
+    }
+    proxyReq.end();
+  });
+}
+
 export default async function handler(req, res) {
   const url = new URL(req.url, `https://${req.headers.host}`);
   const appPath = url.pathname || '/app';
@@ -33,39 +59,48 @@ export default async function handler(req, res) {
     forwardHeaders['host'] = ORIGIN_HOST;
     forwardHeaders['x-forwarded-host'] = ORIGIN_HOST;
 
-    const proxyResponse = await new Promise((resolve, reject) => {
+    let currentPath = targetPath;
+    let proxyResponse;
+    let redirectCount = 0;
+    const MAX_REDIRECTS = 5;
+
+    // Follow trailing-slash redirects internally to prevent loops
+    // with Vercel's trailingSlash:false setting
+    while (redirectCount < MAX_REDIRECTS) {
       const options = {
         hostname: ORIGIN_IP,
         port: 443,
-        path: targetPath,
+        path: currentPath,
         method: req.method,
         headers: forwardHeaders,
-        servername: ORIGIN_HOST, // This sets the TLS SNI to ezratesheet.com
+        servername: ORIGIN_HOST,
         rejectUnauthorized: true,
       };
 
-      const proxyReq = https.request(options, (proxyRes) => {
-        const chunks = [];
-        proxyRes.on('data', (chunk) => chunks.push(chunk));
-        proxyRes.on('end', () => {
-          resolve({
-            status: proxyRes.statusCode,
-            headers: proxyRes.headers,
-            body: Buffer.concat(chunks),
-          });
-        });
-      });
+      proxyResponse = await makeRequest(options, redirectCount === 0 ? body : null);
 
-      proxyReq.on('error', reject);
-      proxyReq.setTimeout(30000, () => {
-        proxyReq.destroy(new Error('Request timeout'));
-      });
+      // If it's a redirect that just adds a trailing slash, follow it internally
+      if ([301, 302, 307, 308].includes(proxyResponse.status) && proxyResponse.headers['location']) {
+        let loc = proxyResponse.headers['location']
+          .replace(`https://${ORIGIN_HOST}`, '')
+          .replace(`http://${ORIGIN_HOST}`, '');
 
-      if (body) {
-        proxyReq.write(body);
+        // Check if this is a trailing-slash redirect (path/ vs path)
+        const locPath = loc.split('?')[0];
+        const curPath = currentPath.split('?')[0];
+        const isTrailingSlashRedirect = locPath === curPath + '/' || locPath + '/' === curPath;
+
+        if (isTrailingSlashRedirect || locPath.replace(/\/+$/, '') === curPath.replace(/\/+$/, '')) {
+          // Follow it internally - use the redirect target (with trailing slash)
+          currentPath = loc;
+          redirectCount++;
+          continue;
+        }
       }
-      proxyReq.end();
-    });
+
+      // Not a trailing-slash redirect, stop following
+      break;
+    }
 
     // Forward response headers, fixing redirects to stay on current domain
     const responseHeaders = { ...proxyResponse.headers };
@@ -73,9 +108,18 @@ export default async function handler(req, res) {
     delete responseHeaders['connection'];
 
     if (responseHeaders['location']) {
-      responseHeaders['location'] = responseHeaders['location']
+      let loc = responseHeaders['location']
         .replace(`https://${ORIGIN_HOST}`, '')
         .replace(`http://${ORIGIN_HOST}`, '');
+      // Strip trailing slashes to stay consistent with Vercel's trailingSlash:false
+      const qIdx = loc.indexOf('?');
+      if (qIdx > -1) {
+        const path = loc.substring(0, qIdx).replace(/\/+$/, '') || '/';
+        loc = path + loc.substring(qIdx);
+      } else {
+        loc = loc.replace(/\/+$/, '') || '/';
+      }
+      responseHeaders['location'] = loc;
     }
 
     res.writeHead(proxyResponse.status, responseHeaders);
