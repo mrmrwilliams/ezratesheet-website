@@ -21,7 +21,8 @@
     { "source": "/static/:path*", "destination": "/api/proxy" },
     { "source": "/styles.css", "destination": "/api/proxy" },
     { "source": "/script.js", "destination": "/api/proxy" },
-    { "source": "/signup", "destination": "/api/proxy" }
+    { "source": "/signup", "destination": "/api/proxy" },
+    { "source": "/favicon.ico", "destination": "/favicon.svg" }
   ],
   "cleanUrls": true,
   "trailingSlash": false
