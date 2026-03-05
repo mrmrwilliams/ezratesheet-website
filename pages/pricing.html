@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — EZ Rate Sheet</title>
+<meta name="description" content="Simple, transparent pricing for real-estate lenders. Start with a 5-day free trial. Plans from $89/mo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a href="#main" class="sr-only" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to main content</a>
+
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="EZ Rate Sheet home">
+        <svg width="32" height="32" viewBox="2 2 96 96" fill="currentColor" aria-hidden="true" style="color: var(--color-primary);">
+          <path d="M89.172,2.567H52.711v46.056h46.056V12.162C98.767,6.863,94.47,2.567,89.172,2.567z M89.252,27.662H62.397v-4.134h26.854V27.662z"/>
+          <path d="M2.817,12.162v36.461h46.056V2.567H12.412C7.113,2.567,2.817,6.863,2.817,12.162z M23.877,10.909h4.807v12.338H40.94v4.723H28.684v12.312h-4.807V27.97H11.622v-4.723h12.256V10.909z"/>
+          <path d="M52.711,98.517h36.461c5.298,0,9.595-4.295,9.595-9.595V52.461H52.711V98.517z M61.515,67.056h29.319v4.723H61.515V67.056z M61.515,79.115h29.319v4.807H61.515V79.115z"/>
+          <path d="M2.817,88.922c0,5.3,4.295,9.595,9.595,9.595h36.461V52.461H2.817V88.922z M17.091,63.373l9.225,9.194l9.193-9.194l2.914,2.845l-9.223,9.225l9.247,9.216l-2.948,2.946l-9.218-9.247l-9.211,9.213l-2.841-2.912l9.18-9.183l-9.196-9.224L17.091,63.373z"/>
+        </svg>
+        <span>EZ Rates</span>
+      </a>
+      <nav><ul class="nav-links" id="navLinks" role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/login">Login</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/register">Start Free Trial</a></li><li class="mobile-close-link" style="display:none;"><button onclick="toggleNav()" style="font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4);">Close Menu</button></li></ul></nav>
+      <div class="nav-actions">
+        <a href="/app/login" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/app/register" class="btn btn-primary btn-sm">Start Free Trial</a>
+        <button class="mobile-toggle" onclick="toggleNav()" aria-label="Open navigation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="section-label">Pricing</div>
+        <h1 class="page-hero-title">Simple, Transparent Pricing</h1>
+        <p class="page-hero-subtitle">Professional tools at prices that make sense for real-estate lenders. Start with a 5-day free trial — no credit card required.</p>
+      </div>
+    </section>
+
+    <!-- PRICING CARDS -->
+    <section class="section container">
+      <div class="pricing-toggle">
+        <span id="monthlyLabel" class="active">Monthly</span>
+        <div class="toggle-switch" id="billingToggle" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle annual billing"></div>
+        <span id="annualLabel">Annual</span>
+        <span class="save-badge">Save 2 months</span>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card fade-in">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price"><span class="price-monthly">$89</span><span class="price-annual" style="display:none;">$888</span><span class="price-period price-period-monthly">/mo</span><span class="price-period price-period-annual" style="display:none;">/yr</span></div>
+          <div class="plan-price-note price-annual" style="display:none;font-size:var(--text-xs);color:var(--color-text-muted);margin-top:calc(-1 * var(--space-1));margin-bottom:var(--space-1);">($74/mo)</div>
+          <div class="plan-desc">Up to 3 users · Additional users $29/ea</div>
+          <ul class="plan-features" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Professional rate sheets</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Deal comparison tools</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Client management</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Core rate calculation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Email support</li>
+          </ul>
+          <a href="/app/register" class="btn btn-secondary" style="width:100%;">Start Free Trial</a>
+        </div>
+
+        <!-- Team -->
+        <div class="pricing-card featured fade-in">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="plan-name">Team</div>
+          <div class="plan-price"><span class="price-monthly">$149</span><span class="price-annual" style="display:none;">$1,488</span><span class="price-period price-period-monthly">/mo</span><span class="price-period price-period-annual" style="display:none;">/yr</span></div>
+          <div class="plan-price-note price-annual" style="display:none;font-size:var(--text-xs);color:var(--color-text-muted);margin-top:calc(-1 * var(--space-1));margin-bottom:var(--space-1);">($124/mo)</div>
+          <div class="plan-desc">Up to 10 users · Additional users $19/ea</div>
+          <ul class="plan-features" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Everything in Starter</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Priority support</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Advanced reporting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Custom branding</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lending network access</li>
+          </ul>
+          <a href="/app/register" class="btn btn-primary" style="width:100%;">Start Free Trial</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="pricing-card fade-in">
+          <div class="plan-name">Pro</div>
+          <div class="plan-price"><span class="price-monthly">$249</span><span class="price-annual" style="display:none;">$2,484</span><span class="price-period price-period-monthly">/mo</span><span class="price-period price-period-annual" style="display:none;">/yr</span></div>
+          <div class="plan-price-note price-annual" style="display:none;font-size:var(--text-xs);color:var(--color-text-muted);margin-top:calc(-1 * var(--space-1));margin-bottom:var(--space-1);">($207/mo)</div>
+          <div class="plan-desc">Unlimited users · All features included</div>
+          <ul class="plan-features" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Everything in Team</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>AI-powered insights</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>White-label options</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>API access</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>24/7 phone support</li>
+          </ul>
+          <a href="/app/register" class="btn btn-secondary" style="width:100%;">Start Free Trial</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADD-ONS -->
+    <section class="section-sm" style="background:var(--color-surface);border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:var(--space-6);">
+          <div class="section-label">Add-ons</div>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;margin-bottom:var(--space-2);">Available for Starter &amp; Team Plans</h2>
+        </div>
+        <div class="addons-grid">
+          <div class="addon-card">
+            <div class="addon-name">Lending Network</div>
+            <div class="addon-price">+$29/mo</div>
+            <div class="addon-desc">Access to 100+ partner lenders</div>
+          </div>
+          <div class="addon-card">
+            <div class="addon-name">AI Insights</div>
+            <div class="addon-price">+$20/mo</div>
+            <div class="addon-desc">Market analysis &amp; pricing optimization</div>
+          </div>
+          <div class="addon-card">
+            <div class="addon-name">Deal Packs</div>
+            <div class="addon-price">+$25/pack</div>
+            <div class="addon-desc">Additional deal capacity</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI CALCULATOR -->
+    <section class="section container">
+      <div style="text-align:center;margin-bottom:var(--space-8);">
+        <div class="section-label">ROI Calculator</div>
+        <h2 class="section-title">See How Much You Could Save</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Estimate your cost savings with EZ Rate Sheet by changing the sliders below to reflect the average number of deals per month you do, plus the average time it takes you to review deal info, calculate terms, prepare a term sheet, then submit and track the term sheet.</p>
+      </div>
+
+      <div class="roi-calc">
+        <label for="deals">Deals per month</label>
+        <input type="range" id="deals" min="5" max="100" value="20">
+        <p style="text-align:center;font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);"><span id="dealsValue">20</span> deals / month</p>
+
+        <label for="timePerDeal">Hours per term sheet (current)</label>
+        <input type="range" id="timePerDeal" min="0.5" max="5" step="0.5" value="0.5">
+        <p style="text-align:center;font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);"><span id="timeValue">0.5</span> hours each</p>
+
+        <div class="roi-result">
+          <div class="roi-value" id="roiHours">8.3 hrs/month</div>
+          <div class="roi-label">Estimated time saved</div>
+          <div class="roi-value" style="margin-top:var(--space-3);" id="roiDollars">$623/month</div>
+          <div class="roi-label">Estimated value (at $75/hr)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="section-label">Get Started</div>
+          <h2 class="section-title">Start Your Free Trial Today</h2>
+          <p class="section-subtitle" style="margin:0 auto var(--space-8);">No credit card required. Set up in under 5 minutes. Cancel anytime.</p>
+          <a href="/app/register" class="btn btn-primary btn-lg">Start Your 5-Day Free Trial</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="EZ Rate Sheet home"><svg width="28" height="28" viewBox="2 2 96 96" fill="currentColor" aria-hidden="true" style="color: var(--color-primary);">
+            <path d="M89.172,2.567H52.711v46.056h46.056V12.162C98.767,6.863,94.47,2.567,89.172,2.567z M89.252,27.662H62.397v-4.134h26.854V27.662z"/>
+            <path d="M2.817,12.162v36.461h46.056V2.567H12.412C7.113,2.567,2.817,6.863,2.817,12.162z M23.877,10.909h4.807v12.338H40.94v4.723H28.684v12.312h-4.807V27.97H11.622v-4.723h12.256V10.909z"/>
+            <path d="M52.711,98.517h36.461c5.298,0,9.595-4.295,9.595-9.595V52.461H52.711V98.517z M61.515,67.056h29.319v4.723H61.515V67.056z M61.515,79.115h29.319v4.807H61.515V79.115z"/>
+            <path d="M2.817,88.922c0,5.3,4.295,9.595,9.595,9.595h36.461V52.461H2.817V88.922z M17.091,63.373l9.225,9.194l9.193-9.194l2.914,2.845l-9.223,9.225l9.247,9.216l-2.948,2.946l-9.218-9.247l-9.211,9.213l-2.841-2.912l9.18-9.183l-9.196-9.224L17.091,63.373z"/>
+          </svg><span>EZ Rates</span></a>
+        <p>Professional real estate software to calculate, create, and track professional term sheets. Streamline your lending process with our comprehensive platform.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="lending-network.html">Lending Network</a></li><li><a href="/app/register">Start Free Trial</a></li><li><a href="watch-demo.html">Watch Demo</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul role="list"><li><a href="about.html">About Us</a></li><li><a href="blog.html">Blog</a></li><li><a href="mailto:sales@ezratesheet.com">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul role="list"><li><a href="mailto:sales@ezratesheet.com">Help Center</a></li><li><a href="mailto:sales@ezratesheet.com">Customer Support</a></li><li><a href="/app/login">Login</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 EZ Rate Sheet LLC</p>
+      <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true">·</span><a href="terms.html">Terms of Service</a><span aria-hidden="true">·</span><a href="cookies.html">Cookie Policy</a></div>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="font-size:var(--text-xs);color:var(--color-text-faint);">Created with Perplexity Computer</a>
+    </div>
+  </footer>
+<script>
+    function toggleNav(){const n=document.getElementById('navLinks');const m=document.querySelectorAll('.mobile-only-link,.mobile-close-link');n.classList.toggle('open');m.forEach(e=>{e.style.display=n.classList.contains('open')?'block':'none'})}
+    window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+    const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
+
+    // Billing toggle
+    const toggle=document.getElementById('billingToggle');
+    const monthly=document.querySelectorAll('.price-monthly');
+    const annual=document.querySelectorAll('.price-annual');
+    const periodMonthly=document.querySelectorAll('.price-period-monthly');
+    const periodAnnual=document.querySelectorAll('.price-period-annual');
+    const mLabel=document.getElementById('monthlyLabel');
+    const aLabel=document.getElementById('annualLabel');
+    let isAnnual=false;
+    function updatePricing(){
+      monthly.forEach(e=>e.style.display=isAnnual?'none':'inline');
+      annual.forEach(e=>e.style.display=isAnnual?'inline':'none');
+      periodMonthly.forEach(e=>e.style.display=isAnnual?'none':'inline');
+      periodAnnual.forEach(e=>e.style.display=isAnnual?'inline':'none');
+      toggle.classList.toggle('active',isAnnual);
+      toggle.setAttribute('aria-checked',isAnnual);
+      mLabel.classList.toggle('active',!isAnnual);
+      aLabel.classList.toggle('active',isAnnual);
+    }
+    toggle.addEventListener('click',()=>{isAnnual=!isAnnual;updatePricing()});
+    toggle.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();isAnnual=!isAnnual;updatePricing()}});
+
+    // ROI Calculator
+    const dealsInput=document.getElementById('deals');
+    const timeInput=document.getElementById('timePerDeal');
+    const dealsVal=document.getElementById('dealsValue');
+    const timeVal=document.getElementById('timeValue');
+    const roiH=document.getElementById('roiHours');
+    const roiD=document.getElementById('roiDollars');
+    function calcROI(){
+      const d=parseInt(dealsInput.value);
+      const t=parseFloat(timeInput.value);
+      const saved=Math.round(d*t*0.83*10)/10;
+      const dollars=Math.round(saved*75);
+      dealsVal.textContent=d;
+      timeVal.textContent=t;
+      roiH.textContent=saved+' hrs/month';
+      roiD.textContent='$'+dollars.toLocaleString()+'/month';
+    }
+    dealsInput.addEventListener('input',calcROI);
+    timeInput.addEventListener('input',calcROI);
+    calcROI();
+  </script>
+</body>
+</html>
