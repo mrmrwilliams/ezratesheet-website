@@ -8,6 +8,14 @@
       "maxDuration": 30
     }
   },
+  "redirects": [
+    { "source": "/contact", "destination": "/pages/contact.html", "statusCode": 301 },
+    { "source": "/contact.html", "destination": "/pages/contact.html", "statusCode": 301 },
+    { "source": "/terms", "destination": "/pages/terms.html", "statusCode": 301 },
+    { "source": "/terms.html", "destination": "/pages/terms.html", "statusCode": 301 },
+    { "source": "/privacy", "destination": "/pages/privacy.html", "statusCode": 301 },
+    { "source": "/privacy.html", "destination": "/pages/privacy.html", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/app/:path*", "destination": "/api/proxy" },
     { "source": "/static/:path*", "destination": "/api/proxy" },
