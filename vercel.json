@@ -17,6 +17,9 @@
     { "source": "/privacy.html", "destination": "/pages/privacy.html", "statusCode": 301 }
   ],
   "rewrites": [
+    { "source": "/borrower-survey", "destination": "https://ezratesheet.replit.app/borrower-survey" },
+    { "source": "/apply/:path*", "destination": "https://ezratesheet.replit.app/apply/:path*" },
+    { "source": "/api/borrower-survey/:path*", "destination": "https://ezratesheet.replit.app/api/borrower-survey/:path*" },
     { "source": "/app/:path*", "destination": "/api/proxy" },
     { "source": "/static/:path*", "destination": "/api/proxy" },
     { "source": "/styles.css", "destination": "/api/proxy" },
