@@ -2,12 +2,6 @@
   "buildCommand": "",
   "outputDirectory": ".",
   "framework": null,
-  "functions": {
-    "api/proxy.js": {
-      "memory": 256,
-      "maxDuration": 30
-    }
-  },
   "redirects": [
     { "source": "/contact", "destination": "/pages/contact.html", "statusCode": 301 },
     { "source": "/contact.html", "destination": "/pages/contact.html", "statusCode": 301 },
@@ -17,15 +11,8 @@
     { "source": "/privacy.html", "destination": "/pages/privacy.html", "statusCode": 301 }
   ],
   "rewrites": [
-    { "source": "/borrower-survey", "destination": "https://ezratesheet.replit.app/borrower-survey" },
-    { "source": "/apply/:path*", "destination": "https://ezratesheet.replit.app/apply/:path*" },
-    { "source": "/api/borrower-survey/:path*", "destination": "https://ezratesheet.replit.app/api/borrower-survey/:path*" },
-    { "source": "/app/:path*", "destination": "/api/proxy" },
-    { "source": "/static/:path*", "destination": "/api/proxy" },
-    { "source": "/styles.css", "destination": "/api/proxy" },
-    { "source": "/script.js", "destination": "/api/proxy" },
-    { "source": "/signup", "destination": "/api/proxy" },
-    { "source": "/favicon.ico", "destination": "/favicon.svg" }
+    { "source": "/favicon.ico", "destination": "/favicon.svg" },
+    { "source": "/(.*)", "destination": "https://ezratesheet.replit.app/$1" }
   ],
   "cleanUrls": true,
   "trailingSlash": false
