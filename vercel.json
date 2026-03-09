@@ -3,6 +3,7 @@
   "outputDirectory": ".",
   "framework": null,
   "redirects": [
+    { "source": "/app/:path*", "destination": "https://ezratesheet.replit.app/app/:path*", "permanent": false },
     { "source": "/contact", "destination": "/pages/contact.html", "statusCode": 301 },
     { "source": "/contact.html", "destination": "/pages/contact.html", "statusCode": 301 },
     { "source": "/terms", "destination": "/pages/terms.html", "statusCode": 301 },
