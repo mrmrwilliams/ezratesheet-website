@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Summit Capital Advisors — Private Real Estate Lending, Simplified</title>
+  <meta name="description" content="Fast, flexible private lending for real estate investors. Fix & Flip, Bridge, Ground-Up Construction, and DSCR loans from Summit Capital Advisors.">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       Summit Capital Advisors — Self-contained styles
+       ======================================== */
+
+    :root {
+      --sca-primary: #4a6fa5;
+      --sca-primary-dark: #3b5a87;
+      --sca-navy: #1a2940;
+      --sca-navy-light: #243552;
+      --sca-silver: #e8ecf1;
+      --sca-silver-dark: #d0d6e0;
+      --sca-white: #ffffff;
+      --sca-gold: #c9a84c;
+      --sca-gold-hover: #b89538;
+      --sca-gold-light: #dfc87a;
+      --sca-text: #2c3e50;
+      --sca-text-muted: #6b7d93;
+      --sca-text-light: #8fa0b5;
+      --sca-border: #d4dbe5;
+      --sca-radius: 8px;
+      --sca-radius-lg: 12px;
+      --sca-shadow: 0 1px 3px rgba(26,41,64,0.08), 0 4px 12px rgba(26,41,64,0.04);
+      --sca-shadow-lg: 0 4px 12px rgba(26,41,64,0.1), 0 12px 32px rgba(26,41,64,0.06);
+      --sca-transition: 200ms ease;
+
+      /* Override base.css vars */
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --color-text: #2c3e50;
+      --color-bg: #ffffff;
+      --color-primary: #4a6fa5;
+      --text-sm: 16px;
+      --radius-sm: 4px;
+      --space-16: 80px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--sca-text);
+      background-color: var(--sca-white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ---- Typography ---- */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-body);
+      font-weight: 700;
+      color: var(--sca-navy);
+    }
+
+    /* ---- Utility ---- */
+    .sca-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========================================
+       Header / Navigation
+       ======================================== */
+    .sca-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--sca-white);
+      border-bottom: 1px solid var(--sca-border);
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.95);
+    }
+
+    .sca-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .sca-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--sca-navy);
+    }
+
+    .sca-logo__icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .sca-logo__text {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .sca-logo__text span {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--sca-text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .sca-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sca-nav__link {
+      text-decoration: none;
+      color: var(--sca-text);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--sca-radius);
+      transition: background var(--sca-transition), color var(--sca-transition);
+    }
+
+    .sca-nav__link:hover {
+      background: var(--sca-silver);
+      color: var(--sca-primary);
+    }
+
+    .sca-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--sca-radius);
+      text-decoration: none;
+      transition: all var(--sca-transition);
+      cursor: pointer;
+      border: none;
+      line-height: 1.4;
+    }
+
+    .sca-btn--gold {
+      background: var(--sca-gold);
+      color: var(--sca-navy);
+    }
+
+    .sca-btn--gold:hover {
+      background: var(--sca-gold-hover);
+      box-shadow: 0 2px 8px rgba(201,168,76,0.35);
+    }
+
+    .sca-btn--ghost {
+      background: transparent;
+      color: var(--sca-white);
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+
+    .sca-btn--ghost:hover {
+      border-color: var(--sca-white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .sca-btn--lg {
+      padding: 14px 32px;
+      font-size: 16px;
+      border-radius: var(--sca-radius-lg);
+    }
+
+    /* Mobile menu toggle */
+    .sca-menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .sca-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--sca-navy);
+      border-radius: 2px;
+      transition: all var(--sca-transition);
+    }
+
+    /* ========================================
+       Hero Section
+       ======================================== */
+    .sca-hero {
+      position: relative;
+      background: var(--sca-navy);
+      color: var(--sca-white);
+      overflow: hidden;
+    }
+
+    .sca-hero__bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.07;
+      background-image:
+        linear-gradient(rgba(74,111,165,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,111,165,0.3) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .sca-hero__accent {
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,111,165,0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .sca-hero__accent--2 {
+      top: auto;
+      right: auto;
+      bottom: -200px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+    }
+
+    .sca-hero__inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 24px 110px;
+      text-align: center;
+    }
+
+    .sca-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74,111,165,0.2);
+      border: 1px solid rgba(74,111,165,0.35);
+      color: var(--sca-silver);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .sca-hero__badge::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sca-gold);
+    }
+
+    .sca-hero h1 {
+      color: var(--sca-white);
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+
+    .sca-hero__sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: rgba(232,236,241,0.8);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .sca-hero__actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ========================================
+       Loan Programs Section
+       ======================================== */
+    .sca-programs {
+      background: var(--sca-silver);
+      padding: 96px 24px;
+    }
+
+    .sca-programs__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .sca-section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .sca-section-header__label {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sca-primary);
+      margin-bottom: 12px;
+    }
+
+    .sca-section-header h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .sca-section-header p {
+      font-size: 17px;
+      color: var(--sca-text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .sca-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .sca-card {
+      background: var(--sca-white);
+      border-radius: var(--sca-radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--sca-shadow);
+      transition: box-shadow var(--sca-transition), transform var(--sca-transition);
+      border: 1px solid rgba(212,219,229,0.5);
+    }
+
+    .sca-card:hover {
+      box-shadow: var(--sca-shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .sca-card__icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(74,111,165,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .sca-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--sca-primary);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .sca-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--sca-navy);
+    }
+
+    .sca-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sca-card li {
+      font-size: 14.5px;
+      color: var(--sca-text-muted);
+      padding: 5px 0;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .sca-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sca-gold);
+      opacity: 0.6;
+    }
+
+    /* ========================================
+       Apply Section
+       ======================================== */
+    .sca-apply {
+      background: var(--sca-white);
+      padding: 96px 24px;
+    }
+
+    .sca-apply__inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .sca-apply h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .sca-apply__sub {
+      font-size: 17px;
+      color: var(--sca-text-muted);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .sca-apply__cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      font-size: 17px;
+      font-weight: 700;
+      background: var(--sca-gold);
+      color: var(--sca-navy);
+      border-radius: var(--sca-radius-lg);
+      text-decoration: none;
+      transition: all var(--sca-transition);
+      box-shadow: 0 2px 8px rgba(201,168,76,0.25);
+    }
+
+    .sca-apply__cta-btn:hover {
+      background: var(--sca-gold-hover);
+      box-shadow: 0 4px 16px rgba(201,168,76,0.4);
+      transform: translateY(-1px);
+    }
+
+    .sca-apply__divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 36px 0;
+      color: var(--sca-text-light);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .sca-apply__divider::before,
+    .sca-apply__divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--sca-border);
+    }
+
+    .sca-apply__embed-placeholder {
+      border: 2px dashed var(--sca-primary);
+      border-radius: var(--sca-radius-lg);
+      background: rgba(74,111,165,0.03);
+      padding: 64px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .sca-apply__embed-placeholder svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--sca-primary);
+      opacity: 0.4;
+    }
+
+    .sca-apply__embed-placeholder p {
+      font-size: 15px;
+      color: var(--sca-text-muted);
+      font-weight: 500;
+    }
+
+    .sca-apply__embed-placeholder small {
+      font-size: 13px;
+      color: var(--sca-text-light);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .sca-footer {
+      background: var(--sca-navy);
+      color: rgba(232,236,241,0.7);
+      padding: 56px 24px 40px;
+    }
+
+    .sca-footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .sca-footer__brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .sca-footer__brand svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .sca-footer__brand-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--sca-white);
+    }
+
+    .sca-footer__info p {
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .sca-footer__links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .sca-footer__links a {
+      color: rgba(232,236,241,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color var(--sca-transition);
+    }
+
+    .sca-footer__links a:hover {
+      color: var(--sca-white);
+    }
+
+    .sca-footer__bottom {
+      width: 100%;
+      border-top: 1px solid rgba(232,236,241,0.1);
+      margin-top: 24px;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(232,236,241,0.4);
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 1024px) {
+      .sca-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sca-nav__link {
+        display: none;
+      }
+
+      .sca-menu-toggle {
+        display: flex;
+      }
+
+      .sca-header__inner {
+        height: 64px;
+      }
+
+      .sca-hero__inner {
+        padding: 72px 24px 80px;
+      }
+
+      .sca-hero h1 {
+        font-size: 32px;
+      }
+
+      .sca-hero__sub {
+        font-size: 16px;
+      }
+
+      .sca-programs {
+        padding: 64px 20px;
+      }
+
+      .sca-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .sca-apply {
+        padding: 64px 20px;
+      }
+
+      .sca-footer__inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sca-footer__info p {
+        max-width: 100%;
+      }
+
+      .sca-footer__links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .sca-logo__text {
+        font-size: 16px;
+      }
+
+      .sca-logo__text span {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sca-hero__actions {
+        flex-direction: column;
+      }
+
+      .sca-hero__actions .sca-btn {
+        width: 100%;
+      }
+
+      .sca-apply__cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       Header / Navigation
+       ======================================== -->
+  <header class="sca-header">
+    <div class="sca-header__inner">
+      <a href="#" class="sca-logo" aria-label="Summit Capital Advisors Home">
+        <!-- SVG Mountain Logo -->
+        <svg class="sca-logo__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20 4L34 32H6L20 4Z" fill="#4a6fa5" opacity="0.9"/>
+          <path d="M12 18L22 32H2L12 18Z" fill="#1a2940" opacity="0.6"/>
+          <path d="M20 4L26 15.5L20 12L14 15.5L20 4Z" fill="#c9a84c" opacity="0.8"/>
+        </svg>
+        <div class="sca-logo__text">
+          Summit Capital<br>Advisors
+        </div>
+      </a>
+
+      <nav class="sca-nav" aria-label="Main navigation">
+        <a href="#" class="sca-nav__link">About</a>
+        <a href="#programs" class="sca-nav__link">Loan Programs</a>
+        <a href="#apply-section" class="sca-nav__link">Apply</a>
+        <a href="#" class="sca-nav__link">Contact</a>
+        <a href="#apply-section" class="sca-btn sca-btn--gold">Get Started</a>
+      </nav>
+
+      <button class="sca-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================
+       Hero Section
+       ======================================== -->
+  <section class="sca-hero">
+    <div class="sca-hero__bg" aria-hidden="true"></div>
+    <div class="sca-hero__accent" aria-hidden="true"></div>
+    <div class="sca-hero__accent sca-hero__accent--2" aria-hidden="true"></div>
+    <div class="sca-hero__inner">
+      <div class="sca-hero__badge">Private Real Estate Lending, Simplified</div>
+      <h1>Fast, Flexible Private Lending for Real Estate Investors</h1>
+      <p class="sca-hero__sub">Fix &amp; Flip, Bridge, Ground-Up Construction, and DSCR loans. Competitive rates, quick closings, and a team that understands your deals.</p>
+      <div class="sca-hero__actions">
+        <a href="#apply-section" class="sca-btn sca-btn--gold sca-btn--lg">Apply Now</a>
+        <a href="#programs" class="sca-btn sca-btn--ghost sca-btn--lg">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Loan Programs Section
+       ======================================== -->
+  <section class="sca-programs" id="programs">
+    <div class="sca-programs__inner">
+      <div class="sca-section-header">
+        <div class="sca-section-header__label">Loan Programs</div>
+        <h2>Financing Solutions for Every Strategy</h2>
+        <p>Whether you're flipping, bridging, building, or holding — we have a loan program designed for your investment strategy.</p>
+      </div>
+
+      <div class="sca-cards">
+        <!-- Fix & Flip -->
+        <div class="sca-card">
+          <div class="sca-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21L12 3L21 21H3Z" /><path d="M12 10V14" /><path d="M12 17H12.01" /></svg>
+          </div>
+          <h3>Fix &amp; Flip</h3>
+          <ul>
+            <li>Up to 90% LTC financing</li>
+            <li>12-month terms with extensions available</li>
+            <li>Rates from 10.5%</li>
+          </ul>
+        </div>
+
+        <!-- Bridge Loans -->
+        <div class="sca-card">
+          <div class="sca-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 20L4 14" /><path d="M20 20V14" /><path d="M2 14H22" /><path d="M4 14C4 14 8 8 12 8C16 8 20 14 20 14" /></svg>
+          </div>
+          <h3>Bridge Loans</h3>
+          <ul>
+            <li>Purchase or refinance flexibility</li>
+            <li>Up to 80% LTV</li>
+            <li>Flexible terms tailored to your timeline</li>
+          </ul>
+        </div>
+
+        <!-- Ground-Up Construction -->
+        <div class="sca-card">
+          <div class="sca-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M2 20H22" /><path d="M5 20V10L12 4L19 10V20" /><path d="M9 20V14H15V20" /></svg>
+          </div>
+          <h3>Ground-Up Construction</h3>
+          <ul>
+            <li>Lot + construction financing</li>
+            <li>Structured draw schedules</li>
+            <li>Competitive rates for builders</li>
+          </ul>
+        </div>
+
+        <!-- DSCR Rentals -->
+        <div class="sca-card">
+          <div class="sca-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2V22" /><path d="M17 5H9.5C8.57 5 7.67 5.37 7.01 6.01C6.37 6.67 6 7.57 6 8.5C6 9.43 6.37 10.33 7.01 10.99C7.67 11.63 8.57 12 9.5 12H14.5C15.43 12 16.33 12.37 16.99 13.01C17.63 13.67 18 14.57 18 15.5C18 16.43 17.63 17.33 16.99 17.99C16.33 18.63 15.43 19 14.5 19H6" /></svg>
+          </div>
+          <h3>DSCR Rentals</h3>
+          <ul>
+            <li>Long-term 30-year fixed loans</li>
+            <li>No income verification required</li>
+            <li>Qualification based on property cash flow</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Apply Section
+       ======================================== -->
+  <section class="sca-apply" id="apply-section">
+    <div class="sca-apply__inner">
+      <div class="sca-section-header__label">Get Started</div>
+      <h2>Ready to Get Started?</h2>
+      <p class="sca-apply__sub">Fill out our quick loan application below and we'll get back to you within 24 hours with a term sheet.</p>
+
+      <!-- Replace href with your EZRS borrower survey direct link -->
+      <a href="#" class="sca-apply__cta-btn" data-survey-link>
+        Apply Online
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10H15" /><path d="M10 5L15 10L10 15" /></svg>
+      </a>
+
+      <div class="sca-apply__divider">or apply directly below</div>
+
+      <!-- Replace src with your EZRS borrower survey embed URL, e.g.:
+           <iframe src="https://ezratesheet.com/borrower-survey?org=XXXXX" width="100%" height="800" frameborder="0"></iframe> -->
+      <div class="sca-apply__embed-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M9 9H15" />
+          <path d="M9 13H15" />
+          <path d="M9 17H12" />
+        </svg>
+        <p>Borrower Survey Form Loads Here</p>
+        <small>Embed your EZ Rate Sheet borrower survey to collect applications</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="sca-footer">
+    <div class="sca-footer__inner">
+      <div class="sca-footer__col">
+        <div class="sca-footer__brand">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 4L34 32H6L20 4Z" fill="#4a6fa5" opacity="0.9"/>
+            <path d="M12 18L22 32H2L12 18Z" fill="rgba(232,236,241,0.3)"/>
+            <path d="M20 4L26 15.5L20 12L14 15.5L20 4Z" fill="#c9a84c" opacity="0.8"/>
+          </svg>
+          <span class="sca-footer__brand-name">Summit Capital Advisors</span>
+        </div>
+        <div class="sca-footer__info">
+          <p>1200 Financial Plaza, Suite 400<br>Denver, CO 80202</p>
+          <p style="margin-top: 8px;">(303) 555-0187</p>
+        </div>
+      </div>
+
+      <div class="sca-footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="sca-footer__bottom">
+      &copy; 2026 Summit Capital Advisors. All rights reserved. NMLS #000000.
+    </div>
+  </footer>
+
+</body>
+</html>
