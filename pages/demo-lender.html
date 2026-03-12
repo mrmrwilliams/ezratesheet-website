@@ -486,34 +486,10 @@
       background: var(--sca-border);
     }
 
-    .sca-apply__embed-placeholder {
-      border: 2px dashed var(--sca-primary);
+    /* Embedded survey form */
+    #ezrs-loan-app {
       border-radius: var(--sca-radius-lg);
-      background: rgba(74,111,165,0.03);
-      padding: 64px 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .sca-apply__embed-placeholder svg {
-      width: 40px;
-      height: 40px;
-      stroke: var(--sca-primary);
-      opacity: 0.4;
-    }
-
-    .sca-apply__embed-placeholder p {
-      font-size: 15px;
-      color: var(--sca-text-muted);
-      font-weight: 500;
-    }
-
-    .sca-apply__embed-placeholder small {
-      font-size: 13px;
-      color: var(--sca-text-light);
+      display: block;
     }
 
     /* ========================================
@@ -802,26 +778,21 @@
       <h2>Ready to Get Started?</h2>
       <p class="sca-apply__sub">Fill out our quick loan application below and we'll get back to you within 24 hours with a term sheet.</p>
 
-      <!-- Replace href with your EZRS borrower survey direct link -->
-      <a href="#" class="sca-apply__cta-btn" data-survey-link>
+      <a href="https://ezratesheet.replit.app/apply/summit-capital-advisors" class="sca-apply__cta-btn" target="_blank" rel="noopener">
         Apply Online
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10H15" /><path d="M10 5L15 10L10 15" /></svg>
       </a>
 
       <div class="sca-apply__divider">or apply directly below</div>
 
-      <!-- Replace src with your EZRS borrower survey embed URL, e.g.:
-           <iframe src="https://ezratesheet.com/borrower-survey?org=XXXXX" width="100%" height="800" frameborder="0"></iframe> -->
-      <div class="sca-apply__embed-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" />
-          <path d="M9 9H15" />
-          <path d="M9 13H15" />
-          <path d="M9 17H12" />
-        </svg>
-        <p>Borrower Survey Form Loads Here</p>
-        <small>Embed your EZ Rate Sheet borrower survey to collect applications</small>
-      </div>
+      <iframe src="https://ezratesheet.replit.app/apply/summit-capital-advisors?embed=true" style="width: 100%; border: none; min-height: 800px;" id="ezrs-loan-app" title="Loan Application"></iframe>
+      <script>
+        window.addEventListener("message", function(e) {
+          if (e.data && e.data.type === "ezrs-iframe-height") {
+            document.getElementById("ezrs-loan-app").style.height = e.data.iframeHeight + "px";
+          }
+        });
+      </script>
     </div>
   </section>
 
