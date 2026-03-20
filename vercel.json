@@ -3,7 +3,6 @@
   "outputDirectory": ".",
   "framework": null,
   "redirects": [
-    { "source": "/app/:path*", "destination": "https://ezratesheet.replit.app/app/:path*", "permanent": false },
     { "source": "/contact", "destination": "/pages/contact.html", "statusCode": 301 },
     { "source": "/contact.html", "destination": "/pages/contact.html", "statusCode": 301 },
     { "source": "/terms", "destination": "/pages/terms.html", "statusCode": 301 },
@@ -13,7 +12,20 @@
   ],
   "rewrites": [
     { "source": "/favicon.ico", "destination": "/favicon.svg" },
-    { "source": "/(.*)", "destination": "https://ezratesheet.replit.app/$1" }
+    { "source": "/app/:path*", "destination": "https://ezratesheet.replit.app/app/:path*" },
+    { "source": "/apply/:path*", "destination": "https://ezratesheet.replit.app/apply/:path*" },
+    { "source": "/borrower-survey", "destination": "https://ezratesheet.replit.app/borrower-survey" },
+    { "source": "/api/:path*", "destination": "https://ezratesheet.replit.app/api/:path*" },
+    { "source": "/signup", "destination": "https://ezratesheet.replit.app/signup" },
+    { "source": "/onboarding/:path*", "destination": "https://ezratesheet.replit.app/onboarding/:path*" },
+    { "source": "/public/:path*", "destination": "https://ezratesheet.replit.app/public/:path*" },
+    { "source": "/lender/:path*", "destination": "https://ezratesheet.replit.app/lender/:path*" },
+    { "source": "/feedback", "destination": "https://ezratesheet.replit.app/feedback" },
+    { "source": "/downloads/:path*", "destination": "https://ezratesheet.replit.app/downloads/:path*" },
+    { "source": "/health", "destination": "https://ezratesheet.replit.app/health" },
+    { "source": "/admin/:path*", "destination": "https://ezratesheet.replit.app/admin/:path*" },
+    { "source": "/static/:path*", "destination": "https://ezratesheet.replit.app/static/:path*" },
+    { "source": "/term_sheets/:path*", "destination": "https://ezratesheet.replit.app/term_sheets/:path*" }
   ],
   "cleanUrls": true,
   "trailingSlash": false
