@@ -12,7 +12,7 @@
   ],
   "rewrites": [
     { "source": "/favicon.ico", "destination": "/favicon.svg" },
-    { "source": "/app/:path*", "destination": "https://ezratesheet.replit.app/app/:path*" },
+    { "source": "/app/:path(.*)", "destination": "https://ezratesheet.replit.app/app/:path" },
     { "source": "/apply/:path*", "destination": "https://ezratesheet.replit.app/apply/:path*" },
     { "source": "/borrower-survey", "destination": "https://ezratesheet.replit.app/borrower-survey" },
     { "source": "/api/:path*", "destination": "https://ezratesheet.replit.app/api/:path*" },
