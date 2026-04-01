@@ -20,15 +20,201 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EZ Rate Sheet — Real Estate Lending, Simplified</title>
-<meta name="description" content="EZ Rate Sheet helps real-estate lenders create professional rate sheets, capture deals, and access an exclusive lending network. Start your free trial today.">
-<meta property="og:title" content="EZ Rate Sheet — Real Estate Lending, Simplified">
-<meta property="og:description" content="Professional real estate software to calculate, create, and track professional term sheets. Streamline your lending process.">
+<title>EZ Rate Sheet — One Platform for Private Lenders</title>
+<meta name="description" content="EZ Rate Sheet + RiseHub is the only platform built for private and hard money lenders. Custom rate sheets, full CRM, and marketing automation — all in one. Start your free trial.">
+<meta property="og:title" content="EZ Rate Sheet — One Platform for Private Lenders">
+<meta property="og:description" content="The only combined rate sheet, CRM, and marketing automation platform built for private lenders. Price deals in minutes, never lose a lead, and keep borrowers coming back.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="base.css">
 <link rel="stylesheet" href="style.css">
+
+<style>
+  /* Supplemental styles for new homepage sections */
+  .pain-points-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+  .pain-card {
+    background: var(--color-surface);
+    border: 1px solid oklch(from var(--color-border) l c h / 0.35);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-interactive);
+  }
+  .pain-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: oklch(from var(--color-border) l c h / 0.7);
+  }
+  .pain-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--color-warning-highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+    color: var(--color-warning);
+  }
+  .pain-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .pain-card h3 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+  .pain-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  /* Section with tinted background */
+  .section-tinted {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-divider);
+    border-bottom: 1px solid var(--color-divider);
+  }
+  .section-dark {
+    background: var(--color-text);
+  }
+  .section-dark .section-label {
+    color: oklch(from var(--color-primary-highlight) l c h / 0.85);
+  }
+  .section-dark .section-title {
+    color: var(--color-text-inverse);
+  }
+  .section-dark .section-subtitle {
+    color: oklch(from var(--color-text-faint) l c h / 0.8);
+  }
+
+  /* Software replacement table */
+  .software-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-8);
+    font-size: var(--text-sm);
+  }
+  .software-table thead tr {
+    border-bottom: 2px solid var(--color-divider);
+  }
+  .software-table th {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+  }
+  .software-table td {
+    padding: var(--space-3) var(--space-4);
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-divider);
+    vertical-align: middle;
+  }
+  .software-table td:first-child {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .software-table td:last-child {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .software-table .replaced-by {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    background: var(--color-success-highlight);
+    color: var(--color-success);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    padding: 2px var(--space-2);
+    border-radius: var(--radius-full);
+  }
+  .software-replace-total {
+    margin-top: var(--space-6);
+    background: var(--color-primary-subtle);
+    border: 1px solid var(--color-primary-highlight);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .software-replace-total .replace-left h4 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+  .software-replace-total .replace-left p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+  .software-replace-total .replace-right {
+    text-align: right;
+  }
+  .software-replace-total .replace-price {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: var(--color-primary);
+  }
+  .software-replace-total .replace-price-sub {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  /* Pricing grid 4-column */
+  .pricing-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+    align-items: start;
+  }
+  .pricing-card .plan-setup {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  @media (max-width: 900px) {
+    .pain-points-grid {
+      grid-template-columns: 1fr;
+    }
+    .pricing-grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  @media (max-width: 768px) {
+    .software-replace-total {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .software-replace-total .replace-right {
+      text-align: left;
+    }
+  }
+  @media (max-width: 600px) {
+    .pricing-grid-4 {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+    }
+  }
+</style>
 </head>
 <body>
   <a href="#main" class="sr-only" style="position:absolute;top:0;left:0;z-index:999;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);transform:translateY(-100%);transition:transform 0.2s;">Skip to main content</a>
@@ -70,14 +256,15 @@
   </header>
 
   <main id="main">
-    <!-- HERO -->
+
+    <!-- ===== SECTION 1: HERO ===== -->
     <section class="hero container">
-      <div class="section-label">For Real-Estate Lenders</div>
-      <h1 class="hero-title">Real Estate Lending, Simplified</h1>
-      <p class="hero-subtitle">The all-in-one platform that helps real-estate lenders capture deals, calculate rates, and create professional term sheets — in minutes, not hours.</p>
+      <div class="section-label">For Private Lenders</div>
+      <h1 class="hero-title">Run Your Entire Lending Operation<br>From One Integrated Platform</h1>
+      <p class="hero-subtitle">Stop stitching together rate sheets, spreadsheets, and disconnected CRMs. EZRS + RiseHub gives private lenders one place to price deals, manage borrowers, and grow systematically.</p>
       <div class="hero-actions">
-        <a href="/app/register" class="btn btn-primary btn-lg">Start Your 5-Day Free Trial</a>
-        <a href="pages/watch-demo.html" class="btn btn-secondary">Watch Demo</a>
+        <a href="/app/register" class="btn btn-primary btn-lg">Start Your Free Trial</a>
+        <a href="pages/pricing.html" class="btn btn-secondary btn-lg">See Plans &amp; Pricing</a>
       </div>
       <div class="trust-badges">
         <div class="trust-badge">
@@ -86,107 +273,318 @@
         </div>
         <div class="trust-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <span>Setup in under 5 minutes</span>
+          <span>5-day free trial</span>
+        </div>
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>$1.5B+ in deals processed</span>
         </div>
       </div>
     </section>
 
-    <!-- QUICK STATS -->
+    <!-- ===== SECTION 2: PAIN POINTS ===== -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: var(--space-10);">
+          <div class="section-label">The Costly Reality</div>
+          <h2 class="section-title">Disconnected Tools Are Costing You Deals</h2>
+          <p class="section-subtitle" style="margin:0 auto;">Every lender using fragmented tech is leaving money on the table — not from lack of expertise, but from lack of systems.</p>
+        </div>
+
+        <div class="pain-points-grid">
+          <div class="pain-card fade-in">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Your Rate Sheet Is a Spreadsheet Nobody Trusts</h3>
+            <p>Different team members quote different rates for the same deal. Pricing mistakes erode margins. Manual recalculation on every new LTV, ARV, or loan structure is slowing you down — and costing you credibility with brokers.</p>
+          </div>
+
+          <div class="pain-card fade-in">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3>Your Deals Live in Email</h3>
+            <p>There's no single place to see what's active, what's stalled, and what needs follow-up. Your pipeline is whoever remembers to update the shared spreadsheet. You're dropping deals — you just don't know which ones.</p>
+          </div>
+
+          <div class="pain-card fade-in">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Borrowers Aren't Coming Back Like They Used To</h3>
+            <p>You closed 20 loans with a borrower last year. This year: two. They didn't complain — they just started going somewhere else. With no automated follow-up, no nurture sequence, no reason to stay in their inbox, you're invisible between deals.</p>
+          </div>
+
+          <div class="pain-card fade-in">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3>Your Growth Depends Entirely on Who You Know This Week</h3>
+            <p>When your best referral partner gets slow, your pipeline gets slow. No funnel, no lead nurture sequence, no review-building process. You have no systematic way to grow beyond your current referral network.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: STATS GRID ===== -->
     <section class="section container">
       <div class="stats-grid">
         <div class="stat-item fade-in">
-          <div class="stat-value">80%</div>
-          <div class="stat-label">Faster Approvals</div>
+          <div class="stat-value">$1.5B+</div>
+          <div class="stat-label">Deals Processed</div>
         </div>
         <div class="stat-item fade-in">
-          <div class="stat-value">&lt;5-Min</div>
-          <div class="stat-label">Setup Time</div>
+          <div class="stat-value">15 hrs/wk</div>
+          <div class="stat-label">Average Time Saved</div>
         </div>
         <div class="stat-item fade-in">
           <div class="stat-value">100+</div>
           <div class="stat-label">Partner Lenders</div>
         </div>
         <div class="stat-item fade-in">
-          <div class="stat-value">15hrs/wk</div>
-          <div class="stat-label">Average Time Saved</div>
+          <div class="stat-value">$4,281/mo</div>
+          <div class="stat-label">Software Replaced</div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section class="section container" id="features">
+    <!-- ===== SECTION 4: FEATURES — EZ RATE SHEET CORE ===== -->
+    <section class="section section-tinted" id="features">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: var(--space-10);">
+          <div class="section-label">Rate Sheet Engine</div>
+          <h2 class="section-title">Professional Rate Sheets That Price Every Deal Right</h2>
+          <p class="section-subtitle" style="margin:0 auto;">Stop quoting by intuition and email. Configure your real pricing logic — LTV, ARV, points, interest reserves, state rules — and generate branded term sheets in minutes.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+            </div>
+            <h3>Custom Loan Products</h3>
+            <p>Configure fix-and-flip, bridge, DSCR, construction, or any other product with your actual pricing logic: LTV/ARV bands, rate adjustments, fee structures, and state-by-state rules. Every loan officer quotes from the same source of truth.</p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M10 12l2 2 4-4"/></svg>
+            </div>
+            <h3>Branded Term Sheets</h3>
+            <p>Generate professional, borrower-ready term sheets in minutes — your logo, your rates, your terms. No more Word doc templates passed around the office, no more pricing discrepancies, no more margin erosion.</p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Deal Review &amp; Approval Workflow</h3>
+            <p>Every deal has a home — from inquiry through term sheet, approval, and close. Your pipeline is visible, current, and accountable. Know exactly where every file stands without calling anyone or digging through email.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5: FEATURES — RISEHUB CRM & AUTOMATION ===== -->
+    <section class="section container">
       <div style="text-align:center; margin-bottom: var(--space-10);">
-        <div class="section-label">Features</div>
-        <h2 class="section-title">Everything You Need to Close More Deals</h2>
-        <p class="section-subtitle" style="margin:0 auto;">Powerful tools designed specifically for real-estate lenders who want to work smarter, not harder.</p>
+        <div class="section-label">CRM &amp; Marketing Automation</div>
+        <h2 class="section-title">Manage Your Entire Lending Operation in One Place</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Know exactly where every deal and every relationship stands — without digging through email. Stay in front of borrowers and brokers systematically, not just when you remember to.</p>
       </div>
 
       <div class="features-grid">
         <div class="feature-card fade-in">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <h3>Professional Rate Sheets</h3>
-          <p>Create polished, branded rate sheets that showcase your lending programs and impress clients at every stage.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3>Lending Network Access</h3>
-          <p>Connect with 100+ vetted lenders and get access to rates your competitors can't match. Expand your lending programs instantly.</p>
+          <h3>Unified Pipeline &amp; Contact Management</h3>
+          <p>Every contact has a full history: conversations, deals, documents, notes. See every active deal at every stage at a glance. Know which brokers are sending volume, when you last touched base, and who needs follow-up right now.</p>
         </div>
 
         <div class="feature-card fade-in">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
-          <h3>Deal Comparison Tools</h3>
-          <p>Compare multiple loan scenarios side-by-side. Help borrowers understand their options and make confident decisions.</p>
+          <h3>Email &amp; SMS Marketing</h3>
+          <p>Build and manage email and SMS drip campaigns that educate your borrower pipeline and warm up cold contacts. When a deal closes or goes quiet, automated follow-up keeps your name in their inbox — without lifting a finger.</p>
         </div>
 
         <div class="feature-card fade-in">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
           </div>
-          <h3>Client Management</h3>
-          <p>Track all your borrowers, deals, and communications in one place. Never lose track of a lead or opportunity again.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          </div>
-          <h3>AI-Powered Insights</h3>
-          <p>Leverage artificial intelligence to analyze market trends, optimize pricing, and identify the best lending opportunities.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          </div>
-          <h3>Mobile Ready</h3>
-          <p>Access your rate sheets and deal tools from anywhere. Close deals on the go with our fully responsive platform.</p>
+          <h3>AI-Powered Workflow Automation</h3>
+          <p>Configure automations that run on their own: loan anniversary touchpoints, review requests after every close, broker appreciation campaigns, and missed-call text-back. Your operations run while you focus on closing.</p>
         </div>
       </div>
     </section>
 
-    <!-- LENDING NETWORK -->
-    <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);" id="network">
-      <div class="container" style="text-align:center;">
-        <div class="section-label">Lending Network</div>
-        <h2 class="section-title">Your Secret Weapon for Better Rates</h2>
-        <p class="section-subtitle" style="margin:0 auto var(--space-8);">Connect with 100+ vetted lenders and get access to rates your competitors can't match. Our lending network is the secret weapon that sets top performers apart.</p>
-        <a href="pages/lending-network.html" class="btn btn-primary">Explore the Network</a>
+    <!-- ===== SECTION 6: FEATURES — BROKER & NETWORK ===== -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: var(--space-10);">
+          <div class="section-label">Growth Tools</div>
+          <h2 class="section-title">Grow Your Broker Network and Lending Reach</h2>
+          <p class="section-subtitle" style="margin:0 auto;">Move beyond word-of-mouth. Build systematic referral partnerships, access capital from a vetted lending network, and leverage AI and social tools to stay top of mind at scale.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><path d="M12 8v13"/><path d="M5 3a3 3 0 0 0 0 6"/><path d="M5 9v13"/><path d="M19 3a3 3 0 0 1 0 6"/><path d="M19 9v13"/></svg>
+            </div>
+            <h3>Referral Partner Management</h3>
+            <p>Track exactly which brokers and partners are sending you deals, how much volume they represent, and when you last touched base. Manage commissions, run co-branded campaigns, and build loyalty programs — all in one system.</p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Access to Capital / Lending Network</h3>
+            <p>Connect with 100+ vetted partner lenders. Expand your lending programs, place deals outside your own box, and access rates and structures your competitors can't match — all within the platform.</p>
+          </div>
+
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3>Voice AI &amp; Social Media</h3>
+            <p>Phone and Voice AI capabilities handle inbound calls and follow-up when your team can't. Integrated social media scheduling and paid advertising keep your brand active where borrowers and brokers are looking.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- ===== SECTION 7: SOFTWARE REPLACEMENT ===== -->
+    <section class="section container">
+      <div style="text-align:center; margin-bottom: var(--space-10);">
+        <div class="section-label">Software Consolidation</div>
+        <h2 class="section-title">Replace $1,377–$12,006/mo in Subscriptions</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Most private lenders are already paying for pieces of what EZRS + RiseHub does — separately, with no integration and no connection to their lending workflow.</p>
+      </div>
+
+      <div class="comparison-table">
+        <table class="software-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Tools You're Probably Using</th>
+              <th>Monthly Cost</th>
+              <th>With EZRS + RiseHub</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CRM</td>
+              <td>HubSpot, Pipedrive, Salesforce</td>
+              <td>$99–$800+</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+            <tr>
+              <td>Email Marketing</td>
+              <td>MailChimp, ActiveCampaign</td>
+              <td>$50–$400+</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+            <tr>
+              <td>Deal / Pipeline Tracking</td>
+              <td>Spreadsheets, Monday.com</td>
+              <td>$0–$150</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+            <tr>
+              <td>Funnel Builder</td>
+              <td>ClickFunnels, Kartra</td>
+              <td>$99–$299</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+            <tr>
+              <td>Calendar &amp; Booking</td>
+              <td>Calendly</td>
+              <td>$20–$50</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+            <tr>
+              <td>SMS &amp; Automation</td>
+              <td>ActiveCampaign, Zapier</td>
+              <td>$75–$200+</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+            <tr>
+              <td>Review Management</td>
+              <td>Yext, Birdeye</td>
+              <td>$50–$450</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+            <tr>
+              <td>Marketing Automation</td>
+              <td>HubSpot Workflows, Zapier</td>
+              <td>$50–$500+</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+            <tr>
+              <td>Rate Sheet / Pricing</td>
+              <td>Manual Excel (your time)</td>
+              <td>Uncountable</td>
+              <td><span class="replaced-by">✓ Included</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="software-replace-total fade-in">
+        <div class="replace-left">
+          <h4>Combined market cost: $1,377–$12,006/month</h4>
+          <p>And none of these tools understand private lending, none of them are integrated, and none of them include a rate sheet.</p>
+        </div>
+        <div class="replace-right">
+          <div class="replace-price">From $89/mo</div>
+          <div class="replace-price-sub">with EZRS + RiseHub</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: var(--space-8);">
+        <a href="pages/pricing.html#comparison" class="btn btn-secondary">See Full Comparison</a>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 8: HOW IT WORKS ===== -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: var(--space-10);">
+          <div class="section-label">How It Works</div>
+          <h2 class="section-title">From Setup to Funded Deals — Here's the Process</h2>
+          <p class="section-subtitle" style="margin:0 auto;">This isn't self-service software you figure out alone. We configure your system, train your team, and hand you a working lending operation.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card fade-in">
+            <div class="step-number">1</div>
+            <h3>Choose Your Plan</h3>
+            <p>Start with Full Stack for the complete platform, or pick the tier that fits where your business is today. Every plan includes onboarding support — not a getting-started guide.</p>
+          </div>
+          <div class="step-card fade-in">
+            <div class="step-number">2</div>
+            <h3>Get Set Up in Minutes</h3>
+            <p>Our team configures EZRS + RiseHub for your lending operation: your loan products, your pricing logic, your workflows. You don't build it — we hand you a working system.</p>
+          </div>
+          <div class="step-card fade-in">
+            <div class="step-number">3</div>
+            <h3>Start Closing More Deals</h3>
+            <p>Professional rate sheets, automated follow-up, and a full CRM from day one. Price deals in minutes, never lose a lead to inbox chaos, and keep borrowers coming back.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 9: TESTIMONIALS ===== -->
     <section class="section container">
       <div style="text-align:center; margin-bottom: var(--space-10);">
         <div class="section-label">Testimonials</div>
-        <h2 class="section-title">See Why Countless Real-Estate Lenders Love EZ Rate Sheet</h2>
+        <h2 class="section-title">What Changes When the Systems Are Right</h2>
       </div>
 
       <div class="testimonials-grid">
@@ -236,20 +634,150 @@
       </div>
     </section>
 
-    <!-- FINAL CTA -->
+    <!-- ===== SECTION 10: PRICING PREVIEW ===== -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: var(--space-12);">
+          <div class="section-label">Plans &amp; Pricing</div>
+          <h2 class="section-title">One Platform. Four Options.</h2>
+          <p class="section-subtitle" style="margin:0 auto;">Start where you are. Scale when you're ready. Every plan includes onboarding support and access to the EZRS rate sheet engine.</p>
+        </div>
+
+        <div class="pricing-grid-4">
+
+          <!-- EZRS Only -->
+          <div class="pricing-card fade-in">
+            <div class="plan-name">EZRS Only</div>
+            <div class="plan-price">$89<span>/mo</span></div>
+            <div class="plan-setup">No setup fee</div>
+            <div class="plan-desc">Rate Sheet Essentials — for lenders who already have a CRM and just need the pricing layer.</div>
+            <ul class="plan-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Custom loan products
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Branded term sheets
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Deal workflow tracking
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                5 users · 10 deals/mo
+              </li>
+            </ul>
+            <a href="/app/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Free Trial</a>
+          </div>
+
+          <!-- Lender Essentials -->
+          <div class="pricing-card fade-in">
+            <div class="plan-name">Lender Essentials</div>
+            <div class="plan-price">$138<span>/mo</span></div>
+            <div class="plan-setup">$1,750 setup</div>
+            <div class="plan-desc">Rate Sheet + CRM — for growing lenders who need a pricing engine and pipeline without full marketing automation.</div>
+            <ul class="plan-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Everything in EZRS Only
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Full RiseHub CRM
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Email &amp; SMS marketing
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                5 users · 10 deals/mo
+              </li>
+            </ul>
+            <a href="/app/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Free Trial</a>
+          </div>
+
+          <!-- Growth Engine -->
+          <div class="pricing-card fade-in">
+            <div class="plan-name">Growth Engine</div>
+            <div class="plan-price">$228<span>/mo</span></div>
+            <div class="plan-setup">$4,997 setup</div>
+            <div class="plan-desc">Full Growth Suite — for established lenders ready to systematize lead generation and broker outreach.</div>
+            <ul class="plan-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Everything in Essentials
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Referral partner tools
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Voice AI &amp; social media
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                25 users · 25 deals/mo
+              </li>
+            </ul>
+            <a href="/app/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Free Trial</a>
+          </div>
+
+          <!-- Full Stack (featured) -->
+          <div class="pricing-card featured fade-in">
+            <div class="pricing-badge">Most Value</div>
+            <div class="plan-name">Full Stack</div>
+            <div class="plan-price">$348<span>/mo</span></div>
+            <div class="plan-setup">$9,997 setup</div>
+            <div class="plan-desc">Complete Lending Platform — replace your entire tech stack and grow systematically with done-for-you setup.</div>
+            <ul class="plan-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Everything in Growth Engine
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                DFY borrower &amp; referral funnels
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                AI deal analysis + API access
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Unlimited users &amp; deals
+              </li>
+            </ul>
+            <a href="/app/register" class="btn btn-primary" style="width:100%;justify-content:center;">Start Free Trial</a>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top: var(--space-8);">
+          <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-4);">Payment plans available across all tiers. Talk to our team about what fits your budget.</p>
+          <a href="pages/pricing.html" class="btn btn-secondary">View Full Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 11: FINAL CTA ===== -->
     <section class="section cta-section">
       <div class="container">
         <div class="cta-inner">
           <div class="section-label">Get Started</div>
-          <h2 class="section-title">Ready to Transform Your Lending Process?</h2>
-          <p class="section-subtitle" style="margin:0 auto var(--space-8);">Join countless real-estate lenders who've already made the switch. Start your free trial today and see the difference in 5 minutes.</p>
+          <h2 class="section-title">Ready to Run Your Lending Operation From One Platform?</h2>
+          <p class="section-subtitle" style="margin:0 auto var(--space-8);">Join 100+ lenders already using EZ Rate Sheet. Start your free trial today — no credit card required, no setup fee for EZRS Only.</p>
           <div class="hero-actions">
-            <a href="/app/register" class="btn btn-primary btn-lg">Start Your 5-Day Free Trial</a>
-            <a href="pages/watch-demo.html" class="btn btn-secondary">Watch Demo</a>
+            <a href="/app/register" class="btn btn-primary btn-lg">Start Your Free Trial</a>
+            <a href="pages/pricing.html" class="btn btn-secondary">See Plans &amp; Pricing</a>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -265,7 +793,7 @@
           </svg>
           <span>EZ Rates</span>
         </a>
-        <p>Professional real estate software to calculate, create, and track professional term sheets. Streamline your lending process with our comprehensive platform.</p>
+        <p>The only combined rate sheet, CRM, and marketing automation platform built specifically for private and hard money lenders.</p>
         <div class="footer-social">
           <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
