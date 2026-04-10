@@ -1,0 +1,31 @@
+# EZ Rate Sheet — robots.txt
+User-agent: *
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /onboarding/
+Disallow: /downloads/
+Disallow: /term_sheets/
+
+# Sitemap
+Sitemap: https://www.ezratesheet.com/sitemap.xml
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
