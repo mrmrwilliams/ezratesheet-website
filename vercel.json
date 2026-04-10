@@ -29,7 +29,9 @@
     { "source": "/styles.css", "destination": "https://ezratesheet.replit.app/styles.css" },
     { "source": "/script.js", "destination": "https://ezratesheet.replit.app/script.js" },
     { "source": "/login", "destination": "https://ezratesheet.replit.app/login" },
-    { "source": "/corporate/:path*", "destination": "https://ezratesheet.replit.app/corporate/:path*" }
+    { "source": "/corporate/:path*", "destination": "https://ezratesheet.replit.app/corporate/:path*" },
+    { "source": "/r/:path*", "destination": "https://ezratesheet.replit.app/r/:path*" },
+    { "source": "/referral-program", "destination": "https://ezratesheet.replit.app/referral-program" }
   ],
   "cleanUrls": true
 }
