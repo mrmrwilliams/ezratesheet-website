@@ -225,6 +225,17 @@
     }
   }
 </style>
+<!-- FAQ Styles -->
+<style>
+  .faq-item { border-bottom: 1px solid var(--color-border, #e5e2e6); padding: var(--space-4) 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question { font-family: var(--font-body); font-size: var(--text-base); font-weight: 600; color: var(--color-text); cursor: pointer; padding: var(--space-2) 0; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+  .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--color-primary); transition: transform 0.2s; }
+  details[open] .faq-question::after { content: '\2212'; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-answer { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; padding: var(--space-2) 0 var(--space-4); }
+</style>
+
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
@@ -295,6 +306,22 @@
   "sameAs": []
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What types of lenders is EZ Rate Sheet built for?", "acceptedAnswer": {"@type": "Answer", "text": "Private money lenders, hard money lenders, bridge lenders, DSCR lenders, and mortgage brokers focused on non-QM or business purpose loans."}},
+    {"@type": "Question", "name": "What loan types does the pricing engine support?", "acceptedAnswer": {"@type": "Answer", "text": "Fix & Flip, Bridge, Ground-Up Construction, and DSCR. Each loan product is fully configurable with your own LTV/ARV bands, rate adjustments, fee structures, and state-by-state rules."}},
+    {"@type": "Question", "name": "How long does it take to get started?", "acceptedAnswer": {"@type": "Answer", "text": "Most lenders are up and running in under 5 minutes with EZRS Only. For plans that include CRM and automation, our team handles setup."}},
+    {"@type": "Question", "name": "Do I need GoHighLevel to use EZ Rate Sheet?", "acceptedAnswer": {"@type": "Answer", "text": "No. EZRS works as a standalone platform. GHL integration is available for lenders who already use GoHighLevel or want a full CRM bundled in."}},
+    {"@type": "Question", "name": "Can I integrate EZRS with my existing tech stack?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. EZRS includes webhook endpoints, a REST API, and embeddable borrower survey forms. You can also connect through Zapier or Make."}},
+    {"@type": "Question", "name": "What does the free trial include?", "acceptedAnswer": {"@type": "Answer", "text": "A 5-day free trial of the EZRS Only plan. No credit card required. Full access to the rate sheet engine, deal workflow, and term sheet generation."}},
+    {"@type": "Question", "name": "Is there a setup fee?", "acceptedAnswer": {"@type": "Answer", "text": "No setup fee for EZRS Only ($89/mo). Plans with CRM and marketing automation have a one-time setup investment starting at $1,750."}},
+    {"@type": "Question", "name": "How is my data protected?", "acceptedAnswer": {"@type": "Answer", "text": "All data is encrypted in transit and at rest. We use industry-standard security practices and never share your borrower or deal data with third parties."}}
+  ]
+}
+</script>
 </head>
 <body>
   <a href="#main" class="sr-only" style="position:absolute;top:0;left:0;z-index:999;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);transform:translateY(-100%);transition:transform 0.2s;">Skip to main content</a>
@@ -340,8 +367,8 @@
     <!-- ===== SECTION 1: HERO ===== -->
     <section class="hero container">
       <div class="section-label">For Private Lenders</div>
-      <h1 class="hero-title">The Private Lender Platform<br>for Pricing, CRM & Automation</h1>
-      <p class="hero-subtitle">Price deals in minutes. Generate branded term sheets. Manage your entire borrower pipeline. EZ Rate Sheet replaces the spreadsheets, disconnected tools, and manual workflows that slow private lenders down.</p>
+      <h1 class="hero-title">Real Estate Lending,<br>Accurate & Easy</h1>
+      <p class="hero-subtitle">Eliminate complex deal pricing, scattered term sheets, and hours wasted on manual workflows. EZ Rate Sheet gives private lenders one platform to price, close, and grow.</p>
       <div class="hero-actions">
         <a href="/app/register" class="btn btn-primary btn-lg">Start Your Free Trial</a>
         <a href="pages/pricing.html" class="btn btn-secondary btn-lg">See Plans &amp; Pricing</a>
@@ -377,7 +404,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </div>
             <h3>Your Rate Sheet Is a Spreadsheet Nobody Trusts</h3>
-            <p>Different team members quote different rates for the same deal. Pricing mistakes erode margins. Manual recalculation on every new LTV, ARV, or loan structure is slowing you down — and costing you credibility with brokers.</p>
+            <p>Team members quote different rates for the same deal. Pricing mistakes eat into margins. Every new LTV, ARV, or loan structure means manual recalculation — and lost credibility with brokers.</p>
           </div>
 
           <div class="pain-card fade-in">
@@ -385,23 +412,23 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <h3>Your Deals Live in Email</h3>
-            <p>There's no single place to see what's active, what's stalled, and what needs follow-up. Your pipeline is whoever remembers to update the shared spreadsheet. You're dropping deals — you just don't know which ones.</p>
+            <p>No single place to see what's active, stalled, or needs follow-up. Your pipeline depends on whoever remembers to update the spreadsheet. Deals are slipping through the cracks.</p>
           </div>
 
           <div class="pain-card fade-in">
             <div class="pain-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <h3>Borrowers Aren't Coming Back Like They Used To</h3>
-            <p>You closed 20 loans with a borrower last year. This year: two. They didn't complain — they just started going somewhere else. With no automated follow-up, no nurture sequence, no reason to stay in their inbox, you're invisible between deals.</p>
+            <h3>Borrowers Aren't Coming Back</h3>
+            <p>You closed 20 loans with a borrower last year. This year: two. They didn't complain — they just went somewhere else. No automated follow-up means you're invisible between deals.</p>
           </div>
 
           <div class="pain-card fade-in">
             <div class="pain-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
-            <h3>Your Growth Depends Entirely on Who You Know This Week</h3>
-            <p>When your best referral partner gets slow, your pipeline gets slow. No funnel, no lead nurture sequence, no review-building process. You have no systematic way to grow beyond your current referral network.</p>
+            <h3>Your Growth Depends on Who You Know This Week</h3>
+            <p>When your best referral partner slows down, your pipeline slows down. No funnel, no nurture sequence, no review process. No way to grow beyond your current network.</p>
           </div>
         </div>
       </div>
@@ -435,7 +462,7 @@
         <div style="text-align:center; margin-bottom: var(--space-10);">
           <div class="section-label">Rate Sheet Engine</div>
           <h2 class="section-title">Professional Rate Sheets That Price Every Deal Right</h2>
-          <p class="section-subtitle" style="margin:0 auto;">Stop quoting by intuition and email. Configure your real pricing logic — LTV, ARV, points, interest reserves, state rules — and generate branded term sheets in minutes.</p>
+          <p class="section-subtitle" style="margin:0 auto;">Configure your pricing logic once — LTV, ARV, points, interest reserves, state rules — and generate branded term sheets in minutes. No more quoting by intuition.</p>
         </div>
 
         <div class="features-grid">
@@ -444,7 +471,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
             </div>
             <h3>Custom Loan Products</h3>
-            <p>Configure fix-and-flip, bridge, DSCR, construction, or any other product with your actual pricing logic: LTV/ARV bands, rate adjustments, fee structures, and state-by-state rules. Every loan officer quotes from the same source of truth.</p>
+            <p>Set up fix-and-flip, bridge, DSCR, construction, or any loan product with your actual pricing logic. LTV/ARV bands, rate adjustments, fee structures, state-by-state rules. Every loan officer quotes the same rates.</p>
           </div>
 
           <div class="feature-card fade-in">
@@ -452,7 +479,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M10 12l2 2 4-4"/></svg>
             </div>
             <h3>Branded Term Sheets</h3>
-            <p>Generate professional, borrower-ready term sheets in minutes — your logo, your rates, your terms. No more Word doc templates passed around the office, no more pricing discrepancies, no more margin erosion.</p>
+            <p>Generate borrower-ready term sheets in minutes — your logo, your rates, your terms. No more Word doc templates. No more pricing discrepancies. No more margin erosion.</p>
           </div>
 
           <div class="feature-card fade-in">
@@ -460,7 +487,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </div>
             <h3>Deal Review &amp; Approval Workflow</h3>
-            <p>Every deal has a home — from inquiry through term sheet, approval, and close. Your pipeline is visible, current, and accountable. Know exactly where every file stands without calling anyone or digging through email.</p>
+            <p>Every deal has a home — from inquiry through approval and close. See where every file stands at a glance. No phone calls. No digging through email.</p>
           </div>
         </div>
       </div>
@@ -471,7 +498,7 @@
       <div style="text-align:center; margin-bottom: var(--space-10);">
         <div class="section-label">CRM &amp; Marketing Automation</div>
         <h2 class="section-title">Manage Your Entire Lending Operation in One Place</h2>
-        <p class="section-subtitle" style="margin:0 auto;">Know exactly where every deal and every relationship stands — without digging through email. Stay in front of borrowers and brokers systematically, not just when you remember to.</p>
+        <p class="section-subtitle" style="margin:0 auto;">Know where every deal and relationship stands. Stay in front of borrowers and brokers on autopilot, not just when you remember to.</p>
       </div>
 
       <div class="features-grid">
@@ -480,7 +507,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <h3>Unified Pipeline &amp; Contact Management</h3>
-          <p>Every contact has a full history: conversations, deals, documents, notes. See every active deal at every stage at a glance. Know which brokers are sending volume, when you last touched base, and who needs follow-up right now.</p>
+          <p>Every contact has a full history: conversations, deals, documents, notes. See which brokers are sending volume and who needs follow-up right now.</p>
         </div>
 
         <div class="feature-card fade-in">
@@ -488,7 +515,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
           <h3>Email &amp; SMS Marketing</h3>
-          <p>Build and manage email and SMS drip campaigns that educate your borrower pipeline and warm up cold contacts. When a deal closes or goes quiet, automated follow-up keeps your name in their inbox — without lifting a finger.</p>
+          <p>Build email and SMS drip campaigns that warm up cold contacts and keep your name in borrowers' inboxes. When a deal closes or goes quiet, follow-up runs on autopilot.</p>
         </div>
 
         <div class="feature-card fade-in">
@@ -496,7 +523,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
           </div>
           <h3>AI-Powered Workflow Automation</h3>
-          <p>Configure automations that run on their own: loan anniversary touchpoints, review requests after every close, broker appreciation campaigns, and missed-call text-back. Your operations run while you focus on closing.</p>
+          <p>Loan anniversary touchpoints, review requests after every close, broker appreciation campaigns, missed-call text-back. Your operations run while you focus on closing.</p>
         </div>
       </div>
     </section>
@@ -507,7 +534,7 @@
         <div style="text-align:center; margin-bottom: var(--space-10);">
           <div class="section-label">Growth Tools</div>
           <h2 class="section-title">Grow Your Broker Network and Lending Reach</h2>
-          <p class="section-subtitle" style="margin:0 auto;">Move beyond word-of-mouth. Build systematic referral partnerships, access capital from a vetted lending network, and leverage AI and social tools to stay top of mind at scale.</p>
+          <p class="section-subtitle" style="margin:0 auto;">Move beyond word-of-mouth. Build referral partnerships, access a vetted lending network, and use AI tools to stay top of mind at scale.</p>
         </div>
 
         <div class="features-grid">
@@ -516,7 +543,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><path d="M12 8v13"/><path d="M5 3a3 3 0 0 0 0 6"/><path d="M5 9v13"/><path d="M19 3a3 3 0 0 1 0 6"/><path d="M19 9v13"/></svg>
             </div>
             <h3>Referral Partner Management</h3>
-            <p>Track exactly which brokers and partners are sending you deals, how much volume they represent, and when you last touched base. Manage commissions, run co-branded campaigns, and build loyalty programs — all in one system.</p>
+            <p>Track which brokers send you deals, their volume, and when you last connected. Manage commissions and run co-branded campaigns — all in one system.</p>
           </div>
 
           <div class="feature-card fade-in">
@@ -524,7 +551,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
             <h3>Access to Capital / Lending Network</h3>
-            <p>Connect with 100+ vetted partner lenders. Expand your lending programs, place deals outside your own box, and access rates and structures your competitors can't match — all within the platform.</p>
+            <p>Connect with 100+ vetted partner lenders. Place deals outside your own box and access rates your competitors can't match — all within the platform.</p>
           </div>
 
           <div class="feature-card fade-in">
@@ -532,7 +559,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
             </div>
             <h3>Voice AI &amp; Social Media</h3>
-            <p>Phone and Voice AI capabilities handle inbound calls and follow-up when your team can't. Integrated social media scheduling and paid advertising keep your brand active where borrowers and brokers are looking.</p>
+            <p>Voice AI handles inbound calls when your team can't. Social media scheduling and paid advertising keep your brand active where borrowers and brokers look.</p>
           </div>
         </div>
       </div>
@@ -543,7 +570,7 @@
       <div style="text-align:center; margin-bottom: var(--space-10);">
         <div class="section-label">Software Consolidation</div>
         <h2 class="section-title">Replace $1,377–$12,006/mo in Subscriptions</h2>
-        <p class="section-subtitle" style="margin:0 auto;">Most private lenders are already paying for pieces of what EZRS + RiseHub does — separately, with no integration and no connection to their lending workflow.</p>
+        <p class="section-subtitle" style="margin:0 auto;">Most private lenders already pay for pieces of what EZRS + RiseHub does — separately, with no integration and no connection to their lending workflow.</p>
       </div>
 
       <div class="comparison-table">
@@ -618,7 +645,7 @@
       <div class="software-replace-total fade-in">
         <div class="replace-left">
           <h4>Combined market cost: $1,377–$12,006/month</h4>
-          <p>And none of these tools understand private lending, none of them are integrated, and none of them include a rate sheet.</p>
+          <p>None of these tools understand private lending. None are integrated. None include a rate sheet.</p>
         </div>
         <div class="replace-right">
           <div class="replace-price">From $89/mo</div>
@@ -637,24 +664,24 @@
         <div style="text-align:center; margin-bottom: var(--space-10);">
           <div class="section-label">How It Works</div>
           <h2 class="section-title">From Setup to Funded Deals — Here's the Process</h2>
-          <p class="section-subtitle" style="margin:0 auto;">This isn't self-service software you figure out alone. We configure your system, train your team, and hand you a working lending operation.</p>
+          <p class="section-subtitle" style="margin:0 auto;">We configure your system, train your team, and hand you a working lending operation. This isn't software you figure out alone.</p>
         </div>
 
         <div class="steps-grid">
           <div class="step-card fade-in">
             <div class="step-number">1</div>
             <h3>Choose Your Plan</h3>
-            <p>Start with Full Stack for the complete platform, or pick the tier that fits where your business is today. Every plan includes onboarding support — not a getting-started guide.</p>
+            <p>Pick the tier that fits your business today. Every plan includes onboarding support — not just a getting-started guide.</p>
           </div>
           <div class="step-card fade-in">
             <div class="step-number">2</div>
             <h3>Get Set Up in Minutes</h3>
-            <p>Our team configures EZRS + RiseHub for your lending operation: your loan products, your pricing logic, your workflows. You don't build it — we hand you a working system.</p>
+            <p>We configure your loan products, pricing logic, and workflows. You don't build it — we hand you a working system.</p>
           </div>
           <div class="step-card fade-in">
             <div class="step-number">3</div>
             <h3>Start Closing More Deals</h3>
-            <p>Professional rate sheets, automated follow-up, and a full CRM from day one. Price deals in minutes, never lose a lead to inbox chaos, and keep borrowers coming back.</p>
+            <p>Professional rate sheets, automated follow-up, and a full CRM from day one. Price deals in minutes and keep borrowers coming back.</p>
           </div>
         </div>
       </div>
@@ -844,7 +871,57 @@
       </div>
     </section>
 
-    <!-- ===== SECTION 11: FINAL CTA ===== -->
+    <!-- ===== SECTION 11: FAQ ===== -->
+    <section class="section container">
+      <div style="text-align:center; margin-bottom: var(--space-10);">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+
+      <div class="faq-list" style="max-width:800px;margin:0 auto;">
+        <details class="faq-item fade-in">
+          <summary class="faq-question">What types of lenders is EZ Rate Sheet built for?</summary>
+          <p class="faq-answer">Private money lenders, hard money lenders, bridge lenders, DSCR lenders, and mortgage brokers focused on non-QM or business purpose loans. If you're pricing real estate deals manually, EZRS is built for you.</p>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary class="faq-question">What loan types does the pricing engine support?</summary>
+          <p class="faq-answer">Fix & Flip, Bridge, Ground-Up Construction, and DSCR. Each loan product is fully configurable with your own LTV/ARV bands, rate adjustments, fee structures, and state-by-state rules.</p>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary class="faq-question">How long does it take to get started?</summary>
+          <p class="faq-answer">Most lenders are up and running in under 5 minutes with EZRS Only. For plans that include CRM and automation (Lender Essentials and above), our team handles the setup and configuration for you.</p>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary class="faq-question">Do I need GoHighLevel to use EZ Rate Sheet?</summary>
+          <p class="faq-answer">No. EZRS works as a standalone platform. GHL integration is available for lenders who already use GoHighLevel or want a full CRM and marketing automation system bundled in.</p>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary class="faq-question">Can I integrate EZRS with my existing tech stack?</summary>
+          <p class="faq-answer">Yes. EZRS includes webhook endpoints, a REST API, and embeddable borrower survey forms. You can also connect through Zapier or Make without writing code. For hands-on help, we offer custom integration services.</p>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary class="faq-question">What does the free trial include?</summary>
+          <p class="faq-answer">A 5-day free trial of the EZRS Only plan. No credit card required. You get full access to the rate sheet engine, deal workflow, and term sheet generation.</p>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary class="faq-question">Is there a setup fee?</summary>
+          <p class="faq-answer">No setup fee for EZRS Only ($89/mo). Plans that include CRM and marketing automation have a one-time setup investment starting at $1,750, which covers full system configuration by our team.</p>
+        </details>
+
+        <details class="faq-item fade-in">
+          <summary class="faq-question">How is my data protected?</summary>
+          <p class="faq-answer">All data is encrypted in transit and at rest. We use industry-standard security practices and never share your borrower or deal data with third parties.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 12: FINAL CTA ===== -->
     <section class="section cta-section">
       <div class="container">
         <div class="cta-inner">
