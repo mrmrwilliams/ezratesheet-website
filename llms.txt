@@ -1,0 +1,57 @@
+# EZ Rate Sheet
+
+> The private lender platform that combines deal pricing, term sheets, CRM, and marketing automation in one system.
+
+## About
+
+EZ Rate Sheet (EZRS) is a SaaS platform built specifically for private and hard money lenders. It replaces disconnected spreadsheets, manual rate sheets, and fragmented CRMs with a single integrated system. Lenders use EZRS to capture borrower deals, calculate loan pricing automatically, generate branded term sheets, collect e-signatures, and manage their entire lending pipeline.
+
+The platform is built and operated by Lead Engine Labs (LEL) and integrates with GoHighLevel (GHL) for CRM and marketing automation capabilities via the RiseHub partnership.
+
+## Core Features
+
+- Automated loan pricing engine (Fix & Flip, Bridge, Ground-Up Construction, DSCR)
+- Branded borrower survey forms (embeddable on lender websites)
+- Term sheet generation with e-signature via Zoho Sign
+- Deal pipeline management and tracking
+- Quick Term Sheet tool for experienced lenders
+- Lending Network for lender-to-lender deal routing
+- GoHighLevel (GHL) native integration with bi-directional sync
+- Webhook and REST API for custom integrations
+- White-label branding for each lender organization
+
+## Target Audience
+
+- Private money lenders
+- Hard money lenders
+- Bridge lenders
+- DSCR lenders
+- Mortgage brokers focused on non-QM / business purpose loans
+- Lending companies with 1-50 employees
+
+## Pricing
+
+- Starter: $89/month (5 deals/month, 1 user)
+- Team: $149/month (15 deals/month, 5 users)
+- Pro: $249/month (unlimited deals, unlimited users)
+- All plans include a 5-day free trial, no credit card required
+
+## Integration Services
+
+- GHL Custom Buildout: $2,500–$3,500 setup + $79/month
+- Custom Integration Assistance: custom scoping and pricing
+
+## Key Pages
+
+- Homepage: https://www.ezratesheet.com/
+- Pricing: https://www.ezratesheet.com/pages/pricing
+- Watch Demo: https://www.ezratesheet.com/pages/watch-demo
+- Integration Services: https://www.ezratesheet.com/pages/services
+- Lending Network: https://www.ezratesheet.com/pages/lending-network
+- About: https://www.ezratesheet.com/pages/about
+- Contact: https://www.ezratesheet.com/pages/contact
+
+## Contact
+
+- Website: https://www.ezratesheet.com
+- Support: https://www.ezratesheet.com/pages/contact
