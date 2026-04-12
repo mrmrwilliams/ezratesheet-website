@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Private Lending Lifecycle — Reference Guide</title>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+body {
+  min-height: 100dvh;
+  line-height: 1.6;
+  font-family: 'General Sans', 'Inter', sans-serif;
+  font-size: 15px;
+}
+img, svg { display: block; max-width: 100%; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+table { border-collapse: collapse; width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; }
+p { max-width: 72ch; }
+
+/* ===== CUSTOM DARK THEME ===== */
+:root {
+  --bg: #0d1117;
+  --bg-raised: #161b22;
+  --bg-card: #1c2128;
+  --bg-card-hover: #22272e;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.14);
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-faint: #484f58;
+  --font-display: 'Cabinet Grotesk', 'General Sans', sans-serif;
+
+  /* Stage colors */
+  --c-teal: #2dd4bf;
+  --c-teal-dim: rgba(45,212,191,0.12);
+  --c-teal-mid: rgba(45,212,191,0.22);
+  --c-blue: #60a5fa;
+  --c-blue-dim: rgba(96,165,250,0.12);
+  --c-blue-mid: rgba(96,165,250,0.22);
+  --c-purple: #c084fc;
+  --c-purple-dim: rgba(192,132,252,0.12);
+  --c-purple-mid: rgba(192,132,252,0.22);
+  --c-green: #4ade80;
+  --c-green-dim: rgba(74,222,128,0.12);
+  --c-green-mid: rgba(74,222,128,0.22);
+  --c-amber: #fbbf24;
+  --c-amber-dim: rgba(251,191,36,0.12);
+  --c-amber-mid: rgba(251,191,36,0.22);
+  --c-red: #f87171;
+  --c-red-dim: rgba(248,113,113,0.12);
+  --c-red-mid: rgba(248,113,113,0.22);
+
+  /* Spacing */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-20: 80px;
+
+  /* Radius */
+  --r-sm: 6px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 180ms;
+  --t-med: 300ms;
+
+  /* Widths */
+  --max-w: 1320px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: rgba(96,165,250,0.3);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-blue);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,17,23,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: var(--sp-4) var(--sp-6);
+}
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.header-logo {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.header-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.header-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.header-nav {
+  display: flex;
+  gap: var(--sp-1);
+}
+.header-nav a {
+  padding: var(--sp-2) var(--sp-3);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: var(--r-sm);
+  transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+  white-space: nowrap;
+}
+.header-nav a:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ===== MAIN LAYOUT ===== */
+.main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--sp-10) var(--sp-6) var(--sp-20);
+}
+.section {
+  margin-bottom: var(--sp-16);
+}
+.section-header {
+  margin-bottom: var(--sp-8);
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin-bottom: var(--sp-2);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.section-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: var(--sp-2);
+  max-width: 64ch;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: var(--sp-12) 0 var(--sp-10);
+  text-align: left;
+}
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-blue);
+  margin-bottom: var(--sp-3);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: var(--sp-4);
+}
+.hero-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 54ch;
+  line-height: 1.7;
+}
+.hero-stats {
+  display: flex;
+  gap: var(--sp-8);
+  margin-top: var(--sp-8);
+  flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* ===== PIPELINE / FLOW DIAGRAM ===== */
+.pipeline-wrap {
+  overflow-x: auto;
+  padding-bottom: var(--sp-4);
+  -webkit-overflow-scrolling: touch;
+}
+.pipeline {
+  display: flex;
+  gap: 0;
+  min-width: 900px;
+  position: relative;
+}
+.pipeline-stage {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+  transition: transform var(--t-med) var(--ease);
+}
+.pipeline-stage:hover {
+  transform: translateY(-3px);
+}
+.pipeline-stage:hover .stage-card {
+  border-color: var(--stage-color);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px var(--stage-color);
+}
+.stage-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  margin: 0 var(--sp-1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transition: border-color var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+  position: relative;
+}
+.stage-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--stage-color-dim);
+  color: var(--stage-color);
+  flex-shrink: 0;
+}
+.stage-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--stage-color);
+  letter-spacing: -0.01em;
+}
+.stage-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.stage-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+  margin-top: auto;
+}
+.stage-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--stage-color-dim);
+  color: var(--stage-color);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+/* Arrow between stages */
+.pipeline-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.pipeline-arrow svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+/* Stage colors via CSS variables */
+.stage-1 { --stage-color: var(--c-teal); --stage-color-dim: var(--c-teal-dim); }
+.stage-2 { --stage-color: var(--c-blue); --stage-color-dim: var(--c-blue-dim); }
+.stage-3 { --stage-color: var(--c-purple); --stage-color-dim: var(--c-purple-dim); }
+.stage-4 { --stage-color: var(--c-green); --stage-color-dim: var(--c-green-dim); }
+.stage-5 { --stage-color: var(--c-amber); --stage-color-dim: var(--c-amber-dim); }
+.stage-6 { --stage-color: var(--c-red); --stage-color-dim: var(--c-red-dim); }
+
+/* ===== STAGE DETAIL PANELS ===== */
+.stage-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: var(--sp-5);
+}
+.detail-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  transition: border-color var(--t-med) var(--ease);
+}
+.detail-panel:hover {
+  border-color: var(--border-strong);
+}
+.detail-panel-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+}
+.detail-panel-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.detail-panel-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.detail-panel-body h4 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-2);
+  margin-top: var(--sp-4);
+}
+.detail-panel-body h4:first-child {
+  margin-top: 0;
+}
+.detail-panel-body p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: var(--sp-2);
+}
+.detail-panel-body ul {
+  list-style: none;
+  padding: 0;
+}
+.detail-panel-body li {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: var(--sp-1) 0;
+  padding-left: var(--sp-4);
+  position: relative;
+  line-height: 1.5;
+}
+.detail-panel-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--stage-color);
+  opacity: 0.6;
+}
+.detail-substage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}
+.detail-substage-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-sm);
+}
+.detail-substage-arrow {
+  color: var(--text-faint);
+  font-size: 10px;
+}
+
+/* ===== EZRS+RISEHUB OVERLAY ===== */
+.coverage-section {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8);
+  position: relative;
+  overflow: hidden;
+}
+.coverage-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--c-teal), var(--c-blue), var(--c-blue));
+}
+.coverage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+  margin-top: var(--sp-6);
+}
+.coverage-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+}
+.coverage-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: 999px;
+  margin-bottom: var(--sp-3);
+}
+.coverage-card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: var(--sp-2);
+}
+.coverage-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--sp-4);
+}
+.coverage-stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+.coverage-stage-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* Coverage visual bar */
+.coverage-bar-wrap {
+  margin-top: var(--sp-6);
+  padding: var(--sp-5);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+.coverage-bar-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--sp-3);
+}
+.coverage-bar {
+  display: flex;
+  height: 40px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+}
+.coverage-bar-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.9);
+  white-space: nowrap;
+  padding: 0 var(--sp-2);
+  position: relative;
+}
+.coverage-bar-seg.covered {
+  outline: 2px solid rgba(255,255,255,0.3);
+  outline-offset: -2px;
+}
+.coverage-bar-bracket {
+  display: flex;
+  margin-top: var(--sp-2);
+}
+.bracket-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bracket-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+}
+.bracket-line {
+  height: 8px;
+  width: 100%;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  border-radius: 0 0 4px 4px;
+  margin-bottom: var(--sp-1);
+}
+
+/* ===== SOFTWARE TABLE ===== */
+.table-controls {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-5);
+}
+.filter-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all var(--t-fast) var(--ease);
+  white-space: nowrap;
+}
+.filter-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+.filter-btn.active {
+  background: var(--active-bg, rgba(96,165,250,0.15));
+  border-color: var(--active-border, rgba(96,165,250,0.3));
+  color: var(--active-color, var(--c-blue));
+}
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+}
+.data-table {
+  font-size: 13px;
+  min-width: 840px;
+}
+.data-table thead {
+  background: rgba(255,255,255,0.03);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.data-table th {
+  padding: var(--sp-3) var(--sp-4);
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: color var(--t-fast) var(--ease);
+}
+.data-table th:hover {
+  color: var(--text);
+}
+.data-table th .sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+  opacity: 0.3;
+  font-size: 10px;
+}
+.data-table th.sorted .sort-icon {
+  opacity: 1;
+  color: var(--c-blue);
+}
+.data-table td {
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+.data-table tr {
+  transition: background var(--t-fast) var(--ease);
+}
+.data-table tbody tr:hover {
+  background: rgba(255,255,255,0.02);
+}
+.table-stage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.table-relationship {
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.rel-competitor { background: var(--c-red-dim); color: var(--c-red); }
+.rel-complementary { background: var(--c-green-dim); color: var(--c-green); }
+.rel-integration { background: var(--c-blue-dim); color: var(--c-blue); }
+.rel-buyer { background: var(--c-amber-dim); color: var(--c-amber); }
+.rel-na { background: rgba(255,255,255,0.05); color: var(--text-faint); }
+.rel-product { background: var(--c-teal-dim); color: var(--c-teal); }
+.vendor-name {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ===== TERMINOLOGY ===== */
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--sp-4);
+}
+.term-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+}
+.term-group-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+.term-group-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.term-group-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+.term-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.term-item {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: baseline;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.term-abbr {
+  font-weight: 700;
+  color: var(--text);
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  min-width: 56px;
+  flex-shrink: 0;
+}
+.term-def {
+  color: var(--text-muted);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: var(--sp-6);
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header-nav { display: none; }
+  .header-inner { justify-content: flex-start; }
+  .hero h1 { font-size: 26px; }
+  .hero-stats { gap: var(--sp-6); }
+  .stage-details { grid-template-columns: 1fr; }
+  .coverage-grid { grid-template-columns: 1fr; }
+  .coverage-section { padding: var(--sp-5); }
+  .terms-grid { grid-template-columns: 1fr; }
+  .pipeline { min-width: 700px; }
+  .main { padding: var(--sp-6) var(--sp-4) var(--sp-16); }
+  .data-table { min-width: 700px; }
+}
+@media (max-width: 480px) {
+  .pipeline { min-width: 560px; }
+  .stage-card { padding: var(--sp-3); }
+  .stage-title { font-size: 12px; }
+}
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav-btn {
+  display: none;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+@media (max-width: 768px) {
+  .mobile-nav-btn { display: flex; }
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-hint {
+  display: none;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-bottom: var(--sp-3);
+}
+.scroll-hint svg {
+  width: 14px;
+  height: 14px;
+  animation: scrollHint 1.5s ease-in-out infinite;
+}
+@keyframes scrollHint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+@media (max-width: 960px) {
+  .scroll-hint { display: flex; }
+}
+
+/* ===== COMBO BADGE ===== */
+.combo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 13px;
+  font-weight: 600;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-sm);
+  background: rgba(96,165,250,0.08);
+  border: 1px solid rgba(96,165,250,0.15);
+  color: var(--c-blue);
+  margin-bottom: var(--sp-4);
+}
+
+/* ===== COUNTS ===== */
+.table-count {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-bottom: var(--sp-3);
+  font-variant-numeric: tabular-nums;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <svg class="header-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Lending Lifecycle">
+        <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+        <path d="M8 22V10" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+        <path d="M12 22V14" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 22V12" stroke="#c084fc" stroke-width="2" stroke-linecap="round"/>
+        <path d="M20 22V16" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 22V11" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="header-title">Private Lending Lifecycle</div>
+        <div class="header-subtitle">Reference Guide</div>
+      </div>
+    </div>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="#pipeline">Pipeline</a>
+      <a href="#details">Stage Details</a>
+      <a href="#coverage">EZRS + RiseHub</a>
+      <a href="#software">Software</a>
+      <a href="#terminology">Terms</a>
+    </nav>
+    <button class="mobile-nav-btn" aria-label="Open navigation" onclick="document.getElementById('details').scrollIntoView({behavior:'smooth'})">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <div class="hero-eyebrow">Mike Williams — Reference Tool</div>
+    <h1>The Private Lending<br>Lifecycle</h1>
+    <p class="hero-desc">
+      End-to-end view of how private/hard money loans move from lead generation through servicing, secondary market, and default management — with the software landscape at each stage.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value" style="color:var(--c-teal)">6</div>
+        <div class="hero-stat-label">Lifecycle Stages</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value" style="color:var(--c-blue)">30+</div>
+        <div class="hero-stat-label">Software Vendors</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value" style="color:var(--c-purple)">11</div>
+        <div class="hero-stat-label">Key Terms</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value" style="color:var(--c-green)">2</div>
+        <div class="hero-stat-label">EZRS Products</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: PIPELINE FLOW -->
+  <section class="section" id="pipeline">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 1</div>
+      <h2 class="section-title">The Lifecycle Flow</h2>
+      <p class="section-desc">Click any stage to scroll to its detailed breakdown. Hover for quick context.</p>
+    </div>
+    <div class="scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Scroll horizontally to see all stages
+    </div>
+    <div class="pipeline-wrap fade-in">
+      <div class="pipeline" role="list">
+        <!-- Stage 1 -->
+        <div class="pipeline-stage stage-1" role="listitem" onclick="scrollToDetail('detail-1')">
+          <div class="stage-card">
+            <div class="stage-num">1</div>
+            <div class="stage-title">Lead Gen &<br>Marketing</div>
+            <div class="stage-subtitle">Finding borrowers and brokers through marketing, referrals, and broker relationships.</div>
+            <div class="stage-tags">
+              <span class="stage-tag">CRM</span>
+              <span class="stage-tag">Marketing</span>
+            </div>
+          </div>
+        </div>
+        <div class="pipeline-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg></div>
+        <!-- Stage 2 -->
+        <div class="pipeline-stage stage-2" role="listitem" onclick="scrollToDetail('detail-2')">
+          <div class="stage-card">
+            <div class="stage-num">2</div>
+            <div class="stage-title">Loan<br>Origination</div>
+            <div class="stage-subtitle">Pricing, term sheets, underwriting, credit decisions, and deal approval.</div>
+            <div class="stage-tags">
+              <span class="stage-tag">LOS</span>
+              <span class="stage-tag">Pricing</span>
+            </div>
+          </div>
+        </div>
+        <div class="pipeline-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg></div>
+        <!-- Stage 3 -->
+        <div class="pipeline-stage stage-3" role="listitem" onclick="scrollToDetail('detail-3')">
+          <div class="stage-card">
+            <div class="stage-num">3</div>
+            <div class="stage-title">Closing &<br>Funding</div>
+            <div class="stage-subtitle">Document execution, fund disbursement, and recording security instruments.</div>
+            <div class="stage-tags">
+              <span class="stage-tag">Title</span>
+              <span class="stage-tag">Escrow</span>
+            </div>
+          </div>
+        </div>
+        <div class="pipeline-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg></div>
+        <!-- Stage 4 -->
+        <div class="pipeline-stage stage-4" role="listitem" onclick="scrollToDetail('detail-4')">
+          <div class="stage-card">
+            <div class="stage-num">4</div>
+            <div class="stage-title">Loan<br>Servicing</div>
+            <div class="stage-subtitle">Payment collection, balance tracking, statements — where the loan "lives."</div>
+            <div class="stage-tags">
+              <span class="stage-tag">LMS</span>
+              <span class="stage-tag">Payments</span>
+            </div>
+          </div>
+        </div>
+        <div class="pipeline-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg></div>
+        <!-- Stage 5 -->
+        <div class="pipeline-stage stage-5" role="listitem" onclick="scrollToDetail('detail-5')">
+          <div class="stage-card">
+            <div class="stage-num">5</div>
+            <div class="stage-title">Secondary<br>Market</div>
+            <div class="stage-subtitle">Selling loans to recycle capital — whole loan sales, warehousing, B pieces.</div>
+            <div class="stage-tags">
+              <span class="stage-tag">Capital</span>
+              <span class="stage-tag">Buyers</span>
+            </div>
+          </div>
+        </div>
+        <div class="pipeline-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg></div>
+        <!-- Stage 6 -->
+        <div class="pipeline-stage stage-6" role="listitem" onclick="scrollToDetail('detail-6')">
+          <div class="stage-card">
+            <div class="stage-num">6</div>
+            <div class="stage-title">Collections &<br>Default Mgmt</div>
+            <div class="stage-subtitle">Delinquency monitoring, loss mitigation, foreclosure, REO disposition.</div>
+            <div class="stage-tags">
+              <span class="stage-tag">NPL</span>
+              <span class="stage-tag">REO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1b: STAGE DETAILS -->
+  <section class="section" id="details">
+    <div class="section-header fade-in">
+      <div class="section-label">Stage Details</div>
+      <h2 class="section-title">Deep Dive by Stage</h2>
+      <p class="section-desc">What happens, what software powers it, and what to know at each step of the lifecycle.</p>
+    </div>
+    <div class="stage-details">
+
+      <!-- Detail 1 -->
+      <div class="detail-panel stage-1 fade-in" id="detail-1">
+        <div class="detail-panel-header">
+          <div class="detail-panel-num" style="background:var(--c-teal-dim);color:var(--c-teal)">1</div>
+          <div class="detail-panel-title" style="color:var(--c-teal)">Lead Generation & Marketing</div>
+        </div>
+        <div class="detail-panel-body">
+          <h4>What Happens</h4>
+          <p>Finding borrowers and brokers through marketing campaigns, referral networks, and broker relationship management. This is the top of the funnel.</p>
+          <h4>Key Activities</h4>
+          <ul>
+            <li>Direct mail, digital ads, SEO/content marketing</li>
+            <li>Broker onboarding and relationship management</li>
+            <li>Referral tracking and attribution</li>
+            <li>Lead scoring and qualification</li>
+            <li>CRM pipeline management</li>
+          </ul>
+          <h4>Software</h4>
+          <ul>
+            <li>GHL / RiseHub — CRM & marketing automation</li>
+            <li>HubSpot — enterprise CRM/marketing</li>
+            <li>Salesforce — enterprise CRM</li>
+            <li>Follow Up Boss — real estate CRM</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Detail 2 -->
+      <div class="detail-panel stage-2 fade-in" id="detail-2">
+        <div class="detail-panel-header">
+          <div class="detail-panel-num" style="background:var(--c-blue-dim);color:var(--c-blue)">2</div>
+          <div class="detail-panel-title" style="color:var(--c-blue)">Loan Origination</div>
+        </div>
+        <div class="detail-panel-body">
+          <h4>What Happens</h4>
+          <p>Pricing the deal, generating term sheets, underwriting, and reaching a credit decision. This is where EZRS lives — powering the pricing/rate sheet engine.</p>
+          <h4>Sub-Stages</h4>
+          <div class="detail-substage">
+            <span class="detail-substage-item">Application</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Processing</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Underwriting</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Credit Decision</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Term Sheet / Rate Lock</span>
+          </div>
+          <h4>Software</h4>
+          <ul>
+            <li>EZRS — rate sheet & pricing engine</li>
+            <li>LendingWise — private lending LOS</li>
+            <li>LendingPad — LOS platform</li>
+            <li>Lentrix — LOS for private lenders</li>
+            <li>Byte Software — mortgage LOS</li>
+            <li>Blooma — CRE deal analysis</li>
+            <li>TurnKey Lender — lending automation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Detail 3 -->
+      <div class="detail-panel stage-3 fade-in" id="detail-3">
+        <div class="detail-panel-header">
+          <div class="detail-panel-num" style="background:var(--c-purple-dim);color:var(--c-purple)">3</div>
+          <div class="detail-panel-title" style="color:var(--c-purple)">Closing & Funding</div>
+        </div>
+        <div class="detail-panel-body">
+          <h4>What Happens</h4>
+          <p>Document execution, fund disbursement, and recording security instruments. Title, escrow, legal docs, and wire transfers converge here.</p>
+          <h4>Key Activities</h4>
+          <ul>
+            <li>Title search and insurance procurement</li>
+            <li>Escrow management and coordination</li>
+            <li>Legal document preparation and execution</li>
+            <li>Wire transfer / fund disbursement</li>
+            <li>Recording deeds of trust / mortgages</li>
+          </ul>
+          <h4>Software</h4>
+          <ul>
+            <li>LOS closing modules (LendingWise, etc.)</li>
+            <li>DocuSign — electronic signatures</li>
+            <li>Zoho Sign — e-signature platform</li>
+            <li>Qualia — title & closing platform</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Detail 4 -->
+      <div class="detail-panel stage-4 fade-in" id="detail-4">
+        <div class="detail-panel-header">
+          <div class="detail-panel-num" style="background:var(--c-green-dim);color:var(--c-green)">4</div>
+          <div class="detail-panel-title" style="color:var(--c-green)">Loan Servicing</div>
+        </div>
+        <div class="detail-panel-body">
+          <h4>What Happens</h4>
+          <p>Payment collection, balance tracking, statement generation, and borrower communication. This is the longest phase — where the loan "lives" until payoff or disposition.</p>
+          <h4>Key Activities</h4>
+          <ul>
+            <li>Monthly payment processing (ACH, wire, check)</li>
+            <li>Escrow and tax/insurance management</li>
+            <li>Balance and amortization tracking</li>
+            <li>Borrower statements and communications</li>
+            <li>Draw management (construction loans)</li>
+            <li>Extension and modification processing</li>
+          </ul>
+          <h4>Software</h4>
+          <ul>
+            <li>Glass Loans — private lending servicing</li>
+            <li>Nortridge — loan management system</li>
+            <li>Note Servicing Center — note servicing</li>
+            <li>LoanPro — modern LMS platform</li>
+            <li>Shaw Systems — enterprise LMS</li>
+            <li>Canopy Servicing — fintech LMS</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Detail 5 -->
+      <div class="detail-panel stage-5 fade-in" id="detail-5">
+        <div class="detail-panel-header">
+          <div class="detail-panel-num" style="background:var(--c-amber-dim);color:var(--c-amber)">5</div>
+          <div class="detail-panel-title" style="color:var(--c-amber)">Secondary Market / Capital Markets</div>
+        </div>
+        <div class="detail-panel-body">
+          <h4>What Happens</h4>
+          <p>Selling loans to secondary market buyers to recycle capital. Includes warehousing, delivery/packaging, whole loan sales, and B pieces. <strong>Not all lenders do this</strong> — balance sheet lenders skip this stage entirely.</p>
+          <h4>Key Activities</h4>
+          <ul>
+            <li>Warehouse line management</li>
+            <li>Loan packaging and delivery</li>
+            <li>Whole loan sales execution</li>
+            <li>B-piece / subordinate tranche sales</li>
+            <li>Investor reporting and compliance</li>
+          </ul>
+          <h4>Major Buyers</h4>
+          <ul>
+            <li>Toorak Capital Partners</li>
+            <li>Roc360 / Roc Capital</li>
+            <li>Genesis Capital</li>
+            <li>Verus Mortgage Capital</li>
+            <li>CorrFirst (Correspondent First)</li>
+            <li>RCN Capital</li>
+            <li>Angel Oak</li>
+            <li>Deephaven Mortgage</li>
+            <li>Anchor Loans</li>
+            <li>CoreVest (Redwood Trust)</li>
+            <li>Aspire (Redwood Trust)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Detail 6 -->
+      <div class="detail-panel stage-6 fade-in" id="detail-6">
+        <div class="detail-panel-header">
+          <div class="detail-panel-num" style="background:var(--c-red-dim);color:var(--c-red)">6</div>
+          <div class="detail-panel-title" style="color:var(--c-red)">Collections & Default Management</div>
+        </div>
+        <div class="detail-panel-body">
+          <h4>What Happens</h4>
+          <p>Delinquency monitoring, loss mitigation, foreclosure, and REO disposition. Only triggered when loans go bad — the goal is to minimize time here.</p>
+          <h4>Key Activities</h4>
+          <ul>
+            <li>Delinquency tracking and early intervention</li>
+            <li>Loss mitigation (workout, forbearance, modification)</li>
+            <li>Foreclosure initiation and management</li>
+            <li>REO (Real Estate Owned) disposition</li>
+            <li>Deficiency judgment pursuit</li>
+          </ul>
+          <h4>Software</h4>
+          <ul>
+            <li>Nortridge — collections modules</li>
+            <li>Shaw Systems — default management</li>
+            <li>Specialized default servicers</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: EZRS + RISEHUB COVERAGE -->
+  <section class="section" id="coverage">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 2</div>
+      <h2 class="section-title">Where EZRS + RiseHub Fits</h2>
+      <p class="section-desc">Together they cover the "front of the funnel" — everything up to closing.</p>
+    </div>
+
+    <div class="coverage-section fade-in">
+      <div class="coverage-grid">
+        <div class="coverage-card">
+          <div class="coverage-card-badge" style="background:var(--c-teal-dim);color:var(--c-teal)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            RiseHub (GHL)
+          </div>
+          <div class="coverage-card-title">Lead Gen & CRM Layer</div>
+          <div class="coverage-card-desc">Powers Stage 1 (Lead Generation & Marketing) and provides CRM connectivity across all stages. The marketing automation engine, lead capture, nurture sequences, and broker portal.</div>
+          <div class="coverage-stages">
+            <span class="coverage-stage-pill" style="background:var(--c-teal-mid);color:var(--c-teal)">Stage 1 — Primary</span>
+            <span class="coverage-stage-pill" style="background:rgba(255,255,255,0.05);color:var(--text-muted)">CRM across all</span>
+          </div>
+        </div>
+        <div class="coverage-card">
+          <div class="coverage-card-badge" style="background:var(--c-blue-dim);color:var(--c-blue)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            EZRS
+          </div>
+          <div class="coverage-card-title">Pricing & Rate Sheet Engine</div>
+          <div class="coverage-card-desc">Powers Stage 2 (Loan Origination) — specifically the pricing/rate sheet engine. Generates rate sheets, calculates pricing matrices, and handles deal-level pricing scenarios for private lenders.</div>
+          <div class="coverage-stages">
+            <span class="coverage-stage-pill" style="background:var(--c-blue-mid);color:var(--c-blue)">Stage 2 — Primary</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual bar showing coverage -->
+      <div class="coverage-bar-wrap">
+        <div class="coverage-bar-label">Lifecycle Coverage Map</div>
+        <div class="coverage-bar">
+          <div class="coverage-bar-seg covered" style="flex:1;background:var(--c-teal);opacity:0.85">
+            <span>1 LEAD GEN</span>
+          </div>
+          <div class="coverage-bar-seg covered" style="flex:1;background:var(--c-blue);opacity:0.85">
+            <span>2 ORIGINATION</span>
+          </div>
+          <div class="coverage-bar-seg" style="flex:1;background:rgba(192,132,252,0.2)">
+            <span style="color:var(--c-purple);opacity:0.6">3 CLOSING</span>
+          </div>
+          <div class="coverage-bar-seg" style="flex:1;background:rgba(74,222,128,0.2)">
+            <span style="color:var(--c-green);opacity:0.6">4 SERVICING</span>
+          </div>
+          <div class="coverage-bar-seg" style="flex:1;background:rgba(251,191,36,0.2)">
+            <span style="color:var(--c-amber);opacity:0.6">5 SECONDARY</span>
+          </div>
+          <div class="coverage-bar-seg" style="flex:1;background:rgba(248,113,113,0.2)">
+            <span style="color:var(--c-red);opacity:0.6">6 DEFAULT</span>
+          </div>
+        </div>
+        <div class="coverage-bar-bracket" style="margin-top: var(--sp-3);">
+          <div style="flex:2;display:flex;flex-direction:column;align-items:center;">
+            <div class="bracket-line" style="border-color: var(--c-blue)"></div>
+            <div class="bracket-label" style="background:var(--c-blue-dim);color:var(--c-blue)">EZRS + RiseHub Coverage</div>
+          </div>
+          <div style="flex:4;display:flex;flex-direction:column;align-items:center;">
+            <div class="bracket-line" style="border-color: var(--text-faint)"></div>
+            <div class="bracket-label" style="background:rgba(255,255,255,0.04);color:var(--text-faint)">Partner / Complementary Software</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SOFTWARE LANDSCAPE TABLE -->
+  <section class="section" id="software">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 3</div>
+      <h2 class="section-title">Software Landscape</h2>
+      <p class="section-desc">The complete vendor map across all lifecycle stages — categorized by function and relationship to EZRS.</p>
+    </div>
+
+    <div class="table-controls fade-in" id="table-filters">
+      <button class="filter-btn active" data-filter="all" style="--active-bg:rgba(255,255,255,0.08);--active-border:rgba(255,255,255,0.15);--active-color:var(--text)">All Stages</button>
+      <button class="filter-btn" data-filter="1" style="--active-bg:var(--c-teal-dim);--active-border:rgba(45,212,191,0.3);--active-color:var(--c-teal)">1 Lead Gen</button>
+      <button class="filter-btn" data-filter="2" style="--active-bg:var(--c-blue-dim);--active-border:rgba(96,165,250,0.3);--active-color:var(--c-blue)">2 Origination</button>
+      <button class="filter-btn" data-filter="3" style="--active-bg:var(--c-purple-dim);--active-border:rgba(192,132,252,0.3);--active-color:var(--c-purple)">3 Closing</button>
+      <button class="filter-btn" data-filter="4" style="--active-bg:var(--c-green-dim);--active-border:rgba(74,222,128,0.3);--active-color:var(--c-green)">4 Servicing</button>
+      <button class="filter-btn" data-filter="5" style="--active-bg:var(--c-amber-dim);--active-border:rgba(251,191,36,0.3);--active-color:var(--c-amber)">5 Secondary</button>
+      <button class="filter-btn" data-filter="6" style="--active-bg:var(--c-red-dim);--active-border:rgba(248,113,113,0.3);--active-color:var(--c-red)">6 Collections</button>
+    </div>
+
+    <div class="table-count fade-in" id="table-count">Showing 31 vendors</div>
+
+    <div class="table-wrap fade-in">
+      <table class="data-table" id="software-table">
+        <thead>
+          <tr>
+            <th data-col="stage" class="sorted">Stage <span class="sort-icon">↕</span></th>
+            <th data-col="category">Category <span class="sort-icon">↕</span></th>
+            <th data-col="vendor">Vendor <span class="sort-icon">↕</span></th>
+            <th data-col="desc">What It Does <span class="sort-icon">↕</span></th>
+            <th data-col="rel">Relationship <span class="sort-icon">↕</span></th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 4: TERMINOLOGY -->
+  <section class="section" id="terminology">
+    <div class="section-header fade-in">
+      <div class="section-label">Section 4</div>
+      <h2 class="section-title">Key Terminology</h2>
+      <p class="section-desc">Quick reference for the most important acronyms and terms in private lending.</p>
+    </div>
+
+    <div class="terms-grid">
+
+      <div class="term-group fade-in">
+        <div class="term-group-header">
+          <div class="term-group-dot" style="background:var(--c-blue)"></div>
+          <div class="term-group-title">Systems & Platforms</div>
+        </div>
+        <div class="term-list">
+          <div class="term-item">
+            <span class="term-abbr">LOS</span>
+            <span class="term-def">Loan Origination System — software for processing new loans from application through closing</span>
+          </div>
+          <div class="term-item">
+            <span class="term-abbr">LMS</span>
+            <span class="term-def">Loan Management System — software for servicing and managing active loans post-closing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="term-group fade-in">
+        <div class="term-group-header">
+          <div class="term-group-dot" style="background:var(--c-teal)"></div>
+          <div class="term-group-title">Loan Types</div>
+        </div>
+        <div class="term-list">
+          <div class="term-item">
+            <span class="term-abbr">RTL</span>
+            <span class="term-def">Residential Transition Loan — fix-and-flip or bridge loans for residential properties</span>
+          </div>
+          <div class="term-item">
+            <span class="term-abbr">DSCR</span>
+            <span class="term-def">Debt Service Coverage Ratio — rental income vs. debt payments; a key metric for investor loans</span>
+          </div>
+          <div class="term-item">
+            <span class="term-abbr">GUC</span>
+            <span class="term-def">Ground-Up Construction — new-build loan for constructing a property from scratch</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="term-group fade-in">
+        <div class="term-group-header">
+          <div class="term-group-dot" style="background:var(--c-green)"></div>
+          <div class="term-group-title">Underwriting Metrics</div>
+        </div>
+        <div class="term-list">
+          <div class="term-item">
+            <span class="term-abbr">LTV</span>
+            <span class="term-def">Loan-to-Value — loan amount as a percentage of current property value</span>
+          </div>
+          <div class="term-item">
+            <span class="term-abbr">CLTV</span>
+            <span class="term-def">Combined Loan-to-Value — total of all liens divided by property value</span>
+          </div>
+          <div class="term-item">
+            <span class="term-abbr">ARV</span>
+            <span class="term-def">After-Repair Value — estimated property value after renovations are complete</span>
+          </div>
+          <div class="term-item">
+            <span class="term-abbr">NOI</span>
+            <span class="term-def">Net Operating Income — rental income minus operating expenses (before debt service)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="term-group fade-in">
+        <div class="term-group-header">
+          <div class="term-group-dot" style="background:var(--c-red)"></div>
+          <div class="term-group-title">Loan Lifecycle</div>
+        </div>
+        <div class="term-list">
+          <div class="term-item">
+            <span class="term-abbr">PPP</span>
+            <span class="term-def">Prepayment Penalty — fee charged if a borrower pays off the loan early</span>
+          </div>
+          <div class="term-item">
+            <span class="term-abbr">REO</span>
+            <span class="term-def">Real Estate Owned — property acquired by the lender through foreclosure</span>
+          </div>
+          <div class="term-item">
+            <span class="term-abbr">NPL</span>
+            <span class="term-def">Non-Performing Loan — a loan in default or significantly behind on payments</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  Private Lending Lifecycle Reference — Mike Williams
+</footer>
+
+<script>
+// ===== DATA =====
+const softwareData = [
+  // Stage 1
+  { stage: 1, stageLabel: 'Lead Gen', category: 'CRM / Marketing', vendor: 'GHL / RiseHub', desc: 'CRM and marketing automation platform for private lenders — lead capture, nurture, broker portal', rel: 'product', relLabel: 'EZRS' },
+  { stage: 1, stageLabel: 'Lead Gen', category: 'CRM', vendor: 'HubSpot', desc: 'Enterprise inbound marketing, sales CRM, and marketing automation platform', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 1, stageLabel: 'Lead Gen', category: 'CRM', vendor: 'Salesforce', desc: 'Enterprise CRM platform with customizable lending workflows and integrations', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 1, stageLabel: 'Lead Gen', category: 'CRM', vendor: 'Follow Up Boss', desc: 'Real estate-focused CRM for lead management and automated follow-up', rel: 'complementary', relLabel: 'Complementary' },
+  // Stage 2
+  { stage: 2, stageLabel: 'Origination', category: 'Pricing Engine', vendor: 'EZRS', desc: 'Rate sheet and pricing engine for private lenders — pricing matrices, deal-level scenarios', rel: 'product', relLabel: 'EZRS' },
+  { stage: 2, stageLabel: 'Origination', category: 'LOS', vendor: 'LendingWise', desc: 'Loan origination system built for private/hard money and non-QM lenders', rel: 'integration', relLabel: 'Integration Partner' },
+  { stage: 2, stageLabel: 'Origination', category: 'LOS', vendor: 'LendingPad', desc: 'Cloud-based LOS for mortgage origination with compliance and pipeline management', rel: 'competitor', relLabel: 'Competitor' },
+  { stage: 2, stageLabel: 'Origination', category: 'LOS', vendor: 'Lentrix', desc: 'LOS platform designed for private lenders with workflow automation', rel: 'competitor', relLabel: 'Competitor' },
+  { stage: 2, stageLabel: 'Origination', category: 'LOS', vendor: 'Byte Software', desc: 'Established mortgage LOS with document management and compliance tools', rel: 'competitor', relLabel: 'Competitor' },
+  { stage: 2, stageLabel: 'Origination', category: 'Deal Analysis', vendor: 'Blooma', desc: 'AI-powered commercial real estate deal analysis and underwriting platform', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 2, stageLabel: 'Origination', category: 'Lending Platform', vendor: 'TurnKey Lender', desc: 'End-to-end lending automation from application to decision and beyond', rel: 'competitor', relLabel: 'Competitor' },
+  // Stage 3
+  { stage: 3, stageLabel: 'Closing', category: 'E-Signature', vendor: 'DocuSign', desc: 'Electronic signature platform for loan document execution and management', rel: 'integration', relLabel: 'Integration Partner' },
+  { stage: 3, stageLabel: 'Closing', category: 'E-Signature', vendor: 'Zoho Sign', desc: 'E-signature solution with workflow automation for document signing', rel: 'integration', relLabel: 'Integration Partner' },
+  { stage: 3, stageLabel: 'Closing', category: 'Title & Closing', vendor: 'Qualia', desc: 'Digital title and closing platform connecting lenders, title agents, and buyers', rel: 'complementary', relLabel: 'Complementary' },
+  // Stage 4
+  { stage: 4, stageLabel: 'Servicing', category: 'LMS', vendor: 'Glass Loans', desc: 'Loan servicing platform built specifically for private/hard money lenders', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 4, stageLabel: 'Servicing', category: 'LMS', vendor: 'Nortridge', desc: 'Configurable loan management system for complex lending portfolios', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 4, stageLabel: 'Servicing', category: 'LMS', vendor: 'Note Servicing Center', desc: 'Specialized note servicing for private lenders and note investors', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 4, stageLabel: 'Servicing', category: 'LMS', vendor: 'LoanPro', desc: 'Modern cloud-based loan management with API-first architecture', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 4, stageLabel: 'Servicing', category: 'LMS', vendor: 'Shaw Systems', desc: 'Enterprise loan servicing with collections, accounting, and investor reporting', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 4, stageLabel: 'Servicing', category: 'LMS', vendor: 'Canopy Servicing', desc: 'Fintech-oriented loan servicing platform with modern API integrations', rel: 'complementary', relLabel: 'Complementary' },
+  // Stage 5
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'Toorak Capital Partners', desc: 'Major secondary market buyer specializing in business purpose residential loans', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'Roc360 / Roc Capital', desc: 'Aggregator and buyer of business purpose residential transition loans', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'Genesis Capital', desc: 'Correspondent lending and secondary market buyer for private lenders', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'Verus Mortgage Capital', desc: 'Non-QM and non-agency loan aggregator and securitizer', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Correspondent', vendor: 'CorrFirst', desc: 'Correspondent lending platform for private and non-QM originators', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'RCN Capital', desc: 'National lender and secondary market buyer for fix-and-flip and rental loans', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'Angel Oak', desc: 'Non-QM lender and secondary market participant with securitization capabilities', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'Deephaven Mortgage', desc: 'Non-agency residential mortgage aggregator and securitizer', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'Anchor Loans', desc: 'Fix-and-flip lender that also acts as secondary market buyer', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'CoreVest / Redwood Trust', desc: 'Rental and bridge loan buyer backed by Redwood Trust securitization', rel: 'buyer', relLabel: 'Buyer' },
+  { stage: 5, stageLabel: 'Secondary', category: 'Loan Buyer', vendor: 'Aspire / Redwood Trust', desc: 'Redwood Trust subsidiary focused on business purpose lending acquisitions', rel: 'buyer', relLabel: 'Buyer' },
+  // Stage 6
+  { stage: 6, stageLabel: 'Collections', category: 'Default Mgmt', vendor: 'Nortridge', desc: 'Collections and default management modules within the LMS platform', rel: 'na', relLabel: 'N/A' },
+  { stage: 6, stageLabel: 'Collections', category: 'Default Mgmt', vendor: 'Shaw Systems', desc: 'Enterprise collections, foreclosure tracking, and REO management', rel: 'na', relLabel: 'N/A' },
+];
+
+const stageColors = {
+  1: { bg: 'var(--c-teal-dim)', color: 'var(--c-teal)' },
+  2: { bg: 'var(--c-blue-dim)', color: 'var(--c-blue)' },
+  3: { bg: 'var(--c-purple-dim)', color: 'var(--c-purple)' },
+  4: { bg: 'var(--c-green-dim)', color: 'var(--c-green)' },
+  5: { bg: 'var(--c-amber-dim)', color: 'var(--c-amber)' },
+  6: { bg: 'var(--c-red-dim)', color: 'var(--c-red)' },
+};
+
+const relClasses = {
+  product: 'rel-product',
+  competitor: 'rel-competitor',
+  complementary: 'rel-complementary',
+  integration: 'rel-integration',
+  buyer: 'rel-buyer',
+  na: 'rel-na',
+};
+
+// ===== RENDER TABLE =====
+let currentFilter = 'all';
+let sortCol = 'stage';
+let sortAsc = true;
+
+function renderTable() {
+  const tbody = document.getElementById('table-body');
+  let data = [...softwareData];
+
+  // Filter
+  if (currentFilter !== 'all') {
+    data = data.filter(d => d.stage === parseInt(currentFilter));
+  }
+
+  // Sort
+  data.sort((a, b) => {
+    let va, vb;
+    switch(sortCol) {
+      case 'stage': va = a.stage; vb = b.stage; break;
+      case 'category': va = a.category; vb = b.category; break;
+      case 'vendor': va = a.vendor; vb = b.vendor; break;
+      case 'desc': va = a.desc; vb = b.desc; break;
+      case 'rel': va = a.relLabel; vb = b.relLabel; break;
+      default: va = a.stage; vb = b.stage;
+    }
+    if (typeof va === 'number') return sortAsc ? va - vb : vb - va;
+    return sortAsc ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
+  });
+
+  document.getElementById('table-count').textContent = `Showing ${data.length} vendor${data.length !== 1 ? 's' : ''}`;
+
+  tbody.innerHTML = data.map(d => {
+    const sc = stageColors[d.stage];
+    return `<tr data-stage="${d.stage}">
+      <td><span class="table-stage-badge" style="background:${sc.bg};color:${sc.color}">${d.stage} ${d.stageLabel}</span></td>
+      <td>${d.category}</td>
+      <td><span class="vendor-name">${d.vendor}</span></td>
+      <td>${d.desc}</td>
+      <td><span class="table-relationship ${relClasses[d.rel]}">${d.relLabel}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ===== FILTER BUTTONS =====
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    renderTable();
+  });
+});
+
+// ===== SORT =====
+document.querySelectorAll('.data-table th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortCol === col) {
+      sortAsc = !sortAsc;
+    } else {
+      sortCol = col;
+      sortAsc = true;
+    }
+    document.querySelectorAll('.data-table th').forEach(t => t.classList.remove('sorted'));
+    th.classList.add('sorted');
+    renderTable();
+  });
+});
+
+// ===== SCROLL TO DETAIL =====
+function scrollToDetail(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.style.boxShadow = '0 0 0 2px var(--stage-color), 0 8px 32px rgba(0,0,0,0.3)';
+    setTimeout(() => { el.style.boxShadow = ''; }, 1500);
+  }
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== INIT =====
+renderTable();
+</script>
+
+</body>
+</html>
