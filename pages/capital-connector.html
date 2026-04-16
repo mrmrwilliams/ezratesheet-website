@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Connector™ Package — EZ Rate Sheet</title>
+<meta name="description" content="Your complete Capital Connector™ technology suite. Deal analysis, branded term sheets, referral partner management, and more — all included in your package.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* ===== Capital Connector page-specific styles ===== */
+
+  /* Hero: bold DM Sans, not italic (override .section-title default) */
+  .cc-hero-title {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--text-2xl);
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+    line-height: 1.1;
+  }
+
+  @media (max-width: 640px) {
+    .cc-hero-title {
+      font-size: var(--text-xl);
+    }
+  }
+
+  /* "What You Get" feature cards grid — 4 cards */
+  .cc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 1100px) {
+    .cc-features-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cc-features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cc-feature-card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1px solid oklch(from var(--color-border) l c h / 0.35);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-interactive);
+  }
+
+  .cc-feature-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: oklch(from var(--color-primary) l c h / 0.3);
+  }
+
+  .cc-feature-card h3 {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    line-height: 1.3;
+  }
+
+  .cc-value-pill {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-subtle);
+    padding: 2px var(--space-2);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-3);
+    letter-spacing: 0.02em;
+  }
+
+  .cc-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .cc-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .cc-feature-list li svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--color-primary);
+    margin-top: 4px;
+  }
+
+  /* Included-features table */
+  .cc-table-wrap {
+    overflow-x: auto;
+    max-width: 640px;
+    margin: 0 auto;
+    border: 1px solid oklch(from var(--color-border) l c h / 0.4);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+  }
+
+  .cc-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .cc-table thead th {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text);
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-surface-offset);
+    border-bottom: 1px solid var(--color-divider);
+    text-align: left;
+  }
+
+  .cc-table thead th:last-child {
+    text-align: right;
+    color: var(--color-primary);
+  }
+
+  .cc-table td {
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    padding: var(--space-3) var(--space-5);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .cc-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .cc-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .cc-table tr.highlight-row td {
+    background: var(--color-primary-subtle);
+  }
+
+  .cc-table tr.highlight-row td:last-child {
+    font-weight: 700;
+  }
+
+  .cc-check {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+
+  /* Fast-action bonus cards */
+  .cc-bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 900px) {
+    .cc-bonus-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+  }
+
+  .cc-bonus-card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1px solid oklch(from var(--color-border) l c h / 0.35);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-interactive);
+  }
+
+  .cc-bonus-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: oklch(from var(--color-primary) l c h / 0.3);
+  }
+
+  .cc-bonus-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-subtle);
+    padding: 3px var(--space-2);
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.02em;
+  }
+
+  .cc-bonus-card h3 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    margin-top: var(--space-5);
+    line-height: 1.2;
+    padding-right: 90px;
+  }
+
+  .cc-bonus-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  /* Price summary box */
+  .cc-price-summary {
+    max-width: 720px;
+    margin: 0 auto;
+    background: linear-gradient(
+      180deg,
+      var(--color-surface) 0%,
+      oklch(from var(--color-primary) l c h / 0.05) 100%
+    );
+    border: 1px solid oklch(from var(--color-primary) l c h / 0.25);
+    border-radius: var(--radius-xl, 16px);
+    padding: clamp(var(--space-8), 5vw, var(--space-12));
+    text-align: center;
+    box-shadow: var(--shadow-lg, 0 10px 40px -10px rgba(0,0,0,0.1));
+  }
+
+  .cc-value-strike {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+    font-weight: 500;
+  }
+
+  .cc-value-strike .amount {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: oklch(from var(--color-text-muted) l c h / 0.7);
+    color: var(--color-text);
+    font-weight: 600;
+    margin-left: var(--space-2);
+  }
+
+  .cc-price-today-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .cc-price-today {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(4rem, 10vw, 6.5rem);
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
+  }
+
+  .cc-you-save {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-success);
+    background: var(--color-success-highlight);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-6);
+  }
+
+  .cc-cta-fineprint {
+    margin-top: var(--space-4);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .cc-cta-fineprint span {
+    margin: 0 var(--space-1);
+    color: var(--color-text-faint);
+  }
+
+  /* FAQ — reuse styles from pricing page */
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .faq-item {
+    border: 1px solid oklch(from var(--color-border) l c h / 0.4);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  .faq-item summary {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    transition: background var(--transition-interactive);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary:hover {
+    background: var(--color-surface-offset);
+  }
+
+  .faq-item[open] summary {
+    background: var(--color-primary-subtle);
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .faq-chevron {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform var(--transition-interactive);
+    color: var(--color-text-muted);
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+  }
+
+  .faq-body {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  /* Brand mark for HIS × EZ callout */
+  .cc-brand-row {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-surface-offset);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-5);
+  }
+
+  .cc-brand-row .cc-brand-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+</style>
+</head>
+<body>
+  <a href="#main" class="sr-only" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to main content</a>
+
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="EZ Rate Sheet home">
+        <svg width="32" height="32" viewBox="2 2 96 96" fill="currentColor" aria-hidden="true" style="color: var(--color-primary);">
+          <path d="M89.172,2.567H52.711v46.056h46.056V12.162C98.767,6.863,94.47,2.567,89.172,2.567z M89.252,27.662H62.397v-4.134h26.854V27.662z"/>
+          <path d="M2.817,12.162v36.461h46.056V2.567H12.412C7.113,2.567,2.817,6.863,2.817,12.162z M23.877,10.909h4.807v12.338H40.94v4.723H28.684v12.312h-4.807V27.97H11.622v-4.723h12.256V10.909z"/>
+          <path d="M52.711,98.517h36.461c5.298,0,9.595-4.295,9.595-9.595V52.461H52.711V98.517z M61.515,67.056h29.319v4.723H61.515V67.056z M61.515,79.115h29.319v4.807H61.515V79.115z"/>
+          <path d="M2.817,88.922c0,5.3,4.295,9.595,9.595,9.595h36.461V52.461H2.817V88.922z M17.091,63.373l9.225,9.194l9.193-9.194l2.914,2.845l-9.223,9.225l9.247,9.216l-2.948,2.946l-9.218-9.247l-9.211,9.213l-2.841-2.912l9.18-9.183l-9.196-9.224L17.091,63.373z"/>
+        </svg>
+        <span>EZ Rates</span>
+      </a>
+      <nav><ul class="nav-links" id="navLinks" role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/login">Login</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/register">Start Free Trial</a></li><li class="mobile-close-link" style="display:none;"><button onclick="toggleNav()" style="font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4);">Close Menu</button></li></ul></nav>
+      <div class="nav-actions">
+        <a href="/app/login" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/app/register" class="btn btn-primary btn-sm">Start Free Trial</a>
+        <button class="mobile-toggle" onclick="toggleNav()" aria-label="Open navigation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="cc-brand-row">
+          <span>HIS Capital</span>
+          <span class="cc-brand-dot" aria-hidden="true"></span>
+          <span>EZ Rate Sheet</span>
+        </div>
+        <h1 class="cc-hero-title">Your Capital Connector&trade; Package</h1>
+        <p class="page-hero-subtitle">Everything you need to find, fund, and profit from real estate lending &mdash; technology, training, support, and access to capital. All in one system.</p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: WHAT YOU GET ===== -->
+    <section class="section container">
+      <div style="text-align:center;margin-bottom:var(--space-10);">
+        <div class="section-label">What's Included</div>
+        <h2 class="section-title">Your Complete Capital Connector&trade; System</h2>
+        <p class="section-subtitle" style="margin:0 auto;">One investment. Everything included. No hidden fees, no upsells.</p>
+      </div>
+
+      <div class="cc-features-grid">
+
+        <!-- Card 1 -->
+        <div class="cc-feature-card fade-in">
+          <span class="cc-value-pill">$5,988 value</span>
+          <h3>Complete Technology Suite</h3>
+          <ul class="cc-feature-list" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Custom Verified Investor Deal Entry Page</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Referral Partner Management System</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI-Powered Deal Analysis</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Automated Term Sheet Follow-ups</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Referral Commission Payment &amp; Reporting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Branded Loan Applications</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Deals Dashboard &amp; Reporting</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cc-feature-card fade-in">
+          <h3 style="margin-top:0;">Lending Support System</h3>
+          <ul class="cc-feature-list" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Access to Funding Specialists</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Deal Analysis Team</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly Group Coaching Calls</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Private Community Access</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cc-feature-card fade-in">
+          <h3 style="margin-top:0;">Core Training &amp; Resources</h3>
+          <ul class="cc-feature-list" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Step-by-Step Video Training Modules</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Implementation Guides</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Scripts &amp; Templates</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Success Roadmap</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Technology Training</li>
+          </ul>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="cc-feature-card fade-in">
+          <h3 style="margin-top:0;">Access to Capital</h3>
+          <ul class="cc-feature-list" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Lend capital to qualified real estate investors</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No need to raise your own capital</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Earn from every deal you fund</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: EZRS FEATURE BREAKDOWN ===== -->
+    <section class="section-sm" style="background:var(--color-surface);border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:var(--space-8);">
+          <div class="section-label">EZRS Technology</div>
+          <h2 class="section-title">Your EZRS Technology Suite &mdash; Included</h2>
+          <p class="section-subtitle" style="margin:0 auto;">Here's exactly what's included in your Capital Connector EZRS account.</p>
+        </div>
+
+        <div class="cc-table-wrap fade-in">
+          <table class="cc-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Capital Connector</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Users</td><td>5</td></tr>
+              <tr class="highlight-row"><td>Deals / Month</td><td>Unlimited</td></tr>
+              <tr><td>Branded Term Sheets</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Reporting &amp; Dashboards</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Deal Review &amp; Approval Workflow</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Referral Partner Management</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>AI-Powered Deal Analysis</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Notifications</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Referral Partner Commission Payout Queue</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Referral Partner Commission Payout Settings</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Embed Loan Applications</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Deals Dashboard</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Profile Customization</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+              <tr><td>Help &amp; Support</td><td><span class="cc-check" aria-label="Included">&#10003;</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: FAST-ACTION BONUSES ===== -->
+    <section class="section container">
+      <div style="text-align:center;margin-bottom:var(--space-10);">
+        <div class="section-label">Bonuses</div>
+        <h2 class="section-title">PLUS Your Fast-Action Bonuses</h2>
+      </div>
+
+      <div class="cc-bonus-grid">
+
+        <div class="cc-bonus-card fade-in">
+          <span class="cc-bonus-badge">$4,488 value</span>
+          <h3>Capital Connection Circle&trade;</h3>
+          <p>An exclusive community of active Capital Connectors. Share deals, get feedback, and build relationships that keep your pipeline full.</p>
+        </div>
+
+        <div class="cc-bonus-card fade-in">
+          <span class="cc-bonus-badge">$2,788 value</span>
+          <h3>Advanced Deal Toolkit</h3>
+          <p>Proven scripts, underwriting checklists, negotiation templates, and deal structures used by top-performing Capital Connectors.</p>
+        </div>
+
+        <div class="cc-bonus-card fade-in">
+          <span class="cc-bonus-badge">$1,000 value</span>
+          <h3>One-on-One Fast Start Call</h3>
+          <p>A private onboarding session with a HIS Capital specialist to map out your first 30&ndash;60 days and set you up to close your first deal.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5: VALUE SUMMARY + CTA ===== -->
+    <section class="section-sm" style="background:var(--color-bg);border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);">
+      <div class="container">
+        <div class="cc-price-summary fade-in">
+          <div class="section-label" style="margin-bottom:var(--space-4);">Your Investment</div>
+
+          <div class="cc-value-strike">Total Real-World Value: <span class="amount">$37,028</span></div>
+
+          <div class="cc-price-today-label">Your Price Today</div>
+          <div class="cc-price-today">$2,997</div>
+
+          <div class="cc-you-save">You Save $33,031</div>
+
+          <div style="display:flex;justify-content:center;">
+            <a href="https://capitalconnectorsystem.com/full" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Get Started Now</a>
+          </div>
+
+          <p class="cc-cta-fineprint">30-Day Money Back Guarantee<span aria-hidden="true">&middot;</span>Instant Access<span aria-hidden="true">&middot;</span>Secure Checkout</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6: FAQ ===== -->
+    <section class="section container" id="faq">
+      <div style="text-align:center;margin-bottom:var(--space-8);">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>
+            What is the Capital Connector&trade; program?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body">
+            HIS Capital's turnkey system for entering the private lending space. You get technology (EZRS), training, support, and access to capital &mdash; everything needed to start funding real estate deals.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Do I need lending experience?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body">
+            No. The program includes step-by-step training, implementation guides, and ongoing coaching. Most Capital Connectors close their first deal within 30&ndash;60 days.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            What is EZ Rate Sheet?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body">
+            EZRS is the technology platform included in your Capital Connector package. It handles deal analysis, pricing, term sheet generation, referral partner management, and commission tracking.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            How many deals can I do per month?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body">
+            Unlimited. There's no cap on deal volume in your Capital Connector EZRS account.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Is there a monthly fee after the initial investment?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body">
+            Your EZRS account and core platform access are included. Some optional add-ons or premium features may have separate pricing, which will be discussed during onboarding.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            What if it doesn't work for me?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body">
+            The program includes a 30-day money-back guarantee. If you're not satisfied, contact the HIS Capital team for a full refund.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            How quickly can I get started?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body">
+            Immediately. You get instant access to all training materials and your EZRS technology suite upon purchase. Your onboarding Fast Start Call is typically scheduled within the first week.
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 7: FINAL CTA ===== -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="section-label">Ready When You Are</div>
+          <h2 class="section-title">Start Funding Deals This Month</h2>
+          <p class="section-subtitle" style="margin:0 auto var(--space-8);">Instant access to your EZRS account, training, and the full Capital Connector&trade; system.</p>
+          <a href="https://capitalconnectorsystem.com/full" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Get Started Now</a>
+          <p class="cc-cta-fineprint" style="margin-top:var(--space-4);">30-Day Money Back Guarantee<span aria-hidden="true">&middot;</span>Instant Access<span aria-hidden="true">&middot;</span>Secure Checkout</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="EZ Rate Sheet home"><svg width="28" height="28" viewBox="2 2 96 96" fill="currentColor" aria-hidden="true" style="color: var(--color-primary);">
+            <path d="M89.172,2.567H52.711v46.056h46.056V12.162C98.767,6.863,94.47,2.567,89.172,2.567z M89.252,27.662H62.397v-4.134h26.854V27.662z"/>
+            <path d="M2.817,12.162v36.461h46.056V2.567H12.412C7.113,2.567,2.817,6.863,2.817,12.162z M23.877,10.909h4.807v12.338H40.94v4.723H28.684v12.312h-4.807V27.97H11.622v-4.723h12.256V10.909z"/>
+            <path d="M52.711,98.517h36.461c5.298,0,9.595-4.295,9.595-9.595V52.461H52.711V98.517z M61.515,67.056h29.319v4.723H61.515V67.056z M61.515,79.115h29.319v4.807H61.515V79.115z"/>
+            <path d="M2.817,88.922c0,5.3,4.295,9.595,9.595,9.595h36.461V52.461H2.817V88.922z M17.091,63.373l9.225,9.194l9.193-9.194l2.914,2.845l-9.223,9.225l9.247,9.216l-2.948,2.946l-9.218-9.247l-9.211,9.213l-2.841-2.912l9.18-9.183l-9.196-9.224L17.091,63.373z"/>
+          </svg><span>EZ Rates</span></a>
+        <p>Professional real estate software to calculate, create, and track professional term sheets. Streamline your lending process with our comprehensive platform.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="lending-network.html">Lending Network</a></li><li><a href="/app/register">Start Free Trial</a></li><li><a href="watch-demo.html">Watch Demo</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul role="list"><li><a href="about.html">About Us</a></li><li><a href="blog.html">Blog</a></li><li><a href="mailto:sales@ezratesheet.com">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul role="list"><li><a href="mailto:sales@ezratesheet.com">Help Center</a></li><li><a href="mailto:sales@ezratesheet.com">Customer Support</a></li><li><a href="/app/login">Login</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 EZ Rate Sheet LLC</p>
+      <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true">·</span><a href="terms.html">Terms of Service</a><span aria-hidden="true">·</span><a href="cookies.html">Cookie Policy</a></div>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="font-size:var(--text-xs);color:var(--color-text-faint);">Created with Perplexity Computer</a>
+    </div>
+  </footer>
+
+<script>
+  // ===== MOBILE NAV =====
+  function toggleNav(){const n=document.getElementById('navLinks');const m=document.querySelectorAll('.mobile-only-link,.mobile-close-link');n.classList.toggle('open');m.forEach(e=>{e.style.display=n.classList.contains('open')?'block':'none'})}
+  window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+  const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
+</script>
+</body>
+</html>
