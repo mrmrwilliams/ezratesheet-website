@@ -19,7 +19,7 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pre-Call Discovery — EZ Rate Sheet</title>
-<meta name="description" content="A few quick questions before your discovery call with Mike. Helps us focus on what matters for your business.">
+<meta name="description" content="A few quick questions before your discovery call. Helps us focus on what matters for your business.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -217,6 +217,19 @@
   .field-label .req {
     color: var(--color-primary);
     margin-left: 2px;
+  }
+
+  .field-label .optional-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--color-text-muted);
+    margin-left: var(--space-2);
+    padding: 2px 8px;
+    background: var(--color-bg-subtle, rgba(107, 76, 110, 0.06));
+    border-radius: 10px;
   }
 
   .field-input {
@@ -608,13 +621,13 @@
             <p class="discovery-subtitle">A few quick questions so we can focus on what matters for your business. Takes about 2–3 minutes.</p>
             <div class="discovery-trust">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              Your answers go straight to Mike before your call. Nothing is shared elsewhere.
+              Your answers go straight to our team before your call. Nothing is shared elsewhere.
             </div>
           </div>
 
           <!-- Submission error banner -->
           <div class="submit-error-banner" id="submitErrorBanner" role="alert">
-            Something went wrong submitting the form. Please try again, or email <a href="mailto:mike@ezratesheet.com" style="color:inherit;font-weight:600;">mike@ezratesheet.com</a> directly.
+            Something went wrong submitting the form. Please try again, or email <a href="mailto:sales@ezratesheet.com" style="color:inherit;font-weight:600;">sales@ezratesheet.com</a> directly.
           </div>
 
           <!-- THE FORM -->
@@ -623,7 +636,7 @@
             <!-- ===== Q1: Contact Info ===== -->
             <div class="form-card" id="card-1">
               <div class="form-card-num" aria-hidden="true">1</div>
-              <p class="form-card-micro">Before we dive in — who are we talking to? This goes straight into your client record so Mike has your info ready on the call.</p>
+              <p class="form-card-micro">Before we dive in — who are we talking to? Only name and email are required. The rest is optional, but helps us prep.</p>
               <p class="form-card-label" id="label-1">Your contact info</p>
 
               <div class="fields-row">
@@ -634,14 +647,14 @@
                 </div>
 
                 <div class="field-group">
-                  <label class="field-label" for="company_name">Company name <span class="req" aria-hidden="true">*</span></label>
-                  <input class="field-input" type="text" id="company_name" name="company_name" placeholder="Acme Lending LLC" autocomplete="organization" required>
+                  <label class="field-label" for="company_name">Company name <span class="optional-tag">optional</span></label>
+                  <input class="field-input" type="text" id="company_name" name="company_name" placeholder="Acme Lending LLC" autocomplete="organization">
                   <span class="field-error" id="err-company_name">Please enter your company name.</span>
                 </div>
 
                 <div class="field-group">
-                  <label class="field-label" for="role_title">Your role / title <span class="req" aria-hidden="true">*</span></label>
-                  <input class="field-input" type="text" id="role_title" name="role_title" placeholder="Owner / Principal" autocomplete="organization-title" required>
+                  <label class="field-label" for="role_title">Your role / title <span class="optional-tag">optional</span></label>
+                  <input class="field-input" type="text" id="role_title" name="role_title" placeholder="Owner / Principal" autocomplete="organization-title">
                   <span class="field-error" id="err-role_title">Please enter your role.</span>
                 </div>
 
@@ -652,8 +665,8 @@
                 </div>
 
                 <div class="field-group field-full">
-                  <label class="field-label" for="phone">Phone number <span class="req" aria-hidden="true">*</span></label>
-                  <input class="field-input" type="tel" id="phone" name="phone" placeholder="(555) 867-5309" autocomplete="tel" required>
+                  <label class="field-label" for="phone">Phone number <span class="optional-tag">optional</span></label>
+                  <input class="field-input" type="tel" id="phone" name="phone" placeholder="(555) 867-5309" autocomplete="tel">
                   <span class="field-error" id="err-phone">Please enter your phone number.</span>
                 </div>
               </div>
@@ -768,7 +781,7 @@
             <!-- ===== Q5: Loan Products ===== -->
             <div class="form-card" id="card-5">
               <div class="form-card-num" aria-hidden="true">5</div>
-              <p class="form-card-micro">This helps Mike customize the demo around your actual products — not a generic walkthrough. The more specific, the more useful the call.</p>
+              <p class="form-card-micro">This helps us customize the demo around your actual products — not a generic walkthrough. The more specific, the more useful the call.</p>
               <p class="form-card-label" id="label-5">What loan products do you originate?</p>
               <textarea
                 class="field-input"
@@ -802,7 +815,7 @@
             <!-- ===== Q7: One Fix ===== -->
             <div class="form-card" id="card-7">
               <div class="form-card-num" aria-hidden="true">7</div>
-              <p class="form-card-micro">Last one. If you could wave a wand and fix one thing about how your operation runs today, what would it be? This helps Mike show you exactly what a win looks like for your business.</p>
+              <p class="form-card-micro">Last one. If you could wave a wand and fix one thing about how your operation runs today, what would it be? This helps us show you exactly what a win looks like for your business.</p>
               <p class="form-card-label" id="label-7">If we could fix one thing about your current process, what would it be?</p>
               <textarea
                 class="field-input"
@@ -823,7 +836,7 @@
                 <svg id="submitArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 <div class="spinner" id="submitSpinner" style="display:none;" aria-hidden="true"></div>
               </button>
-              <p class="submit-microcopy">Your answers are sent directly to Mike before your call.</p>
+              <p class="submit-microcopy">Your answers are sent directly to our team before your call.</p>
             </div>
 
           </form>
@@ -832,7 +845,7 @@
           <div class="discovery-footer-links">
             <a href="#">Need to reschedule? Click here</a>
             <span aria-hidden="true">·</span>
-            <a href="mailto:mike@ezratesheet.com">Questions? Email Mike</a>
+            <a href="mailto:sales@ezratesheet.com">Questions? Send us an email</a>
             <span aria-hidden="true">·</span>
             <a href="privacy.html">Privacy Policy</a>
           </div>
@@ -846,7 +859,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h2 class="thankyou-title">You're all set.</h2>
-          <p class="thankyou-body">Thanks — Mike will review your answers before the call so you can hit the ground running. See you soon.</p>
+          <p class="thankyou-body">Thanks — we'll review your answers before the call so you can hit the ground running. See you soon.</p>
           <div class="thankyou-note">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             A confirmation has been sent to your email.
@@ -943,7 +956,7 @@
   // ===== PROGRESS CALCULATION =====
   function updateProgress() {
     const requiredFields = [
-      'full_name', 'company_name', 'role_title', 'email', 'phone',
+      'full_name', 'email',
       'deal_volume', 'team_size', 'rate_sheet_process',
       'loan_products', 'driving_motivation', 'one_fix'
     ];
