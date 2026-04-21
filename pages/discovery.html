@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Call Discovery — EZ Rate Sheet</title>
+<meta name="description" content="A few quick questions before your discovery call with Mike. Helps us focus on what matters for your business.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+  /* ===== DISCOVERY FORM — PAGE-SPECIFIC STYLES ===== */
+
+  /* Progress bar */
+  .discovery-progress-bar {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    height: 3px;
+    background: var(--color-surface-offset);
+    overflow: hidden;
+  }
+
+  .discovery-progress-fill {
+    height: 100%;
+    background: var(--color-primary);
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 0%;
+  }
+
+  /* Page layout */
+  .discovery-page {
+    min-height: 100vh;
+    background: var(--color-bg);
+    padding-block: var(--space-12) var(--space-20);
+  }
+
+  .discovery-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding-inline: var(--space-6);
+  }
+
+  /* Header area */
+  .discovery-header {
+    margin-bottom: var(--space-10);
+    text-align: center;
+  }
+
+  .discovery-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .discovery-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.75); }
+  }
+
+  .discovery-title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    line-height: 1.25;
+  }
+
+  .discovery-subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    max-width: 52ch;
+    margin: 0 auto var(--space-4);
+    line-height: 1.7;
+  }
+
+  .discovery-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+    background: var(--color-surface-offset);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+  }
+
+  .discovery-trust svg {
+    width: 13px;
+    height: 13px;
+    color: var(--color-text-faint);
+    flex-shrink: 0;
+  }
+
+  /* Step counter */
+  .step-counter {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .step-counter-text {
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Form cards */
+  .form-card {
+    background: var(--color-surface);
+    border: 1px solid oklch(from var(--color-border) l c h / 0.4);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin-bottom: var(--space-6);
+    transition: border-color 0.25s ease;
+  }
+
+  .form-card:focus-within {
+    border-color: oklch(from var(--color-primary) l c h / 0.4);
+    box-shadow: 0 0 0 3px oklch(from var(--color-primary) l c h / 0.07);
+  }
+
+  .form-card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-bottom: var(--space-3);
+  }
+
+  .form-card-micro {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .form-card-label {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+    line-height: 1.4;
+  }
+
+  /* Fields grid for Q1 */
+  .fields-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .fields-row .field-full {
+    grid-column: 1 / -1;
+  }
+
+  /* Text inputs */
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .field-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .field-label .req {
+    color: var(--color-primary);
+    margin-left: 2px;
+  }
+
+  .field-input {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    -webkit-appearance: none;
+    appearance: none;
+    min-height: 44px;
+  }
+
+  .field-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px oklch(from var(--color-primary) l c h / 0.12);
+  }
+
+  .field-input::placeholder {
+    color: var(--color-text-faint);
+  }
+
+  .field-input.has-error {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px oklch(from var(--color-error) l c h / 0.1);
+  }
+
+  textarea.field-input {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+  }
+
+  /* Radio options */
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    user-select: none;
+  }
+
+  .radio-option:hover {
+    border-color: oklch(from var(--color-primary) l c h / 0.5);
+    background: var(--color-primary-subtle);
+  }
+
+  .radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .radio-custom {
+    width: 18px;
+    height: 18px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.18s ease;
+  }
+
+  .radio-custom::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .radio-option.selected {
+    border-color: var(--color-primary);
+    background: var(--color-primary-subtle);
+  }
+
+  .radio-option.selected .radio-custom {
+    border-color: var(--color-primary);
+    background: var(--color-primary-highlight);
+  }
+
+  .radio-option.selected .radio-custom::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .radio-option-text {
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+
+  /* "Other" reveal */
+  .other-reveal {
+    display: none;
+    margin-top: var(--space-3);
+  }
+
+  .other-reveal.visible {
+    display: block;
+  }
+
+  /* Error messages */
+  .field-error {
+    font-size: var(--text-xs);
+    color: var(--color-error);
+    display: none;
+    margin-top: var(--space-2);
+    font-weight: 500;
+  }
+
+  .field-error.visible {
+    display: block;
+  }
+
+  /* Submit area */
+  .form-submit-area {
+    text-align: center;
+    padding-top: var(--space-4);
+  }
+
+  .btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-10);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    min-height: 52px;
+    transition: all var(--transition-interactive);
+    width: 100%;
+    max-width: 400px;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-submit:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-submit:active:not(:disabled) {
+    background: var(--color-primary-active);
+    transform: translateY(0);
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  .btn-submit svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .submit-microcopy {
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+    margin-top: var(--space-3);
+  }
+
+  /* Submission error banner */
+  .submit-error-banner {
+    display: none;
+    background: var(--color-error-highlight);
+    border: 1px solid oklch(from var(--color-error) l c h / 0.25);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-error);
+    line-height: 1.6;
+  }
+
+  .submit-error-banner.visible {
+    display: block;
+  }
+
+  /* Footer links */
+  .discovery-footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-top: var(--space-10);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .discovery-footer-links a {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition-interactive);
+  }
+
+  .discovery-footer-links a:hover {
+    color: var(--color-primary);
+  }
+
+  .discovery-footer-links span {
+    color: var(--color-text-faint);
+    font-size: var(--text-xs);
+  }
+
+  /* ===== THANK YOU STATE ===== */
+  #thankYouState {
+    display: none;
+    text-align: center;
+    padding-block: var(--space-16);
+  }
+
+  #thankYouState.visible {
+    display: block;
+  }
+
+  #formState.hidden {
+    display: none;
+  }
+
+  .thankyou-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    background: var(--color-success-highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-6);
+    color: var(--color-success);
+  }
+
+  .thankyou-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .thankyou-title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .thankyou-body {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    max-width: 46ch;
+    margin: 0 auto var(--space-6);
+    line-height: 1.7;
+  }
+
+  .thankyou-note {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+    background: var(--color-surface-offset);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+  }
+
+  .thankyou-note svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .form-card {
+      padding: var(--space-6);
+    }
+
+    .fields-row {
+      grid-template-columns: 1fr;
+    }
+
+    .fields-row .field-full {
+      grid-column: 1;
+    }
+
+    .discovery-title {
+      font-size: clamp(1.6rem, 6vw, 2.25rem);
+    }
+
+    .btn-submit {
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <a href="#main" class="sr-only" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="EZ Rate Sheet home">
+        <svg width="32" height="32" viewBox="2 2 96 96" fill="currentColor" aria-hidden="true" style="color: var(--color-primary);">
+          <path d="M89.172,2.567H52.711v46.056h46.056V12.162C98.767,6.863,94.47,2.567,89.172,2.567z M89.252,27.662H62.397v-4.134h26.854V27.662z"/>
+          <path d="M2.817,12.162v36.461h46.056V2.567H12.412C7.113,2.567,2.817,6.863,2.817,12.162z M23.877,10.909h4.807v12.338H40.94v4.723H28.684v12.312h-4.807V27.97H11.622v-4.723h12.256V10.909z"/>
+          <path d="M52.711,98.517h36.461c5.298,0,9.595-4.295,9.595-9.595V52.461H52.711V98.517z M61.515,67.056h29.319v4.723H61.515V67.056z M61.515,79.115h29.319v4.807H61.515V79.115z"/>
+          <path d="M2.817,88.922c0,5.3,4.295,9.595,9.595,9.595h36.461V52.461H2.817V88.922z M17.091,63.373l9.225,9.194l9.193-9.194l2.914,2.845l-9.223,9.225l9.247,9.216l-2.948,2.946l-9.218-9.247l-9.211,9.213l-2.841-2.912l9.18-9.183l-9.196-9.224L17.091,63.373z"/>
+        </svg>
+        <span>EZ Rates</span>
+      </a>
+      <nav><ul class="nav-links" id="navLinks" role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/login">Login</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/register">Start Free Trial</a></li><li class="mobile-close-link" style="display:none;"><button onclick="toggleNav()" style="font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4);">Close Menu</button></li></ul></nav>
+      <div class="nav-actions">
+        <a href="/app/login" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/app/register" class="btn btn-primary btn-sm">Start Free Trial</a>
+        <button class="mobile-toggle" onclick="toggleNav()" aria-label="Open navigation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROGRESS BAR (below header, updates as user fills form) -->
+  <div class="discovery-progress-bar" role="progressbar" aria-label="Form completion progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressBar">
+    <div class="discovery-progress-fill" id="progressFill"></div>
+  </div>
+
+  <main id="main">
+    <div class="discovery-page">
+      <div class="discovery-wrap">
+
+        <!-- FORM STATE -->
+        <div id="formState">
+
+          <!-- Page header -->
+          <div class="discovery-header">
+            <div class="discovery-eyebrow">
+              <div class="discovery-eyebrow-dot" aria-hidden="true"></div>
+              Discovery Call Prep
+            </div>
+            <h1 class="discovery-title">Let's make the most of our call</h1>
+            <p class="discovery-subtitle">A few quick questions so we can focus on what matters for your business. Takes about 2–3 minutes.</p>
+            <div class="discovery-trust">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Your answers go straight to Mike before your call. Nothing is shared elsewhere.
+            </div>
+          </div>
+
+          <!-- Submission error banner -->
+          <div class="submit-error-banner" id="submitErrorBanner" role="alert">
+            Something went wrong submitting the form. Please try again, or email <a href="mailto:mike@ezratesheet.com" style="color:inherit;font-weight:600;">mike@ezratesheet.com</a> directly.
+          </div>
+
+          <!-- THE FORM -->
+          <form id="discoveryForm" novalidate>
+
+            <!-- ===== Q1: Contact Info ===== -->
+            <div class="form-card" id="card-1">
+              <div class="form-card-num" aria-hidden="true">1</div>
+              <p class="form-card-micro">Before we dive in — who are we talking to? This goes straight into your client record so Mike has your info ready on the call.</p>
+              <p class="form-card-label" id="label-1">Your contact info</p>
+
+              <div class="fields-row">
+                <div class="field-group">
+                  <label class="field-label" for="full_name">Full name <span class="req" aria-hidden="true">*</span></label>
+                  <input class="field-input" type="text" id="full_name" name="full_name" placeholder="Jane Smith" autocomplete="name" required>
+                  <span class="field-error" id="err-full_name">Please enter your name.</span>
+                </div>
+
+                <div class="field-group">
+                  <label class="field-label" for="company_name">Company name <span class="req" aria-hidden="true">*</span></label>
+                  <input class="field-input" type="text" id="company_name" name="company_name" placeholder="Acme Lending LLC" autocomplete="organization" required>
+                  <span class="field-error" id="err-company_name">Please enter your company name.</span>
+                </div>
+
+                <div class="field-group">
+                  <label class="field-label" for="role_title">Your role / title <span class="req" aria-hidden="true">*</span></label>
+                  <input class="field-input" type="text" id="role_title" name="role_title" placeholder="Owner / Principal" autocomplete="organization-title" required>
+                  <span class="field-error" id="err-role_title">Please enter your role.</span>
+                </div>
+
+                <div class="field-group">
+                  <label class="field-label" for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+                  <input class="field-input" type="email" id="email" name="email" placeholder="jane@acmelending.com" autocomplete="email" required>
+                  <span class="field-error" id="err-email">Please enter a valid email address.</span>
+                </div>
+
+                <div class="field-group field-full">
+                  <label class="field-label" for="phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+                  <input class="field-input" type="tel" id="phone" name="phone" placeholder="(555) 867-5309" autocomplete="tel" required>
+                  <span class="field-error" id="err-phone">Please enter your phone number.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== Q2: Monthly Deal Volume ===== -->
+            <div class="form-card" id="card-2">
+              <div class="form-card-num" aria-hidden="true">2</div>
+              <p class="form-card-micro">This helps us match you to the right setup — everything from licensing and user seats to which features will actually get used. Pick the one that best fits a typical month.</p>
+              <p class="form-card-label" id="label-2">How many loans do you originate per month, on average?</p>
+
+              <div class="radio-group" role="radiogroup" aria-labelledby="label-2">
+                <label class="radio-option" data-field="deal_volume" data-value="under_5">
+                  <input type="radio" name="deal_volume" value="under_5" required>
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">Under 5 deals/month</span>
+                </label>
+                <label class="radio-option" data-field="deal_volume" data-value="5_to_10">
+                  <input type="radio" name="deal_volume" value="5_to_10">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">5–10 deals/month</span>
+                </label>
+                <label class="radio-option" data-field="deal_volume" data-value="10_to_25">
+                  <input type="radio" name="deal_volume" value="10_to_25">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">10–25 deals/month</span>
+                </label>
+                <label class="radio-option" data-field="deal_volume" data-value="25_plus">
+                  <input type="radio" name="deal_volume" value="25_plus">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">25+ deals/month</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-deal_volume">Please select your deal volume.</span>
+            </div>
+
+            <!-- ===== Q3: Team Size ===== -->
+            <div class="form-card" id="card-3">
+              <div class="form-card-num" aria-hidden="true">3</div>
+              <p class="form-card-micro">Are you running a solo shop, a small team, or a larger operation? This tells us how many seats you'll need and whether things like role-based permissions actually matter for you.</p>
+              <p class="form-card-label" id="label-3">How many people are on your lending team?</p>
+
+              <div class="radio-group" role="radiogroup" aria-labelledby="label-3">
+                <label class="radio-option" data-field="team_size" data-value="solo">
+                  <input type="radio" name="team_size" value="solo" required>
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">Just me</span>
+                </label>
+                <label class="radio-option" data-field="team_size" data-value="2_to_5">
+                  <input type="radio" name="team_size" value="2_to_5">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">2–5 people</span>
+                </label>
+                <label class="radio-option" data-field="team_size" data-value="6_to_15">
+                  <input type="radio" name="team_size" value="6_to_15">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">6–15 people</span>
+                </label>
+                <label class="radio-option" data-field="team_size" data-value="15_plus">
+                  <input type="radio" name="team_size" value="15_plus">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">15+ people</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-team_size">Please select your team size.</span>
+            </div>
+
+            <!-- ===== Q4: Current Rate Sheet Process ===== -->
+            <div class="form-card" id="card-4">
+              <div class="form-card-num" aria-hidden="true">4</div>
+              <p class="form-card-micro">No wrong answers here — just want to understand what you're working with today so we don't waste time demoing things you've already solved.</p>
+              <p class="form-card-label" id="label-4">How do you currently handle rate sheets and pricing?</p>
+
+              <div class="radio-group" role="radiogroup" aria-labelledby="label-4">
+                <label class="radio-option" data-field="rate_sheet_process" data-value="excel_spreadsheets">
+                  <input type="radio" name="rate_sheet_process" value="excel_spreadsheets" required>
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">Excel/spreadsheets that we update manually</span>
+                </label>
+                <label class="radio-option" data-field="rate_sheet_process" data-value="own_pricing_engine">
+                  <input type="radio" name="rate_sheet_process" value="own_pricing_engine">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">We pull from a pricing engine we built ourselves</span>
+                </label>
+                <label class="radio-option" data-field="rate_sheet_process" data-value="capital_provider">
+                  <input type="radio" name="rate_sheet_process" value="capital_provider">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">Our capital provider gives us their rate sheet</span>
+                </label>
+                <label class="radio-option" data-field="rate_sheet_process" data-value="no_formal_process">
+                  <input type="radio" name="rate_sheet_process" value="no_formal_process">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">We don't really have a formal rate sheet</span>
+                </label>
+                <label class="radio-option" data-field="rate_sheet_process" data-value="other" id="ratesheet-other-option">
+                  <input type="radio" name="rate_sheet_process" value="other">
+                  <span class="radio-custom" aria-hidden="true"></span>
+                  <span class="radio-option-text">Other</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-rate_sheet_process">Please select your current process.</span>
+
+              <!-- Conditional "Other" text field -->
+              <div class="other-reveal" id="ratesheetOtherReveal">
+                <div class="field-group" style="margin-top: var(--space-3);">
+                  <label class="field-label" for="rate_sheet_process_other">Tell us more</label>
+                  <input class="field-input" type="text" id="rate_sheet_process_other" name="rate_sheet_process_other" placeholder="Describe your current setup...">
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== Q5: Loan Products ===== -->
+            <div class="form-card" id="card-5">
+              <div class="form-card-num" aria-hidden="true">5</div>
+              <p class="form-card-micro">This helps Mike customize the demo around your actual products — not a generic walkthrough. The more specific, the more useful the call.</p>
+              <p class="form-card-label" id="label-5">What loan products do you originate?</p>
+              <textarea
+                class="field-input"
+                id="loan_products"
+                name="loan_products"
+                placeholder="e.g., DSCR, fix-and-flip, bridge, ground-up construction, etc."
+                rows="4"
+                required
+                aria-labelledby="label-5"
+              ></textarea>
+              <span class="field-error" id="err-loan_products">Please describe the loan products you originate.</span>
+            </div>
+
+            <!-- ===== Q6: What's Driving You Now ===== -->
+            <div class="form-card" id="card-6">
+              <div class="form-card-num" aria-hidden="true">6</div>
+              <p class="form-card-micro">This is the most useful question on the form, and your answer will shape the entire conversation. Don't overthink it — just be honest about what's going on in the business right now.</p>
+              <p class="form-card-label" id="label-6">What's driving you to look for a solution right now?</p>
+              <textarea
+                class="field-input"
+                id="driving_motivation"
+                name="driving_motivation"
+                placeholder="e.g., We're losing deals to inconsistent pricing, spending too much time on quotes, hiring new LOs and need a system, looking to scale, etc."
+                rows="5"
+                required
+                aria-labelledby="label-6"
+              ></textarea>
+              <span class="field-error" id="err-driving_motivation">Please share what's driving you to look for a solution.</span>
+            </div>
+
+            <!-- ===== Q7: One Fix ===== -->
+            <div class="form-card" id="card-7">
+              <div class="form-card-num" aria-hidden="true">7</div>
+              <p class="form-card-micro">Last one. If you could wave a wand and fix one thing about how your operation runs today, what would it be? This helps Mike show you exactly what a win looks like for your business.</p>
+              <p class="form-card-label" id="label-7">If we could fix one thing about your current process, what would it be?</p>
+              <textarea
+                class="field-input"
+                id="one_fix"
+                name="one_fix"
+                placeholder="What would the biggest operational win look like for your business?"
+                rows="4"
+                required
+                aria-labelledby="label-7"
+              ></textarea>
+              <span class="field-error" id="err-one_fix">Please describe the one thing you'd most want fixed.</span>
+            </div>
+
+            <!-- SUBMIT -->
+            <div class="form-submit-area">
+              <button type="submit" class="btn-submit" id="submitBtn">
+                <span id="submitLabel">Complete Discovery</span>
+                <svg id="submitArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="spinner" id="submitSpinner" style="display:none;" aria-hidden="true"></div>
+              </button>
+              <p class="submit-microcopy">Your answers are sent directly to Mike before your call.</p>
+            </div>
+
+          </form>
+
+          <!-- Footer links -->
+          <div class="discovery-footer-links">
+            <a href="#">Need to reschedule? Click here</a>
+            <span aria-hidden="true">·</span>
+            <a href="mailto:mike@ezratesheet.com">Questions? Email Mike</a>
+            <span aria-hidden="true">·</span>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+
+        </div>
+        <!-- /formState -->
+
+        <!-- THANK YOU STATE -->
+        <div id="thankYouState" role="status" aria-live="polite">
+          <div class="thankyou-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2 class="thankyou-title">You're all set.</h2>
+          <p class="thankyou-body">Thanks — Mike will review your answers before the call so you can hit the ground running. See you soon.</p>
+          <div class="thankyou-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            A confirmation has been sent to your email.
+          </div>
+          <div style="margin-top: var(--space-8);">
+            <a href="../index.html" class="btn btn-secondary" style="display:inline-flex;">Back to EZ Rate Sheet</a>
+          </div>
+        </div>
+        <!-- /thankYouState -->
+
+      </div>
+    </div>
+  </main>
+
+  <!-- MINIMAL FOOTER for discovery page -->
+  <footer style="background: var(--color-surface); border-top: 1px solid var(--color-divider); padding-block: var(--space-6);">
+    <div style="max-width: 680px; margin: 0 auto; padding-inline: var(--space-6); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3);">
+      <a href="../index.html" class="logo" aria-label="EZ Rate Sheet home" style="font-size: var(--text-xs);">
+        <svg width="20" height="20" viewBox="2 2 96 96" fill="currentColor" aria-hidden="true" style="color: var(--color-primary);">
+          <path d="M89.172,2.567H52.711v46.056h46.056V12.162C98.767,6.863,94.47,2.567,89.172,2.567z M89.252,27.662H62.397v-4.134h26.854V27.662z"/>
+          <path d="M2.817,12.162v36.461h46.056V2.567H12.412C7.113,2.567,2.817,6.863,2.817,12.162z M23.877,10.909h4.807v12.338H40.94v4.723H28.684v12.312h-4.807V27.97H11.622v-4.723h12.256V10.909z"/>
+          <path d="M52.711,98.517h36.461c5.298,0,9.595-4.295,9.595-9.595V52.461H52.711V98.517z M61.515,67.056h29.319v4.723H61.515V67.056z M61.515,79.115h29.319v4.807H61.515V79.115z"/>
+          <path d="M2.817,88.922c0,5.3,4.295,9.595,9.595,9.595h36.461V52.461H2.817V88.922z M17.091,63.373l9.225,9.194l9.193-9.194l2.914,2.845l-9.223,9.225l9.247,9.216l-2.948,2.946l-9.218-9.247l-9.211,9.213l-2.841-2.912l9.18-9.183l-9.196-9.224L17.091,63.373z"/>
+        </svg>
+        <span>EZ Rates</span>
+      </a>
+      <p style="font-size: var(--text-xs); color: var(--color-text-faint);">&copy; 2026 EZ Rate Sheet LLC</p>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="font-size: var(--text-xs); color: var(--color-text-faint); text-decoration: none;">Created with Perplexity Computer</a>
+    </div>
+  </footer>
+
+<script>
+  // ===== CONFIG =====
+  // Replace with actual GHL webhook URL before deploying
+  const GHL_WEBHOOK_URL = '{GHL_WEBHOOK_URL}';
+
+  // ===== NAV =====
+  function toggleNav() {
+    const n = document.getElementById('navLinks');
+    const m = document.querySelectorAll('.mobile-only-link,.mobile-close-link');
+    n.classList.toggle('open');
+    m.forEach(e => { e.style.display = n.classList.contains('open') ? 'block' : 'none'; });
+  }
+  window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ===== RADIO BUTTON UX =====
+  document.querySelectorAll('.radio-option').forEach(option => {
+    option.addEventListener('click', function () {
+      const fieldName = this.dataset.field;
+      const value = this.dataset.value;
+
+      // Deselect siblings
+      document.querySelectorAll(`.radio-option[data-field="${fieldName}"]`).forEach(o => {
+        o.classList.remove('selected');
+        o.querySelector('input[type="radio"]').checked = false;
+      });
+
+      // Select this one
+      this.classList.add('selected');
+      this.querySelector('input[type="radio"]').checked = true;
+
+      // Clear error
+      const errEl = document.getElementById(`err-${fieldName}`);
+      if (errEl) errEl.classList.remove('visible');
+
+      // Handle "Other" reveal for rate_sheet_process
+      if (fieldName === 'rate_sheet_process') {
+        const otherReveal = document.getElementById('ratesheetOtherReveal');
+        if (value === 'other') {
+          otherReveal.classList.add('visible');
+        } else {
+          otherReveal.classList.remove('visible');
+          document.getElementById('rate_sheet_process_other').value = '';
+        }
+      }
+
+      // Update progress
+      updateProgress();
+    });
+
+    // Keyboard support
+    option.addEventListener('keydown', function (e) {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+    option.setAttribute('tabindex', '0');
+    option.setAttribute('role', 'radio');
+  });
+
+  // ===== PROGRESS CALCULATION =====
+  function updateProgress() {
+    const requiredFields = [
+      'full_name', 'company_name', 'role_title', 'email', 'phone',
+      'deal_volume', 'team_size', 'rate_sheet_process',
+      'loan_products', 'driving_motivation', 'one_fix'
+    ];
+
+    let filled = 0;
+
+    requiredFields.forEach(field => {
+      const el = document.querySelector(`[name="${field}"]`);
+      if (!el) return;
+
+      if (el.type === 'radio') {
+        if (document.querySelector(`[name="${field}"]:checked`)) filled++;
+      } else {
+        if (el.value.trim()) filled++;
+      }
+    });
+
+    const pct = Math.round((filled / requiredFields.length) * 100);
+    const fill = document.getElementById('progressFill');
+    const bar = document.getElementById('progressBar');
+    fill.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', pct);
+  }
+
+  // Attach change/input listeners to text fields
+  document.querySelectorAll('.field-input').forEach(input => {
+    input.addEventListener('input', () => {
+      updateProgress();
+      // Clear individual field error on input
+      const errEl = document.getElementById(`err-${input.name}`);
+      if (errEl && input.value.trim()) errEl.classList.remove('visible');
+    });
+  });
+
+  // ===== VALIDATION =====
+  function validateForm() {
+    let valid = true;
+
+    // Text fields
+    const textFields = [
+      { id: 'full_name', msg: 'Please enter your name.' },
+      { id: 'company_name', msg: 'Please enter your company name.' },
+      { id: 'role_title', msg: 'Please enter your role.' },
+      { id: 'email', msg: 'Please enter a valid email address.', type: 'email' },
+      { id: 'phone', msg: 'Please enter your phone number.' },
+      { id: 'loan_products', msg: 'Please describe the loan products you originate.' },
+      { id: 'driving_motivation', msg: 'Please share what\'s driving you to look for a solution.' },
+      { id: 'one_fix', msg: 'Please describe the one thing you\'d most want fixed.' },
+    ];
+
+    textFields.forEach(f => {
+      const el = document.getElementById(f.id);
+      const errEl = document.getElementById(`err-${f.id}`);
+      let fieldValid = true;
+
+      if (!el.value.trim()) {
+        fieldValid = false;
+      } else if (f.type === 'email') {
+        const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailReg.test(el.value.trim())) fieldValid = false;
+      }
+
+      if (!fieldValid) {
+        el.classList.add('has-error');
+        errEl.classList.add('visible');
+        valid = false;
+      } else {
+        el.classList.remove('has-error');
+        errEl.classList.remove('visible');
+      }
+    });
+
+    // Radio groups
+    const radioGroups = ['deal_volume', 'team_size', 'rate_sheet_process'];
+    radioGroups.forEach(name => {
+      const checked = document.querySelector(`[name="${name}"]:checked`);
+      const errEl = document.getElementById(`err-${name}`);
+      if (!checked) {
+        errEl.classList.add('visible');
+        valid = false;
+      } else {
+        errEl.classList.remove('visible');
+      }
+    });
+
+    return valid;
+  }
+
+  // ===== FORM SUBMISSION =====
+  document.getElementById('discoveryForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Validate first
+    if (!validateForm()) {
+      // Scroll to first visible error
+      const firstError = document.querySelector('.has-error, .field-error.visible');
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    // Loading state
+    const submitBtn = document.getElementById('submitBtn');
+    const submitLabel = document.getElementById('submitLabel');
+    const submitArrow = document.getElementById('submitArrow');
+    const submitSpinner = document.getElementById('submitSpinner');
+    const errorBanner = document.getElementById('submitErrorBanner');
+
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Sending…';
+    submitArrow.style.display = 'none';
+    submitSpinner.style.display = 'block';
+    errorBanner.classList.remove('visible');
+
+    // Build payload
+    const rateSheetValue = document.querySelector('[name="rate_sheet_process"]:checked')?.value;
+    const otherText = document.getElementById('rate_sheet_process_other').value.trim();
+
+    const payload = {
+      full_name:                document.getElementById('full_name').value.trim(),
+      company_name:             document.getElementById('company_name').value.trim(),
+      role_title:               document.getElementById('role_title').value.trim(),
+      email:                    document.getElementById('email').value.trim(),
+      phone:                    document.getElementById('phone').value.trim(),
+      deal_volume:              document.querySelector('[name="deal_volume"]:checked')?.value || '',
+      team_size:                document.querySelector('[name="team_size"]:checked')?.value || '',
+      rate_sheet_process:       rateSheetValue === 'other' && otherText
+                                  ? `other: ${otherText}`
+                                  : (rateSheetValue || ''),
+      loan_products:            document.getElementById('loan_products').value.trim(),
+      driving_motivation:       document.getElementById('driving_motivation').value.trim(),
+      one_fix:                  document.getElementById('one_fix').value.trim(),
+      source:                   'pre-call-discovery-form',
+      submitted_at:             new Date().toISOString(),
+    };
+
+    try {
+      const response = await fetch(GHL_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      // Show thank you state
+      document.getElementById('formState').classList.add('hidden');
+      const thankYou = document.getElementById('thankYouState');
+      thankYou.classList.add('visible');
+      thankYou.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Fill progress bar to 100%
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressBar').setAttribute('aria-valuenow', '100');
+
+    } catch (err) {
+      // Re-enable form
+      submitBtn.disabled = false;
+      submitLabel.textContent = 'Complete Discovery';
+      submitArrow.style.display = 'block';
+      submitSpinner.style.display = 'none';
+      errorBanner.classList.add('visible');
+      errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      console.error('Submission error:', err);
+    }
+  });
+</script>
+</body>
+</html>
