@@ -1,0 +1,225 @@
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║                                                                    ║
+  ║   This site was created by the user with Perplexity Computer.     ║
+  ║   https://www.perplexity.ai/computer                              ║
+  ║                                                                    ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="generator" content="Perplexity Computer">
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Opt-In — EZ Rate Sheet</title>
+<meta name="description" content="Sign up to receive text message updates from EZ Rate Sheet about your deals, account activity, and product news.">
+<link rel="canonical" href="https://www.ezratesheet.com/pages/sms-opt-in">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .optin-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6);
+  }
+  .optin-card {
+    background: #fff;
+    border: 1px solid var(--color-border, #e8e2ea);
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 4px 20px rgba(110, 87, 115, 0.06);
+  }
+  .optin-header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+  .optin-header .section-label {
+    color: var(--color-primary, #6E5773);
+  }
+  .optin-header h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #1a1419;
+    margin: var(--space-3) 0 var(--space-3);
+  }
+  .optin-header p {
+    color: #5a4f5e;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .optin-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+  .optin-form label.field-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1a1419;
+    margin-bottom: 6px;
+  }
+  .optin-form input[type="text"],
+  .optin-form input[type="email"],
+  .optin-form input[type="tel"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #d8d2da;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #1a1419;
+    transition: border-color 0.15s;
+  }
+  .optin-form input:focus {
+    outline: none;
+    border-color: var(--color-primary, #6E5773);
+  }
+  .consent-block {
+    background: #faf8fa;
+    border: 1.5px solid #e8e2ea;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: var(--space-2);
+  }
+  .consent-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .consent-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: var(--color-primary, #6E5773);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .consent-row label {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #2a2228;
+    cursor: pointer;
+  }
+  .consent-row label strong {
+    color: #1a1419;
+  }
+  .consent-fineprint {
+    font-size: 0.8125rem;
+    color: #6c5f70;
+    line-height: 1.55;
+    margin: 14px 0 0 32px;
+  }
+  .consent-fineprint a {
+    color: var(--color-primary, #6E5773);
+    text-decoration: underline;
+  }
+  .submit-btn {
+    background: var(--color-primary, #6E5773);
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: var(--space-2);
+  }
+  .submit-btn:hover { background: #5a4660; }
+  .submit-btn:disabled { background: #c4b8c8; cursor: not-allowed; }
+  .terms-footer {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: #8a7f8e;
+    margin-top: var(--space-4);
+    line-height: 1.6;
+  }
+  .terms-footer a {
+    color: var(--color-primary, #6E5773);
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <div class="optin-wrap">
+      <div class="optin-card">
+        <div class="optin-header">
+          <div class="section-label">Stay Connected</div>
+          <h1>Get Text Updates from EZ Rate Sheet</h1>
+          <p>Sign up to receive SMS notifications about your deals, account activity, and product updates.</p>
+        </div>
+
+        <form class="optin-form" action="#" method="POST" id="smsOptInForm">
+          <div>
+            <label for="full_name" class="field-label">Full Name</label>
+            <input type="text" id="full_name" name="full_name" required autocomplete="name">
+          </div>
+
+          <div>
+            <label for="email" class="field-label">Email Address</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <div>
+            <label for="phone" class="field-label">Mobile Phone Number</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(555) 555-5555">
+          </div>
+
+          <!-- A2P-Compliant Consent Block -->
+          <div class="consent-block">
+            <div class="consent-row">
+              <input type="checkbox" id="sms_consent" name="sms_consent" required>
+              <label for="sms_consent">
+                <strong>Yes, I agree to receive recurring text messages from EZ Rate Sheet</strong>
+                at the mobile number provided, including account notifications, deal updates,
+                appointment reminders, and occasional marketing messages.
+              </label>
+            </div>
+            <p class="consent-fineprint">
+              Message frequency varies. Message &amp; data rates may apply.
+              Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help.
+              Consent is not a condition of purchase.
+              See our <a href="/pages/privacy">Privacy Policy</a> and
+              <a href="/pages/terms">Terms of Service</a> for details.
+            </p>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn" disabled>
+            Sign Me Up for SMS Updates
+          </button>
+        </form>
+
+        <p class="terms-footer">
+          Your information will never be sold or shared with third parties for marketing purposes.
+          For SMS support, contact <a href="mailto:support@ezratesheet.com">support@ezratesheet.com</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Enable submit button only when consent checkbox is checked
+    const consentBox = document.getElementById('sms_consent');
+    const submitBtn = document.getElementById('submitBtn');
+    consentBox.addEventListener('change', () => {
+      submitBtn.disabled = !consentBox.checked;
+    });
+  </script>
+
+  <footer style="text-align:center;padding:24px;font-size:0.75rem;color:#a99dae;">
+    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer nofollow" style="color:inherit;text-decoration:none;">Created with Perplexity Computer</a>
+  </footer>
+</body>
+</html>
