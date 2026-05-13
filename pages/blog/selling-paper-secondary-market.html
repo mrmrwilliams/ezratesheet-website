@@ -289,6 +289,18 @@
   .post-sidebar { grid-template-columns: 1fr; }
 }
 </style>
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ezratesheet.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ezratesheet.com/pages/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Selling Paper to the Secondary Market"}
+  ]
+}
+</script>
 </head>
 <body>
   <a href="#main" class="sr-only" style="position:absolute;top:0;left:0;z-index:999;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);transform:translateY(-100%);transition:transform 0.2s;" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to main content</a>
@@ -410,7 +422,11 @@
           <div class="stat-label">The private lending market is projected to reach $2 trillion in volume in 2025. Institutional capital wants exposure to that. The buyers are there â€” the question is whether your operation is positioned to access them.</div>
         </div>
 
-        <h2 id="what-they-evaluate">What Aggregators Actually Evaluate</h2>
+        <div style="background:rgba(110,87,115,0.08); border-left:3px solid #6E5773; padding:1.25rem 1.5rem; margin:2rem 0; border-radius:6px;">
+  <p style="margin:0;font-size:0.95rem;"><strong>Evaluate your operation's secondary market readiness.</strong> If you're thinking about selling paper, we can help you assess whether your systems and documentation will hold up to aggregator scrutiny. <a href="/pages/contact">Book a discovery call →</a></p>
+</div>
+
+<h2 id="what-they-evaluate">What Aggregators Actually Evaluate</h2>
 
         <p>Here's what surprises most lenders when they first start exploring secondary market relationships: the conversation isn't primarily about individual loan quality. The buyers know how to underwrite loans. What they're evaluating is the originator â€” specifically, whether the originator's process produces loans that are predictable enough to model.</p>
 
