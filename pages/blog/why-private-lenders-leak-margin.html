@@ -571,6 +571,18 @@
   }
 }
 </style>
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ezratesheet.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ezratesheet.com/pages/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Why Private Lenders Leak Margin"}
+  ]
+}
+</script>
 </head>
 <body>
   <a href="#main" class="sr-only" style="position:absolute;top:0;left:0;z-index:999;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);transform:translateY(-100%);transition:transform 0.2s;" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to main content</a>
@@ -680,9 +692,13 @@
           <p>"Institutional knowledge sounds like a strength. In pricing, it's actually a liability."</p>
         </blockquote>
 
-        <p>When pricing lives in people's heads â€” even experienced, trustworthy people â€” it can't be audited. It can't be trained efficiently. And it can't be handed off cleanly when someone leaves or is unavailable.</p>
+        <p>When pricing lives in people's heads â€” even experienced, trustworthy people â€” it can't be audited. It can't be trained efficiently. And it can't be handed off cleanly when someone leaves or is unavailable. This is closely related to <a href="/pages/blog/private-lender-tech-tax">the disconnected tech stack problem we covered separately</a> â€” both are root causes of operational drag that show up as margin compression.</p>
 
-        <h2 id="three-sources">The Three Sources of Margin Leakage</h2>
+        <div style="background:rgba(110,87,115,0.08); border-left:3px solid #6E5773; padding:1.25rem 1.5rem; margin:2rem 0; border-radius:6px;">
+  <p style="margin:0;font-size:0.95rem;"><strong>See how EZRS solves this systematically.</strong> The rate sheet engine enforces consistent pricing across every loan officer on every deal. <a href="/pages/pricing">View plans &amp; pricing →</a></p>
+</div>
+
+<h2 id="three-sources">The Three Sources of Margin Leakage</h2>
 
         <p>After working with hundreds of lending operations, the same three structural causes show up repeatedly. They're not about bad judgment or dishonest people. They're about how the operation is designed.</p>
 
