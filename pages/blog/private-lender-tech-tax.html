@@ -348,6 +348,18 @@
   .post-sidebar { grid-template-columns: 1fr; }
 }
 </style>
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ezratesheet.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ezratesheet.com/pages/blog"},
+    {"@type": "ListItem", "position": 3, "name": "The Private Lender Tech Tax"}
+  ]
+}
+</script>
 </head>
 <body>
   <a href="#main" class="sr-only" style="position:absolute;top:0;left:0;z-index:999;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);transform:translateY(-100%);transition:transform 0.2s;" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to main content</a>
@@ -436,7 +448,11 @@
           <div class="stat-label">of real estate investment managers lack what most operators would call advanced operational technology infrastructure. In private lending specifically, that number holds up â€” most shops are running a combination of spreadsheets, email, and 4â€“6 disconnected tools.</div>
         </div>
 
-        <h2 id="what-the-stack-actually-costs">What the Stack Actually Costs</h2>
+        <div style="background:rgba(110,87,115,0.08); border-left:3px solid #6E5773; padding:1.25rem 1.5rem; margin:2rem 0; border-radius:6px;">
+  <p style="margin:0;font-size:0.95rem;"><strong>Compare a consolidated stack against what you're paying today.</strong> <a href="/pages/pricing">See EZRS pricing →</a></p>
+</div>
+
+<h2 id="what-the-stack-actually-costs">What the Stack Actually Costs</h2>
 
         <p>Here's what the typical private lending software stack looks like, priced out:</p>
 
