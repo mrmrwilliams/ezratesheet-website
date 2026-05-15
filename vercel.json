@@ -26,6 +26,7 @@
     { "source": "/admin/:path*", "destination": "https://ezratesheet.replit.app/admin/:path*" },
     { "source": "/static/:path*", "destination": "https://ezratesheet.replit.app/static/:path*" },
     { "source": "/term_sheets/:path*", "destination": "https://ezratesheet.replit.app/term_sheets/:path*" },
+    { "source": "/term-sheet/:path*", "destination": "https://ezratesheet.replit.app/term-sheet/:path*" },
     { "source": "/styles.css", "destination": "https://ezratesheet.replit.app/styles.css" },
     { "source": "/script.js", "destination": "https://ezratesheet.replit.app/script.js" },
     { "source": "/login", "destination": "https://ezratesheet.replit.app/login" },
