@@ -5,7 +5,7 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Welcome Aboard — EZ Rate Sheet + RiseHub Setup</title>
-<meta name="description" content="Post-purchase onboarding form. Give our build team everything they need to set up your system.">
+<meta name="description" content="Pre-buildout onboarding form. Give our build team everything they need to set up your system.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -417,15 +417,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: var(--radius-full);
+    min-width: 32px;
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 11px;
     background: var(--color-primary);
     color: white;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
     flex-shrink: 0;
     margin-bottom: var(--space-2);
+    letter-spacing: 0.02em;
   }
 
   .form-card-micro {
@@ -1280,7 +1282,7 @@
             <div class="discovery-header">
               <div class="discovery-eyebrow">
                 <div class="discovery-eyebrow-dot" aria-hidden="true"></div>
-                Post-Purchase Onboarding
+                Pre-Buildout Onboarding
               </div>
               <h1 class="discovery-title">Let's build your system.</h1>
               <p class="discovery-subtitle">You're in. This form gives our build team everything they need to configure your EZ Rate Sheet and RiseHub setup. Complete it at your own pace — your progress saves automatically.</p>
@@ -1313,7 +1315,7 @@
 
                   <!-- Q1: Tier Selector -->
                   <div class="form-card" id="card-q1">
-                    <div class="form-card-num">1</div>
+                    <div class="form-card-num">1.1</div>
                     <p class="form-card-label">Which package did you purchase? <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">Your answer unlocks the relevant setup sections below.</p>
                     <div class="radio-group" role="radiogroup" aria-label="Package selection" id="tierRadioGroup">
@@ -1323,7 +1325,6 @@
                         <div class="radio-option-content">
                           <div class="radio-option-text">Lender Essentials</div>
                           <div class="radio-option-sub">EZRS + full RiseHub CRM · 5 users · 10 deals/mo</div>
-                          <div class="tier-price">$1,750 setup · $138/mo</div>
                         </div>
                       </label>
                       <label class="radio-option tier-card" data-field="package_tier" data-value="growth_engine" tabindex="0" role="radio" aria-checked="false">
@@ -1332,7 +1333,6 @@
                         <div class="radio-option-content">
                           <div class="radio-option-text">Growth Engine</div>
                           <div class="radio-option-sub">Essentials + referral partner program · 25 users</div>
-                          <div class="tier-price">$4,997 setup · $228/mo</div>
                         </div>
                       </label>
                       <label class="radio-option tier-card" data-field="package_tier" data-value="full_stack" tabindex="0" role="radio" aria-checked="false">
@@ -1341,27 +1341,27 @@
                         <div class="radio-option-content">
                           <div class="radio-option-text">Full Stack</div>
                           <div class="radio-option-sub">Everything + DFY funnels, automation · unlimited users</div>
-                          <div class="tier-price">$9,997 setup · $348/mo</div>
                         </div>
                       </label>
                     </div>
                     <span class="field-error" id="err-package_tier">Please select your package.</span>
                   </div>
 
-                  <!-- Q2: Order ID -->
+                  <!-- Q2: Purchase Email -->
                   <div class="form-card" id="card-q2">
-                    <div class="form-card-num">2</div>
-                    <p class="form-card-label">Stripe order ID or email used for purchase</p>
-                    <p class="form-card-micro">Helps us reconcile your account quickly. You can find your order ID in your Stripe receipt email — it looks like <em>pi_xxxxx</em> or <em>ch_xxxxx</em>.</p>
+                    <div class="form-card-num">1.2</div>
+                    <p class="form-card-label">Email used to purchase <span style="color:var(--color-primary)">*</span></p>
+                    <p class="form-card-micro">The email address on your purchase receipt. We'll use this to match your account to your order.</p>
                     <div class="field-group">
-                      <label class="field-label" for="order_id">Order ID or purchase email <span class="optional-tag">optional</span></label>
-                      <input class="field-input" type="text" id="order_id" name="order_id" placeholder="pi_3Pxxxxxx or jane@acmelending.com">
+                      <label class="field-label" for="order_id">Purchase email <span class="req">*</span></label>
+                      <input class="field-input" type="email" id="order_id" name="order_id" placeholder="jane@acmelending.com" required>
+                      <span class="field-error" id="err-order_id">Please enter the email used to purchase.</span>
                     </div>
                   </div>
 
                   <!-- Q3: Start Date -->
                   <div class="form-card" id="card-q3">
-                    <div class="form-card-num">3</div>
+                    <div class="form-card-num">1.3</div>
                     <p class="form-card-label">Preferred start date for setup <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">When would you like our team to begin configuring your system? We'll do our best to accommodate your timeline. Note that setup begins after this form is fully submitted.</p>
                     <div class="field-group" style="max-width: 280px;">
@@ -1389,7 +1389,7 @@
 
                   <!-- Contact Info -->
                   <div class="form-card" id="card-q4">
-                    <div class="form-card-num">4</div>
+                    <div class="form-card-num">2.1</div>
                     <p class="form-card-label">Primary contact — who should our build team communicate with? <span style="color:var(--color-primary)">*</span></p>
                     <div class="fields-row">
                       <div class="field-group">
@@ -1416,7 +1416,7 @@
 
                   <!-- Legal Business Name -->
                   <div class="form-card" id="card-q5">
-                    <div class="form-card-num">5</div>
+                    <div class="form-card-num">2.2</div>
                     <p class="form-card-label">Legal business name <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">The official registered name of your business (as it appears on business documents).</p>
                     <div class="field-group">
@@ -1428,7 +1428,7 @@
 
                   <!-- DBA -->
                   <div class="form-card" id="card-q6">
-                    <div class="form-card-num">6</div>
+                    <div class="form-card-num">2.3</div>
                     <p class="form-card-label">DBA / brand name for client-facing materials</p>
                     <p class="form-card-micro">What name do you want borrowers and partners to see? Leave blank if it's the same as your legal name.</p>
                     <div class="field-group">
@@ -1439,7 +1439,7 @@
 
                   <!-- EIN / Tax ID -->
                   <div class="form-card" id="card-ein">
-                    <div class="form-card-num">7</div>
+                    <div class="form-card-num">2.4</div>
                     <p class="form-card-label">EIN / Tax ID <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">Your Employer Identification Number. Used for account setup and compliance documentation.</p>
                     <div class="field-group" style="max-width: 280px;">
@@ -1451,7 +1451,7 @@
 
                   <!-- Business Address -->
                   <div class="form-card" id="card-q7">
-                    <div class="form-card-num">8</div>
+                    <div class="form-card-num">2.5</div>
                     <p class="form-card-label">Business address <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">Used on rate sheets, email signatures, and other branded materials.</p>
                     <div class="fields-row">
@@ -1491,20 +1491,9 @@
                     </div>
                   </div>
 
-                  <!-- Website URL -->
-                  <div class="form-card" id="card-q8">
-                    <div class="form-card-num">9</div>
-                    <p class="form-card-label">Current website URL</p>
-                    <p class="form-card-micro">If you have an existing website, share the URL. We'll reference it for brand continuity in your setup.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="current_website_url">Website URL <span class="optional-tag">optional</span></label>
-                      <input class="field-input" type="url" id="current_website_url" name="current_website_url" placeholder="https://www.acmelending.com">
-                    </div>
-                  </div>
-
                   <!-- Lending States -->
                   <div class="form-card" id="card-q9">
-                    <div class="form-card-num">10</div>
+                    <div class="form-card-num">2.6</div>
                     <p class="form-card-label">States you actively lend in <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">We'll configure your rate sheets and marketing materials to reflect your active lending footprint.</p>
                     <div class="field-group">
@@ -1517,7 +1506,7 @@
 
                   <!-- Social Media Profile URLs -->
                   <div class="form-card" id="card-social">
-                    <div class="form-card-num">11</div>
+                    <div class="form-card-num">2.7</div>
                     <p class="form-card-label">Social media profile URLs</p>
                     <p class="form-card-micro">Share the URLs to your existing social media profiles. We'll reference these during setup.</p>
                     <div class="field-group">
@@ -1544,7 +1533,7 @@
 
                   <!-- Primary Domain -->
                   <div class="form-card">
-                    <div class="form-card-num">12</div>
+                    <div class="form-card-num">3.1</div>
                     <p class="form-card-label">Primary domain <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">The main domain you'd like used for your funnel and client portal. If you don't have one yet, let us know and we'll help you get one registered.</p>
                     <div class="field-group">
@@ -1556,7 +1545,7 @@
 
                   <!-- Email Sending Subdomain -->
                   <div class="form-card">
-                    <div class="form-card-num">13</div>
+                    <div class="form-card-num">3.2</div>
                     <p class="form-card-label">Email sending subdomain <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">We set up a dedicated subdomain for sending transactional and marketing emails through your CRM. This protects your main domain's reputation.</p>
                     <div class="field-group">
@@ -1585,7 +1574,7 @@
 
                   <!-- Timezone -->
                   <div class="form-card">
-                    <div class="form-card-num">14</div>
+                    <div class="form-card-num">4.1</div>
                     <p class="form-card-label">Your timezone <span style="color:var(--color-primary)">*</span></p>
                     <div class="field-group" style="max-width: 420px;">
                       <label class="field-label" for="timezone">Timezone <span class="req">*</span></label>
@@ -1605,7 +1594,7 @@
 
                   <!-- Business Hours -->
                   <div class="form-card">
-                    <div class="form-card-num">15</div>
+                    <div class="form-card-num">4.2</div>
                     <p class="form-card-label">Business hours</p>
                     <p class="form-card-micro">Set your availability for each day of the week. Check "Closed" for days you're not available. You can fine-tune this in your CRM after launch.</p>
                     <div class="biz-hours-grid" id="bizHoursGrid">
@@ -1639,7 +1628,7 @@
 
                   <!-- Brand Colors -->
                   <div class="form-card">
-                    <div class="form-card-num">16</div>
+                    <div class="form-card-num">5.1</div>
                     <p class="form-card-label">Brand colors</p>
                     <p class="form-card-micro">Share your brand colors in any format — hex codes are ideal. Include the role of each color (primary, secondary, accent, background, etc.) so we apply them correctly.</p>
                     <div class="field-group">
@@ -1650,7 +1639,7 @@
 
                   <!-- Brand Tone -->
                   <div class="form-card">
-                    <div class="form-card-num">17</div>
+                    <div class="form-card-num">5.2</div>
                     <p class="form-card-label">Brand tone &amp; voice</p>
                     <p class="form-card-micro">How should your brand sound to clients and partners? We'll apply this to email templates, automations, and any copy we write during setup.</p>
                     <div class="radio-group" role="radiogroup" aria-label="Brand tone">
@@ -1711,7 +1700,7 @@
 
                   <!-- RiseHub Team Members -->
                   <div class="form-card">
-                    <div class="form-card-num">18</div>
+                    <div class="form-card-num">6.1</div>
                     <p class="form-card-label">Team members who need RiseHub access</p>
                     <p class="form-card-micro">Add everyone who needs a seat. Include their name, email, and role so we can set up the right permissions.</p>
                     <div class="tier-note" id="tier-user-limit-box" style="display:none;"></div>
@@ -1742,44 +1731,9 @@
                     </button>
                   </div>
 
-                  <!-- Current CRM -->
-                  <div class="form-card">
-                    <div class="form-card-num">19</div>
-                    <p class="form-card-label">Current CRM or pipeline tool (if any)</p>
-                    <p class="form-card-micro">Knowing what you're coming from helps us think about what workflows to replicate and what to improve. If you're not using anything, that's totally fine.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="current_crm_tool">Current CRM / pipeline tool <span class="optional-tag">optional</span></label>
-                      <input class="field-input" type="text" id="current_crm_tool" name="current_crm_tool" placeholder="e.g., Salesforce, HubSpot, LendingWise, Excel, None">
-                    </div>
-                  </div>
-
-                  <!-- CRM Migration -->
-                  <div class="form-card">
-                    <div class="form-card-num">20</div>
-                    <p class="form-card-label">Migrating contacts from another CRM?</p>
-                    <p class="form-card-micro">If you have an existing contact list you'd like imported into RiseHub, let us know and we'll coordinate the import separately.</p>
-                    <div class="yes-no-group" role="radiogroup" aria-label="CRM migration">
-                      <label class="yes-no-option" data-field="crm_migration_needed" data-value="yes" tabindex="0">
-                        <input type="radio" name="crm_migration_needed" value="yes">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Yes, I have contacts to import
-                      </label>
-                      <label class="yes-no-option" data-field="crm_migration_needed" data-value="no" tabindex="0">
-                        <input type="radio" name="crm_migration_needed" value="no">
-                        No contacts to migrate
-                      </label>
-                    </div>
-                    <div class="conditional-reveal" id="crm-migration-reveal">
-                      <div class="field-group">
-                        <label class="field-label" for="crm_migration_notes">Notes about your contact list <span class="optional-tag">optional</span></label>
-                        <textarea class="field-input" id="crm_migration_notes" name="crm_migration_notes" rows="2" placeholder="e.g., 'This is a 3-year history — ~800 contacts from HubSpot. Some have tags I'd like to keep.'"></textarea>
-                      </div>
-                    </div>
-                  </div>
-
                   <!-- Online Loan Application -->
                   <div class="form-card">
-                    <div class="form-card-num">21</div>
+                    <div class="form-card-num">6.2</div>
                     <p class="form-card-label">Do you have an online loan application form you'd like us to send borrowers to after they sign their term sheet? <span style="color:var(--color-primary)">*</span></p>
                     <div class="yes-no-group" role="radiogroup" aria-label="Has online loan application">
                       <label class="yes-no-option" data-field="has_online_loan_application" data-value="yes" tabindex="0">
@@ -1820,7 +1774,7 @@
 
                   <!-- Has Existing Referral Partners -->
                   <div class="form-card">
-                    <div class="form-card-num">22</div>
+                    <div class="form-card-num">7.1</div>
                     <p class="form-card-label">Do you have existing referral partners you'd like us to load into your CRM at launch?</p>
                     <div class="yes-no-group" role="radiogroup" aria-label="Has existing referral partners">
                       <label class="yes-no-option" data-field="has_existing_referral_partners" data-value="yes" tabindex="0">
@@ -1839,7 +1793,7 @@
                   <!-- Partners Repeater (conditional) -->
                   <div class="conditional-reveal" id="partners-reveal">
                     <div class="form-card" style="margin-top: var(--space-4);">
-                      <div class="form-card-num">23</div>
+                      <div class="form-card-num">7.2</div>
                       <p class="form-card-label">Add your existing referral partners</p>
                       <p class="form-card-micro">Include name, email, and company. Real estate agents, mortgage brokers, financial advisors, CPAs, etc.</p>
                       <div id="partners-list">
@@ -1871,7 +1825,7 @@
 
                     <!-- Commission Structure -->
                     <div class="form-card" style="margin-top: var(--space-4);">
-                      <div class="form-card-num">24</div>
+                      <div class="form-card-num">7.3</div>
                       <p class="form-card-label">Referral commission structure</p>
                       <p class="form-card-micro">Describe how you compensate referral partners. We'll use this to configure your partner portal and commission tracking setup.</p>
                       <div class="field-group">
@@ -1899,7 +1853,7 @@
 
                   <!-- Reference Website -->
                   <div class="form-card">
-                    <div class="form-card-num">25</div>
+                    <div class="form-card-num">8.1</div>
                     <p class="form-card-label">Reference website for brand continuity</p>
                     <p class="form-card-micro">If you have a current website, we'll reference it when designing your funnel pages so everything feels cohesive and on-brand.</p>
                     <div class="fields-row">
@@ -1917,7 +1871,7 @@
 
                   <!-- Key Messages -->
                   <div class="form-card">
-                    <div class="form-card-num">26</div>
+                    <div class="form-card-num">8.2</div>
                     <p class="form-card-label">Key messages &amp; value propositions to feature <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">What are the 3–5 core reasons borrowers should choose you over any other lender? These become the headlines and hero copy on your funnel pages.</p>
                     <div class="field-group">
@@ -1929,7 +1883,7 @@
 
                   <!-- Owner / Founder Bio -->
                   <div class="form-card">
-                    <div class="form-card-num">27</div>
+                    <div class="form-card-num">8.3</div>
                     <p class="form-card-label">Owner / Founder Bio <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">This will be featured on your funnel. A few sentences about your background, experience, and what makes you uniquely qualified to serve your clients. Speak directly to borrowers.</p>
                     <div class="field-group">
@@ -1941,7 +1895,7 @@
 
                   <!-- Team Member Bios -->
                   <div class="form-card">
-                    <div class="form-card-num">28</div>
+                    <div class="form-card-num">8.4</div>
                     <p class="form-card-label">Team Member Bios <span class="optional-tag" style="font-size:var(--text-xs);margin-left:var(--space-2);">optional</span></p>
                     <p class="form-card-micro">If you'd like to feature any team members on your funnel, add their names and short bios here. Leave blank if it's just you or you're not ready yet.</p>
                     <div class="field-group">
@@ -1967,7 +1921,7 @@
                 <div class="form-section-body" id="section-final-body">
 
                   <div class="form-card">
-                    <div class="form-card-num">29</div>
+                    <div class="form-card-num">9.1</div>
                     <p class="form-card-label">Anything else we should know?</p>
                     <p class="form-card-micro">This is your open field. Timeline constraints, existing integrations you rely on, team preferences, things that went wrong with a previous tech setup, things you're most excited about — all of it is useful.</p>
                     <div class="field-group">
@@ -2280,11 +2234,6 @@ function initRadioOptions() {
       if (errEl) errEl.classList.remove('visible');
 
       // Conditional reveals
-      if (fieldName === 'crm_migration_needed') {
-        const reveal = document.getElementById('crm-migration-reveal');
-        if (reveal) reveal.classList.toggle('visible', value === 'yes');
-      }
-
       if (fieldName === 'has_online_loan_application') {
         const reveal = document.getElementById('loan-app-url-reveal');
         if (reveal) reveal.classList.toggle('visible', value === 'yes');
@@ -2346,7 +2295,7 @@ function addRepeaterRow(listId, rowPrefix, fieldPrefix, fields, labels, placehol
 // ===== PROGRESS CALCULATION =====
 function getRequiredFields() {
   const base = [
-    'package_tier', 'preferred_start_date',
+    'package_tier', 'order_id', 'preferred_start_date',
     'contact_first_name', 'contact_last_name', 'contact_email',
     'ein', 'legal_business_name',
     'address_street', 'address_city', 'address_state', 'address_zip',
@@ -2530,6 +2479,7 @@ function validateForm() {
 
   // Section 1: Package Confirmation
   checkRadio('package_tier', 'err-package_tier', 'Please select your package.');
+  checkField('order_id', 'err-order_id', 'Please enter the email used to purchase.');
 
   // Start date — must be at least 3 days from today
   const startDate = document.getElementById('preferred_start_date');
@@ -2672,7 +2622,6 @@ function buildPayload() {
     address_city: document.getElementById('address_city').value.trim(),
     address_state: document.getElementById('address_state').value.trim(),
     address_zip: document.getElementById('address_zip').value.trim(),
-    current_website_url: document.getElementById('current_website_url').value.trim(),
     lending_states: document.getElementById('lending_states').value.trim(),
     social_media_urls: document.getElementById('social_media_urls').value.trim(),
     // Domain + Email
@@ -2686,9 +2635,6 @@ function buildPayload() {
     brand_tone: document.querySelector('[name="brand_tone"]:checked')?.value || '',
     brand_tone_notes: document.getElementById('brand_tone_notes').value.trim(),
     // CRM Setup
-    current_crm_tool: document.getElementById('current_crm_tool').value.trim(),
-    crm_migration_needed: document.querySelector('[name="crm_migration_needed"]:checked')?.value || '',
-    crm_migration_notes: document.getElementById('crm_migration_notes').value.trim(),
     has_online_loan_application: document.querySelector('[name="has_online_loan_application"]:checked')?.value || '',
     online_loan_application_url: document.getElementById('online_loan_application_url').value.trim(),
     // Referral Partners
