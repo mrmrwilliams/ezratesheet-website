@@ -693,17 +693,6 @@
     line-height: 1.4;
   }
 
-  .states-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--space-1);
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1.5px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-3);
-  }
-
   /* Error messages */
   .field-error {
     font-size: var(--text-xs);
@@ -714,120 +703,6 @@
   }
 
   .field-error.visible { display: block; }
-
-  /* File upload */
-  .file-drop-zone {
-    border: 2px dashed var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-6);
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.18s ease;
-    background: var(--color-bg);
-    position: relative;
-  }
-
-  .file-drop-zone:hover,
-  .file-drop-zone.dragover {
-    border-color: var(--color-primary);
-    background: var(--color-primary-subtle);
-  }
-
-  .file-drop-zone input[type="file"] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-  }
-
-  .file-drop-icon {
-    width: 36px;
-    height: 36px;
-    margin: 0 auto var(--space-2);
-    color: var(--color-text-faint);
-  }
-
-  .file-drop-text {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    line-height: 1.5;
-  }
-
-  .file-drop-text strong {
-    color: var(--color-primary);
-    font-weight: 600;
-  }
-
-  .file-drop-hint {
-    font-size: var(--text-xs);
-    color: var(--color-text-faint);
-    margin-top: var(--space-1);
-  }
-
-  .file-list {
-    margin-top: var(--space-3);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .file-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-2) var(--space-3);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    font-size: var(--text-xs);
-  }
-
-  .file-item-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: var(--radius-sm);
-    background: oklch(from var(--color-primary) l c h / 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: var(--color-primary);
-  }
-
-  .file-item-icon svg { width: 14px; height: 14px; }
-
-  .file-item-name {
-    flex: 1;
-    font-weight: 500;
-    color: var(--color-text);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 220px;
-  }
-
-  .file-item-size {
-    color: var(--color-text-faint);
-    flex-shrink: 0;
-  }
-
-  .file-item-remove {
-    flex-shrink: 0;
-    color: var(--color-text-faint);
-    cursor: pointer;
-    padding: 2px;
-    border-radius: var(--radius-sm);
-    transition: color 0.15s ease;
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-  }
-
-  .file-item-remove:hover { color: var(--color-error); }
-  .file-item-remove svg { width: 14px; height: 14px; }
 
   /* Dynamic repeater rows */
   .repeater-row {
@@ -911,6 +786,95 @@
   }
 
   .tier-note strong { color: var(--color-primary); font-weight: 600; }
+
+  /* Callout / info box */
+  .callout-note {
+    background: oklch(from var(--color-primary) l c h / 0.06);
+    border: 1px solid oklch(from var(--color-primary) l c h / 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: var(--space-5);
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .callout-note .callout-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+    margin-top: 2px;
+  }
+
+  .callout-note strong { color: var(--color-primary); }
+
+  /* Business hours grid */
+  .biz-hours-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .biz-hours-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 1fr auto;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .biz-hours-day-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .biz-hours-time {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 40px;
+    transition: border-color 0.18s ease;
+  }
+
+  .biz-hours-time:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px oklch(from var(--color-primary) l c h / 0.12);
+  }
+
+  .biz-hours-time:disabled {
+    opacity: 0.4;
+    background: var(--color-surface-offset);
+  }
+
+  .biz-hours-closed-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .biz-hours-closed-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
 
   /* Submit area */
   .form-submit-area {
@@ -1031,6 +995,48 @@
     line-height: 1.7;
   }
 
+  .thankyou-logo-callout {
+    background: oklch(from var(--color-primary) l c h / 0.07);
+    border: 1.5px solid oklch(from var(--color-primary) l c h / 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    margin: var(--space-6) auto var(--space-4);
+    max-width: 520px;
+    text-align: left;
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .thankyou-logo-callout-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--color-primary-subtle);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+  }
+
+  .thankyou-logo-callout-icon svg { width: 20px; height: 20px; }
+
+  .thankyou-logo-callout-text strong {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+
+  .thankyou-logo-callout-text p {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
   .thankyou-timeline {
     display: inline-flex;
     align-items: center;
@@ -1079,7 +1085,7 @@
   .discovery-footer-links a:hover { color: var(--color-primary); }
   .discovery-footer-links span { color: var(--color-text-faint); font-size: var(--text-xs); }
 
-  /* Inline yes/no toggle with file reveal */
+  /* Inline yes/no toggle */
   .yes-no-group {
     display: flex;
     gap: var(--space-3);
@@ -1120,6 +1126,14 @@
 
   .conditional-reveal.visible { display: block; }
 
+  /* Field micro-help */
+  .field-micro-help {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-top: var(--space-1);
+  }
+
   /* Responsive */
   @media (max-width: 860px) {
     .onboarding-layout {
@@ -1135,6 +1149,9 @@
     .fields-row-3 {
       grid-template-columns: 1fr 1fr;
     }
+    .biz-hours-row {
+      grid-template-columns: 90px 1fr 1fr auto;
+    }
   }
 
   @media (max-width: 600px) {
@@ -1145,8 +1162,14 @@
     .fields-row-3 { grid-template-columns: 1fr; }
     .discovery-title { font-size: clamp(1.6rem, 6vw, 2.25rem); }
     .btn-submit { max-width: 100%; }
-    .states-grid { grid-template-columns: repeat(3, 1fr); }
     .resume-banner-actions { margin-left: 0; width: 100%; }
+    .biz-hours-row {
+      grid-template-columns: 80px 1fr 1fr;
+      grid-template-rows: auto auto;
+    }
+    .biz-hours-closed-label {
+      grid-column: 1 / -1;
+    }
   }
 </style>
 </head>
@@ -1203,31 +1226,27 @@
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-3')" data-section="section-3">
               <span class="sidebar-num">3</span>
-              EZRS Setup
+              Domain + Email Sending
             </button>
-            <button class="sidebar-item locked" onclick="jumpToSection('section-4')" data-section="section-4" data-min-tier="essentials">
+            <button class="sidebar-item" onclick="jumpToSection('section-4')" data-section="section-4">
               <span class="sidebar-num">4</span>
-              Branding &amp; Assets
+              Calendar &amp; Hours
             </button>
-            <button class="sidebar-item locked" onclick="jumpToSection('section-5')" data-section="section-5" data-min-tier="essentials">
+            <button class="sidebar-item" onclick="jumpToSection('section-5')" data-section="section-5">
               <span class="sidebar-num">5</span>
-              RiseHub CRM Setup
+              Branding
             </button>
-            <button class="sidebar-item locked" onclick="jumpToSection('section-6')" data-section="section-6" data-min-tier="growth">
+            <button class="sidebar-item" onclick="jumpToSection('section-6')" data-section="section-6">
               <span class="sidebar-num">6</span>
-              Marketing Preferences
+              GHL / RiseHub CRM Setup
             </button>
             <button class="sidebar-item locked" onclick="jumpToSection('section-7')" data-section="section-7" data-min-tier="growth">
               <span class="sidebar-num">7</span>
-              Referral Partner Program
+              Referral Partners
             </button>
             <button class="sidebar-item locked" onclick="jumpToSection('section-8')" data-section="section-8" data-min-tier="fullstack">
               <span class="sidebar-num">8</span>
-              Website &amp; Funnel Content
-            </button>
-            <button class="sidebar-item locked" onclick="jumpToSection('section-9')" data-section="section-9" data-min-tier="fullstack">
-              <span class="sidebar-num">9</span>
-              Marketing Automation
+              Website + Funnel + Bio
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-final')" data-section="section-final">
               <span class="sidebar-num">✓</span>
@@ -1298,15 +1317,6 @@
                     <p class="form-card-label">Which package did you purchase? <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">Your answer unlocks the relevant setup sections below.</p>
                     <div class="radio-group" role="radiogroup" aria-label="Package selection" id="tierRadioGroup">
-                      <label class="radio-option tier-card" data-field="package_tier" data-value="ezrs_only" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="package_tier" value="ezrs_only">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">EZRS Only</div>
-                          <div class="radio-option-sub">Rate sheet platform · 5 users · 10 deals/mo</div>
-                          <div class="tier-price">$89/mo — no setup fee</div>
-                        </div>
-                      </label>
                       <label class="radio-option tier-card" data-field="package_tier" data-value="lender_essentials" tabindex="0" role="radio" aria-checked="false">
                         <input type="radio" name="package_tier" value="lender_essentials">
                         <span class="radio-custom" aria-hidden="true"></span>
@@ -1321,7 +1331,7 @@
                         <span class="radio-custom" aria-hidden="true"></span>
                         <div class="radio-option-content">
                           <div class="radio-option-text">Growth Engine</div>
-                          <div class="radio-option-sub">Essentials + marketing, referral program · 25 users</div>
+                          <div class="radio-option-sub">Essentials + referral partner program · 25 users</div>
                           <div class="tier-price">$4,997 setup · $228/mo</div>
                         </div>
                       </label>
@@ -1357,7 +1367,7 @@
                     <div class="field-group" style="max-width: 280px;">
                       <label class="field-label" for="preferred_start_date">Start date <span class="req" aria-hidden="true">*</span></label>
                       <input class="field-input" type="date" id="preferred_start_date" name="preferred_start_date" required>
-                      <span class="field-error" id="err-preferred_start_date">Please select a preferred start date.</span>
+                      <span class="field-error" id="err-preferred_start_date">Please select a preferred start date (minimum 3 days from today).</span>
                     </div>
                   </div>
 
@@ -1377,29 +1387,34 @@
                 </div>
                 <div class="form-section-body" id="section-2-body">
 
-                  <!-- Q4: Primary Contact -->
+                  <!-- Contact Info -->
                   <div class="form-card" id="card-q4">
                     <div class="form-card-num">4</div>
                     <p class="form-card-label">Primary contact — who should our build team communicate with? <span style="color:var(--color-primary)">*</span></p>
                     <div class="fields-row">
                       <div class="field-group">
-                        <label class="field-label" for="contact_name">Full name <span class="req">*</span></label>
-                        <input class="field-input" type="text" id="contact_name" name="contact_name" placeholder="Jane Smith" autocomplete="name" required>
-                        <span class="field-error" id="err-contact_name">Please enter your name.</span>
+                        <label class="field-label" for="contact_first_name">First name <span class="req">*</span></label>
+                        <input class="field-input" type="text" id="contact_first_name" name="contact_first_name" placeholder="Jane" autocomplete="given-name" required>
+                        <span class="field-error" id="err-contact_first_name">Please enter your first name.</span>
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label" for="contact_last_name">Last name <span class="req">*</span></label>
+                        <input class="field-input" type="text" id="contact_last_name" name="contact_last_name" placeholder="Smith" autocomplete="family-name" required>
+                        <span class="field-error" id="err-contact_last_name">Please enter your last name.</span>
                       </div>
                       <div class="field-group">
                         <label class="field-label" for="contact_email">Email address <span class="req">*</span></label>
                         <input class="field-input" type="email" id="contact_email" name="contact_email" placeholder="jane@acmelending.com" autocomplete="email" required>
                         <span class="field-error" id="err-contact_email">Please enter a valid email.</span>
                       </div>
-                      <div class="field-group field-full">
+                      <div class="field-group">
                         <label class="field-label" for="contact_phone">Phone number <span class="optional-tag">optional but helpful</span></label>
-                        <input class="field-input" type="tel" id="contact_phone" name="contact_phone" placeholder="(555) 867-5309" autocomplete="tel" style="max-width:280px;">
+                        <input class="field-input" type="tel" id="contact_phone" name="contact_phone" placeholder="(555) 867-5309" autocomplete="tel">
                       </div>
                     </div>
                   </div>
 
-                  <!-- Q5: Legal Business Name -->
+                  <!-- Legal Business Name -->
                   <div class="form-card" id="card-q5">
                     <div class="form-card-num">5</div>
                     <p class="form-card-label">Legal business name <span style="color:var(--color-primary)">*</span></p>
@@ -1411,21 +1426,33 @@
                     </div>
                   </div>
 
-                  <!-- Q6: DBA -->
+                  <!-- DBA -->
                   <div class="form-card" id="card-q6">
                     <div class="form-card-num">6</div>
                     <p class="form-card-label">DBA / brand name for client-facing materials</p>
                     <p class="form-card-micro">What name do you want borrowers and partners to see? Leave blank if it's the same as your legal name.</p>
                     <div class="field-group">
-                      <label class="field-label" for="dba_name">DBA or brand name <span class="optional-tag">if different from legal name</span></label>
-                      <input class="field-input" type="text" id="dba_name" name="dba_name" placeholder="Acme Capital Partners">
+                      <label class="field-label" for="dba_brand_name">DBA or brand name <span class="optional-tag">if different from legal name</span></label>
+                      <input class="field-input" type="text" id="dba_brand_name" name="dba_brand_name" placeholder="Acme Capital Partners">
                     </div>
                   </div>
 
-                  <!-- Q7: Business Address (shown for Essentials+) -->
-                  <div class="form-card" id="card-q7" data-min-tier="essentials">
+                  <!-- EIN / Tax ID -->
+                  <div class="form-card" id="card-ein">
                     <div class="form-card-num">7</div>
-                    <p class="form-card-label">Business address <span style="color:var(--color-primary)" id="addressRequired">*</span></p>
+                    <p class="form-card-label">EIN / Tax ID <span style="color:var(--color-primary)">*</span></p>
+                    <p class="form-card-micro">Your Employer Identification Number. Used for account setup and compliance documentation.</p>
+                    <div class="field-group" style="max-width: 280px;">
+                      <label class="field-label" for="ein">EIN / Tax ID <span class="req">*</span></label>
+                      <input class="field-input" type="text" id="ein" name="ein" placeholder="12-3456789" required>
+                      <span class="field-error" id="err-ein">Please enter your EIN / Tax ID.</span>
+                    </div>
+                  </div>
+
+                  <!-- Business Address -->
+                  <div class="form-card" id="card-q7">
+                    <div class="form-card-num">8</div>
+                    <p class="form-card-label">Business address <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">Used on rate sheets, email signatures, and other branded materials.</p>
                     <div class="fields-row">
                       <div class="field-group field-full">
@@ -1464,147 +1491,166 @@
                     </div>
                   </div>
 
-                  <!-- Q8: Website URL -->
+                  <!-- Website URL -->
                   <div class="form-card" id="card-q8">
-                    <div class="form-card-num">8</div>
+                    <div class="form-card-num">9</div>
                     <p class="form-card-label">Current website URL</p>
                     <p class="form-card-micro">If you have an existing website, share the URL. We'll reference it for brand continuity in your setup.</p>
                     <div class="field-group">
-                      <label class="field-label" for="website_url">Website URL <span class="optional-tag">optional</span></label>
-                      <input class="field-input" type="url" id="website_url" name="website_url" placeholder="https://www.acmelending.com">
+                      <label class="field-label" for="current_website_url">Website URL <span class="optional-tag">optional</span></label>
+                      <input class="field-input" type="url" id="current_website_url" name="current_website_url" placeholder="https://www.acmelending.com">
                     </div>
                   </div>
 
-                  <!-- Q9: States -->
+                  <!-- Lending States -->
                   <div class="form-card" id="card-q9">
-                    <div class="form-card-num">9</div>
-                    <p class="form-card-label">States you actively lend in</p>
-                    <p class="form-card-micro">We'll configure your rate sheets and marketing materials to reflect your active lending footprint. Check all that apply.</p>
+                    <div class="form-card-num">10</div>
+                    <p class="form-card-label">States you actively lend in <span style="color:var(--color-primary)">*</span></p>
+                    <p class="form-card-micro">We'll configure your rate sheets and marketing materials to reflect your active lending footprint.</p>
                     <div class="field-group">
-                      <label class="field-label" for="lending_states_text">Lending states</label>
-                      <textarea class="field-input" id="lending_states_text" name="lending_states_text" rows="3" placeholder="e.g., GA, FL, TX, NC, SC — or just write: All 50 states, Southeast region, etc."></textarea>
-                      <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-1);">Just type them in — abbreviations or full names, comma-separated. "All 50" works too.</p>
+                      <label class="field-label" for="lending_states">Lending states <span class="req">*</span></label>
+                      <textarea class="field-input" id="lending_states" name="lending_states" rows="3" placeholder="e.g., GA, FL, TX, NC, SC — or just write: All 50 states, Southeast region, etc." required></textarea>
+                      <span class="field-error" id="err-lending_states">Please list your lending states.</span>
+                      <p class="field-micro-help">Just type them in — abbreviations or full names, comma-separated. "All 50" works too.</p>
+                    </div>
+                  </div>
+
+                  <!-- Social Media Profile URLs -->
+                  <div class="form-card" id="card-social">
+                    <div class="form-card-num">11</div>
+                    <p class="form-card-label">Social media profile URLs</p>
+                    <p class="form-card-micro">Share the URLs to your existing social media profiles. We'll reference these during setup.</p>
+                    <div class="field-group">
+                      <label class="field-label" for="social_media_urls">Social media profiles <span class="optional-tag">optional</span></label>
+                      <textarea class="field-input" id="social_media_urls" name="social_media_urls" rows="3" placeholder="Paste any social media profile URLs separated by commas (LinkedIn, Facebook, Instagram, etc.)"></textarea>
                     </div>
                   </div>
 
                 </div>
               </div>
 
-              <!-- ===== SECTION 3: EZRS SETUP ===== -->
+              <!-- ===== SECTION 3: DOMAIN + EMAIL SENDING ===== -->
               <div class="form-section open" id="section-3">
                 <div class="form-section-header">
                   <div class="section-header" onclick="toggleSection('section-3')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-3-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-3')">
                     <span class="section-num">3</span>
-                    <span class="section-title">EZRS Setup</span>
+                    <span class="section-title">Domain + Email Sending</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
-                  <p class="section-micro">This is the heart of your EZ Rate Sheet configuration. The more detail you give us here, the more accurately your rate sheets and deal workflows will be built out of the gate.</p>
+                  <p class="section-micro">We'll need a domain for your funnel/portal and a subdomain for sending email through your CRM. If you don't already own one, we can help.</p>
                 </div>
                 <div class="form-section-body" id="section-3-body">
 
-                  <!-- Q10: Loan Products -->
-                  <div class="form-card" id="card-q10">
-                    <div class="form-card-num">10</div>
-                    <p class="form-card-label">Loan products you originate <span style="color:var(--color-primary)">*</span></p>
-                    <p class="form-card-micro">List each loan product type you offer. Include LTV limits, minimum/maximum FICO requirements, loan amount ranges, key program terms — the more detail, the better. Example: "DSCR Rental Loans — up to 80% LTV, 680+ FICO, $75K–$3M, 30-year term."</p>
-                    <div class="field-group">
-                      <label class="field-label" for="loan_products">Loan products &amp; program details <span class="req">*</span></label>
-                      <textarea class="field-input" id="loan_products" name="loan_products" rows="6" placeholder="Fix-and-Flip — up to 90% LTC, 660+ FICO, $50K–$2.5M&#10;DSCR Rental — up to 80% LTV, 680+ FICO, $75K–$3M&#10;Ground-Up Construction — up to 70% LTC, 680+ FICO&#10;..." required></textarea>
-                      <span class="field-error" id="err-loan_products">Please describe your loan products — this is essential for your EZRS build.</span>
-                    </div>
-                  </div>
-
-                  <!-- Q11: Rate Sheet Upload -->
-                  <div class="form-card" id="card-q11">
-                    <div class="form-card-num">11</div>
-                    <p class="form-card-label">Upload your current rate sheet or pricing guidelines</p>
-                    <p class="form-card-micro">If you have an existing rate sheet, price matrix, or program guidelines in any format, upload it here. Our team will use it as the source of truth for building your EZRS setup.</p>
-                    <div class="file-drop-zone" id="dropzone-ratesheets" data-field="rate_sheet_files">
-                      <input type="file" id="rate_sheet_files" name="rate_sheet_files" multiple accept=".pdf,.xls,.xlsx,.doc,.docx,.jpg,.jpeg,.png,.csv">
-                      <svg class="file-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                      <p class="file-drop-text"><strong>Click to upload</strong> or drag &amp; drop</p>
-                      <p class="file-drop-hint">PDF, Excel, Word, images — up to 50MB per file</p>
-                    </div>
-                    <div class="file-list" id="filelist-ratesheets"></div>
-                  </div>
-
-                  <!-- Q12: EZRS Login Access -->
-                  <div class="form-card" id="card-q12">
+                  <!-- Primary Domain -->
+                  <div class="form-card">
                     <div class="form-card-num">12</div>
-                    <p class="form-card-label">Who should have EZRS login access?</p>
-                    <p class="form-card-micro">Add the team members who need access to EZRS. Include their name, email, and role (e.g., Owner, Loan Officer, Processor). We'll create their accounts as part of the setup.</p>
-                    <div id="ezrs-users-list">
-                      <div class="repeater-row" id="ezrs-user-1">
-                        <div class="repeater-row-header">
-                          <span class="repeater-row-label">User 1</span>
-                        </div>
-                        <div class="fields-row-3">
-                          <div class="field-group">
-                            <label class="field-label" for="ezrs_user_1_name">Full name</label>
-                            <input class="field-input" type="text" id="ezrs_user_1_name" name="ezrs_users[0][name]" placeholder="Jane Smith">
-                          </div>
-                          <div class="field-group">
-                            <label class="field-label" for="ezrs_user_1_email">Email</label>
-                            <input class="field-input" type="email" id="ezrs_user_1_email" name="ezrs_users[0][email]" placeholder="jane@acmelending.com">
-                          </div>
-                          <div class="field-group">
-                            <label class="field-label" for="ezrs_user_1_role">Role</label>
-                            <input class="field-input" type="text" id="ezrs_user_1_role" name="ezrs_users[0][role]" placeholder="Owner / Admin">
-                          </div>
-                        </div>
-                      </div>
+                    <p class="form-card-label">Primary domain <span style="color:var(--color-primary)">*</span></p>
+                    <p class="form-card-micro">The main domain you'd like used for your funnel and client portal. If you don't have one yet, let us know and we'll help you get one registered.</p>
+                    <div class="field-group">
+                      <label class="field-label" for="primary_domain">Primary domain <span class="req">*</span></label>
+                      <input class="field-input" type="text" id="primary_domain" name="primary_domain" placeholder="myloancompany.com" required>
+                      <span class="field-error" id="err-primary_domain">Please enter your primary domain.</span>
                     </div>
-                    <button type="button" class="btn-add-row" onclick="addRepeaterRow('ezrs-users-list', 'ezrs-user', 'ezrs_users', ['name','email','role'], ['Full name','Email','Role'], ['Jane Smith','jane@acmelending.com','Loan Officer'])">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                      Add another team member
-                    </button>
+                  </div>
+
+                  <!-- Email Sending Subdomain -->
+                  <div class="form-card">
+                    <div class="form-card-num">13</div>
+                    <p class="form-card-label">Email sending subdomain <span style="color:var(--color-primary)">*</span></p>
+                    <p class="form-card-micro">We set up a dedicated subdomain for sending transactional and marketing emails through your CRM. This protects your main domain's reputation.</p>
+                    <div class="field-group">
+                      <label class="field-label" for="email_sending_subdomain">Email sending subdomain <span class="req">*</span></label>
+                      <input class="field-input" type="text" id="email_sending_subdomain" name="email_sending_subdomain" placeholder="em.myloancompany.com" required>
+                      <span class="field-error" id="err-email_sending_subdomain">Please enter your email sending subdomain.</span>
+                      <p class="field-micro-help">We recommend using a subdomain (e.g., em.yourdomain.com) so your transactional/marketing emails don't impact your main domain reputation.</p>
+                    </div>
                   </div>
 
                 </div>
               </div>
 
-              <!-- ===== SECTION 4: BRANDING & ASSETS (Essentials+) ===== -->
-              <div class="form-section" id="section-4" data-min-tier="essentials" style="display:none;">
+              <!-- ===== SECTION 4: CALENDAR ===== -->
+              <div class="form-section open" id="section-4">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-4')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-4-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-4')">
+                  <div class="section-header" onclick="toggleSection('section-4')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-4-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-4')">
                     <span class="section-num">4</span>
-                    <span class="section-title">Branding &amp; Assets</span>
-                    <span class="section-badge badge-essentials">Essentials+</span>
-                    <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                    <span class="section-title">Calendar &amp; Business Hours</span>
+                    <span class="section-badge badge-all">All tiers</span>
+                    <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
-                  <p class="section-micro">Your brand assets go directly into your RiseHub templates, rate sheet headers, email signatures, and any funnel pages we build. High-quality assets in = polished client experience out.</p>
+                  <p class="section-micro">We'll set up a borrower calendar (and a referral partner calendar for Full Stack clients). Just need your basic business hours and timezone — you can fine-tune in your CRM after launch.</p>
                 </div>
                 <div class="form-section-body" id="section-4-body">
 
-                  <!-- Q13: Logo Upload -->
-                  <div class="form-card" id="card-q13">
-                    <div class="form-card-num">13</div>
-                    <p class="form-card-label">Upload your logo files</p>
-                    <p class="form-card-micro">Please upload high-resolution versions if you have them. Vector formats (SVG, AI, EPS) are ideal — they scale perfectly at any size. PNG with transparent background is also great. Upload multiple variants if you have them (light version, dark version, icon-only, etc.).</p>
-                    <div class="file-drop-zone" id="dropzone-logos" data-field="logo_files">
-                      <input type="file" id="logo_files" name="logo_files" multiple accept=".svg,.png,.jpg,.jpeg,.ai,.eps,.pdf,.webp">
-                      <svg class="file-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                      <p class="file-drop-text"><strong>Click to upload</strong> or drag &amp; drop logos</p>
-                      <p class="file-drop-hint">SVG, AI, EPS, PNG, JPG — multiple files OK — up to 50MB each</p>
+                  <!-- Timezone -->
+                  <div class="form-card">
+                    <div class="form-card-num">14</div>
+                    <p class="form-card-label">Your timezone <span style="color:var(--color-primary)">*</span></p>
+                    <div class="field-group" style="max-width: 420px;">
+                      <label class="field-label" for="timezone">Timezone <span class="req">*</span></label>
+                      <select class="field-input" id="timezone" name="timezone" required>
+                        <option value="">Select your timezone…</option>
+                        <option value="America/New_York">America/New_York (Eastern)</option>
+                        <option value="America/Chicago">America/Chicago (Central)</option>
+                        <option value="America/Denver">America/Denver (Mountain)</option>
+                        <option value="America/Phoenix">America/Phoenix (Arizona - no DST)</option>
+                        <option value="America/Los_Angeles">America/Los_Angeles (Pacific)</option>
+                        <option value="America/Anchorage">America/Anchorage (Alaska)</option>
+                        <option value="Pacific/Honolulu">Pacific/Honolulu (Hawaii)</option>
+                      </select>
+                      <span class="field-error" id="err-timezone">Please select your timezone.</span>
                     </div>
-                    <div class="file-list" id="filelist-logos"></div>
                   </div>
 
-                  <!-- Q14: Brand Colors -->
-                  <div class="form-card" id="card-q14">
-                    <div class="form-card-num">14</div>
+                  <!-- Business Hours -->
+                  <div class="form-card">
+                    <div class="form-card-num">15</div>
+                    <p class="form-card-label">Business hours</p>
+                    <p class="form-card-micro">Set your availability for each day of the week. Check "Closed" for days you're not available. You can fine-tune this in your CRM after launch.</p>
+                    <div class="biz-hours-grid" id="bizHoursGrid">
+                      <!-- Days rendered by JS -->
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- ===== SECTION 5: BRANDING ===== -->
+              <div class="form-section open" id="section-5">
+                <div class="form-section-header">
+                  <div class="section-header" onclick="toggleSection('section-5')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-5-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-5')">
+                    <span class="section-num">5</span>
+                    <span class="section-title">Branding</span>
+                    <span class="section-badge badge-all">All tiers</span>
+                    <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                  <p class="section-micro">Your brand identity goes directly into your RiseHub templates, rate sheet headers, email signatures, and any funnel pages we build.</p>
+                </div>
+                <div class="form-section-body" id="section-5-body">
+
+                  <!-- Logo delivery callout -->
+                  <div class="callout-note">
+                    <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <div>
+                      <strong>After you submit this form, you'll receive a confirmation email. Please reply to that email with your logo attached (PNG, SVG, or PDF).</strong> For Full Stack clients, also attach any team headshots you'd like featured on your funnel.
+                    </div>
+                  </div>
+
+                  <!-- Brand Colors -->
+                  <div class="form-card">
+                    <div class="form-card-num">16</div>
                     <p class="form-card-label">Brand colors</p>
-                    <p class="form-card-micro">Share your brand colors in any format you have — hex codes are ideal. Include the role of each color (primary, secondary, accent, background, etc.) so we apply them correctly.</p>
+                    <p class="form-card-micro">Share your brand colors in any format — hex codes are ideal. Include the role of each color (primary, secondary, accent, background, etc.) so we apply them correctly.</p>
                     <div class="field-group">
                       <label class="field-label" for="brand_colors">Brand colors <span class="optional-tag">optional</span></label>
                       <textarea class="field-input" id="brand_colors" name="brand_colors" rows="4" placeholder="Primary: #1a3e6f (navy blue)&#10;Accent: #ffc72c (gold)&#10;Background: #ffffff&#10;Text: #1f2937"></textarea>
                     </div>
                   </div>
 
-                  <!-- Q15: Brand Tone -->
-                  <div class="form-card" id="card-q15">
-                    <div class="form-card-num">15</div>
+                  <!-- Brand Tone -->
+                  <div class="form-card">
+                    <div class="form-card-num">17</div>
                     <p class="form-card-label">Brand tone &amp; voice</p>
                     <p class="form-card-micro">How should your brand sound to clients and partners? We'll apply this to email templates, automations, and any copy we write during setup.</p>
                     <div class="radio-group" role="radiogroup" aria-label="Brand tone">
@@ -1647,41 +1693,27 @@
                     </div>
                   </div>
 
-                  <!-- Q16: Other Brand Assets -->
-                  <div class="form-card" id="card-q16">
-                    <div class="form-card-num">16</div>
-                    <p class="form-card-label">Upload any other brand assets</p>
-                    <p class="form-card-micro">Brand guidelines doc, business card design, previous marketing materials, letterhead — anything that shows how your brand looks and feels. The more we have, the more consistent your setup will be.</p>
-                    <div class="file-drop-zone" id="dropzone-brand-assets" data-field="brand_asset_files">
-                      <input type="file" id="brand_asset_files" name="brand_asset_files" multiple>
-                      <svg class="file-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                      <p class="file-drop-text"><strong>Click to upload</strong> or drag &amp; drop</p>
-                      <p class="file-drop-hint">Any format — brand guide PDF, Canva export, business card images, etc.</p>
-                    </div>
-                    <div class="file-list" id="filelist-brand-assets"></div>
-                  </div>
-
                 </div>
               </div>
 
-              <!-- ===== SECTION 5: RISEHUB CRM SETUP (Essentials+) ===== -->
-              <div class="form-section" id="section-5" data-min-tier="essentials" style="display:none;">
+              <!-- ===== SECTION 6: GHL / RISEHUB CRM SETUP ===== -->
+              <div class="form-section open" id="section-6">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-5')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-5-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-5')">
-                    <span class="section-num">5</span>
-                    <span class="section-title">RiseHub CRM Setup</span>
-                    <span class="section-badge badge-essentials">Essentials+</span>
-                    <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  <div class="section-header" onclick="toggleSection('section-6')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-6-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-6')">
+                    <span class="section-num">6</span>
+                    <span class="section-title">GHL / RiseHub CRM Setup</span>
+                    <span class="section-badge badge-all">All tiers</span>
+                    <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We'll configure your RiseHub CRM with your team, pipelines, and contact structure. If you're migrating from another tool, we'll handle the transition as smoothly as possible.</p>
                 </div>
-                <div class="form-section-body" id="section-5-body">
+                <div class="form-section-body" id="section-6-body">
 
-                  <!-- Q17: RiseHub Team Members -->
-                  <div class="form-card" id="card-q17">
-                    <div class="form-card-num">17</div>
+                  <!-- RiseHub Team Members -->
+                  <div class="form-card">
+                    <div class="form-card-num">18</div>
                     <p class="form-card-label">Team members who need RiseHub access</p>
-                    <p class="form-card-micro">Add everyone who needs a seat. Include their name, email, and role so we can set up the right permissions. <span id="tier-user-limit-note" class="tier-note" style="display:inline;background:none;border:none;padding:0;font-style:italic;"></span></p>
+                    <p class="form-card-micro">Add everyone who needs a seat. Include their name, email, and role so we can set up the right permissions.</p>
                     <div class="tier-note" id="tier-user-limit-box" style="display:none;"></div>
                     <div id="risehub-users-list">
                       <div class="repeater-row" id="risehub-user-1">
@@ -1710,106 +1742,75 @@
                     </button>
                   </div>
 
-                  <!-- Q18: Current CRM -->
-                  <div class="form-card" id="card-q18">
-                    <div class="form-card-num">18</div>
+                  <!-- Current CRM -->
+                  <div class="form-card">
+                    <div class="form-card-num">19</div>
                     <p class="form-card-label">Current CRM or pipeline tool (if any)</p>
                     <p class="form-card-micro">Knowing what you're coming from helps us think about what workflows to replicate and what to improve. If you're not using anything, that's totally fine.</p>
                     <div class="field-group">
-                      <label class="field-label" for="current_crm">Current CRM / pipeline tool <span class="optional-tag">optional</span></label>
-                      <input class="field-input" type="text" id="current_crm" name="current_crm" placeholder="e.g., Salesforce, HubSpot, LendingWise, Excel, None">
+                      <label class="field-label" for="current_crm_tool">Current CRM / pipeline tool <span class="optional-tag">optional</span></label>
+                      <input class="field-input" type="text" id="current_crm_tool" name="current_crm_tool" placeholder="e.g., Salesforce, HubSpot, LendingWise, Excel, None">
                     </div>
                   </div>
 
-                  <!-- Q19: CRM Migration -->
-                  <div class="form-card" id="card-q19">
-                    <div class="form-card-num">19</div>
+                  <!-- CRM Migration -->
+                  <div class="form-card">
+                    <div class="form-card-num">20</div>
                     <p class="form-card-label">Migrating contacts from another CRM?</p>
-                    <p class="form-card-micro">If you have an existing contact list you'd like imported into RiseHub, upload a CSV export here. We'll handle the field mapping and import.</p>
+                    <p class="form-card-micro">If you have an existing contact list you'd like imported into RiseHub, let us know and we'll coordinate the import separately.</p>
                     <div class="yes-no-group" role="radiogroup" aria-label="CRM migration">
-                      <label class="yes-no-option" data-field="crm_migration" data-value="yes" tabindex="0">
-                        <input type="radio" name="crm_migration" value="yes">
+                      <label class="yes-no-option" data-field="crm_migration_needed" data-value="yes" tabindex="0">
+                        <input type="radio" name="crm_migration_needed" value="yes">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                         Yes, I have contacts to import
                       </label>
-                      <label class="yes-no-option" data-field="crm_migration" data-value="no" tabindex="0">
-                        <input type="radio" name="crm_migration" value="no">
+                      <label class="yes-no-option" data-field="crm_migration_needed" data-value="no" tabindex="0">
+                        <input type="radio" name="crm_migration_needed" value="no">
                         No contacts to migrate
                       </label>
                     </div>
                     <div class="conditional-reveal" id="crm-migration-reveal">
-                      <div class="file-drop-zone" id="dropzone-crm-csv" data-field="crm_csv_files">
-                        <input type="file" id="crm_csv_files" name="crm_csv_files" multiple accept=".csv,.xlsx,.xls">
-                        <svg class="file-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        <p class="file-drop-text"><strong>Upload your contacts export</strong></p>
-                        <p class="file-drop-hint">CSV or Excel — include headers in row 1 (first name, last name, email, phone, etc.)</p>
-                      </div>
-                      <div class="file-list" id="filelist-crm-csv"></div>
-                      <div class="field-group" style="margin-top:var(--space-3);">
-                        <label class="field-label" for="crm_migration_notes">Any notes about your contact list? <span class="optional-tag">optional</span></label>
-                        <textarea class="field-input" id="crm_migration_notes" name="crm_migration_notes" rows="2" placeholder="e.g., 'This is a 3-year history — ~800 contacts. Some have tags from HubSpot I'd like to keep.'"></textarea>
+                      <div class="field-group">
+                        <label class="field-label" for="crm_migration_notes">Notes about your contact list <span class="optional-tag">optional</span></label>
+                        <textarea class="field-input" id="crm_migration_notes" name="crm_migration_notes" rows="2" placeholder="e.g., 'This is a 3-year history — ~800 contacts from HubSpot. Some have tags I'd like to keep.'"></textarea>
                       </div>
                     </div>
                   </div>
 
-                </div>
-              </div>
-
-              <!-- ===== SECTION 6: MARKETING PREFERENCES (Growth+) ===== -->
-              <div class="form-section" id="section-6" data-min-tier="growth" style="display:none;">
-                <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-6')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-6-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-6')">
-                    <span class="section-num">6</span>
-                    <span class="section-title">Marketing Preferences</span>
-                    <span class="section-badge badge-growth">Growth+</span>
-                    <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                  </div>
-                  <p class="section-micro">We'll connect your social accounts, configure your content strategy, and set up your marketing tools. The more we know about your audience and goals, the more targeted your launch will be.</p>
-                </div>
-                <div class="form-section-body" id="section-6-body">
-
-                  <!-- Q20: Social Media -->
-                  <div class="form-card" id="card-q20">
-                    <div class="form-card-num">20</div>
-                    <p class="form-card-label">Social media accounts to connect</p>
-                    <p class="form-card-micro">List the platforms and handles or profile URLs for any social accounts you'd like connected to RiseHub for scheduling and management. We'll need admin access during setup — we'll walk you through that separately.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="social_media_accounts">Social accounts <span class="optional-tag">optional</span></label>
-                      <textarea class="field-input" id="social_media_accounts" name="social_media_accounts" rows="4" placeholder="LinkedIn: /company/acme-lending&#10;Facebook: /AcmeLendingLLC&#10;Instagram: @acmelending&#10;YouTube: /c/AcmeLending"></textarea>
-                    </div>
-                  </div>
-
-                  <!-- Q21: Target Borrower -->
-                  <div class="form-card" id="card-q21">
+                  <!-- Online Loan Application -->
+                  <div class="form-card">
                     <div class="form-card-num">21</div>
-                    <p class="form-card-label">Target borrower profile</p>
-                    <p class="form-card-micro">Describe your ideal client in detail. The more specific you are, the more precisely we can target your campaigns, write your content, and set up your lead funnels. Think: investor type, experience level, deal size, geography, what motivates them.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="target_borrower">Ideal client description</label>
-                      <textarea class="field-input" id="target_borrower" name="target_borrower" rows="5" placeholder="e.g., 'Experienced residential investors doing 3–10 fix-and-flips per year in Southeast markets. Deal size $150K–$500K. They value speed, reliability, and a lender who speaks their language. Not first-time investors.'"></textarea>
+                    <p class="form-card-label">Do you have an online loan application form you'd like us to send borrowers to after they sign their term sheet? <span style="color:var(--color-primary)">*</span></p>
+                    <div class="yes-no-group" role="radiogroup" aria-label="Has online loan application">
+                      <label class="yes-no-option" data-field="has_online_loan_application" data-value="yes" tabindex="0">
+                        <input type="radio" name="has_online_loan_application" value="yes">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Yes, I have one
+                      </label>
+                      <label class="yes-no-option" data-field="has_online_loan_application" data-value="no" tabindex="0">
+                        <input type="radio" name="has_online_loan_application" value="no">
+                        No, not yet
+                      </label>
                     </div>
-                  </div>
-
-                  <!-- Q22: Content Topics -->
-                  <div class="form-card" id="card-q22">
-                    <div class="form-card-num">22</div>
-                    <p class="form-card-label">Content topics you want to be known for</p>
-                    <p class="form-card-micro">What expertise do you want to establish in the market? We'll use this to configure your content calendar, email topics, and social media strategy.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="content_topics">Key content areas</label>
-                      <textarea class="field-input" id="content_topics" name="content_topics" rows="4" placeholder="e.g., 'Fix-and-flip financing tips, DSCR rental loan education, how to scale a portfolio, market updates for Southeast investors, common mistakes real estate investors make'"></textarea>
+                    <span class="field-error" id="err-has_online_loan_application">Please answer this question.</span>
+                    <div class="conditional-reveal" id="loan-app-url-reveal">
+                      <div class="field-group">
+                        <label class="field-label" for="online_loan_application_url">Loan application URL <span class="req">*</span></label>
+                        <input class="field-input" type="url" id="online_loan_application_url" name="online_loan_application_url" placeholder="https://apply.yourcompany.com/loan">
+                        <span class="field-error" id="err-online_loan_application_url">Please enter your loan application URL.</span>
+                      </div>
                     </div>
                   </div>
 
                 </div>
               </div>
 
-              <!-- ===== SECTION 7: REFERRAL PARTNER PROGRAM (Growth+) ===== -->
+              <!-- ===== SECTION 7: REFERRAL PARTNERS (Growth Engine and Full Stack only) ===== -->
               <div class="form-section" id="section-7" data-min-tier="growth" style="display:none;">
                 <div class="form-section-header">
                   <div class="section-header" onclick="toggleSection('section-7')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-7-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-7')">
                     <span class="section-num">7</span>
-                    <span class="section-title">Referral Partner Program</span>
+                    <span class="section-title">Referral Partners</span>
                     <span class="section-badge badge-growth">Growth+</span>
                     <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
@@ -1817,68 +1818,78 @@
                 </div>
                 <div class="form-section-body" id="section-7-body">
 
-                  <!-- Q23: Existing Partners -->
-                  <div class="form-card" id="card-q23">
-                    <div class="form-card-num">23</div>
-                    <p class="form-card-label">Existing referral partners to load into the system</p>
-                    <p class="form-card-micro">Add your existing referral partners — real estate agents, mortgage brokers, financial advisors, CPAs, etc. Include name, email, and company. Or upload a CSV if you have a long list.</p>
-                    <div id="partners-list">
-                      <div class="repeater-row" id="partner-1">
-                        <div class="repeater-row-header">
-                          <span class="repeater-row-label">Partner 1</span>
-                        </div>
-                        <div class="fields-row-3">
-                          <div class="field-group">
-                            <label class="field-label" for="partner_1_name">Partner name</label>
-                            <input class="field-input" type="text" id="partner_1_name" name="partners[0][name]" placeholder="John Doe">
-                          </div>
-                          <div class="field-group">
-                            <label class="field-label" for="partner_1_email">Email</label>
-                            <input class="field-input" type="email" id="partner_1_email" name="partners[0][email]" placeholder="john@rerealty.com">
-                          </div>
-                          <div class="field-group">
-                            <label class="field-label" for="partner_1_company">Company</label>
-                            <input class="field-input" type="text" id="partner_1_company" name="partners[0][company]" placeholder="RE Realty Group">
-                          </div>
-                        </div>
-                      </div>
+                  <!-- Has Existing Referral Partners -->
+                  <div class="form-card">
+                    <div class="form-card-num">22</div>
+                    <p class="form-card-label">Do you have existing referral partners you'd like us to load into your CRM at launch?</p>
+                    <div class="yes-no-group" role="radiogroup" aria-label="Has existing referral partners">
+                      <label class="yes-no-option" data-field="has_existing_referral_partners" data-value="yes" tabindex="0">
+                        <input type="radio" name="has_existing_referral_partners" value="yes">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Yes, load my partners
+                      </label>
+                      <label class="yes-no-option" data-field="has_existing_referral_partners" data-value="no" tabindex="0">
+                        <input type="radio" name="has_existing_referral_partners" value="no">
+                        No, starting fresh
+                      </label>
                     </div>
-                    <button type="button" class="btn-add-row" onclick="addRepeaterRow('partners-list', 'partner', 'partners', ['name','email','company'], ['Partner name','Email','Company'], ['John Doe','john@example.com','RE Realty Group'])">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                      Add another partner
-                    </button>
-                    <div style="margin-top:var(--space-4);">
-                      <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-2);">Have a long list? Upload a CSV instead:</p>
-                      <div class="file-drop-zone" id="dropzone-partners-csv" data-field="partners_csv">
-                        <input type="file" id="partners_csv" name="partners_csv" multiple accept=".csv,.xlsx,.xls">
-                        <svg class="file-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="width:28px;height:28px;margin-bottom:var(--space-1);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        <p class="file-drop-text" style="font-size:var(--text-xs);"><strong>Upload partner CSV</strong></p>
-                        <p class="file-drop-hint">Include columns: Name, Email, Company, Phone (optional)</p>
-                      </div>
-                      <div class="file-list" id="filelist-partners-csv"></div>
-                    </div>
+                    <span class="field-error" id="err-has_existing_referral_partners">Please answer this question.</span>
                   </div>
 
-                  <!-- Q24: Commission Structure -->
-                  <div class="form-card" id="card-q24">
-                    <div class="form-card-num">24</div>
-                    <p class="form-card-label">Referral commission structure</p>
-                    <p class="form-card-micro">Describe how you compensate referral partners. We'll use this to configure your partner portal and commission tracking setup.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="commission_structure">Commission structure <span class="optional-tag">optional</span></label>
-                      <textarea class="field-input" id="commission_structure" name="commission_structure" rows="4" placeholder="e.g., 'We pay 1% of funded loan amount, paid within 10 days of funding. Partners get a unique referral link and can track submissions in the portal. No cap on earnings.'"></textarea>
+                  <!-- Partners Repeater (conditional) -->
+                  <div class="conditional-reveal" id="partners-reveal">
+                    <div class="form-card" style="margin-top: var(--space-4);">
+                      <div class="form-card-num">23</div>
+                      <p class="form-card-label">Add your existing referral partners</p>
+                      <p class="form-card-micro">Include name, email, and company. Real estate agents, mortgage brokers, financial advisors, CPAs, etc.</p>
+                      <div id="partners-list">
+                        <div class="repeater-row" id="partner-1">
+                          <div class="repeater-row-header">
+                            <span class="repeater-row-label">Partner 1</span>
+                          </div>
+                          <div class="fields-row-3">
+                            <div class="field-group">
+                              <label class="field-label" for="partner_1_name">Partner name</label>
+                              <input class="field-input" type="text" id="partner_1_name" name="partners[0][name]" placeholder="John Doe">
+                            </div>
+                            <div class="field-group">
+                              <label class="field-label" for="partner_1_email">Email</label>
+                              <input class="field-input" type="email" id="partner_1_email" name="partners[0][email]" placeholder="john@rerealty.com">
+                            </div>
+                            <div class="field-group">
+                              <label class="field-label" for="partner_1_company">Company</label>
+                              <input class="field-input" type="text" id="partner_1_company" name="partners[0][company]" placeholder="RE Realty Group">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" class="btn-add-row" onclick="addRepeaterRow('partners-list', 'partner', 'partners', ['name','email','company'], ['Partner name','Email','Company'], ['John Doe','john@example.com','RE Realty Group'])">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add another partner
+                      </button>
+                    </div>
+
+                    <!-- Commission Structure -->
+                    <div class="form-card" style="margin-top: var(--space-4);">
+                      <div class="form-card-num">24</div>
+                      <p class="form-card-label">Referral commission structure</p>
+                      <p class="form-card-micro">Describe how you compensate referral partners. We'll use this to configure your partner portal and commission tracking setup.</p>
+                      <div class="field-group">
+                        <label class="field-label" for="referral_commission_structure">Commission structure <span class="optional-tag">optional</span></label>
+                        <textarea class="field-input" id="referral_commission_structure" name="referral_commission_structure" rows="4" placeholder="e.g., 'We pay 1% of funded loan amount, paid within 10 days of funding. Partners get a unique referral link and can track submissions in the portal. No cap on earnings.'"></textarea>
+                      </div>
                     </div>
                   </div>
 
                 </div>
               </div>
 
-              <!-- ===== SECTION 8: WEBSITE & FUNNEL CONTENT (Full Stack only) ===== -->
+              <!-- ===== SECTION 8: WEBSITE + FUNNEL + BIO (Full Stack only) ===== -->
               <div class="form-section" id="section-8" data-min-tier="fullstack" style="display:none;">
                 <div class="form-section-header">
                   <div class="section-header" onclick="toggleSection('section-8')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-8-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-8')">
                     <span class="section-num">8</span>
-                    <span class="section-title">Website &amp; Funnel Content</span>
+                    <span class="section-title">Website + Funnel + Bio</span>
                     <span class="section-badge badge-fullstack">Full Stack only</span>
                     <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
@@ -1886,161 +1897,56 @@
                 </div>
                 <div class="form-section-body" id="section-8-body">
 
-                  <!-- Q25: Existing Website Reference -->
-                  <div class="form-card" id="card-q25">
+                  <!-- Reference Website -->
+                  <div class="form-card">
                     <div class="form-card-num">25</div>
-                    <p class="form-card-label">Existing website for brand continuity reference</p>
+                    <p class="form-card-label">Reference website for brand continuity</p>
                     <p class="form-card-micro">If you have a current website, we'll reference it when designing your funnel pages so everything feels cohesive and on-brand.</p>
                     <div class="fields-row">
                       <div class="field-group">
-                        <label class="field-label" for="existing_website_url">Website URL <span class="optional-tag">optional</span></label>
-                        <input class="field-input" type="url" id="existing_website_url" name="existing_website_url" placeholder="https://www.acmelending.com">
+                        <label class="field-label" for="reference_website_url">Website URL <span class="req">*</span></label>
+                        <input class="field-input" type="url" id="reference_website_url" name="reference_website_url" placeholder="https://www.acmelending.com">
+                        <span class="field-error" id="err-reference_website_url">Please enter your reference website URL.</span>
                       </div>
                       <div class="field-group">
-                        <label class="field-label" for="existing_website_notes">Notes <span class="optional-tag">optional</span></label>
-                        <input class="field-input" type="text" id="existing_website_notes" name="existing_website_notes" placeholder="e.g., 'Keep the same navy/gold palette but modernize the layout'">
+                        <label class="field-label" for="reference_website_notes">Notes <span class="optional-tag">optional</span></label>
+                        <input class="field-input" type="text" id="reference_website_notes" name="reference_website_notes" placeholder="e.g., 'Keep the same navy/gold palette but modernize the layout'">
                       </div>
                     </div>
                   </div>
 
-                  <!-- Q26: Key Messages -->
-                  <div class="form-card" id="card-q26">
+                  <!-- Key Messages -->
+                  <div class="form-card">
                     <div class="form-card-num">26</div>
-                    <p class="form-card-label">Key messages &amp; value propositions to feature</p>
+                    <p class="form-card-label">Key messages &amp; value propositions to feature <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">What are the 3–5 core reasons borrowers should choose you over any other lender? These become the headlines and hero copy on your funnel pages.</p>
                     <div class="field-group">
-                      <label class="field-label" for="key_messages">Key messages / value props</label>
-                      <textarea class="field-input" id="key_messages" name="key_messages" rows="5" placeholder="e.g., '30-year industry experience — we've been through every market cycle.&#10;Close in as fast as 7 days.&#10;No income verification — asset-based lending.&#10;In-house underwriting — faster decisions, no surprises.'"></textarea>
+                      <label class="field-label" for="key_messages">Key messages / value props <span class="req">*</span></label>
+                      <textarea class="field-input" id="key_messages" name="key_messages" rows="5" placeholder="e.g., '30-year industry experience — we've been through every market cycle.&#10;Close in as fast as 7 days.&#10;No income verification — asset-based lending.&#10;In-house underwriting — faster decisions, no surprises.'" required></textarea>
+                      <span class="field-error" id="err-key_messages">Please enter your key messages.</span>
                     </div>
                   </div>
 
-                  <!-- Q27: Existing Marketing Copy -->
-                  <div class="form-card" id="card-q27">
+                  <!-- Owner / Founder Bio -->
+                  <div class="form-card">
                     <div class="form-card-num">27</div>
-                    <p class="form-card-label">Existing marketing copy or content to repurpose</p>
-                    <p class="form-card-micro">Have a one-pager, pitch deck, old email campaign, or website copy you love? Upload it. We'll extract what's working and weave it into your new funnels.</p>
-                    <div class="file-drop-zone" id="dropzone-marketing-copy" data-field="marketing_copy_files">
-                      <input type="file" id="marketing_copy_files" name="marketing_copy_files" multiple>
-                      <svg class="file-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                      <p class="file-drop-text"><strong>Click to upload</strong> existing content</p>
-                      <p class="file-drop-hint">PDF, Word, PowerPoint, images — any format</p>
-                    </div>
-                    <div class="file-list" id="filelist-marketing-copy"></div>
-                    <div class="field-group" style="margin-top:var(--space-3);">
-                      <label class="field-label" for="marketing_copy_notes">Notes about the files <span class="optional-tag">optional</span></label>
-                      <textarea class="field-input" id="marketing_copy_notes" name="marketing_copy_notes" rows="2" placeholder="e.g., 'The pitch deck has good stats — please use the deal performance numbers on slide 8'"></textarea>
+                    <p class="form-card-label">Owner / Founder Bio <span style="color:var(--color-primary)">*</span></p>
+                    <p class="form-card-micro">This will be featured on your funnel. A few sentences about your background, experience, and what makes you uniquely qualified to serve your clients. Speak directly to borrowers.</p>
+                    <div class="field-group">
+                      <label class="field-label" for="owner_bio">Owner / Founder Bio <span class="req">*</span></label>
+                      <textarea class="field-input" id="owner_bio" name="owner_bio" rows="5" placeholder="A short paragraph (3-5 sentences) about you/the founder — background, experience, what makes you uniquely suited to serve your clients." required></textarea>
+                      <span class="field-error" id="err-owner_bio">Please enter your owner/founder bio.</span>
                     </div>
                   </div>
 
-                </div>
-              </div>
-
-              <!-- ===== SECTION 9: MARKETING AUTOMATION (Full Stack only) ===== -->
-              <div class="form-section" id="section-9" data-min-tier="fullstack" style="display:none;">
-                <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-9')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-9-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-9')">
-                    <span class="section-num">9</span>
-                    <span class="section-title">Marketing Automation Preferences</span>
-                    <span class="section-badge badge-fullstack">Full Stack only</span>
-                    <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                  </div>
-                  <p class="section-micro">We'll configure your email sequences, lead follow-up automations, and any existing workflows you want migrated. Your answers here shape the rhythm and tone of every automated touchpoint.</p>
-                </div>
-                <div class="form-section-body" id="section-9-body">
-
-                  <!-- Q28: Email Frequency -->
-                  <div class="form-card" id="card-q28">
+                  <!-- Team Member Bios -->
+                  <div class="form-card">
                     <div class="form-card-num">28</div>
-                    <p class="form-card-label">Preferred email sending frequency</p>
-                    <p class="form-card-micro">How often do you want to send marketing emails to your list? This sets the cadence for your broadcast emails and drip sequences. You can always adjust after launch.</p>
-                    <div class="radio-group radio-grid-2" role="radiogroup" aria-label="Email frequency">
-                      <label class="radio-option" data-field="email_frequency" data-value="daily" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="email_frequency" value="daily">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">Daily</div>
-                          <div class="radio-option-sub">High-volume, momentum-driven</div>
-                        </div>
-                      </label>
-                      <label class="radio-option" data-field="email_frequency" data-value="3x_week" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="email_frequency" value="3x_week">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">3×/week</div>
-                          <div class="radio-option-sub">Active but not aggressive</div>
-                        </div>
-                      </label>
-                      <label class="radio-option" data-field="email_frequency" data-value="weekly" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="email_frequency" value="weekly">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">Weekly</div>
-                          <div class="radio-option-sub">Consistent — most common</div>
-                        </div>
-                      </label>
-                      <label class="radio-option" data-field="email_frequency" data-value="biweekly" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="email_frequency" value="biweekly">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">Bi-weekly</div>
-                          <div class="radio-option-sub">Lower frequency, quality focus</div>
-                        </div>
-                      </label>
-                      <label class="radio-option" data-field="email_frequency" data-value="monthly" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="email_frequency" value="monthly">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">Monthly</div>
-                          <div class="radio-option-sub">Newsletter-style digest</div>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-
-                  <!-- Q29: Communication Tone -->
-                  <div class="form-card" id="card-q29">
-                    <div class="form-card-num">29</div>
-                    <p class="form-card-label">Communication tone for automated sequences</p>
-                    <p class="form-card-micro">How should automated emails, SMS messages, and follow-up sequences sound? This may differ from your overall brand tone — a formal brand might still want warm automation.</p>
-                    <div class="radio-group radio-grid-2" role="radiogroup" aria-label="Communication tone">
-                      <label class="radio-option" data-field="automation_tone" data-value="formal" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="automation_tone" value="formal">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <span class="radio-option-text">Formal</span>
-                      </label>
-                      <label class="radio-option" data-field="automation_tone" data-value="professional" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="automation_tone" value="professional">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <span class="radio-option-text">Professional</span>
-                      </label>
-                      <label class="radio-option" data-field="automation_tone" data-value="casual_approachable" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="automation_tone" value="casual_approachable">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <span class="radio-option-text">Casual &amp; Approachable</span>
-                      </label>
-                      <label class="radio-option" data-field="automation_tone" data-value="educational" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="automation_tone" value="educational">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <span class="radio-option-text">Educational</span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <!-- Q30: Existing Automation -->
-                  <div class="form-card" id="card-q30">
-                    <div class="form-card-num">30</div>
-                    <p class="form-card-label">Existing email sequences or automation to migrate</p>
-                    <p class="form-card-micro">Do you have email sequences, drip campaigns, or automation workflows from a previous tool that you'd like us to rebuild in RiseHub? Upload them here and add any notes about how they should work.</p>
-                    <div class="file-drop-zone" id="dropzone-automation" data-field="automation_files">
-                      <input type="file" id="automation_files" name="automation_files" multiple>
-                      <svg class="file-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                      <p class="file-drop-text"><strong>Upload existing sequences</strong> or drag &amp; drop</p>
-                      <p class="file-drop-hint">Export from Mailchimp, ActiveCampaign, Klaviyo, etc. — PDF, Word, or raw text is fine</p>
-                    </div>
-                    <div class="file-list" id="filelist-automation"></div>
-                    <div class="field-group" style="margin-top:var(--space-3);">
-                      <label class="field-label" for="automation_notes">Automation notes <span class="optional-tag">optional</span></label>
-                      <textarea class="field-input" id="automation_notes" name="automation_notes" rows="3" placeholder="e.g., 'We have a 5-email welcome series from Mailchimp — want to keep the structure but freshen the copy. Also had a re-engagement campaign we loved.'"></textarea>
+                    <p class="form-card-label">Team Member Bios <span class="optional-tag" style="font-size:var(--text-xs);margin-left:var(--space-2);">optional</span></p>
+                    <p class="form-card-micro">If you'd like to feature any team members on your funnel, add their names and short bios here. Leave blank if it's just you or you're not ready yet.</p>
+                    <div class="field-group">
+                      <label class="field-label" for="team_member_bios">Team Member Bios <span class="optional-tag">optional</span></label>
+                      <textarea class="field-input" id="team_member_bios" name="team_member_bios" rows="4" placeholder="Optional. Names + short bios for any team members you'd like featured on your funnel."></textarea>
                     </div>
                   </div>
 
@@ -2060,9 +1966,8 @@
                 </div>
                 <div class="form-section-body" id="section-final-body">
 
-                  <!-- Q31 -->
-                  <div class="form-card" id="card-q31">
-                    <div class="form-card-num">31</div>
+                  <div class="form-card">
+                    <div class="form-card-num">29</div>
                     <p class="form-card-label">Anything else we should know?</p>
                     <p class="form-card-micro">This is your open field. Timeline constraints, existing integrations you rely on, team preferences, things that went wrong with a previous tech setup, things you're most excited about — all of it is useful.</p>
                     <div class="field-group">
@@ -2105,7 +2010,19 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <h2 class="thankyou-title">You're all set. Let's build something great.</h2>
-            <p class="thankyou-body" id="thankYouBody">Our build team has everything they need to start constructing your system. You'll hear from us soon with your kickoff call scheduled.</p>
+            <p class="thankyou-body" id="thankYouBody">Our build team has everything they need to start constructing your system. You'll hear from us within 1 business day — we'll confirm receipt and schedule your kickoff call from there.</p>
+
+            <!-- Logo callout — always visible -->
+            <div class="thankyou-logo-callout">
+              <div class="thankyou-logo-callout-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="thankyou-logo-callout-text">
+                <strong>⚑ One last step — reply to the confirmation email with your logo attached.</strong>
+                <p>Please attach your logo as a PNG, SVG, or PDF. <span id="thankYouFullStackNote" style="display:none;">As a Full Stack client, also attach any team headshots you'd like featured on your funnel.</span></p>
+              </div>
+            </div>
+
             <div class="thankyou-timeline" id="thankYouTimeline">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <span id="thankYouTimelineText">Setup timeline: 5–7 business days</span>
@@ -2138,16 +2055,15 @@
 
 <script>
 // ===== CONFIG =====
-const GHL_WEBHOOK_URL = '{GHL_WEBHOOK_URL}';
-const LS_KEY = 'ezrs_onboarding_v1';
+const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/6vd0JqcgyHpzEUereM2p/webhook-trigger/7f5726a9-594a-40c7-937c-adc3969ae33a';
+const LS_KEY = 'ezrs_onboarding_v2';
 
 // Tier hierarchy for section visibility
-const TIER_ORDER = { 'ezrs_only': 0, 'lender_essentials': 1, 'growth_engine': 2, 'full_stack': 3 };
+const TIER_ORDER = { 'lender_essentials': 1, 'growth_engine': 2, 'full_stack': 3 };
 const TIER_MIN = { 'essentials': 'lender_essentials', 'growth': 'growth_engine', 'fullstack': 'full_stack' };
 
 // Setup timelines by tier
 const SETUP_TIMELINES = {
-  'ezrs_only': '1–2 business days',
   'lender_essentials': '5–7 business days',
   'growth_engine': '10–15 business days',
   'full_stack': '15–25 business days'
@@ -2155,10 +2071,13 @@ const SETUP_TIMELINES = {
 
 // Tier user limits
 const TIER_USER_LIMITS = {
-  'lender_essentials': 'Your plan includes <strong>5 users</strong> for both EZRS and RiseHub.',
-  'growth_engine': 'Your plan includes <strong>25 users</strong> for both EZRS and RiseHub.',
+  'lender_essentials': 'Your plan includes <strong>5 users</strong> for RiseHub.',
+  'growth_engine': 'Your plan includes <strong>25 users</strong> for RiseHub.',
   'full_stack': 'Your plan includes <strong>unlimited users</strong>.'
 };
+
+// Business hours days
+const BIZ_DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
 // ===== NAV =====
 function toggleNav() {
@@ -2231,6 +2150,76 @@ function applyTierVisibility(tierValue) {
   triggerSave();
 }
 
+// ===== BUSINESS HOURS BUILDER =====
+function buildBusinessHoursGrid() {
+  const grid = document.getElementById('bizHoursGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  BIZ_DAYS.forEach(day => {
+    const dayKey = day.toLowerCase();
+    const row = document.createElement('div');
+    row.className = 'biz-hours-row';
+    row.dataset.day = dayKey;
+    row.innerHTML = `
+      <span class="biz-hours-day-label">${day}</span>
+      <input type="time" class="biz-hours-time" id="biz_hours_${dayKey}_start" name="biz_hours_${dayKey}_start" value="${['saturday','sunday'].includes(dayKey) ? '' : '09:00'}" aria-label="${day} open time">
+      <input type="time" class="biz-hours-time" id="biz_hours_${dayKey}_end" name="biz_hours_${dayKey}_end" value="${['saturday','sunday'].includes(dayKey) ? '' : '17:00'}" aria-label="${day} close time">
+      <label class="biz-hours-closed-label" for="biz_closed_${dayKey}">
+        <input type="checkbox" id="biz_closed_${dayKey}" name="biz_closed_${dayKey}" ${['saturday','sunday'].includes(dayKey) ? 'checked' : ''} onchange="toggleDayClosed('${dayKey}', this.checked)">
+        Closed
+      </label>
+    `;
+    grid.appendChild(row);
+
+    // Initialize disabled state for weekend
+    if (['saturday','sunday'].includes(dayKey)) {
+      row.querySelectorAll('.biz-hours-time').forEach(i => i.disabled = true);
+    }
+  });
+}
+
+function toggleDayClosed(dayKey, isClosed) {
+  const row = document.querySelector(`.biz-hours-row[data-day="${dayKey}"]`);
+  if (!row) return;
+  row.querySelectorAll('.biz-hours-time').forEach(input => {
+    input.disabled = isClosed;
+    if (isClosed) input.value = '';
+    else {
+      if (input.name.endsWith('_start')) input.value = '09:00';
+      if (input.name.endsWith('_end')) input.value = '17:00';
+    }
+  });
+  triggerSave();
+}
+
+function getBusinessHoursPayload() {
+  const result = {};
+  BIZ_DAYS.forEach(day => {
+    const dayKey = day.toLowerCase();
+    const closedEl = document.getElementById(`biz_closed_${dayKey}`);
+    const fieldKey = `business_hours_${dayKey}`;
+    if (closedEl && closedEl.checked) {
+      result[fieldKey] = 'Closed';
+    } else {
+      const startEl = document.getElementById(`biz_hours_${dayKey}_start`);
+      const endEl = document.getElementById(`biz_hours_${dayKey}_end`);
+      const start = startEl ? formatTime12h(startEl.value) : '';
+      const end = endEl ? formatTime12h(endEl.value) : '';
+      result[fieldKey] = (start && end) ? `${start} - ${end}` : 'Not set';
+    }
+  });
+  return result;
+}
+
+function formatTime12h(time24) {
+  if (!time24) return '';
+  const [hours, minutes] = time24.split(':').map(Number);
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const h = hours % 12 || 12;
+  return `${h}:${String(minutes).padStart(2,'0')} ${ampm}`;
+}
+
 // ===== RADIO BUTTON UX =====
 function initRadioOptions() {
   document.querySelectorAll('.radio-option[data-field]').forEach(option => {
@@ -2261,11 +2250,6 @@ function initRadioOptions() {
         applyTierVisibility(value);
       }
 
-      if (fieldName === 'crm_migration') {
-        const reveal = document.getElementById('crm-migration-reveal');
-        if (reveal) reveal.classList.toggle('visible', value === 'yes');
-      }
-
       updateProgress();
       triggerSave();
     });
@@ -2291,8 +2275,23 @@ function initRadioOptions() {
       const inp = this.querySelector('input');
       if (inp) inp.checked = true;
 
-      if (fieldName === 'crm_migration') {
+      // Clear error
+      const errEl = document.getElementById(`err-${fieldName}`);
+      if (errEl) errEl.classList.remove('visible');
+
+      // Conditional reveals
+      if (fieldName === 'crm_migration_needed') {
         const reveal = document.getElementById('crm-migration-reveal');
+        if (reveal) reveal.classList.toggle('visible', value === 'yes');
+      }
+
+      if (fieldName === 'has_online_loan_application') {
+        const reveal = document.getElementById('loan-app-url-reveal');
+        if (reveal) reveal.classList.toggle('visible', value === 'yes');
+      }
+
+      if (fieldName === 'has_existing_referral_partners') {
+        const reveal = document.getElementById('partners-reveal');
         if (reveal) reveal.classList.toggle('visible', value === 'yes');
       }
 
@@ -2304,82 +2303,6 @@ function initRadioOptions() {
     });
     option.setAttribute('tabindex', '0');
   });
-}
-
-// ===== FILE UPLOAD UX =====
-const fileStores = {}; // keyed by field id
-
-function initFileUploads() {
-  document.querySelectorAll('.file-drop-zone').forEach(zone => {
-    const fieldId = zone.dataset.field;
-    const input = zone.querySelector('input[type="file"]');
-    const fileListEl = document.getElementById('filelist-' + fieldId.replace(/_files$/, '').replace(/_csv$/, '-csv').replace(/_/g, '-'));
-    // Fallback: find the .file-list sibling
-    const fileListFallback = zone.parentElement.querySelector('.file-list');
-
-    fileStores[fieldId] = [];
-
-    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
-    zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
-    zone.addEventListener('drop', e => {
-      e.preventDefault();
-      zone.classList.remove('dragover');
-      if (e.dataTransfer.files.length) handleFiles(fieldId, e.dataTransfer.files, fileListFallback || fileListEl);
-    });
-
-    if (input) {
-      input.addEventListener('change', function () {
-        if (this.files.length) handleFiles(fieldId, this.files, fileListFallback || fileListEl);
-        this.value = ''; // reset so same file can be re-added
-      });
-    }
-  });
-}
-
-function handleFiles(fieldId, files, listEl) {
-  if (!fileStores[fieldId]) fileStores[fieldId] = [];
-  Array.from(files).forEach(file => {
-    // 50MB limit
-    if (file.size > 52428800) {
-      alert(`"${file.name}" exceeds the 50MB size limit. Please compress or split the file.`);
-      return;
-    }
-    fileStores[fieldId].push(file);
-  });
-  renderFileList(fieldId, listEl);
-  triggerSave();
-}
-
-function renderFileList(fieldId, listEl) {
-  if (!listEl) return;
-  listEl.innerHTML = '';
-  (fileStores[fieldId] || []).forEach((file, idx) => {
-    const item = document.createElement('div');
-    item.className = 'file-item';
-    item.innerHTML = `
-      <div class="file-item-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      </div>
-      <span class="file-item-name" title="${file.name}">${file.name}</span>
-      <span class="file-item-size">${formatFileSize(file.size)}</span>
-      <button type="button" class="file-item-remove" aria-label="Remove ${file.name}" onclick="removeFile('${fieldId}', ${idx}, this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    `;
-    listEl.appendChild(item);
-  });
-}
-
-function removeFile(fieldId, idx, btn) {
-  fileStores[fieldId].splice(idx, 1);
-  const listEl = btn.closest('.file-list');
-  renderFileList(fieldId, listEl);
-}
-
-function formatFileSize(bytes) {
-  if (bytes < 1024) return bytes + ' B';
-  if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-  return (bytes / 1048576).toFixed(1) + ' MB';
 }
 
 // ===== DYNAMIC REPEATER ROWS =====
@@ -2406,7 +2329,7 @@ function addRepeaterRow(listId, rowPrefix, fieldPrefix, fields, labels, placehol
 
   row.innerHTML = `
     <div class="repeater-row-header">
-      <span class="repeater-row-label">${rowPrefix.includes('partner') ? 'Partner' : rowPrefix.includes('ezrs') ? 'User' : 'Team Member'} ${count}</span>
+      <span class="repeater-row-label">${rowPrefix.includes('partner') ? 'Partner' : 'Team Member'} ${count}</span>
       <button type="button" class="btn-remove-row" onclick="this.closest('.repeater-row').remove(); updateProgress(); triggerSave();">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         Remove
@@ -2422,10 +2345,20 @@ function addRepeaterRow(listId, rowPrefix, fieldPrefix, fields, labels, placehol
 
 // ===== PROGRESS CALCULATION =====
 function getRequiredFields() {
-  const base = ['package_tier', 'preferred_start_date', 'contact_name', 'contact_email', 'legal_business_name', 'loan_products'];
-  if (currentTier && TIER_ORDER[currentTier] >= 1) {
-    // essentials+
-    base.push('address_street', 'address_city', 'address_state', 'address_zip');
+  const base = [
+    'package_tier', 'preferred_start_date',
+    'contact_first_name', 'contact_last_name', 'contact_email',
+    'ein', 'legal_business_name',
+    'address_street', 'address_city', 'address_state', 'address_zip',
+    'lending_states', 'primary_domain', 'email_sending_subdomain', 'timezone',
+    'brand_colors', 'has_online_loan_application'
+  ];
+  if (currentTier && TIER_ORDER[currentTier] >= 2) {
+    // Growth Engine+
+    base.push('has_existing_referral_partners');
+  }
+  if (currentTier === 'full_stack') {
+    base.push('reference_website_url', 'key_messages', 'owner_bio');
   }
   return base;
 }
@@ -2435,21 +2368,16 @@ function updateProgress() {
   let filled = 0;
 
   required.forEach(field => {
+    // Check radio buttons
+    const radioChecked = document.querySelector(`[name="${field}"]:checked`);
+    if (radioChecked) { filled++; return; }
+    // Check regular inputs/selects
     const el = document.querySelector(`[name="${field}"]`);
     if (!el) return;
-    if (el.type === 'radio') {
-      if (document.querySelector(`[name="${field}"]:checked`)) filled++;
-    } else {
-      if (el.value.trim()) filled++;
-    }
+    if (el.type !== 'radio' && el.value && el.value.trim()) filled++;
   });
 
-  // Also check tier radio
-  if (document.querySelector('[name="package_tier"]:checked')) {
-    // Already handled above
-  }
-
-  const pct = Math.round((filled / required.length) * 100);
+  const pct = required.length > 0 ? Math.round((filled / required.length) * 100) : 0;
   const fill = document.getElementById('progressFill');
   const bar = document.getElementById('progressBar');
   fill.style.width = pct + '%';
@@ -2532,6 +2460,17 @@ function resumeProgress() {
         radioEl.closest('.radio-option, .yes-no-option')?.click();
         return;
       }
+      // For checkboxes
+      const checkEl = document.querySelector(`input[type="checkbox"][name="${name}"]`);
+      if (checkEl) {
+        checkEl.checked = (value === 'true' || value === 'on');
+        // Trigger closed toggle for business hours
+        if (name.startsWith('biz_closed_')) {
+          const dayKey = name.replace('biz_closed_', '');
+          toggleDayClosed(dayKey, checkEl.checked);
+        }
+        return;
+      }
       // For regular inputs
       const el = document.querySelector(`[name="${name}"]`);
       if (el && el.type !== 'file') {
@@ -2556,16 +2495,43 @@ function validateForm() {
   let valid = true;
   let firstError = null;
 
-  // Package tier required
-  if (!document.querySelector('[name="package_tier"]:checked')) {
-    document.getElementById('err-package_tier').classList.add('visible');
-    if (!firstError) firstError = document.getElementById('err-package_tier');
-    valid = false;
-  } else {
-    document.getElementById('err-package_tier').classList.remove('visible');
+  function checkField(id, errId, message) {
+    const el = document.getElementById(id);
+    const err = document.getElementById(errId);
+    if (!el || !err) return;
+    if (!el.value || !el.value.trim()) {
+      el.classList.add('has-error');
+      err.textContent = message || err.textContent;
+      err.classList.add('visible');
+      if (!firstError) firstError = el;
+      valid = false;
+    } else {
+      el.classList.remove('has-error');
+      err.classList.remove('visible');
+    }
   }
 
-  // Start date required
+  function checkRadio(name, errId, message) {
+    const checked = document.querySelector(`[name="${name}"]:checked`);
+    const err = document.getElementById(errId);
+    if (!err) return;
+    if (!checked) {
+      err.textContent = message || err.textContent;
+      err.classList.add('visible');
+      if (!firstError) {
+        const firstOption = document.querySelector(`[name="${name}"]`);
+        firstError = firstOption ? firstOption.closest('.form-card') || firstOption : null;
+      }
+      valid = false;
+    } else {
+      err.classList.remove('visible');
+    }
+  }
+
+  // Section 1: Package Confirmation
+  checkRadio('package_tier', 'err-package_tier', 'Please select your package.');
+
+  // Start date — must be at least 3 days from today
   const startDate = document.getElementById('preferred_start_date');
   const startDateErr = document.getElementById('err-preferred_start_date');
   if (!startDate.value) {
@@ -2574,28 +2540,29 @@ function validateForm() {
     if (!firstError) firstError = startDate;
     valid = false;
   } else {
-    startDate.classList.remove('has-error');
-    startDateErr.classList.remove('visible');
+    const minDate = new Date();
+    minDate.setDate(minDate.getDate() + 3);
+    minDate.setHours(0,0,0,0);
+    const picked = new Date(startDate.value + 'T00:00:00');
+    if (picked < minDate) {
+      startDate.classList.add('has-error');
+      startDateErr.classList.add('visible');
+      if (!firstError) firstError = startDate;
+      valid = false;
+    } else {
+      startDate.classList.remove('has-error');
+      startDateErr.classList.remove('visible');
+    }
   }
 
-  // Contact name required
-  const contactName = document.getElementById('contact_name');
-  const contactNameErr = document.getElementById('err-contact_name');
-  if (!contactName.value.trim()) {
-    contactName.classList.add('has-error');
-    contactNameErr.classList.add('visible');
-    if (!firstError) firstError = contactName;
-    valid = false;
-  } else {
-    contactName.classList.remove('has-error');
-    contactNameErr.classList.remove('visible');
-  }
+  // Section 2: Contact & Business
+  checkField('contact_first_name', 'err-contact_first_name', 'Please enter your first name.');
+  checkField('contact_last_name', 'err-contact_last_name', 'Please enter your last name.');
 
-  // Contact email required
   const contactEmail = document.getElementById('contact_email');
   const contactEmailErr = document.getElementById('err-contact_email');
   const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailReg.test(contactEmail.value.trim())) {
+  if (!emailReg.test((contactEmail.value || '').trim())) {
     contactEmail.classList.add('has-error');
     contactEmailErr.classList.add('visible');
     if (!firstError) firstError = contactEmail;
@@ -2605,58 +2572,77 @@ function validateForm() {
     contactEmailErr.classList.remove('visible');
   }
 
-  // Legal business name required
-  const bizName = document.getElementById('legal_business_name');
-  const bizNameErr = document.getElementById('err-legal_business_name');
-  if (!bizName.value.trim()) {
-    bizName.classList.add('has-error');
-    bizNameErr.classList.add('visible');
-    if (!firstError) firstError = bizName;
-    valid = false;
-  } else {
-    bizName.classList.remove('has-error');
-    bizNameErr.classList.remove('visible');
+  checkField('legal_business_name', 'err-legal_business_name', 'Please enter your legal business name.');
+  checkField('ein', 'err-ein', 'Please enter your EIN / Tax ID.');
+  checkField('address_street', 'err-address_street', 'Please enter your street address.');
+  checkField('address_city', 'err-address_city', 'Please enter your city.');
+
+  const addrState = document.getElementById('address_state');
+  const addrStateErr = document.getElementById('err-address_state');
+  if (addrState && addrStateErr) {
+    if (!addrState.value) {
+      addrState.classList.add('has-error');
+      addrStateErr.classList.add('visible');
+      if (!firstError) firstError = addrState;
+      valid = false;
+    } else {
+      addrState.classList.remove('has-error');
+      addrStateErr.classList.remove('visible');
+    }
   }
 
-  // Loan products required
-  const loanProducts = document.getElementById('loan_products');
-  const loanProductsErr = document.getElementById('err-loan_products');
-  if (!loanProducts.value.trim()) {
-    loanProducts.classList.add('has-error');
-    loanProductsErr.classList.add('visible');
-    if (!firstError) firstError = loanProducts;
-    valid = false;
-  } else {
-    loanProducts.classList.remove('has-error');
-    loanProductsErr.classList.remove('visible');
+  checkField('address_zip', 'err-address_zip', 'Please enter your ZIP code.');
+  checkField('lending_states', 'err-lending_states', 'Please list your lending states.');
+
+  // Section 3: Domain + Email
+  checkField('primary_domain', 'err-primary_domain', 'Please enter your primary domain.');
+  checkField('email_sending_subdomain', 'err-email_sending_subdomain', 'Please enter your email sending subdomain.');
+
+  // Section 4: Calendar
+  const timezoneEl = document.getElementById('timezone');
+  const timezoneErr = document.getElementById('err-timezone');
+  if (timezoneEl && timezoneErr) {
+    if (!timezoneEl.value) {
+      timezoneEl.classList.add('has-error');
+      timezoneErr.classList.add('visible');
+      if (!firstError) firstError = timezoneEl;
+      valid = false;
+    } else {
+      timezoneEl.classList.remove('has-error');
+      timezoneErr.classList.remove('visible');
+    }
   }
 
-  // Address required for Essentials+
-  if (currentTier && TIER_ORDER[currentTier] >= 1) {
-    ['address_street', 'address_city', 'address_state', 'address_zip'].forEach(field => {
-      const el = document.getElementById(field);
-      const err = document.getElementById(`err-${field}`);
-      if (el && err) {
-        if (!el.value.trim()) {
-          el.classList.add('has-error');
-          err.classList.add('visible');
-          if (!firstError) firstError = el;
-          valid = false;
-        } else {
-          el.classList.remove('has-error');
-          err.classList.remove('visible');
-        }
-      }
-    });
+  // Section 6: CRM — has_online_loan_application required
+  checkRadio('has_online_loan_application', 'err-has_online_loan_application', 'Please answer this question.');
+
+  // If has_online_loan_application = yes, URL required
+  const hasLoanApp = document.querySelector('[name="has_online_loan_application"]:checked')?.value;
+  if (hasLoanApp === 'yes') {
+    checkField('online_loan_application_url', 'err-online_loan_application_url', 'Please enter your loan application URL.');
+  }
+
+  // Section 7: Referral Partners — required for GE+
+  if (currentTier && TIER_ORDER[currentTier] >= 2) {
+    checkRadio('has_existing_referral_partners', 'err-has_existing_referral_partners', 'Please answer this question.');
+  }
+
+  // Section 8: Full Stack only
+  if (currentTier === 'full_stack') {
+    checkField('reference_website_url', 'err-reference_website_url', 'Please enter your reference website URL.');
+    checkField('key_messages', 'err-key_messages', 'Please enter your key messages.');
+    checkField('owner_bio', 'err-owner_bio', 'Please enter your owner/founder bio.');
   }
 
   if (firstError) {
-    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const scrollTarget = firstError.closest?.('.form-section') ? firstError : firstError;
+    scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
     // Open the section if collapsed
-    const parentSection = firstError.closest('.form-section');
+    const parentSection = firstError.closest?.('.form-section');
     if (parentSection && !parentSection.classList.contains('open')) {
       toggleSection(parentSection.id);
     }
+    if (typeof firstError.focus === 'function') firstError.focus();
   }
 
   return valid;
@@ -2664,78 +2650,77 @@ function validateForm() {
 
 // ===== BUILD SUBMISSION PAYLOAD =====
 function buildPayload() {
+  const bizHours = getBusinessHoursPayload();
+
   const payload = {
-    source: 'onboarding-intake-form',
+    source: 'onboarding-intake-form-v2',
     submitted_at: new Date().toISOString(),
+    logo_delivery_method: 'email-reply',
     package_tier: document.querySelector('[name="package_tier"]:checked')?.value || '',
     order_id: document.getElementById('order_id').value.trim(),
     preferred_start_date: document.getElementById('preferred_start_date').value,
-    contact_name: document.getElementById('contact_name').value.trim(),
+    // Contact
+    contact_first_name: document.getElementById('contact_first_name').value.trim(),
+    contact_last_name: document.getElementById('contact_last_name').value.trim(),
     contact_email: document.getElementById('contact_email').value.trim(),
     contact_phone: document.getElementById('contact_phone').value.trim(),
+    // Business
     legal_business_name: document.getElementById('legal_business_name').value.trim(),
-    dba_name: document.getElementById('dba_name').value.trim(),
+    dba_brand_name: document.getElementById('dba_brand_name').value.trim(),
+    ein: document.getElementById('ein').value.trim(),
     address_street: document.getElementById('address_street').value.trim(),
     address_city: document.getElementById('address_city').value.trim(),
     address_state: document.getElementById('address_state').value.trim(),
     address_zip: document.getElementById('address_zip').value.trim(),
-    website_url: document.getElementById('website_url').value.trim(),
-    lending_states: document.getElementById('lending_states_text').value.trim(),
-    loan_products: document.getElementById('loan_products').value.trim(),
+    current_website_url: document.getElementById('current_website_url').value.trim(),
+    lending_states: document.getElementById('lending_states').value.trim(),
+    social_media_urls: document.getElementById('social_media_urls').value.trim(),
+    // Domain + Email
+    primary_domain: document.getElementById('primary_domain').value.trim(),
+    email_sending_subdomain: document.getElementById('email_sending_subdomain').value.trim(),
+    // Calendar
+    timezone: document.getElementById('timezone').value,
+    ...bizHours,
+    // Branding
     brand_colors: document.getElementById('brand_colors').value.trim(),
     brand_tone: document.querySelector('[name="brand_tone"]:checked')?.value || '',
     brand_tone_notes: document.getElementById('brand_tone_notes').value.trim(),
-    current_crm: document.getElementById('current_crm').value.trim(),
-    crm_migration: document.querySelector('[name="crm_migration"]:checked')?.value || '',
+    // CRM Setup
+    current_crm_tool: document.getElementById('current_crm_tool').value.trim(),
+    crm_migration_needed: document.querySelector('[name="crm_migration_needed"]:checked')?.value || '',
     crm_migration_notes: document.getElementById('crm_migration_notes').value.trim(),
-    social_media_accounts: document.getElementById('social_media_accounts').value.trim(),
-    target_borrower: document.getElementById('target_borrower').value.trim(),
-    content_topics: document.getElementById('content_topics').value.trim(),
-    commission_structure: document.getElementById('commission_structure').value.trim(),
-    existing_website_url: document.getElementById('existing_website_url').value.trim(),
-    existing_website_notes: document.getElementById('existing_website_notes').value.trim(),
-    key_messages: document.getElementById('key_messages').value.trim(),
-    marketing_copy_notes: document.getElementById('marketing_copy_notes').value.trim(),
-    email_frequency: document.querySelector('[name="email_frequency"]:checked')?.value || '',
-    automation_tone: document.querySelector('[name="automation_tone"]:checked')?.value || '',
-    automation_notes: document.getElementById('automation_notes').value.trim(),
+    has_online_loan_application: document.querySelector('[name="has_online_loan_application"]:checked')?.value || '',
+    online_loan_application_url: document.getElementById('online_loan_application_url').value.trim(),
+    // Referral Partners
+    has_existing_referral_partners: document.querySelector('[name="has_existing_referral_partners"]:checked')?.value || '',
+    referral_commission_structure: (document.getElementById('referral_commission_structure') || {}).value?.trim() || '',
+    // Website + Bio (Full Stack)
+    reference_website_url: (document.getElementById('reference_website_url') || {}).value?.trim() || '',
+    reference_website_notes: (document.getElementById('reference_website_notes') || {}).value?.trim() || '',
+    key_messages: (document.getElementById('key_messages') || {}).value?.trim() || '',
+    owner_bio: (document.getElementById('owner_bio') || {}).value?.trim() || '',
+    team_member_bios: (document.getElementById('team_member_bios') || {}).value?.trim() || '',
+    // Final
     anything_else: document.getElementById('anything_else').value.trim(),
   };
 
-  // EZRS users
-  payload.ezrs_users = [];
-  document.querySelectorAll('#ezrs-users-list .repeater-row').forEach((row, i) => {
-    const name = row.querySelector(`[name*="[name]"]`)?.value.trim() || '';
-    const email = row.querySelector(`[name*="[email]"]`)?.value.trim() || '';
-    const role = row.querySelector(`[name*="[role]"]`)?.value.trim() || '';
-    if (name || email) payload.ezrs_users.push({ name, email, role });
-  });
-
   // RiseHub users
-  payload.risehub_users = [];
-  document.querySelectorAll('#risehub-users-list .repeater-row').forEach((row, i) => {
-    const name = row.querySelector(`[name*="[name]"]`)?.value.trim() || '';
-    const email = row.querySelector(`[name*="[email]"]`)?.value.trim() || '';
-    const role = row.querySelector(`[name*="[role]"]`)?.value.trim() || '';
-    if (name || email) payload.risehub_users.push({ name, email, role });
-  });
+  payload.risehub_users_json = JSON.stringify(
+    Array.from(document.querySelectorAll('#risehub-users-list .repeater-row')).map(row => ({
+      name: row.querySelector(`[name*="[name]"]`)?.value.trim() || '',
+      email: row.querySelector(`[name*="[email]"]`)?.value.trim() || '',
+      role: row.querySelector(`[name*="[role]"]`)?.value.trim() || '',
+    })).filter(u => u.name || u.email)
+  );
 
   // Partners
-  payload.referral_partners = [];
-  document.querySelectorAll('#partners-list .repeater-row').forEach((row, i) => {
-    const name = row.querySelector(`[id*="_name"]`)?.value.trim() || '';
-    const email = row.querySelector(`[id*="_email"]`)?.value.trim() || '';
-    const company = row.querySelector(`[id*="_company"]`)?.value.trim() || '';
-    if (name || email) payload.referral_partners.push({ name, email, company });
-  });
-
-  // File names (note: actual files are sent separately or via base64 in a real impl)
-  payload.uploaded_files = {};
-  Object.entries(fileStores).forEach(([field, files]) => {
-    if (files.length > 0) {
-      payload.uploaded_files[field] = files.map(f => ({ name: f.name, size: f.size, type: f.type }));
-    }
-  });
+  payload.referral_partners_json = JSON.stringify(
+    Array.from(document.querySelectorAll('#partners-list .repeater-row')).map(row => ({
+      name: row.querySelector(`[id*="_name"]`)?.value.trim() || '',
+      email: row.querySelector(`[id*="_email"]`)?.value.trim() || '',
+      company: row.querySelector(`[id*="_company"]`)?.value.trim() || '',
+    })).filter(p => p.name || p.email)
+  );
 
   return payload;
 }
@@ -2760,37 +2745,12 @@ document.getElementById('onboardingForm').addEventListener('submit', async funct
 
   const payload = buildPayload();
 
-  // --- File Handling ---
-  // For initial build: files are sent as multipart FormData
-  // The webhook receives a JSON payload + file names listed in uploaded_files
-  // For actual file delivery, use FormData and append files
-  const formData = new FormData();
-  formData.append('payload', JSON.stringify(payload));
-
-  // Append actual files
-  Object.entries(fileStores).forEach(([field, files]) => {
-    files.forEach(file => {
-      formData.append(field, file, file.name);
-    });
-  });
-
   try {
-    // Try JSON first (works if no files), fall back to FormData if files exist
-    const hasFiles = Object.values(fileStores).some(arr => arr.length > 0);
-    let response;
-
-    if (hasFiles) {
-      response = await fetch(GHL_WEBHOOK_URL, {
-        method: 'POST',
-        body: formData,
-      });
-    } else {
-      response = await fetch(GHL_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-    }
+    const response = await fetch(GHL_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
 
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -2803,13 +2763,16 @@ document.getElementById('onboardingForm').addEventListener('submit', async funct
     document.getElementById('thankYouTimelineText').textContent = `Setup timeline: ${timeline}`;
 
     const tierNames = {
-      'ezrs_only': 'EZRS Only',
       'lender_essentials': 'Lender Essentials',
       'growth_engine': 'Growth Engine',
       'full_stack': 'Full Stack'
     };
     const tierName = tierNames[tier] || tier;
     document.getElementById('thankYouBody').textContent = `Our build team has everything they need to start constructing your ${tierName} system. You'll hear from us within 1 business day — we'll confirm receipt and schedule your kickoff call from there.`;
+
+    // Show Full Stack headshot note
+    const fullStackNote = document.getElementById('thankYouFullStackNote');
+    if (fullStackNote) fullStackNote.style.display = (tier === 'full_stack') ? 'inline' : 'none';
 
     // Show thank you
     document.getElementById('formState').classList.add('hidden');
@@ -2866,18 +2829,35 @@ function initSidebarObserver() {
   sections.forEach(s => observer.observe(s));
 }
 
+// ===== URL PARAMETER TIER PRE-FILL =====
+function checkUrlTierParam() {
+  const params = new URLSearchParams(window.location.search);
+  const tierParam = params.get('tier');
+  const validTiers = ['lender_essentials', 'growth_engine', 'full_stack'];
+  if (tierParam && validTiers.includes(tierParam)) {
+    const tierOption = document.querySelector(`.radio-option[data-field="package_tier"][data-value="${tierParam}"]`);
+    if (tierOption) {
+      // Slight delay to ensure all init is done
+      setTimeout(() => tierOption.click(), 50);
+    }
+  }
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
+  buildBusinessHoursGrid();
   initRadioOptions();
-  initFileUploads();
   attachInputListeners();
   initSidebarObserver();
   checkSavedProgress();
   updateProgress();
+  checkUrlTierParam();
 
-  // Set minimum date to today
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('preferred_start_date').min = today;
+  // Set minimum date to today + 3 days
+  const minDate = new Date();
+  minDate.setDate(minDate.getDate() + 3);
+  const minDateStr = minDate.toISOString().split('T')[0];
+  document.getElementById('preferred_start_date').min = minDateStr;
 });
 </script>
 </body>
