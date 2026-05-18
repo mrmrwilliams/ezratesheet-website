@@ -44,28 +44,62 @@
     <section class="page-hero">
       <div class="container">
         <div class="section-label">Resources</div>
-        <h1 class="page-hero-title">Blog — Coming Soon</h1>
-        <p class="page-hero-subtitle">We're working on content to help real-estate lenders grow their business. Check back soon for industry insights, product updates, and best practices.</p>
+        <h1 class="page-hero-title">The EZ Rate Sheet Blog</h1>
+        <p class="page-hero-subtitle">Operator-focused insights for private and hard money lenders. Pricing strategy, tech stack analysis, secondary market intel, and the systems that separate $50M/mo operations from everyone else.</p>
       </div>
     </section>
 
-    <section class="section container" style="text-align:center;">
-      <div style="max-width:480px;margin:0 auto;">
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-faint)" stroke-width="1.5" style="margin:0 auto var(--space-6);">
-          <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
-        </svg>
-        <h2 style="font-family:var(--font-display);font-size:var(--text-lg);font-style:italic;margin-bottom:var(--space-3);">We're Crafting Something Great</h2>
-        <p style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-8);">Our team is preparing articles on market trends, lending strategies, platform tips, and more. Subscribe to be the first to know when we launch.</p>
-        <a href="/app/register" class="btn btn-primary btn-lg">Start Your Free Trial</a>
+    <section class="section container">
+      <div class="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-6);max-width:1100px;margin:0 auto;">
+
+        <a href="/pages/blog/why-private-lenders-leak-margin" class="blog-card" style="display:flex;flex-direction:column;padding:var(--space-6);background:#fff;border:1px solid var(--color-divider);border-radius:14px;text-decoration:none;color:inherit;transition:transform 0.15s, box-shadow 0.15s;">
+          <div class="section-label" style="margin-bottom:var(--space-3);">Rate Sheet Strategy</div>
+          <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">Why Private Lenders Leak Margin</h2>
+          <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">The 50 bps variance problem is costing private lenders real money. Here are the three structural causes of margin leakage — and how to fix them systematically.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
+            <span>June 2, 2026</span>
+            <span style="color:var(--color-primary);font-weight:600;">Read →</span>
+          </div>
+        </a>
+
+        <a href="/pages/blog/private-lender-tech-tax" class="blog-card" style="display:flex;flex-direction:column;padding:var(--space-6);background:#fff;border:1px solid var(--color-divider);border-radius:14px;text-decoration:none;color:inherit;transition:transform 0.15s, box-shadow 0.15s;">
+          <div class="section-label" style="margin-bottom:var(--space-3);">Tech &amp; Operations</div>
+          <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">The Private Lender Tech Tax</h2>
+          <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">Most private lending shops are paying $1,377–$12,006/month for software they didn't choose together. Here's how the stack accumulates — and what it actually costs.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
+            <span>June 9, 2026</span>
+            <span style="color:var(--color-primary);font-weight:600;">Read →</span>
+          </div>
+        </a>
+
+        <a href="/pages/blog/selling-paper-secondary-market" class="blog-card" style="display:flex;flex-direction:column;padding:var(--space-6);background:#fff;border:1px solid var(--color-divider);border-radius:14px;text-decoration:none;color:inherit;transition:transform 0.15s, box-shadow 0.15s;">
+          <div class="section-label" style="margin-bottom:var(--space-3);">Secondary Market</div>
+          <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">Private Lender Secondary Market: What Aggregators Want</h2>
+          <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">15+ institutional buyers are actively purchasing RTL and DSCR paper. Here's what Toorak, Roc360, Genesis, and others actually evaluate — and the three gaps that cause low bids.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
+            <span>June 16, 2026</span>
+            <span style="color:var(--color-primary);font-weight:600;">Read →</span>
+          </div>
+        </a>
+
       </div>
+
+      <style>
+        .blog-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(110,87,115,0.10);
+          border-color: var(--color-primary);
+        }
+      </style>
     </section>
 
     <!-- COMING TOPICS -->
     <section class="section" style="background:var(--color-surface);border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);">
       <div class="container">
         <div style="text-align:center;margin-bottom:var(--space-8);">
-          <div class="section-label">What to Expect</div>
-          <h2 class="section-title">Topics We'll Cover</h2>
+          <div class="section-label">More Coming Soon</div>
+          <h2 class="section-title">What's Next on the Blog</h2>
+          <p class="section-subtitle" style="max-width:680px;margin:var(--space-3) auto 0;">A look at the themes we're writing about next — practical posts for private lenders who want to tighten ops, sharpen pricing, and grow without adding headcount.</p>
         </div>
 
         <div class="features-grid">
