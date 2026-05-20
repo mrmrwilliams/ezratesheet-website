@@ -129,12 +129,19 @@
   <!-- Blog index -->
   <url>
     <loc>https://www.ezratesheet.com/pages/blog</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Blog posts -->
+  <url>
+    <loc>https://www.ezratesheet.com/pages/blog/two-questions-private-lending-platform</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://www.ezratesheet.com/pages/blog/why-private-lenders-leak-margin</loc>
     <lastmod>2026-06-02</lastmod>
