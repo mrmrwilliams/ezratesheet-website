@@ -8,7 +8,11 @@
     { "source": "/terms", "destination": "/pages/terms.html", "statusCode": 301 },
     { "source": "/terms.html", "destination": "/pages/terms.html", "statusCode": 301 },
     { "source": "/privacy", "destination": "/pages/privacy.html", "statusCode": 301 },
-    { "source": "/privacy.html", "destination": "/pages/privacy.html", "statusCode": 301 }
+    { "source": "/privacy.html", "destination": "/pages/privacy.html", "statusCode": 301 },
+    { "source": "/our-story", "destination": "/pages/our-story.html", "statusCode": 301 },
+    { "source": "/our-story.html", "destination": "/pages/our-story.html", "statusCode": 301 },
+    { "source": "/about", "destination": "/pages/about.html", "statusCode": 301 },
+    { "source": "/about.html", "destination": "/pages/about.html", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/favicon.ico", "destination": "/favicon.svg" },
