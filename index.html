@@ -258,9 +258,10 @@
   .plan-price-custom {
     font-family: var(--font-display) !important;
     font-style: italic !important;
-    font-size: var(--text-2xl) !important;
-    line-height: 1.2 !important;
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem) !important;
+    line-height: 1.25 !important;
     font-weight: 400 !important;
+    white-space: nowrap;
   }
   @media (max-width: 900px) {
     .pricing-grid-3 {
