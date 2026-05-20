@@ -209,6 +209,58 @@
       max-width: 360px;
     }
   }
+
+  /* Pricing tabs */
+  .pricing-tabs {
+    display: inline-flex;
+    background: var(--color-surface, #f5f3f7);
+    border: 1px solid var(--color-border, #e5e2e6);
+    border-radius: 999px;
+    padding: 4px;
+    margin-bottom: var(--space-8);
+    gap: 4px;
+  }
+  .pricing-tab {
+    border: none;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .pricing-tab:hover { color: var(--color-text); }
+  .pricing-tab.active {
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .pricing-panel { display: none; }
+  .pricing-panel.active { display: block; }
+  .pricing-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .plan-licensing {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: var(--space-1);
+  }
+  @media (max-width: 900px) {
+    .pricing-grid-3 {
+      grid-template-columns: 1fr;
+      max-width: 380px;
+    }
+  }
 </style>
 <!-- FAQ Styles -->
 <style>
@@ -749,130 +801,129 @@
     </section>
 
     <!-- ===== SECTION 10: PRICING PREVIEW ===== -->
-    <section class="section section-tinted">
+    <section class="section section-tinted" id="pricing-preview">
       <div class="container">
-        <div style="text-align:center; margin-bottom: var(--space-12);">
+        <div style="text-align:center; margin-bottom: var(--space-8);">
           <div class="section-label">Plans &amp; Pricing</div>
-          <h2 class="section-title">One Platform. Four Options.</h2>
-          <p class="section-subtitle" style="margin:0 auto;">Start where you are. Scale when you're ready. Every plan includes onboarding support and access to the EZRS rate sheet engine.</p>
+          <h2 class="section-title">Two Ways to Run on EZRS</h2>
+          <p class="section-subtitle" style="margin:0 auto;">Run EZRS on its own, or pair it with RiseHub for a full CRM + marketing stack. Month-to-month. No long-term contracts.</p>
         </div>
 
-        <div class="pricing-grid-4">
-
-          <!-- EZRS Only -->
-          <div class="pricing-card fade-in">
-            <div class="plan-name">EZRS Only</div>
-            <div class="plan-price">$89<span>/mo</span></div>
-            <div class="plan-setup">No setup fee</div>
-            <div class="plan-desc">Rate Sheet Essentials — for lenders who already have a CRM and just need the pricing layer.</div>
-            <ul class="plan-features">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Custom loan products
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Branded term sheets
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Deal workflow tracking
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                5 users · 10 deals/mo
-              </li>
-            </ul>
-            <a href="/app/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Free Trial</a>
+        <div style="text-align:center;">
+          <div class="pricing-tabs" role="tablist" aria-label="Pricing options">
+            <button class="pricing-tab active" role="tab" aria-selected="true" aria-controls="panel-ezrs" id="tab-ezrs" onclick="switchPricing('ezrs')">EZRS Only</button>
+            <button class="pricing-tab" role="tab" aria-selected="false" aria-controls="panel-bundle" id="tab-bundle" onclick="switchPricing('bundle')">EZRS + RiseHub</button>
           </div>
+        </div>
 
-          <!-- Lender Essentials -->
-          <div class="pricing-card fade-in">
-            <div class="plan-name">Lender Essentials</div>
-            <div class="plan-price">$138<span>/mo</span></div>
-            <div class="plan-setup">Starting at $1,750 setup</div>
-            <div class="plan-desc">Rate Sheet + CRM — for growing lenders who need a pricing engine and pipeline without full marketing automation.</div>
-            <ul class="plan-features">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Everything in EZRS Only
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Full RiseHub CRM
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Email &amp; SMS marketing
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                5 users · 10 deals/mo
-              </li>
-            </ul>
-            <a href="https://buy.stripe.com/3cIfZh1QkdEr22G8810x203" class="btn btn-secondary" style="width:100%;justify-content:center;" target="_blank" rel="noopener noreferrer">Get Started</a>
-            <a href="pages/book.html" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:var(--space-2);font-size:var(--text-xs);">Book a Call to Learn More</a>
+        <!-- PANEL: EZRS Only -->
+        <div class="pricing-panel active" id="panel-ezrs" role="tabpanel" aria-labelledby="tab-ezrs">
+          <div class="pricing-grid-3">
+
+            <!-- Starter -->
+            <div class="pricing-card fade-in">
+              <div class="plan-name">Starter</div>
+              <div class="plan-price">$89<span>/mo</span></div>
+              <div class="plan-setup">No setup fee</div>
+              <div class="plan-desc">For solo lenders who just need the pricing engine and branded term sheets.</div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Custom loan products</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Branded term sheets + e-sign</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Deal pipeline (Kanban)</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 user</li>
+              </ul>
+              <a href="/app/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Free Trial</a>
+            </div>
+
+            <!-- Team (featured) -->
+            <div class="pricing-card featured fade-in">
+              <div class="pricing-badge">Most Popular</div>
+              <div class="plan-name">Team</div>
+              <div class="plan-price">$149<span>/mo</span></div>
+              <div class="plan-setup">No setup fee</div>
+              <div class="plan-desc">For small lending teams who need shared deals, role-based access, and a full audit trail.</div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Starter</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Up to 5 users</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Role-based permissions</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Audit trail + internal comments</li>
+              </ul>
+              <a href="/app/register" class="btn btn-primary" style="width:100%;justify-content:center;">Start Free Trial</a>
+            </div>
+
+            <!-- Pro -->
+            <div class="pricing-card fade-in">
+              <div class="plan-name">Pro</div>
+              <div class="plan-price">$249<span>/mo</span></div>
+              <div class="plan-setup">No setup fee</div>
+              <div class="plan-desc">For growing shops that need more users, deeper reporting, and API access.</div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Team</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlimited users</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Advanced reporting + exports</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>API access</li>
+              </ul>
+              <a href="/app/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Free Trial</a>
+            </div>
+
           </div>
+        </div>
 
-          <!-- Growth Engine -->
-          <div class="pricing-card fade-in">
-            <div class="plan-name">Growth Engine</div>
-            <div class="plan-price">$228<span>/mo</span></div>
-            <div class="plan-setup">Custom setup investment</div>
-            <div class="plan-desc">Full Growth Suite — for established lenders ready to systematize lead generation and broker outreach.</div>
-            <ul class="plan-features">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Everything in Essentials
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Referral partner tools
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Voice AI &amp; social media
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                25 users · 25 deals/mo
-              </li>
-            </ul>
-            <a href="pages/contact.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Book a Discovery Call</a>
+        <!-- PANEL: EZRS + RiseHub -->
+        <div class="pricing-panel" id="panel-bundle" role="tabpanel" aria-labelledby="tab-bundle">
+          <div class="pricing-grid-3">
+
+            <!-- Lender Essentials -->
+            <div class="pricing-card fade-in">
+              <div class="plan-name">Lender Essentials</div>
+              <div class="plan-price">$1,750<span> setup</span></div>
+              <div class="plan-licensing">plus monthly EZRS + RiseHub licensing</div>
+              <div class="plan-setup" style="margin-top:var(--space-3);">Rate Sheet + CRM — for growing lenders who need a pipeline without full marketing automation.</div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>EZRS Team-level features</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full RiseHub CRM</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Email &amp; SMS marketing</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Done-with-you onboarding</li>
+              </ul>
+              <a href="pages/contact.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Book a Discovery Call</a>
+            </div>
+
+            <!-- Growth Engine (featured) -->
+            <div class="pricing-card featured fade-in">
+              <div class="pricing-badge">Most Value</div>
+              <div class="plan-name">Growth Engine</div>
+              <div class="plan-price">$4,997<span> setup</span></div>
+              <div class="plan-licensing">plus monthly EZRS + RiseHub licensing</div>
+              <div class="plan-setup" style="margin-top:var(--space-3);">For established lenders ready to systematize lead generation and broker outreach.</div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Essentials</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Referral partner tools</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Voice AI &amp; social automation</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Done-for-you funnel build</li>
+              </ul>
+              <a href="pages/contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Discovery Call</a>
+            </div>
+
+            <!-- Full Stack -->
+            <div class="pricing-card fade-in">
+              <div class="plan-name">Full Stack</div>
+              <div class="plan-price">$9,997<span> setup</span></div>
+              <div class="plan-licensing">plus monthly EZRS + RiseHub licensing</div>
+              <div class="plan-setup" style="margin-top:var(--space-3);">Complete lending platform — replace your entire tech stack with done-for-you setup.</div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Growth Engine</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>DFY borrower &amp; referral funnels</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI deal analysis</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Priority support + custom dev</li>
+              </ul>
+              <a href="pages/contact.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Book a Discovery Call</a>
+            </div>
+
           </div>
-
-          <!-- Full Stack (featured) -->
-          <div class="pricing-card featured fade-in">
-            <div class="pricing-badge">Most Value</div>
-            <div class="plan-name">Full Stack</div>
-            <div class="plan-price">$348<span>/mo</span></div>
-            <div class="plan-setup">Custom setup investment</div>
-            <div class="plan-desc">Complete Lending Platform — replace your entire tech stack and grow systematically with done-for-you setup.</div>
-            <ul class="plan-features">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Everything in Growth Engine
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                DFY borrower &amp; referral funnels
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                AI deal analysis + API access
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Unlimited users &amp; deals
-              </li>
-            </ul>
-            <a href="pages/contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Discovery Call</a>
-          </div>
-
         </div>
 
         <div style="text-align:center; margin-top: var(--space-8);">
-          <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-4);">Payment plans available for Lender Essentials. Growth Engine &amp; Full Stack plans discussed during your discovery call.</p>
+          <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-4);">Month-to-month. Cancel anytime. Bundle setup investments include onboarding, configuration, and training by our team.</p>
           <a href="pages/pricing.html" class="btn btn-secondary">View Full Details</a>
         </div>
       </div>
@@ -990,6 +1041,7 @@
         <ul role="list">
           <li><a href="/pages/contact">Help Center</a></li>
           <li><a href="mailto:sales@ezratesheet.com">Customer Support</a></li>
+          <li><a href="pages/security.html">Security</a></li>
           <li><a href="/app/login">Login</a></li>
         </ul>
       </div>
@@ -1003,6 +1055,8 @@
         <a href="pages/terms.html">Terms of Service</a>
         <span aria-hidden="true">·</span>
         <a href="pages/cookies.html">Cookie Policy</a>
+        <span aria-hidden="true">·</span>
+        <a href="pages/security.html">Security</a>
       </div>    </div>
   </footer>
 
@@ -1038,6 +1092,20 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Pricing tab switcher
+    function switchPricing(key) {
+      const tabs = document.querySelectorAll('.pricing-tab');
+      const panels = document.querySelectorAll('.pricing-panel');
+      tabs.forEach(t => {
+        const isActive = t.id === 'tab-' + key;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        p.classList.toggle('active', p.id === 'panel-' + key);
+      });
+    }
   </script>
 </body>
 </html>
