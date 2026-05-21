@@ -14,7 +14,9 @@
     { "source": "/about", "destination": "/pages/about.html", "statusCode": 301 },
     { "source": "/about.html", "destination": "/pages/about.html", "statusCode": 301 },
     { "source": "/security", "destination": "/pages/security.html", "statusCode": 301 },
-    { "source": "/security.html", "destination": "/pages/security.html", "statusCode": 301 }
+    { "source": "/security.html", "destination": "/pages/security.html", "statusCode": 301 },
+    { "source": "/ai-for-lenders", "destination": "/pages/ai-for-lenders.html", "statusCode": 301 },
+    { "source": "/ai-for-lenders.html", "destination": "/pages/ai-for-lenders.html", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/favicon.ico", "destination": "/favicon.svg" },

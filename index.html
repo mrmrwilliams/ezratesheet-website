@@ -210,6 +210,152 @@
     }
   }
 
+  /* AI for Private Lenders section */
+  .section-dark {
+    background: linear-gradient(180deg, #2a2030 0%, #1d1722 100%);
+  }
+  .section-dark .section-label {
+    color: #e8dde9;
+    opacity: 0.85;
+  }
+  .section-dark .section-title {
+    color: var(--color-text-inverse);
+  }
+  .section-dark .section-subtitle {
+    color: oklch(from var(--color-text-inverse) l c h / 0.78);
+  }
+  .ai-hero-card {
+    background: linear-gradient(135deg, rgba(232,221,233,0.08), rgba(232,221,233,0.03));
+    border: 1px solid rgba(232,221,233,0.25);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-8);
+    margin: 0 auto var(--space-6);
+    max-width: 820px;
+    text-align: left;
+    position: relative;
+  }
+  .ai-hero-badge {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+  }
+  .ai-hero-title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-3);
+    line-height: 1.15;
+  }
+  .ai-hero-desc {
+    color: oklch(from var(--color-text-inverse) l c h / 0.85);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  .ai-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(232,221,233,0.15);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    transition: all var(--transition-interactive);
+  }
+  .ai-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(232,221,233,0.3);
+  }
+  .ai-card h4 {
+    color: var(--color-text-inverse);
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+  .ai-card p {
+    color: oklch(from var(--color-text-inverse) l c h / 0.72);
+    font-size: var(--text-sm);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .ai-kicker {
+    text-align: center;
+    padding: var(--space-5);
+    background: rgba(232,221,233,0.06);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-8);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ai-kicker-label {
+    color: oklch(from var(--color-text-inverse) l c h / 0.7);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+  }
+  .ai-kicker-items {
+    color: var(--color-text-inverse);
+    font-size: var(--text-base);
+    margin: 0;
+  }
+  .ai-honest-close {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .ai-honest-close p {
+    color: oklch(from var(--color-text-inverse) l c h / 0.82);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    font-style: italic;
+  }
+  .btn-secondary-on-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: transparent;
+    color: var(--color-text-inverse);
+    border: 1px solid rgba(232,221,233,0.4);
+    border-radius: var(--radius-md);
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-interactive);
+  }
+  .btn-secondary-on-dark:hover {
+    background: rgba(232,221,233,0.1);
+    border-color: rgba(232,221,233,0.7);
+  }
+  @media (max-width: 900px) {
+    .ai-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .ai-grid {
+      grid-template-columns: 1fr;
+    }
+    .ai-hero-card {
+      padding: var(--space-6);
+    }
+    .ai-hero-title {
+      font-size: var(--text-2xl);
+    }
+  }
+
   /* Pricing tabs */
   .pricing-tabs {
     display: inline-flex;
@@ -605,6 +751,72 @@
             </div>
             <h3>Voice AI &amp; Social Media</h3>
             <p>Voice AI handles inbound calls when your team can't. Social media scheduling and paid advertising keep your brand active where borrowers and brokers look.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6.5: AI FOR PRIVATE LENDERS ===== -->
+    <section class="section section-dark" id="ai-for-lenders">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: var(--space-10);">
+          <div class="section-label">AI Built In, Not Bolted On</div>
+          <h2 class="section-title">The AI Gap Is Already Costing Private Lenders Deals.</h2>
+          <p class="section-subtitle" style="margin:0 auto;">Your competitors are answering broker calls at 11pm with an AI voice agent. They&rsquo;re replying to Facebook DMs in 30 seconds. They&rsquo;re posting weekly market updates without writing a word. You&rsquo;re still drafting email replies between back-to-back closings.</p>
+          <p class="section-subtitle" style="margin: var(--space-4) auto 0;">EZ Rate Sheet + RiseHub gives you the same AI stack &mdash; built into the workflow you already use to price, qualify, and close deals.</p>
+        </div>
+
+        <!-- Hero card: Voice AI -->
+        <div class="ai-hero-card fade-in">
+          <div class="ai-hero-badge">Headline AI</div>
+          <h3 class="ai-hero-title">Voice AI Receptionist</h3>
+          <p class="ai-hero-desc">Answers borrower and broker calls 24/7. Captures the deal, qualifies the lead, books the callback. The flashy one. Also the one that books deals at 11pm while you sleep.</p>
+        </div>
+
+        <!-- 7-card supporting grid -->
+        <div class="ai-grid">
+          <div class="ai-card fade-in">
+            <h4>Conversation AI</h4>
+            <p>Auto-replies to texts, emails, Facebook, and Instagram DMs the moment a lead lands. The warm window doesn&rsquo;t close.</p>
+          </div>
+          <div class="ai-card fade-in">
+            <h4>Sales AI Agent (Auto-Pilot)</h4>
+            <p>Handles the full inbound conversation across every channel &mdash; qualify, collect docs, book the call. Runs while you&rsquo;re closing.</p>
+          </div>
+          <div class="ai-card fade-in">
+            <h4>Workflow AI</h4>
+            <p>Build complex deal-stage automations in plain English. Application &rarr; underwriting &rarr; approval &rarr; closing, scaffolded in seconds.</p>
+          </div>
+          <div class="ai-card fade-in">
+            <h4>Content AI</h4>
+            <p>Generate a week of branded LinkedIn and Facebook posts in five minutes. Stay top-of-mind with brokers without writing anything.</p>
+          </div>
+          <div class="ai-card fade-in">
+            <h4>Email AI</h4>
+            <p>Draft full borrower and partner nurture sequences from one prompt. Edit and ship.</p>
+          </div>
+          <div class="ai-card fade-in">
+            <h4>Reviews AI</h4>
+            <p>Respond to every Google and Facebook review in your voice, automatically. Local SEO improves itself.</p>
+          </div>
+          <div class="ai-card fade-in">
+            <h4>Funnel AI</h4>
+            <p>Spin up a geo-targeted landing page &mdash; &ldquo;Hard money loans in Phoenix&rdquo; &mdash; in 30 seconds.</p>
+          </div>
+        </div>
+
+        <!-- EZRS-only AI kicker -->
+        <div class="ai-kicker">
+          <p class="ai-kicker-label">Plus AI built specifically for the deal itself:</p>
+          <p class="ai-kicker-items"><strong>AI-Powered Borrower Support for Deal Entry</strong> &nbsp;&middot;&nbsp; <strong>AI-Powered Deal Analysis &amp; Risk Assessment</strong></p>
+        </div>
+
+        <!-- Operator-honesty close -->
+        <div class="ai-honest-close">
+          <p>We didn&rsquo;t build the AI. We&rsquo;re not trying to be smarter than GPT-4. What we built is the only platform in private lending that brings these tools into the rate-sheet-to-closing workflow you already use &mdash; without you having to learn ten separate dashboards.</p>
+          <div style="margin-top: var(--space-6); display:flex; gap:var(--space-3); flex-wrap:wrap; justify-content:center;">
+            <a href="pages/ai-for-lenders.html" class="btn btn-primary">See the full AI stack</a>
+            <a href="pages/contact.html" class="btn btn-secondary-on-dark">Book a 20-minute demo</a>
           </div>
         </div>
       </div>
@@ -1028,6 +1240,7 @@
         <ul role="list">
           <li><a href="#features">Features</a></li>
           <li><a href="pages/pricing.html">Pricing</a></li>
+          <li><a href="pages/ai-for-lenders.html">AI for Lenders</a></li>
           <li><a href="pages/lending-network.html">Lending Network</a></li>
           <li><a href="/app/register">Start Free Trial</a></li>
           <li><a href="pages/watch-demo.html">Watch Demo</a></li>
