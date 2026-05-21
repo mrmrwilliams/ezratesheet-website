@@ -1259,3 +1259,100 @@
   }
 }
 
+
+/* ========== PARTNER LOGO MARQUEE ========== */
+.logo-marquee {
+  padding: var(--space-10) 0 var(--space-12);
+  background: var(--color-surface-offset);
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+  overflow: hidden;
+}
+
+.logo-marquee__label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 auto var(--space-8);
+}
+
+.logo-marquee__viewport {
+  position: relative;
+  overflow: hidden;
+  /* fade out edges so logos don't look chopped — tighter, symmetric */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+}
+
+.logo-marquee__track {
+  display: flex;
+  width: max-content;
+  /* the keyframe moves -50% so duplicating once = seamless loop */
+  animation: logo-marquee-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee:hover .logo-marquee__track {
+  animation-play-state: paused;
+}
+
+.logo-marquee__item {
+  flex-shrink: 0;
+  width: 180px;
+  height: 90px;
+  margin: 0 var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-marquee__item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity var(--transition-interactive);
+}
+
+.logo-marquee__item:hover img,
+.logo-marquee:hover .logo-marquee__item img {
+  opacity: 1;
+}
+
+@keyframes logo-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track {
+    animation: none;
+    transform: translateX(0);
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-marquee__item {
+    width: 150px;
+    height: 72px;
+    margin: 0 var(--space-5);
+  }
+  .logo-marquee {
+    padding: var(--space-8) 0;
+  }
+  .logo-marquee__label {
+    padding: 0 var(--space-6);
+    line-height: 1.4;
+  }
+}
