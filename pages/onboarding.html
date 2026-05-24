@@ -639,6 +639,49 @@
     margin-top: 2px;
   }
 
+  /* Tier confirmation banner */
+  .tier-confirm-banner {
+    background: oklch(from var(--color-primary) 0.96 0.04 280 / 1);
+    border: 1.5px solid oklch(from var(--color-primary) l c h / 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-5);
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    line-height: 1.6;
+  }
+
+  .tier-confirm-banner-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: oklch(from var(--color-primary) l c h / 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    margin-top: 1px;
+  }
+
+  .tier-confirm-banner-icon svg { width: 18px; height: 18px; }
+
+  .tier-confirm-banner-text strong {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  .tier-confirm-banner-text p {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
   /* Checkbox options */
   .checkbox-option {
     display: flex;
@@ -1218,34 +1261,30 @@
           <nav class="sidebar-nav" id="sidebarNav">
             <button class="sidebar-item active" onclick="jumpToSection('section-1')" data-section="section-1">
               <span class="sidebar-num">1</span>
-              Package Confirmation
+              Contact &amp; Business Info
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-2')" data-section="section-2">
               <span class="sidebar-num">2</span>
-              Contact &amp; Business Info
+              Domain + Email Sending
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-3')" data-section="section-3">
               <span class="sidebar-num">3</span>
-              Domain + Email Sending
+              Calendar &amp; Hours
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-4')" data-section="section-4">
               <span class="sidebar-num">4</span>
-              Calendar &amp; Hours
+              Branding
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-5')" data-section="section-5">
               <span class="sidebar-num">5</span>
-              Branding
-            </button>
-            <button class="sidebar-item" onclick="jumpToSection('section-6')" data-section="section-6">
-              <span class="sidebar-num">6</span>
               GHL / RiseHub CRM Setup
             </button>
-            <button class="sidebar-item locked" onclick="jumpToSection('section-7')" data-section="section-7" data-min-tier="growth">
-              <span class="sidebar-num">7</span>
+            <button class="sidebar-item locked" onclick="jumpToSection('section-6')" data-section="section-6" data-min-tier="growth">
+              <span class="sidebar-num">6</span>
               Referral Partners
             </button>
-            <button class="sidebar-item locked" onclick="jumpToSection('section-8')" data-section="section-8" data-min-tier="fullstack">
-              <span class="sidebar-num">8</span>
+            <button class="sidebar-item locked" onclick="jumpToSection('section-7')" data-section="section-7" data-min-tier="fullstack">
+              <span class="sidebar-num">7</span>
               Website + Funnel + Bio
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-final')" data-section="section-final">
@@ -1295,62 +1334,36 @@
               Something went wrong submitting the form. Please try again or email <a href="mailto:support@ezratesheet.com" style="color:inherit;font-weight:600;">support@ezratesheet.com</a> directly.
             </div>
 
+            <!-- Tier / welcome confirmation banner (above all sections) -->
+            <div class="tier-confirm-banner" id="tierConfirmBanner">
+              <div class="tier-confirm-banner-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="tier-confirm-banner-text">
+                <strong id="tierConfirmHeading">Welcome — let’s get your account set up.</strong>
+                <p id="tierConfirmBody">Complete the sections below so our team can start your buildout right away. Buildout typically takes 4–20 business days depending on package size and how quickly we can iterate together.</p>
+              </div>
+            </div>
+
             <!-- THE FORM -->
             <form id="onboardingForm" novalidate>
 
-              <!-- ===== SECTION 1: PACKAGE CONFIRMATION ===== -->
+              <!-- ===== SECTION 1: PRIMARY CONTACT & BUSINESS INFO ===== -->
               <div class="form-section open" id="section-1">
                 <div class="form-section-header">
                   <div class="section-header" onclick="toggleSection('section-1')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-1-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-1')">
                     <span class="section-num">1</span>
-                    <span class="section-title">Package Confirmation</span>
+                    <span class="section-title">Primary Contact &amp; Business Info</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
-                  <p class="section-micro">Helps us confirm your purchase and immediately routes your form to the right setup workflow. Once you select your package, additional sections will appear.</p>
+                  <p class="section-micro">We use this to set up your accounts, send you setup confirmations, and configure client-facing materials with your correct business identity.</p>
                 </div>
                 <div class="form-section-body" id="section-1-body">
 
-                  <!-- Q1: Tier Selector -->
-                  <div class="form-card" id="card-q1">
-                    <div class="form-card-num">1</div>
-                    <p class="form-card-label">Which package did you purchase? <span style="color:var(--color-primary)">*</span></p>
-                    <p class="form-card-micro">Your answer unlocks the relevant setup sections below.</p>
-                    <div class="radio-group" role="radiogroup" aria-label="Package selection" id="tierRadioGroup">
-                      <label class="radio-option tier-card" data-field="package_tier" data-value="lender_essentials" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="package_tier" value="lender_essentials">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">Lender Essentials</div>
-                          <div class="radio-option-sub">EZRS + full RiseHub CRM · 5 users · 10 deals/mo</div>
-                          <div class="tier-price">$1,750 setup · $138/mo</div>
-                        </div>
-                      </label>
-                      <label class="radio-option tier-card" data-field="package_tier" data-value="growth_engine" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="package_tier" value="growth_engine">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">Growth Engine</div>
-                          <div class="radio-option-sub">Essentials + referral partner program · 25 users</div>
-                          <div class="tier-price">$4,997 setup · $228/mo</div>
-                        </div>
-                      </label>
-                      <label class="radio-option tier-card" data-field="package_tier" data-value="full_stack" tabindex="0" role="radio" aria-checked="false">
-                        <input type="radio" name="package_tier" value="full_stack">
-                        <span class="radio-custom" aria-hidden="true"></span>
-                        <div class="radio-option-content">
-                          <div class="radio-option-text">Full Stack</div>
-                          <div class="radio-option-sub">Everything + DFY funnels, automation · unlimited users</div>
-                          <div class="tier-price">$9,997 setup · $348/mo</div>
-                        </div>
-                      </label>
-                    </div>
-                    <span class="field-error" id="err-package_tier">Please select your package.</span>
-                  </div>
-
-                  <!-- Q2: Order ID -->
+                  <!-- Order ID (optional, helps reconcile account) -->
                   <div class="form-card" id="card-q2">
-                    <div class="form-card-num">2</div>
+                    <div class="form-card-num">1</div>
                     <p class="form-card-label">Stripe order ID or email used for purchase</p>
                     <p class="form-card-micro">Helps us reconcile your account quickly. You can find your order ID in your Stripe receipt email — it looks like <em>pi_xxxxx</em> or <em>ch_xxxxx</em>.</p>
                     <div class="field-group">
@@ -1359,37 +1372,9 @@
                     </div>
                   </div>
 
-                  <!-- Q3: Start Date -->
-                  <div class="form-card" id="card-q3">
-                    <div class="form-card-num">3</div>
-                    <p class="form-card-label">Preferred start date for setup <span style="color:var(--color-primary)">*</span></p>
-                    <p class="form-card-micro">When would you like our team to begin configuring your system? We'll do our best to accommodate your timeline. Note that setup begins after this form is fully submitted.</p>
-                    <div class="field-group" style="max-width: 280px;">
-                      <label class="field-label" for="preferred_start_date">Start date <span class="req" aria-hidden="true">*</span></label>
-                      <input class="field-input" type="date" id="preferred_start_date" name="preferred_start_date" required>
-                      <span class="field-error" id="err-preferred_start_date">Please select a preferred start date (minimum 3 days from today).</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <!-- ===== SECTION 2: PRIMARY CONTACT & BUSINESS INFO ===== -->
-              <div class="form-section open" id="section-2">
-                <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-2')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-2-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-2')">
-                    <span class="section-num">2</span>
-                    <span class="section-title">Primary Contact &amp; Business Info</span>
-                    <span class="section-badge badge-all">All tiers</span>
-                    <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                  </div>
-                  <p class="section-micro">We use this to set up your accounts, send you setup confirmations, and configure client-facing materials with your correct business identity.</p>
-                </div>
-                <div class="form-section-body" id="section-2-body">
-
                   <!-- Contact Info -->
                   <div class="form-card" id="card-q4">
-                    <div class="form-card-num">4</div>
+                    <div class="form-card-num">2</div>
                     <p class="form-card-label">Primary contact — who should our build team communicate with? <span style="color:var(--color-primary)">*</span></p>
                     <div class="fields-row">
                       <div class="field-group">
@@ -1529,18 +1514,18 @@
                 </div>
               </div>
 
-              <!-- ===== SECTION 3: DOMAIN + EMAIL SENDING ===== -->
-              <div class="form-section open" id="section-3">
+              <!-- ===== SECTION 2: DOMAIN + EMAIL SENDING ===== -->
+              <div class="form-section open" id="section-2">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-3')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-3-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-3')">
-                    <span class="section-num">3</span>
+                  <div class="section-header" onclick="toggleSection('section-2')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-2-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-2')">
+                    <span class="section-num">2</span>
                     <span class="section-title">Domain + Email Sending</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We'll need a domain for your funnel/portal and a subdomain for sending email through your CRM. If you don't already own one, we can help.</p>
                 </div>
-                <div class="form-section-body" id="section-3-body">
+                <div class="form-section-body" id="section-2-body">
 
                   <!-- Primary Domain -->
                   <div class="form-card">
@@ -1570,18 +1555,18 @@
                 </div>
               </div>
 
-              <!-- ===== SECTION 4: CALENDAR ===== -->
-              <div class="form-section open" id="section-4">
+              <!-- ===== SECTION 3: CALENDAR ===== -->
+              <div class="form-section open" id="section-3">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-4')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-4-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-4')">
-                    <span class="section-num">4</span>
+                  <div class="section-header" onclick="toggleSection('section-3')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-3-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-3')">
+                    <span class="section-num">3</span>
                     <span class="section-title">Calendar &amp; Business Hours</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We'll set up a borrower calendar (and a referral partner calendar for Full Stack clients). Just need your basic business hours and timezone — you can fine-tune in your CRM after launch.</p>
                 </div>
-                <div class="form-section-body" id="section-4-body">
+                <div class="form-section-body" id="section-3-body">
 
                   <!-- Timezone -->
                   <div class="form-card">
@@ -1616,18 +1601,18 @@
                 </div>
               </div>
 
-              <!-- ===== SECTION 5: BRANDING ===== -->
-              <div class="form-section open" id="section-5">
+              <!-- ===== SECTION 4: BRANDING ===== -->
+              <div class="form-section open" id="section-4">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-5')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-5-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-5')">
-                    <span class="section-num">5</span>
+                  <div class="section-header" onclick="toggleSection('section-4')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-4-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-4')">
+                    <span class="section-num">4</span>
                     <span class="section-title">Branding</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">Your brand identity goes directly into your RiseHub templates, rate sheet headers, email signatures, and any funnel pages we build.</p>
                 </div>
-                <div class="form-section-body" id="section-5-body">
+                <div class="form-section-body" id="section-4-body">
 
                   <!-- Logo delivery callout -->
                   <div class="callout-note">
@@ -1696,18 +1681,18 @@
                 </div>
               </div>
 
-              <!-- ===== SECTION 6: GHL / RISEHUB CRM SETUP ===== -->
-              <div class="form-section open" id="section-6">
+              <!-- ===== SECTION 5: GHL / RISEHUB CRM SETUP ===== -->
+              <div class="form-section open" id="section-5">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-6')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-6-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-6')">
-                    <span class="section-num">6</span>
+                  <div class="section-header" onclick="toggleSection('section-5')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-5-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-5')">
+                    <span class="section-num">5</span>
                     <span class="section-title">GHL / RiseHub CRM Setup</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We'll configure your RiseHub CRM with your team, pipelines, and contact structure. If you're migrating from another tool, we'll handle the transition as smoothly as possible.</p>
                 </div>
-                <div class="form-section-body" id="section-6-body">
+                <div class="form-section-body" id="section-5-body">
 
                   <!-- RiseHub Team Members -->
                   <div class="form-card">
@@ -1805,18 +1790,18 @@
                 </div>
               </div>
 
-              <!-- ===== SECTION 7: REFERRAL PARTNERS (Growth Engine and Full Stack only) ===== -->
-              <div class="form-section" id="section-7" data-min-tier="growth" style="display:none;">
+              <!-- ===== SECTION 6: REFERRAL PARTNERS (Growth Engine and Full Stack only) ===== -->
+              <div class="form-section" id="section-6" data-min-tier="growth" style="display:none;">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-7')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-7-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-7')">
-                    <span class="section-num">7</span>
+                  <div class="section-header" onclick="toggleSection('section-6')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-6-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-6')">
+                    <span class="section-num">6</span>
                     <span class="section-title">Referral Partners</span>
                     <span class="section-badge badge-growth">Growth+</span>
                     <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We'll set up your referral partner portal and load in your existing partners. Having this ready at launch means your partner relationships hit the ground running inside RiseHub.</p>
                 </div>
-                <div class="form-section-body" id="section-7-body">
+                <div class="form-section-body" id="section-6-body">
 
                   <!-- Has Existing Referral Partners -->
                   <div class="form-card">
@@ -1884,18 +1869,18 @@
                 </div>
               </div>
 
-              <!-- ===== SECTION 8: WEBSITE + FUNNEL + BIO (Full Stack only) ===== -->
-              <div class="form-section" id="section-8" data-min-tier="fullstack" style="display:none;">
+              <!-- ===== SECTION 7: WEBSITE + FUNNEL + BIO (Full Stack only) ===== -->
+              <div class="form-section" id="section-7" data-min-tier="fullstack" style="display:none;">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-8')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-8-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-8')">
-                    <span class="section-num">8</span>
+                  <div class="section-header" onclick="toggleSection('section-7')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-7-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-7')">
+                    <span class="section-num">7</span>
                     <span class="section-title">Website + Funnel + Bio</span>
                     <span class="section-badge badge-fullstack">Full Stack only</span>
                     <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We're building your borrower sales funnel and referral partner funnel as part of your Full Stack setup. The more content direction you give us here, the faster we can deliver something you're proud to send traffic to.</p>
                 </div>
-                <div class="form-section-body" id="section-8-body">
+                <div class="form-section-body" id="section-7-body">
 
                   <!-- Reference Website -->
                   <div class="form-card">
@@ -2056,11 +2041,18 @@
 <script>
 // ===== CONFIG =====
 const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/6vd0JqcgyHpzEUereM2p/webhook-trigger/7f5726a9-594a-40c7-937c-adc3969ae33a';
-const LS_KEY = 'ezrs_onboarding_v2';
+const LS_KEY = 'ezrs_onboarding_v3';
 
 // Tier hierarchy for section visibility
 const TIER_ORDER = { 'lender_essentials': 1, 'growth_engine': 2, 'full_stack': 3 };
 const TIER_MIN = { 'essentials': 'lender_essentials', 'growth': 'growth_engine', 'fullstack': 'full_stack' };
+
+// Display names for each tier
+const TIER_NAMES = {
+  'lender_essentials': 'Lender Essentials',
+  'growth_engine': 'Growth Engine',
+  'full_stack': 'Full Stack'
+};
 
 // Setup timelines by tier
 const SETUP_TIMELINES = {
@@ -2116,14 +2108,34 @@ function jumpToSection(id) {
 }
 
 // ===== TIER-BASED SECTION VISIBILITY =====
-let currentTier = null;
+let currentTier = null;   // set from URL param on page load
+let tierSource = 'unknown'; // 'url_param' | 'unknown'
 
 function applyTierVisibility(tierValue) {
   currentTier = tierValue;
+  // When no valid tier: show ALL sections (safe fallback — collect everything)
+  const tierKnown = tierValue && TIER_ORDER[tierValue];
   const tierLevel = TIER_ORDER[tierValue] ?? 0;
 
-  // Show/hide sections
+  // Update confirmation banner
+  const heading = document.getElementById('tierConfirmHeading');
+  const body    = document.getElementById('tierConfirmBody');
+  if (heading && body) {
+    if (tierKnown) {
+      heading.textContent = `You’re getting set up for: ${TIER_NAMES[tierValue]}`;
+      body.textContent    = 'Our team has your package details from your purchase. Just complete the sections below so we can start your buildout right away. Buildout typically takes 4–20 business days depending on package size and how quickly we can iterate together.';
+    } else {
+      heading.textContent = 'Welcome — let’s get your account set up.';
+      body.textContent    = 'Complete the sections below so our team can start your buildout right away. Buildout typically takes 4–20 business days depending on package size and how quickly we can iterate together.';
+    }
+  }
+
+  // Show/hide sections (if no valid tier, show all)
   document.querySelectorAll('.form-section[data-min-tier]').forEach(section => {
+    if (!tierKnown) {
+      section.style.display = '';
+      return;
+    }
     const minTierKey = section.dataset.minTier;
     const minTierValue = TIER_MIN[minTierKey];
     const minLevel = TIER_ORDER[minTierValue] ?? 0;
@@ -2131,8 +2143,12 @@ function applyTierVisibility(tierValue) {
     section.style.display = shouldShow ? '' : 'none';
   });
 
-  // Update sidebar locks
+  // Update sidebar locks (unlock all if no valid tier)
   document.querySelectorAll('.sidebar-item[data-min-tier]').forEach(btn => {
+    if (!tierKnown) {
+      btn.classList.remove('locked');
+      return;
+    }
     const minTierKey = btn.dataset.minTier;
     const minTierValue = TIER_MIN[minTierKey];
     const minLevel = TIER_ORDER[minTierValue] ?? 0;
@@ -2141,13 +2157,16 @@ function applyTierVisibility(tierValue) {
 
   // Update tier user limit notes
   const limitNote = document.getElementById('tier-user-limit-box');
-  if (limitNote && TIER_USER_LIMITS[tierValue]) {
-    limitNote.innerHTML = TIER_USER_LIMITS[tierValue];
-    limitNote.style.display = 'block';
+  if (limitNote) {
+    if (tierKnown && TIER_USER_LIMITS[tierValue]) {
+      limitNote.innerHTML = TIER_USER_LIMITS[tierValue];
+      limitNote.style.display = 'block';
+    } else {
+      limitNote.style.display = 'none';
+    }
   }
 
   updateProgress();
-  triggerSave();
 }
 
 // ===== BUSINESS HOURS BUILDER =====
@@ -2245,11 +2264,6 @@ function initRadioOptions() {
       const errEl = document.getElementById(`err-${fieldName}`);
       if (errEl) errEl.classList.remove('visible');
 
-      // Special handling
-      if (fieldName === 'package_tier') {
-        applyTierVisibility(value);
-      }
-
       updateProgress();
       triggerSave();
     });
@@ -2346,18 +2360,20 @@ function addRepeaterRow(listId, rowPrefix, fieldPrefix, fields, labels, placehol
 // ===== PROGRESS CALCULATION =====
 function getRequiredFields() {
   const base = [
-    'package_tier', 'preferred_start_date',
     'contact_first_name', 'contact_last_name', 'contact_email',
     'ein', 'legal_business_name',
     'address_street', 'address_city', 'address_state', 'address_zip',
     'lending_states', 'primary_domain', 'email_sending_subdomain', 'timezone',
     'brand_colors', 'has_online_loan_application'
   ];
-  if (currentTier && TIER_ORDER[currentTier] >= 2) {
-    // Growth Engine+
+  // Show section 7 fields for Growth+ OR if tier is unknown (show-all fallback)
+  const tierKnown = currentTier && TIER_ORDER[currentTier];
+  const tierLevel = TIER_ORDER[currentTier] ?? 0;
+  if (!tierKnown || tierLevel >= 2) {
     base.push('has_existing_referral_partners');
   }
-  if (currentTier === 'full_stack') {
+  // Show section 8 fields for Full Stack OR if tier is unknown
+  if (!tierKnown || currentTier === 'full_stack') {
     base.push('reference_website_url', 'key_messages', 'owner_bio');
   }
   return base;
@@ -2528,34 +2544,7 @@ function validateForm() {
     }
   }
 
-  // Section 1: Package Confirmation
-  checkRadio('package_tier', 'err-package_tier', 'Please select your package.');
-
-  // Start date — must be at least 3 days from today
-  const startDate = document.getElementById('preferred_start_date');
-  const startDateErr = document.getElementById('err-preferred_start_date');
-  if (!startDate.value) {
-    startDate.classList.add('has-error');
-    startDateErr.classList.add('visible');
-    if (!firstError) firstError = startDate;
-    valid = false;
-  } else {
-    const minDate = new Date();
-    minDate.setDate(minDate.getDate() + 3);
-    minDate.setHours(0,0,0,0);
-    const picked = new Date(startDate.value + 'T00:00:00');
-    if (picked < minDate) {
-      startDate.classList.add('has-error');
-      startDateErr.classList.add('visible');
-      if (!firstError) firstError = startDate;
-      valid = false;
-    } else {
-      startDate.classList.remove('has-error');
-      startDateErr.classList.remove('visible');
-    }
-  }
-
-  // Section 2: Contact & Business
+  // Section 1: Contact & Business
   checkField('contact_first_name', 'err-contact_first_name', 'Please enter your first name.');
   checkField('contact_last_name', 'err-contact_last_name', 'Please enter your last name.');
 
@@ -2594,11 +2583,11 @@ function validateForm() {
   checkField('address_zip', 'err-address_zip', 'Please enter your ZIP code.');
   checkField('lending_states', 'err-lending_states', 'Please list your lending states.');
 
-  // Section 3: Domain + Email
+  // Section 2: Domain + Email
   checkField('primary_domain', 'err-primary_domain', 'Please enter your primary domain.');
   checkField('email_sending_subdomain', 'err-email_sending_subdomain', 'Please enter your email sending subdomain.');
 
-  // Section 4: Calendar
+  // Section 3: Calendar
   const timezoneEl = document.getElementById('timezone');
   const timezoneErr = document.getElementById('err-timezone');
   if (timezoneEl && timezoneErr) {
@@ -2613,7 +2602,7 @@ function validateForm() {
     }
   }
 
-  // Section 6: CRM — has_online_loan_application required
+  // Section 5: CRM — has_online_loan_application required
   checkRadio('has_online_loan_application', 'err-has_online_loan_application', 'Please answer this question.');
 
   // If has_online_loan_application = yes, URL required
@@ -2622,13 +2611,15 @@ function validateForm() {
     checkField('online_loan_application_url', 'err-online_loan_application_url', 'Please enter your loan application URL.');
   }
 
-  // Section 7: Referral Partners — required for GE+
-  if (currentTier && TIER_ORDER[currentTier] >= 2) {
+  // Section 6: Referral Partners — required if section is visible (GE+ OR tier unknown)
+  const tierKnownVal = currentTier && TIER_ORDER[currentTier];
+  const tierLevelVal = TIER_ORDER[currentTier] ?? 0;
+  if (!tierKnownVal || tierLevelVal >= 2) {
     checkRadio('has_existing_referral_partners', 'err-has_existing_referral_partners', 'Please answer this question.');
   }
 
-  // Section 8: Full Stack only
-  if (currentTier === 'full_stack') {
+  // Section 7: Full Stack only OR tier unknown
+  if (!tierKnownVal || currentTier === 'full_stack') {
     checkField('reference_website_url', 'err-reference_website_url', 'Please enter your reference website URL.');
     checkField('key_messages', 'err-key_messages', 'Please enter your key messages.');
     checkField('owner_bio', 'err-owner_bio', 'Please enter your owner/founder bio.');
@@ -2653,12 +2644,12 @@ function buildPayload() {
   const bizHours = getBusinessHoursPayload();
 
   const payload = {
-    source: 'onboarding-intake-form-v2',
+    source: 'onboarding-intake-form-v3',
     submitted_at: new Date().toISOString(),
     logo_delivery_method: 'email-reply',
-    package_tier: document.querySelector('[name="package_tier"]:checked')?.value || '',
+    package_tier: currentTier || '',
+    tier_source: tierSource,
     order_id: document.getElementById('order_id').value.trim(),
-    preferred_start_date: document.getElementById('preferred_start_date').value,
     // Contact
     contact_first_name: document.getElementById('contact_first_name').value.trim(),
     contact_last_name: document.getElementById('contact_last_name').value.trim(),
@@ -2759,16 +2750,19 @@ document.getElementById('onboardingForm').addEventListener('submit', async funct
 
     // Update thank you screen with tier-specific content
     const tier = payload.package_tier;
-    const timeline = SETUP_TIMELINES[tier] || '5–7 business days';
-    document.getElementById('thankYouTimelineText').textContent = `Setup timeline: ${timeline}`;
+    const timeline = SETUP_TIMELINES[tier] || null;
+    if (timeline) {
+      document.getElementById('thankYouTimelineText').textContent = `Buildout timeline: ${timeline}`;
+    } else {
+      document.getElementById('thankYouTimelineText').textContent = 'Buildout typically takes 4–20 business days depending on your package.';
+    }
 
-    const tierNames = {
-      'lender_essentials': 'Lender Essentials',
-      'growth_engine': 'Growth Engine',
-      'full_stack': 'Full Stack'
-    };
-    const tierName = tierNames[tier] || tier;
-    document.getElementById('thankYouBody').textContent = `Our build team has everything they need to start constructing your ${tierName} system. You'll hear from us within 1 business day — we'll confirm receipt and schedule your kickoff call from there.`;
+    const tierName = TIER_NAMES[tier] || null;
+    if (tierName) {
+      document.getElementById('thankYouBody').textContent = `Our build team has everything they need to start your ${tierName} buildout. You’ll hear from us within 1 business day — we’ll confirm receipt and align on next steps from there.`;
+    } else {
+      document.getElementById('thankYouBody').textContent = 'Our build team has everything they need to get started. You’ll hear from us within 1 business day — we’ll confirm receipt and align on next steps from there. Buildout typically takes 4–20 business days depending on your package.';
+    }
 
     // Show Full Stack headshot note
     const fullStackNote = document.getElementById('thankYouFullStackNote');
@@ -2829,17 +2823,18 @@ function initSidebarObserver() {
   sections.forEach(s => observer.observe(s));
 }
 
-// ===== URL PARAMETER TIER PRE-FILL =====
+// ===== URL PARAMETER TIER DETECTION =====
 function checkUrlTierParam() {
   const params = new URLSearchParams(window.location.search);
   const tierParam = params.get('tier');
   const validTiers = ['lender_essentials', 'growth_engine', 'full_stack'];
   if (tierParam && validTiers.includes(tierParam)) {
-    const tierOption = document.querySelector(`.radio-option[data-field="package_tier"][data-value="${tierParam}"]`);
-    if (tierOption) {
-      // Slight delay to ensure all init is done
-      setTimeout(() => tierOption.click(), 50);
-    }
+    tierSource = 'url_param';
+    applyTierVisibility(tierParam);
+  } else {
+    // No valid tier param — show all sections (safe fallback)
+    tierSource = 'unknown';
+    applyTierVisibility(null);
   }
 }
 
@@ -2850,14 +2845,7 @@ document.addEventListener('DOMContentLoaded', () => {
   attachInputListeners();
   initSidebarObserver();
   checkSavedProgress();
-  updateProgress();
-  checkUrlTierParam();
-
-  // Set minimum date to today + 3 days
-  const minDate = new Date();
-  minDate.setDate(minDate.getDate() + 3);
-  const minDateStr = minDate.toISOString().split('T')[0];
-  document.getElementById('preferred_start_date').min = minDateStr;
+  checkUrlTierParam(); // sets currentTier, tierSource, calls applyTierVisibility, updateProgress
 });
 </script>
 </body>
