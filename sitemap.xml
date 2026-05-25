@@ -21,13 +21,6 @@
   </url>
 
   <url>
-    <loc>https://www.ezratesheet.com/pages/ai-for-lenders</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
     <loc>https://www.ezratesheet.com/pages/services</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -36,16 +29,9 @@
 
   <url>
     <loc>https://www.ezratesheet.com/pages/about</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.ezratesheet.com/pages/our-story</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
@@ -126,46 +112,32 @@
     <priority>0.2</priority>
   </url>
 
-  <url>
-    <loc>https://www.ezratesheet.com/pages/security</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
   <!-- Blog index -->
   <url>
     <loc>https://www.ezratesheet.com/pages/blog</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Blog posts -->
   <url>
-    <loc>https://www.ezratesheet.com/pages/blog/two-questions-private-lending-platform</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://www.ezratesheet.com/pages/blog/why-private-lenders-leak-margin</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.ezratesheet.com/pages/blog/private-lender-tech-tax</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.ezratesheet.com/pages/blog/selling-paper-secondary-market</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
