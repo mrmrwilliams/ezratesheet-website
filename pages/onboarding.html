@@ -417,13 +417,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: var(--radius-full);
+    min-width: 28px;
+    height: 22px;
+    padding: 0 7px;
+    border-radius: 11px;
     background: var(--color-primary);
     color: white;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
+    line-height: 1;
     flex-shrink: 0;
     margin-bottom: var(--space-2);
   }
@@ -1265,27 +1267,23 @@
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-2')" data-section="section-2">
               <span class="sidebar-num">2</span>
-              Domain + Email Sending
+              Calendar &amp; Hours
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-3')" data-section="section-3">
               <span class="sidebar-num">3</span>
-              Calendar &amp; Hours
+              Branding
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-4')" data-section="section-4">
               <span class="sidebar-num">4</span>
-              Branding
-            </button>
-            <button class="sidebar-item" onclick="jumpToSection('section-5')" data-section="section-5">
-              <span class="sidebar-num">5</span>
               GHL / RiseHub CRM Setup
             </button>
-            <button class="sidebar-item locked" onclick="jumpToSection('section-6')" data-section="section-6" data-min-tier="growth">
-              <span class="sidebar-num">6</span>
+            <button class="sidebar-item locked" onclick="jumpToSection('section-5')" data-section="section-5" data-min-tier="growth">
+              <span class="sidebar-num">5</span>
               Referral Partners
             </button>
-            <button class="sidebar-item locked" onclick="jumpToSection('section-7')" data-section="section-7" data-min-tier="fullstack">
-              <span class="sidebar-num">7</span>
-              Website + Funnel + Bio
+            <button class="sidebar-item locked" onclick="jumpToSection('section-6')" data-section="section-6" data-min-tier="fullstack">
+              <span class="sidebar-num">6</span>
+              Funnel + Bio
             </button>
             <button class="sidebar-item" onclick="jumpToSection('section-final')" data-section="section-final">
               <span class="sidebar-num">✓</span>
@@ -1357,24 +1355,13 @@
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
-                  <p class="section-micro">We use this to set up your accounts, send you setup confirmations, and configure client-facing materials with your correct business identity.</p>
+                  <p class="section-micro">We use this to set up your accounts, send you setup confirmations, and configure client-facing materials with your correct business identity. For your email address, please use the email address used to purchase your package. That helps us find and reconcile your purchase quickly.</p>
                 </div>
                 <div class="form-section-body" id="section-1-body">
 
-                  <!-- Order ID (optional, helps reconcile account) -->
-                  <div class="form-card" id="card-q2">
-                    <div class="form-card-num">1</div>
-                    <p class="form-card-label">Stripe order ID or email used for purchase</p>
-                    <p class="form-card-micro">Helps us reconcile your account quickly. You can find your order ID in your Stripe receipt email — it looks like <em>pi_xxxxx</em> or <em>ch_xxxxx</em>.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="order_id">Order ID or purchase email <span class="optional-tag">optional</span></label>
-                      <input class="field-input" type="text" id="order_id" name="order_id" placeholder="pi_3Pxxxxxx or jane@acmelending.com">
-                    </div>
-                  </div>
-
                   <!-- Contact Info -->
                   <div class="form-card" id="card-q4">
-                    <div class="form-card-num">2</div>
+                    <div class="form-card-num">1.1</div>
                     <p class="form-card-label">Primary contact — who should our build team communicate with? <span style="color:var(--color-primary)">*</span></p>
                     <div class="fields-row">
                       <div class="field-group">
@@ -1401,7 +1388,7 @@
 
                   <!-- Legal Business Name -->
                   <div class="form-card" id="card-q5">
-                    <div class="form-card-num">5</div>
+                    <div class="form-card-num">1.2</div>
                     <p class="form-card-label">Legal business name <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">The official registered name of your business (as it appears on business documents).</p>
                     <div class="field-group">
@@ -1413,7 +1400,7 @@
 
                   <!-- DBA -->
                   <div class="form-card" id="card-q6">
-                    <div class="form-card-num">6</div>
+                    <div class="form-card-num">1.3</div>
                     <p class="form-card-label">DBA / brand name for client-facing materials</p>
                     <p class="form-card-micro">What name do you want borrowers and partners to see? Leave blank if it's the same as your legal name.</p>
                     <div class="field-group">
@@ -1424,7 +1411,7 @@
 
                   <!-- EIN / Tax ID -->
                   <div class="form-card" id="card-ein">
-                    <div class="form-card-num">7</div>
+                    <div class="form-card-num">1.4</div>
                     <p class="form-card-label">EIN / Tax ID <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">Your Employer Identification Number. Used for account setup and compliance documentation.</p>
                     <div class="field-group" style="max-width: 280px;">
@@ -1436,9 +1423,9 @@
 
                   <!-- Business Address -->
                   <div class="form-card" id="card-q7">
-                    <div class="form-card-num">8</div>
+                    <div class="form-card-num">1.5</div>
                     <p class="form-card-label">Business address <span style="color:var(--color-primary)">*</span></p>
-                    <p class="form-card-micro">Used on rate sheets, email signatures, and other branded materials.</p>
+                    <p class="form-card-micro">Must match the address on your EIN letter. This address is used to set up your phone system and in rate sheets, email signatures, and other branded materials.</p>
                     <div class="fields-row">
                       <div class="field-group field-full">
                         <label class="field-label" for="address_street">Street address <span class="req">*</span></label>
@@ -1478,7 +1465,7 @@
 
                   <!-- Website URL -->
                   <div class="form-card" id="card-q8">
-                    <div class="form-card-num">9</div>
+                    <div class="form-card-num">1.6</div>
                     <p class="form-card-label">Current website URL</p>
                     <p class="form-card-micro">If you have an existing website, share the URL. We'll reference it for brand continuity in your setup.</p>
                     <div class="field-group">
@@ -1489,7 +1476,7 @@
 
                   <!-- Lending States -->
                   <div class="form-card" id="card-q9">
-                    <div class="form-card-num">10</div>
+                    <div class="form-card-num">1.7</div>
                     <p class="form-card-label">States you actively lend in <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">We'll configure your rate sheets and marketing materials to reflect your active lending footprint.</p>
                     <div class="field-group">
@@ -1502,7 +1489,7 @@
 
                   <!-- Social Media Profile URLs -->
                   <div class="form-card" id="card-social">
-                    <div class="form-card-num">11</div>
+                    <div class="form-card-num">1.8</div>
                     <p class="form-card-label">Social media profile URLs</p>
                     <p class="form-card-micro">Share the URLs to your existing social media profiles. We'll reference these during setup.</p>
                     <div class="field-group">
@@ -1514,63 +1501,22 @@
                 </div>
               </div>
 
-              <!-- ===== SECTION 2: DOMAIN + EMAIL SENDING ===== -->
+              <!-- ===== SECTION 2: CALENDAR ===== -->
               <div class="form-section open" id="section-2">
                 <div class="form-section-header">
                   <div class="section-header" onclick="toggleSection('section-2')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-2-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-2')">
                     <span class="section-num">2</span>
-                    <span class="section-title">Domain + Email Sending</span>
-                    <span class="section-badge badge-all">All tiers</span>
-                    <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                  </div>
-                  <p class="section-micro">We'll need a domain for your funnel/portal and a subdomain for sending email through your CRM. If you don't already own one, we can help.</p>
-                </div>
-                <div class="form-section-body" id="section-2-body">
-
-                  <!-- Primary Domain -->
-                  <div class="form-card">
-                    <div class="form-card-num">12</div>
-                    <p class="form-card-label">Primary domain <span style="color:var(--color-primary)">*</span></p>
-                    <p class="form-card-micro">The main domain you'd like used for your funnel and client portal. If you don't have one yet, let us know and we'll help you get one registered.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="primary_domain">Primary domain <span class="req">*</span></label>
-                      <input class="field-input" type="text" id="primary_domain" name="primary_domain" placeholder="myloancompany.com" required>
-                      <span class="field-error" id="err-primary_domain">Please enter your primary domain.</span>
-                    </div>
-                  </div>
-
-                  <!-- Email Sending Subdomain -->
-                  <div class="form-card">
-                    <div class="form-card-num">13</div>
-                    <p class="form-card-label">Email sending subdomain <span style="color:var(--color-primary)">*</span></p>
-                    <p class="form-card-micro">We set up a dedicated subdomain for sending transactional and marketing emails through your CRM. This protects your main domain's reputation.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="email_sending_subdomain">Email sending subdomain <span class="req">*</span></label>
-                      <input class="field-input" type="text" id="email_sending_subdomain" name="email_sending_subdomain" placeholder="em.myloancompany.com" required>
-                      <span class="field-error" id="err-email_sending_subdomain">Please enter your email sending subdomain.</span>
-                      <p class="field-micro-help">We recommend using a subdomain (e.g., em.yourdomain.com) so your transactional/marketing emails don't impact your main domain reputation.</p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <!-- ===== SECTION 3: CALENDAR ===== -->
-              <div class="form-section open" id="section-3">
-                <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-3')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-3-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-3')">
-                    <span class="section-num">3</span>
                     <span class="section-title">Calendar &amp; Business Hours</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We'll set up a borrower calendar (and a referral partner calendar for Full Stack clients). Just need your basic business hours and timezone — you can fine-tune in your CRM after launch.</p>
                 </div>
-                <div class="form-section-body" id="section-3-body">
+                <div class="form-section-body" id="section-2-body">
 
                   <!-- Timezone -->
                   <div class="form-card">
-                    <div class="form-card-num">14</div>
+                    <div class="form-card-num">2.1</div>
                     <p class="form-card-label">Your timezone <span style="color:var(--color-primary)">*</span></p>
                     <div class="field-group" style="max-width: 420px;">
                       <label class="field-label" for="timezone">Timezone <span class="req">*</span></label>
@@ -1590,7 +1536,7 @@
 
                   <!-- Business Hours -->
                   <div class="form-card">
-                    <div class="form-card-num">15</div>
+                    <div class="form-card-num">2.2</div>
                     <p class="form-card-label">Business hours</p>
                     <p class="form-card-micro">Set your availability for each day of the week. Check "Closed" for days you're not available. You can fine-tune this in your CRM after launch.</p>
                     <div class="biz-hours-grid" id="bizHoursGrid">
@@ -1602,17 +1548,17 @@
               </div>
 
               <!-- ===== SECTION 4: BRANDING ===== -->
-              <div class="form-section open" id="section-4">
+              <div class="form-section open" id="section-3">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-4')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-4-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-4')">
-                    <span class="section-num">4</span>
+                  <div class="section-header" onclick="toggleSection('section-3')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-3-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-3')">
+                    <span class="section-num">3</span>
                     <span class="section-title">Branding</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">Your brand identity goes directly into your RiseHub templates, rate sheet headers, email signatures, and any funnel pages we build.</p>
                 </div>
-                <div class="form-section-body" id="section-4-body">
+                <div class="form-section-body" id="section-3-body">
 
                   <!-- Logo delivery callout -->
                   <div class="callout-note">
@@ -1624,7 +1570,7 @@
 
                   <!-- Brand Colors -->
                   <div class="form-card">
-                    <div class="form-card-num">16</div>
+                    <div class="form-card-num">3.1</div>
                     <p class="form-card-label">Brand colors</p>
                     <p class="form-card-micro">Share your brand colors in any format — hex codes are ideal. Include the role of each color (primary, secondary, accent, background, etc.) so we apply them correctly.</p>
                     <div class="field-group">
@@ -1635,7 +1581,7 @@
 
                   <!-- Brand Tone -->
                   <div class="form-card">
-                    <div class="form-card-num">17</div>
+                    <div class="form-card-num">3.2</div>
                     <p class="form-card-label">Brand tone &amp; voice</p>
                     <p class="form-card-micro">How should your brand sound to clients and partners? We'll apply this to email templates, automations, and any copy we write during setup.</p>
                     <div class="radio-group" role="radiogroup" aria-label="Brand tone">
@@ -1682,23 +1628,23 @@
               </div>
 
               <!-- ===== SECTION 5: GHL / RISEHUB CRM SETUP ===== -->
-              <div class="form-section open" id="section-5">
+              <div class="form-section open" id="section-4">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-5')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-5-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-5')">
-                    <span class="section-num">5</span>
+                  <div class="section-header" onclick="toggleSection('section-4')" role="button" tabindex="0" aria-expanded="true" aria-controls="section-4-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-4')">
+                    <span class="section-num">4</span>
                     <span class="section-title">GHL / RiseHub CRM Setup</span>
                     <span class="section-badge badge-all">All tiers</span>
                     <svg class="section-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We'll configure your RiseHub CRM with your team, pipelines, and contact structure. If you're migrating from another tool, we'll handle the transition as smoothly as possible.</p>
                 </div>
-                <div class="form-section-body" id="section-5-body">
+                <div class="form-section-body" id="section-4-body">
 
                   <!-- RiseHub Team Members -->
                   <div class="form-card">
-                    <div class="form-card-num">18</div>
-                    <p class="form-card-label">Team members who need RiseHub access</p>
-                    <p class="form-card-micro">Add everyone who needs a seat. Include their name, email, and role so we can set up the right permissions.</p>
+                    <div class="form-card-num">4.1</div>
+                    <p class="form-card-label">Team members who need RiseHub access <span class="optional-tag" style="font-size:var(--text-xs);margin-left:var(--space-2);">optional</span></p>
+                    <p class="form-card-micro">You'll automatically be set up as an admin user with the Full Name and Email you provided above — no need to re-enter your own info here. Add any other users who you'd like us to set up in the account. Include their name, email, and role so we can set up the right permissions.</p>
                     <div class="tier-note" id="tier-user-limit-box" style="display:none;"></div>
                     <div id="risehub-users-list">
                       <div class="repeater-row" id="risehub-user-1">
@@ -1729,7 +1675,7 @@
 
                   <!-- Current CRM -->
                   <div class="form-card">
-                    <div class="form-card-num">19</div>
+                    <div class="form-card-num">4.2</div>
                     <p class="form-card-label">Current CRM or pipeline tool (if any)</p>
                     <p class="form-card-micro">Knowing what you're coming from helps us think about what workflows to replicate and what to improve. If you're not using anything, that's totally fine.</p>
                     <div class="field-group">
@@ -1740,7 +1686,7 @@
 
                   <!-- CRM Migration -->
                   <div class="form-card">
-                    <div class="form-card-num">20</div>
+                    <div class="form-card-num">4.3</div>
                     <p class="form-card-label">Migrating contacts from another CRM?</p>
                     <p class="form-card-micro">If you have an existing contact list you'd like imported into RiseHub, let us know and we'll coordinate the import separately.</p>
                     <div class="yes-no-group" role="radiogroup" aria-label="CRM migration">
@@ -1764,7 +1710,7 @@
 
                   <!-- Online Loan Application -->
                   <div class="form-card">
-                    <div class="form-card-num">21</div>
+                    <div class="form-card-num">4.4</div>
                     <p class="form-card-label">Do you have an online loan application form you'd like us to send borrowers to after they sign their term sheet? <span style="color:var(--color-primary)">*</span></p>
                     <div class="yes-no-group" role="radiogroup" aria-label="Has online loan application">
                       <label class="yes-no-option" data-field="has_online_loan_application" data-value="yes" tabindex="0">
@@ -1791,21 +1737,21 @@
               </div>
 
               <!-- ===== SECTION 6: REFERRAL PARTNERS (Growth Engine and Full Stack only) ===== -->
-              <div class="form-section" id="section-6" data-min-tier="growth" style="display:none;">
+              <div class="form-section" id="section-5" data-min-tier="growth" style="display:none;">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-6')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-6-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-6')">
-                    <span class="section-num">6</span>
+                  <div class="section-header" onclick="toggleSection('section-5')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-5-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-5')">
+                    <span class="section-num">5</span>
                     <span class="section-title">Referral Partners</span>
                     <span class="section-badge badge-growth">Growth+</span>
                     <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We'll set up your referral partner portal and load in your existing partners. Having this ready at launch means your partner relationships hit the ground running inside RiseHub.</p>
                 </div>
-                <div class="form-section-body" id="section-6-body">
+                <div class="form-section-body" id="section-5-body">
 
                   <!-- Has Existing Referral Partners -->
                   <div class="form-card">
-                    <div class="form-card-num">22</div>
+                    <div class="form-card-num">5.1</div>
                     <p class="form-card-label">Do you have existing referral partners you'd like us to load into your CRM at launch?</p>
                     <div class="yes-no-group" role="radiogroup" aria-label="Has existing referral partners">
                       <label class="yes-no-option" data-field="has_existing_referral_partners" data-value="yes" tabindex="0">
@@ -1824,7 +1770,7 @@
                   <!-- Partners Repeater (conditional) -->
                   <div class="conditional-reveal" id="partners-reveal">
                     <div class="form-card" style="margin-top: var(--space-4);">
-                      <div class="form-card-num">23</div>
+                      <div class="form-card-num">5.2</div>
                       <p class="form-card-label">Add your existing referral partners</p>
                       <p class="form-card-micro">Include name, email, and company. Real estate agents, mortgage brokers, financial advisors, CPAs, etc.</p>
                       <div id="partners-list">
@@ -1856,7 +1802,7 @@
 
                     <!-- Commission Structure -->
                     <div class="form-card" style="margin-top: var(--space-4);">
-                      <div class="form-card-num">24</div>
+                      <div class="form-card-num">5.3</div>
                       <p class="form-card-label">Referral commission structure</p>
                       <p class="form-card-micro">Describe how you compensate referral partners. We'll use this to configure your partner portal and commission tracking setup.</p>
                       <div class="field-group">
@@ -1870,39 +1816,21 @@
               </div>
 
               <!-- ===== SECTION 7: WEBSITE + FUNNEL + BIO (Full Stack only) ===== -->
-              <div class="form-section" id="section-7" data-min-tier="fullstack" style="display:none;">
+              <div class="form-section" id="section-6" data-min-tier="fullstack" style="display:none;">
                 <div class="form-section-header">
-                  <div class="section-header" onclick="toggleSection('section-7')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-7-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-7')">
-                    <span class="section-num">7</span>
-                    <span class="section-title">Website + Funnel + Bio</span>
+                  <div class="section-header" onclick="toggleSection('section-6')" role="button" tabindex="0" aria-expanded="false" aria-controls="section-6-body" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection('section-6')">
+                    <span class="section-num">6</span>
+                    <span class="section-title">Funnel + Bio</span>
                     <span class="section-badge badge-fullstack">Full Stack only</span>
                     <svg class="section-toggle-icon collapsed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <p class="section-micro">We're building your borrower sales funnel and referral partner funnel as part of your Full Stack setup. The more content direction you give us here, the faster we can deliver something you're proud to send traffic to.</p>
                 </div>
-                <div class="form-section-body" id="section-7-body">
-
-                  <!-- Reference Website -->
-                  <div class="form-card">
-                    <div class="form-card-num">25</div>
-                    <p class="form-card-label">Reference website for brand continuity</p>
-                    <p class="form-card-micro">If you have a current website, we'll reference it when designing your funnel pages so everything feels cohesive and on-brand.</p>
-                    <div class="fields-row">
-                      <div class="field-group">
-                        <label class="field-label" for="reference_website_url">Website URL <span class="req">*</span></label>
-                        <input class="field-input" type="url" id="reference_website_url" name="reference_website_url" placeholder="https://www.acmelending.com">
-                        <span class="field-error" id="err-reference_website_url">Please enter your reference website URL.</span>
-                      </div>
-                      <div class="field-group">
-                        <label class="field-label" for="reference_website_notes">Notes <span class="optional-tag">optional</span></label>
-                        <input class="field-input" type="text" id="reference_website_notes" name="reference_website_notes" placeholder="e.g., 'Keep the same navy/gold palette but modernize the layout'">
-                      </div>
-                    </div>
-                  </div>
+                <div class="form-section-body" id="section-6-body">
 
                   <!-- Key Messages -->
                   <div class="form-card">
-                    <div class="form-card-num">26</div>
+                    <div class="form-card-num">6.1</div>
                     <p class="form-card-label">Key messages &amp; value propositions to feature <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">What are the 3–5 core reasons borrowers should choose you over any other lender? These become the headlines and hero copy on your funnel pages.</p>
                     <div class="field-group">
@@ -1914,9 +1842,9 @@
 
                   <!-- Owner / Founder Bio -->
                   <div class="form-card">
-                    <div class="form-card-num">27</div>
-                    <p class="form-card-label">Owner / Founder Bio <span style="color:var(--color-primary)">*</span></p>
-                    <p class="form-card-micro">This will be featured on your funnel. A few sentences about your background, experience, and what makes you uniquely qualified to serve your clients. Speak directly to borrowers.</p>
+                    <div class="form-card-num">6.2</div>
+                    <p class="form-card-label">Owner / Founder Bio or About Us Copy <span style="color:var(--color-primary)">*</span></p>
+                    <p class="form-card-micro">This will be featured on your funnel. A few sentences about your company, or your personal background, experience, and what makes you uniquely qualified to serve your clients. Speak directly to borrowers.</p>
                     <div class="field-group">
                       <label class="field-label" for="owner_bio">Owner / Founder Bio <span class="req">*</span></label>
                       <textarea class="field-input" id="owner_bio" name="owner_bio" rows="5" placeholder="A short paragraph (3-5 sentences) about you/the founder — background, experience, what makes you uniquely suited to serve your clients." required></textarea>
@@ -1926,7 +1854,7 @@
 
                   <!-- Team Member Bios -->
                   <div class="form-card">
-                    <div class="form-card-num">28</div>
+                    <div class="form-card-num">6.3</div>
                     <p class="form-card-label">Team Member Bios <span class="optional-tag" style="font-size:var(--text-xs);margin-left:var(--space-2);">optional</span></p>
                     <p class="form-card-micro">If you'd like to feature any team members on your funnel, add their names and short bios here. Leave blank if it's just you or you're not ready yet.</p>
                     <div class="field-group">
@@ -1952,7 +1880,7 @@
                 <div class="form-section-body" id="section-final-body">
 
                   <div class="form-card">
-                    <div class="form-card-num">29</div>
+                    <div class="form-card-num">✓.1</div>
                     <p class="form-card-label">Anything else we should know?</p>
                     <p class="form-card-micro">This is your open field. Timeline constraints, existing integrations you rely on, team preferences, things that went wrong with a previous tech setup, things you're most excited about — all of it is useful.</p>
                     <div class="field-group">
@@ -2363,7 +2291,7 @@ function getRequiredFields() {
     'contact_first_name', 'contact_last_name', 'contact_email',
     'ein', 'legal_business_name',
     'address_street', 'address_city', 'address_state', 'address_zip',
-    'lending_states', 'primary_domain', 'email_sending_subdomain', 'timezone',
+    'lending_states', 'timezone',
     'brand_colors', 'has_online_loan_application'
   ];
   // Show section 7 fields for Growth+ OR if tier is unknown (show-all fallback)
@@ -2374,7 +2302,7 @@ function getRequiredFields() {
   }
   // Show section 8 fields for Full Stack OR if tier is unknown
   if (!tierKnown || currentTier === 'full_stack') {
-    base.push('reference_website_url', 'key_messages', 'owner_bio');
+    base.push('key_messages', 'owner_bio');
   }
   return base;
 }
@@ -2583,11 +2511,7 @@ function validateForm() {
   checkField('address_zip', 'err-address_zip', 'Please enter your ZIP code.');
   checkField('lending_states', 'err-lending_states', 'Please list your lending states.');
 
-  // Section 2: Domain + Email
-  checkField('primary_domain', 'err-primary_domain', 'Please enter your primary domain.');
-  checkField('email_sending_subdomain', 'err-email_sending_subdomain', 'Please enter your email sending subdomain.');
-
-  // Section 3: Calendar
+  // Section 2: Calendar
   const timezoneEl = document.getElementById('timezone');
   const timezoneErr = document.getElementById('err-timezone');
   if (timezoneEl && timezoneErr) {
@@ -2618,9 +2542,8 @@ function validateForm() {
     checkRadio('has_existing_referral_partners', 'err-has_existing_referral_partners', 'Please answer this question.');
   }
 
-  // Section 7: Full Stack only OR tier unknown
+  // Section 6: Full Stack only OR tier unknown
   if (!tierKnownVal || currentTier === 'full_stack') {
-    checkField('reference_website_url', 'err-reference_website_url', 'Please enter your reference website URL.');
     checkField('key_messages', 'err-key_messages', 'Please enter your key messages.');
     checkField('owner_bio', 'err-owner_bio', 'Please enter your owner/founder bio.');
   }
@@ -2649,7 +2572,6 @@ function buildPayload() {
     logo_delivery_method: 'email-reply',
     package_tier: currentTier || '',
     tier_source: tierSource,
-    order_id: document.getElementById('order_id').value.trim(),
     // Contact
     contact_first_name: document.getElementById('contact_first_name').value.trim(),
     contact_last_name: document.getElementById('contact_last_name').value.trim(),
@@ -2666,9 +2588,6 @@ function buildPayload() {
     current_website_url: document.getElementById('current_website_url').value.trim(),
     lending_states: document.getElementById('lending_states').value.trim(),
     social_media_urls: document.getElementById('social_media_urls').value.trim(),
-    // Domain + Email
-    primary_domain: document.getElementById('primary_domain').value.trim(),
-    email_sending_subdomain: document.getElementById('email_sending_subdomain').value.trim(),
     // Calendar
     timezone: document.getElementById('timezone').value,
     ...bizHours,
@@ -2685,9 +2604,7 @@ function buildPayload() {
     // Referral Partners
     has_existing_referral_partners: document.querySelector('[name="has_existing_referral_partners"]:checked')?.value || '',
     referral_commission_structure: (document.getElementById('referral_commission_structure') || {}).value?.trim() || '',
-    // Website + Bio (Full Stack)
-    reference_website_url: (document.getElementById('reference_website_url') || {}).value?.trim() || '',
-    reference_website_notes: (document.getElementById('reference_website_notes') || {}).value?.trim() || '',
+    // Funnel + Bio (Full Stack)
     key_messages: (document.getElementById('key_messages') || {}).value?.trim() || '',
     owner_bio: (document.getElementById('owner_bio') || {}).value?.trim() || '',
     team_member_bios: (document.getElementById('team_member_bios') || {}).value?.trim() || '',
