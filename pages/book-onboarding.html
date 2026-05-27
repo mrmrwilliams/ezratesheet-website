@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Onboarding Call — EZ Rate Sheet</title>
+<meta name="description" content="You're in. Book your kickoff call with the EZ Rate Sheet build team — we'll walk through your setup, training, and go-live plan.">
+<link rel="canonical" href="https://www.ezratesheet.com/pages/book-onboarding">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Book Your Onboarding Call — EZ Rate Sheet">
+<meta property="og:description" content="Pick a time for your kickoff. We'll walk through your setup, training, and go-live plan.">
+<meta property="og:image" content="https://www.ezratesheet.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+  /* ===== BOOK A CALL — PAGE-SPECIFIC STYLES ===== */
+  .book-page {
+    background: var(--color-bg);
+    padding-block: var(--space-12) var(--space-16);
+  }
+
+  .book-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: var(--space-10);
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-inline: var(--space-6);
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .book-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+
+  .book-sidebar {
+    position: sticky;
+    top: 100px;
+  }
+  @media (max-width: 900px) {
+    .book-sidebar { position: static; }
+  }
+
+  .book-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .book-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.75); }
+  }
+
+  .book-title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-text);
+    line-height: 1.15;
+    margin-bottom: var(--space-4);
+  }
+
+  .book-subtitle {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .book-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-8) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .book-bullets li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .book-bullet-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary-light, rgba(110,87,115,0.10));
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .book-bullet-icon svg { width: 12px; height: 12px; }
+
+  .book-quote-card {
+    background: var(--color-surface-offset, rgba(110,87,115,0.04));
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-5) var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+  .book-quote-card .book-quote-attribution {
+    display: block;
+    margin-top: var(--space-3);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* Calendar embed container */
+  .book-calendar-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3);
+    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04));
+    overflow: hidden;
+    min-height: 720px;
+  }
+
+  .book-calendar-card iframe {
+    width: 100%;
+    border: none;
+    min-height: 720px;
+    display: block;
+    border-radius: var(--radius-md);
+  }
+
+  /* Below-the-fold reassurance row */
+  .book-trust-row {
+    max-width: 1240px;
+    margin: var(--space-12) auto 0;
+    padding-inline: var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .book-trust-tile {
+    text-align: center;
+    padding: var(--space-6);
+  }
+  .book-trust-tile-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-2xl);
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+  .book-trust-tile-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <a href="#main" class="sr-only" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to main content</a>
+
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="EZ Rate Sheet home">
+        <img src="/assets/logo-icon-purple-transparent.png" alt="" width="38" height="38" style="display:block;flex-shrink:0;">
+        <span>EZ Rates</span>
+      </a>
+      <nav><ul class="nav-links" id="navLinks" role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/login">Login</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/register">Start Free Trial</a></li><li class="mobile-close-link" style="display:none;"><button onclick="toggleNav()" style="font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4);">Close Menu</button></li></ul></nav>
+      <div class="nav-actions">
+        <a href="/app/login" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/app/register" class="btn btn-primary btn-sm">Start Free Trial</a>
+        <button class="mobile-toggle" onclick="toggleNav()" aria-label="Open navigation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="book-page">
+      <div class="book-layout">
+        <!-- LEFT: Reassurance + context -->
+        <aside class="book-sidebar">
+          <div class="book-eyebrow"><span class="book-eyebrow-dot"></span>Onboarding Call</div>
+          <h1 class="book-title">Let's get your system live.</h1>
+          <p class="book-subtitle">Welcome aboard. This is your kickoff call — we'll review your onboarding form, walk you through your setup, and align on your go-live plan. Come with questions.</p>
+
+          <ul class="book-bullets">
+            <li>
+              <span class="book-bullet-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span><strong>60 minutes with your build team.</strong> Zoom — screen-share, walkthrough, Q&amp;A.</span>
+            </li>
+            <li>
+              <span class="book-bullet-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span><strong>We come prepped.</strong> Your onboarding form drives the agenda — make sure it's submitted before the call.</span>
+            </li>
+            <li>
+              <span class="book-bullet-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span><strong>What we'll cover.</strong> Setup status, your custom rate sheet, AI assistant training, pipeline + automations, go-live checklist.</span>
+            </li>
+            <li>
+              <span class="book-bullet-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span><strong>Bring your team.</strong> Invite anyone who'll touch the system — loan officers, ops, marketing.</span>
+            </li>
+          </ul>
+
+          <div class="book-quote-card">
+            Haven't finished your onboarding form yet? <a href="onboarding.html" style="color:var(--color-primary);font-weight:600;">Complete it here</a> — it takes about 15 minutes and your progress saves automatically.
+          </div>
+        </aside>
+
+        <!-- RIGHT: Calendar embed -->
+        <div class="book-calendar-card">
+          <iframe src="https://link.leadenginelabs.com/widget/booking/ClCWO3kcC9dYYHnVuRAl" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="ClCWO3kcC9dYYHnVuRAl_1779911259794"></iframe>
+        </div>
+      </div>
+
+      <!-- Below-fold trust row -->
+      <div class="book-trust-row">
+        <div class="book-trust-tile">
+          <div class="book-trust-tile-num">Step 2</div>
+          <div class="book-trust-tile-label">Of Your Onboarding</div>
+        </div>
+        <div class="book-trust-tile">
+          <div class="book-trust-tile-num">60 min</div>
+          <div class="book-trust-tile-label">Kickoff &amp; Walkthrough</div>
+        </div>
+        <div class="book-trust-tile">
+          <div class="book-trust-tile-num">5–7 Days</div>
+          <div class="book-trust-tile-label">To Go-Live After Kickoff</div>
+        </div>
+        <div class="book-trust-tile">
+          <div class="book-trust-tile-num">1:1</div>
+          <div class="book-trust-tile-label">With Your Build Team</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo footer-logo-full" aria-label="EZ Rate Sheet home"><img src="/assets/logo-full-purple-transparent.png" alt="EZ Rates" style="height:80px;width:auto;display:block;"></a>
+        <p>Professional real estate software to calculate, create, and track professional term sheets. Streamline your lending process with our comprehensive platform.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/ezratesheet" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/ezratesheet/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.linkedin.com/company/ez-rate-sheet/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="ai-for-lenders.html">AI for Lenders</a></li><li><a href="lending-network.html">Lending Network</a></li><li><a href="/app/register">Start Free Trial</a></li><li><a href="watch-demo.html">Watch Demo</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul role="list"><li><a href="about.html">About Us</a></li><li><a href="blog.html">Blog</a></li><li><a href="mailto:sales@ezratesheet.com">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul role="list"><li><a href="/pages/contact">Help Center</a></li><li><a href="mailto:sales@ezratesheet.com">Customer Support</a></li><li><a href="/app/login">Login</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 EZ Rate Sheet LLC</p>
+      <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true">·</span><a href="terms.html">Terms of Service</a><span aria-hidden="true">·</span><a href="cookies.html">Cookie Policy</a></div>    </div>
+  </footer>
+
+  <!-- GHL calendar embed loader -->
+  <script src="https://link.leadenginelabs.com/js/form_embed.js" type="text/javascript"></script>
+
+  <script>
+    function toggleNav(){const n=document.getElementById('navLinks');const m=document.querySelectorAll('.mobile-only-link,.mobile-close-link');n.classList.toggle('open');m.forEach(e=>{e.style.display=n.classList.contains('open')?'block':'none'})}
+    window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+  </script>
+</body>
+</html>
