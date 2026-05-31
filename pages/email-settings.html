@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Settings — Make sure our emails reach you | EZ Rate Sheet</title>
+<meta name="description" content="If our emails are landing in your spam, promotions, or junk folder, here's how to fix that in Gmail, Apple Mail, Outlook, Yahoo, and other email clients.">
+<link rel="canonical" href="https://www.ezratesheet.com/pages/email-settings">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ezratesheet.com/pages/email-settings">
+<meta property="og:title" content="Make sure our emails reach you — EZ Rate Sheet">
+<meta property="og:description" content="Quick instructions for moving our emails out of spam, promotions, or junk and into your primary inbox.">
+<meta property="og:image" content="https://www.ezratesheet.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+  /* ===== EMAIL SETTINGS PAGE ===== */
+  .es-hero {
+    padding: clamp(var(--space-12), 8vw, var(--space-20)) 0 clamp(var(--space-8), 5vw, var(--space-12));
+    background:
+      radial-gradient(700px 360px at 85% -10%, oklch(from var(--color-primary) l c h / 0.08), transparent 60%),
+      var(--color-bg);
+  }
+  .es-hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-inline: var(--space-6);
+  }
+  .es-eyebrow {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+  }
+  .es-hero h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.25rem, 1rem + 3.5vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--space-5);
+  }
+  .es-hero h1 em { font-style: italic; color: var(--color-primary); }
+  .es-hero p {
+    font-size: var(--text-lg);
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .es-hero p + p { margin-top: var(--space-4); }
+
+  .es-senders {
+    margin: clamp(var(--space-8), 5vw, var(--space-10)) auto 0;
+    max-width: 760px;
+    padding: var(--space-5) var(--space-6);
+    background: var(--color-bg-subtle, oklch(from var(--color-bg) calc(l - 0.02) c h));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    align-items: center;
+  }
+  .es-senders-label { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); }
+  .es-senders-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: var(--text-sm);
+  }
+  .es-senders-list a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px solid oklch(from var(--color-primary) l c h / 0.3);
+  }
+  .es-senders-list a:hover { border-bottom-color: var(--color-primary); }
+
+  .es-body {
+    padding: clamp(var(--space-10), 6vw, var(--space-16)) 0 clamp(var(--space-16), 10vw, var(--space-24));
+    background: var(--color-bg);
+  }
+  .es-body-inner { max-width: 760px; margin: 0 auto; padding-inline: var(--space-6); }
+  .es-client {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-8) 0;
+  }
+  .es-client:last-child { border-bottom: 1px solid var(--color-border); }
+  .es-client h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 var(--space-5);
+    letter-spacing: -0.005em;
+  }
+  .es-client h3 {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: var(--space-5) 0 var(--space-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .es-client h3:first-of-type { margin-top: 0; }
+  .es-client ol {
+    margin: 0;
+    padding-left: var(--space-6);
+    color: var(--color-text);
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+  .es-client ol li { margin-bottom: var(--space-2); }
+  .es-client ol li:last-child { margin-bottom: 0; }
+  .es-client .es-tip {
+    margin-top: var(--space-4);
+    padding: var(--space-3) var(--space-4);
+    background: oklch(from var(--color-primary) l c h / 0.06);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .es-closer {
+    margin-top: clamp(var(--space-10), 6vw, var(--space-14));
+    padding: clamp(var(--space-8), 5vw, var(--space-10));
+    background: var(--color-bg-subtle, oklch(from var(--color-bg) calc(l - 0.02) c h));
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  .es-closer h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 var(--space-3);
+  }
+  .es-closer p {
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-5);
+    line-height: 1.55;
+  }
+
+  code.es-addr {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.92em;
+    background: oklch(from var(--color-primary) l c h / 0.08);
+    padding: 1px 6px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ezratesheet.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Email Settings"}
+  ]
+}
+</script>
+</head>
+<body>
+  <a href="#main" class="sr-only" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to main content</a>
+
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="EZ Rate Sheet home">
+        <img src="/assets/logo-icon-purple-transparent.png" alt="" width="38" height="38" style="display:block;flex-shrink:0;">
+        <span>EZ Rates</span>
+      </a>
+      <nav><ul class="nav-links" id="navLinks" role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/login">Login</a></li><li class="mobile-only-link" style="display:none;"><a href="/app/register">Start Free Trial</a></li><li class="mobile-close-link" style="display:none;"><button onclick="toggleNav()" style="font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4);">Close Menu</button></li></ul></nav>
+      <div class="nav-actions">
+        <a href="/app/login" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/app/register" class="btn btn-primary btn-sm">Start Free Trial</a>
+        <button class="mobile-toggle" onclick="toggleNav()" aria-label="Open navigation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="es-hero">
+      <div class="es-hero-inner">
+        <div class="es-eyebrow">Email Settings</div>
+        <h1>Make sure our emails <em>reach you.</em></h1>
+        <p>Email providers can be aggressive about filtering &mdash; sometimes the messages you actually want end up in spam, promotions, or junk. Here's how to fix that in under 30 seconds, so it doesn't happen again.</p>
+        <p>Find your email client below and follow the steps for the device you're on.</p>
+      </div>
+
+      <div class="es-senders" style="margin-left: auto; margin-right: auto;">
+        <span class="es-senders-label">Our emails come from:</span>
+        <div class="es-senders-list">
+          <a href="mailto:sales@ezratesheet.com">sales@ezratesheet.com</a>
+          <a href="mailto:support@ezratesheet.com">support@ezratesheet.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="es-body">
+      <div class="es-body-inner">
+
+        <div class="es-client">
+          <h2>Gmail</h2>
+
+          <h3>On the Gmail mobile app (iPhone or Android)</h3>
+          <ol>
+            <li>Open the email from us.</li>
+            <li>Tap the three dots (&vellip;) in the top-right corner.</li>
+            <li>Tap <strong>Move to</strong>, then choose <strong>Primary</strong>.</li>
+            <li>If asked whether to do this for future emails from this sender, say yes.</li>
+          </ol>
+
+          <h3>On Gmail in a web browser (desktop)</h3>
+          <ol>
+            <li>Go back to your inbox.</li>
+            <li>Find the email from us in the <strong>Promotions</strong> or <strong>Spam</strong> tab.</li>
+            <li>Click and drag the email to the <strong>Primary</strong> tab at the top.</li>
+            <li>Gmail will ask if you want to do this for all future emails from this sender &mdash; click <strong>Yes</strong>.</li>
+          </ol>
+
+          <p class="es-tip"><strong>Belt and suspenders:</strong> Add <code class="es-addr">sales@ezratesheet.com</code> and <code class="es-addr">support@ezratesheet.com</code> to your Google Contacts. Gmail almost never filters mail from your contacts.</p>
+        </div>
+
+        <div class="es-client">
+          <h2>Apple Mail (iPhone, iPad, Mac)</h2>
+
+          <h3>On iPhone or iPad</h3>
+          <ol>
+            <li>Open the email from us.</li>
+            <li>Tap our email address at the top of the email (next to "From:").</li>
+            <li>Tap <strong>Add to VIPs</strong>.</li>
+            <li>If the email is in Junk, also tap the flag icon &rarr; <strong>Move to Inbox</strong>.</li>
+          </ol>
+
+          <h3>On Mac</h3>
+          <ol>
+            <li>Open the email from us.</li>
+            <li>Hover over our email address at the top, click the arrow that appears, and choose <strong>Add to VIPs</strong>.</li>
+            <li>If the email is in Junk, click <strong>Message</strong> in the menu bar &rarr; <strong>Move to Inbox</strong>, then click <strong>Message</strong> &rarr; <strong>Mark</strong> &rarr; <strong>As Not Junk Mail</strong>.</li>
+          </ol>
+        </div>
+
+        <div class="es-client">
+          <h2>Outlook / Microsoft 365</h2>
+
+          <h3>On Outlook.com or Office 365 (web)</h3>
+          <ol>
+            <li>Open the email from us (check your <strong>Junk Email</strong> folder if it's not in your inbox).</li>
+            <li>Click <strong>Not junk</strong> at the top of the email.</li>
+            <li>Right-click the email &rarr; <strong>Security options</strong> &rarr; <strong>Mark as not junk</strong>.</li>
+            <li>Then right-click again &rarr; <strong>Add sender to Safe senders list</strong>.</li>
+          </ol>
+
+          <h3>On Outlook desktop (Windows or Mac)</h3>
+          <ol>
+            <li>Open the email from us.</li>
+            <li>Right-click the email in the message list &rarr; <strong>Junk</strong> &rarr; <strong>Not Junk</strong> (or <strong>Mark as Not Junk</strong>).</li>
+            <li>Then right-click again &rarr; <strong>Junk</strong> &rarr; <strong>Never Block Sender</strong>.</li>
+          </ol>
+        </div>
+
+        <div class="es-client">
+          <h2>Yahoo Mail</h2>
+
+          <h3>On Yahoo Mail (web or mobile)</h3>
+          <ol>
+            <li>Open the email from us (check your <strong>Spam</strong> folder if it's not in your inbox).</li>
+            <li>Click or tap <strong>Not Spam</strong> at the top of the email.</li>
+            <li>Open your Yahoo Contacts and add <code class="es-addr">sales@ezratesheet.com</code> and <code class="es-addr">support@ezratesheet.com</code> as new contacts.</li>
+          </ol>
+        </div>
+
+        <div class="es-client">
+          <h2>Other email clients (ProtonMail, Fastmail, AOL, etc.)</h2>
+
+          <ol>
+            <li>Open the email from us.</li>
+            <li>Look for a button or menu option labeled <strong>Not Spam</strong>, <strong>Not Junk</strong>, <strong>Move to Inbox</strong>, or similar.</li>
+            <li>Add <code class="es-addr">sales@ezratesheet.com</code> and <code class="es-addr">support@ezratesheet.com</code> to your address book or contacts list.</li>
+            <li>If your client has a "safe senders," "allow list," or "whitelist" feature in its settings, add both of our addresses there too.</li>
+          </ol>
+
+          <p class="es-tip">Still having trouble? Email <a href="mailto:support@ezratesheet.com">support@ezratesheet.com</a> and we'll help you sort it out.</p>
+        </div>
+
+        <div class="es-closer">
+          <h2>That's it.</h2>
+          <p>Thirty seconds of setup, and our emails will land where you actually see them. Thanks for taking the time.</p>
+          <a href="../index.html" class="btn btn-primary">Back to ezratesheet.com</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo footer-logo-full" aria-label="EZ Rate Sheet home"><img src="/assets/logo-full-purple-transparent.png" alt="EZ Rates" style="height:80px;width:auto;display:block;"></a>
+        <p>Professional real estate software to calculate, create, and track professional term sheets. Streamline your lending process with our comprehensive platform.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/ezratesheet" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/ezratesheet/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.linkedin.com/company/ez-rate-sheet/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul role="list"><li><a href="../index.html#features">Features</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="ai-for-lenders.html">AI for Lenders</a></li><li><a href="lending-network.html">Lending Network</a></li><li><a href="/app/register">Start Free Trial</a></li><li><a href="watch-demo.html">Watch Demo</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul role="list"><li><a href="about.html">About Us</a></li><li><a href="blog.html">Blog</a></li><li><a href="mailto:sales@ezratesheet.com">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul role="list"><li><a href="/pages/contact">Help Center</a></li><li><a href="mailto:sales@ezratesheet.com">Customer Support</a></li><li><a href="/app/login">Login</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 EZ Rate Sheet LLC</p>
+      <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><span aria-hidden="true">·</span><a href="terms.html">Terms of Service</a><span aria-hidden="true">·</span><a href="cookies.html">Cookie Policy</a></div>    </div>
+  </footer>
+<script>
+    function toggleNav(){const n=document.getElementById('navLinks');const m=document.querySelectorAll('.mobile-only-link,.mobile-close-link');n.classList.toggle('open');m.forEach(e=>{e.style.display=n.classList.contains('open')?'block':'none'})}
+    window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+  </script>
+</body>
+</html>
