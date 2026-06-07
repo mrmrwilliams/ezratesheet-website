@@ -336,11 +336,12 @@
   }
 
   /* Shipped today table */
+  .shipped-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: var(--space-6); }
   .shipped-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: var(--space-6);
     font-size: var(--text-sm);
+    min-width: 560px;
   }
   .shipped-table th {
     text-align: left;
@@ -785,6 +786,7 @@
         <p class="section-subtitle" style="margin: 0 auto;">Every AI capability above is live. Nothing on this page is &ldquo;coming soon.&rdquo; You can verify any of it on a walkthrough call.</p>
       </div>
 
+      <div class="shipped-table-wrap">
       <table class="shipped-table">
         <thead>
           <tr>
@@ -806,6 +808,7 @@
           <tr><td>AI-Powered Deal Analysis &amp; Risk Assessment</td><td class="shipped-addon">Add-On Available</td><td>Included in Pro &amp; Full Stack</td></tr>
         </tbody>
       </table>
+      </div>
     </section>
 
     <!-- SECTION 7: Pricing -->
