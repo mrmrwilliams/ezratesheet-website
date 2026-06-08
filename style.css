@@ -64,8 +64,8 @@
 
   /* Text */
   --color-text:            #2a2030;
-  --color-text-muted:      #7a7082;
-  --color-text-faint:      #b5adb8;
+  --color-text-muted:      #5e5566;  /* darkened 7a7082 -> 5e5566 for WCAG AA contrast on light bg */
+  --color-text-faint:      #807880;  /* darkened b5adb8 -> 807880 for WCAG AA contrast on light bg */
   --color-text-inverse:    #faf8fa;
 
   /* Primary Accent (Mauve/Purple) */
