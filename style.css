@@ -1,7 +1,7 @@
 /* style.css — EZ Rate Sheet Design System */
 
 /* ========== FONTS ========== */
-/* DM Sans for body/UI, Instrument Serif for display */
+/* DM Sans for body/UI, Georgia (system) for display — system serif for instant render */
 
 /* ========== TYPE SCALE ========== */
 :root {
@@ -46,7 +46,7 @@
   --content-full: 100%;
 
   /* ========== FONT FAMILIES ========== */
-  --font-display: 'Instrument Serif', 'Georgia', serif;
+  --font-display: 'Georgia', 'Times New Roman', 'Times', serif;
   --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
 }
 
