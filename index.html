@@ -256,11 +256,17 @@
   }
   .ai-hero-title {
     font-family: var(--font-display);
-    font-size: var(--text-3xl);
+    font-size: clamp(1.75rem, 4.6vw, 3rem);
     font-weight: 400;
     color: var(--color-text-inverse);
     margin-bottom: var(--space-3);
     line-height: 1.15;
+  }
+  /* Keep "RiseAgent — Voice & Chat" on one line where there's room */
+  @media (min-width: 700px) {
+    .ai-hero-title {
+      white-space: nowrap;
+    }
   }
   .ai-hero-desc {
     color: oklch(from var(--color-text-inverse) l c h / 0.85);
