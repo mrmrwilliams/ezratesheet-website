@@ -907,87 +907,27 @@
                 </div>
               </div>
 
-              <!-- ===== Q2: Monthly Deal Volume ===== -->
+              <!-- Note (June 2026): old Q2 'monthly deal volume' radio bucket was removed.
+                   The calculator (Step 1 of funnel) captures dealsPerMonth as a precise number,
+                   which is more useful than a bucket. -->
+
+              <!-- ===== Q2: Team Size ===== -->
               <div class="form-card" id="card-2">
                 <div class="form-card-num" aria-hidden="true">2</div>
-                <p class="form-card-micro">
-                  This helps us match you to the right setup — everything from
-                  licensing and user seats to which features will actually get
-                  used. Pick the one that best fits a typical month.
-                </p>
-                <p class="form-card-label" id="label-2">
-                  How many loans do you originate per month, on average?
-                </p>
-
-                <div
-                  class="radio-group"
-                  role="radiogroup"
-                  aria-labelledby="label-2"
-                >
-                  <label
-                    class="radio-option"
-                    data-field="deal_volume"
-                    data-value="under_5"
-                  >
-                    <input
-                      type="radio"
-                      name="deal_volume"
-                      value="under_5"
-                      required
-                    />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text">Under 5 deals/month</span>
-                  </label>
-                  <label
-                    class="radio-option"
-                    data-field="deal_volume"
-                    data-value="5_to_10"
-                  >
-                    <input type="radio" name="deal_volume" value="5_to_10" />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text">5–10 deals/month</span>
-                  </label>
-                  <label
-                    class="radio-option"
-                    data-field="deal_volume"
-                    data-value="10_to_25"
-                  >
-                    <input type="radio" name="deal_volume" value="10_to_25" />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text">10–25 deals/month</span>
-                  </label>
-                  <label
-                    class="radio-option"
-                    data-field="deal_volume"
-                    data-value="25_plus"
-                  >
-                    <input type="radio" name="deal_volume" value="25_plus" />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text">25+ deals/month</span>
-                  </label>
-                </div>
-                <span class="field-error" id="err-deal_volume"
-                  >Please select your deal volume.</span
-                >
-              </div>
-
-              <!-- ===== Q3: Team Size ===== -->
-              <div class="form-card" id="card-3">
-                <div class="form-card-num" aria-hidden="true">3</div>
                 <p class="form-card-micro">
                   Are you running a solo shop, a small team, or a larger
                   operation? This tells us how many seats you'll need and
                   whether things like role-based permissions actually matter for
                   you.
                 </p>
-                <p class="form-card-label" id="label-3">
+                <p class="form-card-label" id="label-2">
                   How many people are on your lending team?
                 </p>
 
                 <div
                   class="radio-group"
                   role="radiogroup"
-                  aria-labelledby="label-3"
+                  aria-labelledby="label-2"
                 >
                   <label
                     class="radio-option"
@@ -1036,15 +976,15 @@
                 >
               </div>
 
-              <!-- ===== Q4: Growth Goals (next 12 months) ===== -->
-              <div class="form-card" id="card-4">
-                <div class="form-card-num" aria-hidden="true">4</div>
+              <!-- ===== Q3: Growth Goals (next 12 months) ===== -->
+              <div class="form-card" id="card-3">
+                <div class="form-card-num" aria-hidden="true">3</div>
                 <p class="form-card-micro">
                   Where do you want the business to be in a year? Funded
                   volume, new products, new states, headcount, broker
                   pipeline &mdash; whatever the growth picture looks like.
                 </p>
-                <p class="form-card-label" id="label-4">
+                <p class="form-card-label" id="label-3">
                   What are your goals for growth over the next 12 months?
                 </p>
                 <textarea
@@ -1054,22 +994,22 @@
                   placeholder="e.g., Double broker-sourced deal flow, expand into 3 new states, add DSCR rental product, hire 2 more LOs, cut my pricing turnaround from 4 hours to 30 minutes..."
                   rows="5"
                   required
-                  aria-labelledby="label-4"
+                  aria-labelledby="label-3"
                 ></textarea>
                 <span class="field-error" id="err-growth_goals"
                   >Please share your growth goals.</span
                 >
               </div>
 
-              <!-- ===== Q5: Loan Products (multi-select chips) ===== -->
-              <div class="form-card" id="card-5">
-                <div class="form-card-num" aria-hidden="true">5</div>
+              <!-- ===== Q4: Loan Products (multi-select chips) ===== -->
+              <div class="form-card" id="card-4">
+                <div class="form-card-num" aria-hidden="true">4</div>
                 <p class="form-card-micro">
                   Select every product you currently originate. This helps us
                   customize the demo around your actual products &mdash; not a
                   generic walkthrough.
                 </p>
-                <p class="form-card-label" id="label-5">
+                <p class="form-card-label" id="label-4">
                   Which loan products do you originate? <span class="optional-tag">select all that apply</span>
                 </p>
 
@@ -1077,7 +1017,7 @@
                   class="chip-group"
                   id="loan_products_chips"
                   role="group"
-                  aria-labelledby="label-5"
+                  aria-labelledby="label-4"
                 >
                   <!-- Chip set mirrors the GHL 'Products Offered' Custom Value used on the minisite -->
                   <label class="chip" tabindex="0">
@@ -1151,15 +1091,15 @@
                 >
               </div>
 
-              <!-- ===== Q6: What's Driving You Now ===== -->
-              <div class="form-card" id="card-6">
-                <div class="form-card-num" aria-hidden="true">6</div>
+              <!-- ===== Q5: What's Driving You Now ===== -->
+              <div class="form-card" id="card-5">
+                <div class="form-card-num" aria-hidden="true">5</div>
                 <p class="form-card-micro">
                   This is the most useful question on the form, and your answer
                   will shape the entire conversation. Don't overthink it — just
                   be honest about what's going on in the business right now.
                 </p>
-                <p class="form-card-label" id="label-6">
+                <p class="form-card-label" id="label-5">
                   What's driving you to look for a solution right now?
                 </p>
                 <textarea
@@ -1169,22 +1109,22 @@
                   placeholder="e.g., We're losing deals to inconsistent pricing, spending too much time on quotes, hiring new LOs and need a system, looking to scale, etc."
                   rows="5"
                   required
-                  aria-labelledby="label-6"
+                  aria-labelledby="label-5"
                 ></textarea>
                 <span class="field-error" id="err-driving_motivation"
                   >Please share what's driving you to look for a solution.</span
                 >
               </div>
 
-              <!-- ===== Q7: One Fix ===== -->
-              <div class="form-card" id="card-7">
-                <div class="form-card-num" aria-hidden="true">7</div>
+              <!-- ===== Q6: One Fix ===== -->
+              <div class="form-card" id="card-6">
+                <div class="form-card-num" aria-hidden="true">6</div>
                 <p class="form-card-micro">
                   Last one. If you could wave a wand and fix one thing about how
                   your operation runs today, what would it be? This helps us
                   show you exactly what a win looks like for your business.
                 </p>
-                <p class="form-card-label" id="label-7">
+                <p class="form-card-label" id="label-6">
                   If we could fix one thing about your current process, what
                   would it be?
                 </p>
@@ -1195,7 +1135,7 @@
                   placeholder="What would the biggest operational win look like for your business?"
                   rows="4"
                   required
-                  aria-labelledby="label-7"
+                  aria-labelledby="label-6"
                 ></textarea>
                 <span class="field-error" id="err-one_fix"
                   >Please describe the one thing you'd most want fixed.</span
@@ -1347,6 +1287,47 @@
           .classList.toggle("scrolled", window.scrollY > 20);
       });
 
+      // ===== CONTACT PREFILL FROM URL PARAMS =====
+      // Lets the calculator (and GHL) pass contact info forward via URL:
+      //   ?fn=Jane&ln=Doe&em=jane@x.com&ph=555-1234&co=Acme
+      // or with full param names. Accepts both `?name=Jane%20Doe` and split
+      // first/last so the calculator's split-name payload (firstName/lastName)
+      // and any legacy joined-name link both work.
+      (function initContactPrefill() {
+        const params = new URLSearchParams(window.location.search);
+        const get = (...keys) => {
+          for (const k of keys) {
+            const v = params.get(k);
+            if (v) return v.trim();
+          }
+          return "";
+        };
+
+        // Resolve full name from either ?name=... or ?fn=...&ln=...
+        let fullName = get("name", "full_name", "fullName");
+        if (!fullName) {
+          const first = get("fn", "first_name", "firstName", "first");
+          const last = get("ln", "last_name", "lastName", "last");
+          fullName = [first, last].filter(Boolean).join(" ").trim();
+        }
+
+        const map = [
+          ["full_name", fullName],
+          ["email", get("em", "email", "e")],
+          ["phone", get("ph", "phone", "p")],
+          ["company_name", get("co", "company", "business", "business_name")],
+          ["role_title", get("title", "role", "role_title")],
+        ];
+
+        map.forEach(([fieldId, value]) => {
+          if (!value) return;
+          const el = document.getElementById(fieldId);
+          if (el && !el.value) {
+            el.value = value;
+          }
+        });
+      })();
+
       // ===== RADIO BUTTON UX =====
       document.querySelectorAll(".radio-option").forEach((option) => {
         option.addEventListener("click", function () {
@@ -1446,7 +1427,6 @@
         const requiredFields = [
           "full_name",
           "email",
-          "deal_volume",
           "team_size",
           "growth_goals",
           "loan_products",
@@ -1557,7 +1537,7 @@
         }
 
         // Radio groups
-        const radioGroups = ["deal_volume", "team_size"];
+        const radioGroups = ["team_size"];
         radioGroups.forEach((name) => {
           const checked = document.querySelector(`[name="${name}"]:checked`);
           const errEl = document.getElementById(`err-${name}`);
@@ -1613,9 +1593,6 @@
             role_title: document.getElementById("role_title").value.trim(),
             email: document.getElementById("email").value.trim(),
             phone: document.getElementById("phone").value.trim(),
-            deal_volume:
-              document.querySelector('[name="deal_volume"]:checked')?.value ||
-              "",
             team_size:
               document.querySelector('[name="team_size"]:checked')?.value || "",
             growth_goals: document
