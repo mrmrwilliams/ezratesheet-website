@@ -580,6 +580,94 @@
           max-width: 100%;
         }
       }
+
+      /* ===== Multi-select chip group (loan products, states served, etc.) ===== */
+      .chip-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        margin-top: var(--space-3);
+      }
+      .chip {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.55rem 0.9rem;
+        background: var(--color-surface);
+        border: 1.5px solid var(--color-border);
+        border-radius: var(--radius-full);
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-text);
+        cursor: pointer;
+        transition: background var(--transition-interactive),
+                    border-color var(--transition-interactive),
+                    color var(--transition-interactive),
+                    box-shadow var(--transition-interactive);
+        user-select: none;
+      }
+      .chip input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .chip:hover {
+        border-color: oklch(from var(--color-primary) l c h / 0.5);
+        background: var(--color-primary-subtle);
+      }
+      .chip:focus-within {
+        outline: none;
+        box-shadow: 0 0 0 3px oklch(from var(--color-primary) l c h / 0.18);
+      }
+      .chip.selected {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-text-inverse);
+      }
+      .chip.selected:hover {
+        background: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+      }
+      .chip-check {
+        display: none;
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+        stroke: var(--color-text-inverse);
+        stroke-width: 3;
+        fill: none;
+      }
+      .chip.selected .chip-check { display: inline-block; }
+      .chip-other-input {
+        margin-top: var(--space-3);
+        display: none;
+      }
+      .chip-other-input.visible { display: block; }
+      .chip-helper {
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+        margin-top: var(--space-3);
+        font-size: 0.8125rem;
+      }
+      .chip-helper button {
+        background: none;
+        border: none;
+        padding: 0;
+        color: var(--color-primary);
+        font-family: var(--font-body);
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .chip-helper button:hover { color: var(--color-primary-hover); }
+      .chip-helper .chip-count {
+        margin-left: auto;
+        color: var(--color-text-muted);
+        font-weight: 500;
+      }
     </style>
   </head>
   <body>
@@ -948,142 +1036,118 @@
                 >
               </div>
 
-              <!-- ===== Q4: Current Rate Sheet Process ===== -->
+              <!-- ===== Q4: Growth Goals (next 12 months) ===== -->
               <div class="form-card" id="card-4">
                 <div class="form-card-num" aria-hidden="true">4</div>
                 <p class="form-card-micro">
-                  No wrong answers here — just want to understand what you're
-                  working with today so we don't waste time demoing things
-                  you've already solved.
+                  Where do you want the business to be in a year? Funded
+                  volume, new products, new states, headcount, broker
+                  pipeline &mdash; whatever the growth picture looks like.
                 </p>
                 <p class="form-card-label" id="label-4">
-                  How do you currently handle rate sheets and pricing?
+                  What are your goals for growth over the next 12 months?
+                </p>
+                <textarea
+                  class="field-input"
+                  id="growth_goals"
+                  name="growth_goals"
+                  placeholder="e.g., Double broker-sourced deal flow, expand into 3 new states, add DSCR rental product, hire 2 more LOs, cut my pricing turnaround from 4 hours to 30 minutes..."
+                  rows="5"
+                  required
+                  aria-labelledby="label-4"
+                ></textarea>
+                <span class="field-error" id="err-growth_goals"
+                  >Please share your growth goals.</span
+                >
+              </div>
+
+              <!-- ===== Q5: Loan Products (multi-select chips) ===== -->
+              <div class="form-card" id="card-5">
+                <div class="form-card-num" aria-hidden="true">5</div>
+                <p class="form-card-micro">
+                  Select every product you currently originate. This helps us
+                  customize the demo around your actual products &mdash; not a
+                  generic walkthrough.
+                </p>
+                <p class="form-card-label" id="label-5">
+                  Which loan products do you originate? <span class="optional-tag">select all that apply</span>
                 </p>
 
                 <div
-                  class="radio-group"
-                  role="radiogroup"
-                  aria-labelledby="label-4"
+                  class="chip-group"
+                  id="loan_products_chips"
+                  role="group"
+                  aria-labelledby="label-5"
                 >
-                  <label
-                    class="radio-option"
-                    data-field="rate_sheet_process"
-                    data-value="excel_spreadsheets"
-                  >
-                    <input
-                      type="radio"
-                      name="rate_sheet_process"
-                      value="excel_spreadsheets"
-                      required
-                    />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text"
-                      >Excel/spreadsheets that we update manually</span
-                    >
+                  <!-- Chip set mirrors the GHL 'Products Offered' Custom Value used on the minisite -->
+                  <label class="chip" tabindex="0">
+                    <input type="checkbox" name="loan_products" value="Fix &amp; Flip">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Fix &amp; Flip</span>
                   </label>
-                  <label
-                    class="radio-option"
-                    data-field="rate_sheet_process"
-                    data-value="own_pricing_engine"
-                  >
-                    <input
-                      type="radio"
-                      name="rate_sheet_process"
-                      value="own_pricing_engine"
-                    />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text"
-                      >We pull from a pricing engine we built ourselves</span
-                    >
+                  <label class="chip" tabindex="0">
+                    <input type="checkbox" name="loan_products" value="DSCR Rental">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>DSCR Rental</span>
                   </label>
-                  <label
-                    class="radio-option"
-                    data-field="rate_sheet_process"
-                    data-value="capital_provider"
-                  >
-                    <input
-                      type="radio"
-                      name="rate_sheet_process"
-                      value="capital_provider"
-                    />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text"
-                      >Our capital provider gives us their rate sheet</span
-                    >
+                  <label class="chip" tabindex="0">
+                    <input type="checkbox" name="loan_products" value="Ground-Up Construction">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Ground-Up Construction</span>
                   </label>
-                  <label
-                    class="radio-option"
-                    data-field="rate_sheet_process"
-                    data-value="no_formal_process"
-                  >
-                    <input
-                      type="radio"
-                      name="rate_sheet_process"
-                      value="no_formal_process"
-                    />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text"
-                      >We don't really have a formal rate sheet</span
-                    >
+                  <label class="chip" tabindex="0">
+                    <input type="checkbox" name="loan_products" value="Bridge / Short-Term">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Bridge / Short-Term</span>
                   </label>
-                  <label
-                    class="radio-option"
-                    data-field="rate_sheet_process"
-                    data-value="other"
-                    id="ratesheet-other-option"
-                  >
-                    <input
-                      type="radio"
-                      name="rate_sheet_process"
-                      value="other"
-                    />
-                    <span class="radio-custom" aria-hidden="true"></span>
-                    <span class="radio-option-text">Other</span>
+                  <label class="chip" tabindex="0">
+                    <input type="checkbox" name="loan_products" value="Commercial / Multifamily">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Commercial / Multifamily</span>
+                  </label>
+                  <label class="chip" tabindex="0">
+                    <input type="checkbox" name="loan_products" value="Hard Money / Asset-Based">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Hard Money / Asset-Based</span>
+                  </label>
+                  <label class="chip" tabindex="0">
+                    <input type="checkbox" name="loan_products" value="Owner-Occupied (Non-QM)">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Owner-Occupied (Non-QM)</span>
+                  </label>
+                  <label class="chip" tabindex="0">
+                    <input type="checkbox" name="loan_products" value="2nd Position / Gap Funding">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>2nd Position / Gap Funding</span>
+                  </label>
+                  <label class="chip" tabindex="0" id="loan_products_other_chip">
+                    <input type="checkbox" name="loan_products" value="Other">
+                    <svg class="chip-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Other</span>
                   </label>
                 </div>
-                <span class="field-error" id="err-rate_sheet_process"
-                  >Please select your current process.</span
-                >
 
-                <!-- Conditional "Other" text field -->
-                <div class="other-reveal" id="ratesheetOtherReveal">
-                  <div class="field-group" style="margin-top: var(--space-3)">
-                    <label class="field-label" for="rate_sheet_process_other"
-                      >Tell us more</label
+                <div class="chip-helper">
+                  <span class="chip-count" id="loan_products_count">0 selected</span>
+                </div>
+
+                <div class="chip-other-input" id="loan_products_other_reveal">
+                  <div class="field-group">
+                    <label class="field-label" for="loan_products_other"
+                      >Tell us more about your other products</label
                     >
                     <input
                       class="field-input"
                       type="text"
-                      id="rate_sheet_process_other"
-                      name="rate_sheet_process_other"
-                      placeholder="Describe your current setup..."
+                      id="loan_products_other"
+                      name="loan_products_other"
+                      placeholder="e.g., land loans, USDA construction-to-perm, etc."
                     />
                   </div>
                 </div>
-              </div>
 
-              <!-- ===== Q5: Loan Products ===== -->
-              <div class="form-card" id="card-5">
-                <div class="form-card-num" aria-hidden="true">5</div>
-                <p class="form-card-micro">
-                  This helps us customize the demo around your actual products —
-                  not a generic walkthrough. The more specific, the more useful
-                  the call.
-                </p>
-                <p class="form-card-label" id="label-5">
-                  What loan products do you originate?
-                </p>
-                <textarea
-                  class="field-input"
-                  id="loan_products"
-                  name="loan_products"
-                  placeholder="e.g., DSCR, fix-and-flip, bridge, ground-up construction, etc."
-                  rows="4"
-                  required
-                  aria-labelledby="label-5"
-                ></textarea>
                 <span class="field-error" id="err-loan_products"
-                  >Please describe the loan products you originate.</span
+                  >Please select at least one loan product.</span
                 >
               </div>
 
@@ -1305,17 +1369,6 @@
           const errEl = document.getElementById(`err-${fieldName}`);
           if (errEl) errEl.classList.remove("visible");
 
-          // Handle "Other" reveal for rate_sheet_process
-          if (fieldName === "rate_sheet_process") {
-            const otherReveal = document.getElementById("ratesheetOtherReveal");
-            if (value === "other") {
-              otherReveal.classList.add("visible");
-            } else {
-              otherReveal.classList.remove("visible");
-              document.getElementById("rate_sheet_process_other").value = "";
-            }
-          }
-
           // Update progress
           updateProgress();
         });
@@ -1331,6 +1384,63 @@
         option.setAttribute("role", "radio");
       });
 
+      // ===== CHIP MULTI-SELECT UX =====
+      (function initChipGroups() {
+        document.querySelectorAll(".chip-group").forEach((group) => {
+          const chips = group.querySelectorAll(".chip");
+          const groupId = group.id;
+          const countEl = document.getElementById(`${groupId.replace(/_chips$/, "")}_count`);
+          const otherReveal = document.getElementById(
+            `${groupId.replace(/_chips$/, "")}_other_reveal`
+          );
+          const otherInput = document.getElementById(
+            `${groupId.replace(/_chips$/, "")}_other`
+          );
+
+          function refresh() {
+            const selected = group.querySelectorAll('input[type="checkbox"]:checked');
+            chips.forEach((c) => {
+              const cb = c.querySelector('input[type="checkbox"]');
+              c.classList.toggle("selected", cb.checked);
+              c.setAttribute("aria-pressed", cb.checked ? "true" : "false");
+            });
+            if (countEl) {
+              countEl.textContent = `${selected.length} selected`;
+            }
+            // Show the "Other" text input if the Other chip is selected
+            if (otherReveal) {
+              const otherCb = group.querySelector('input[value="Other"]');
+              if (otherCb && otherCb.checked) {
+                otherReveal.classList.add("visible");
+              } else {
+                otherReveal.classList.remove("visible");
+                if (otherInput) otherInput.value = "";
+              }
+            }
+            // Clear error state when at least one is picked
+            const errEl = document.getElementById(`err-${groupId.replace(/_chips$/, "")}`);
+            if (errEl && selected.length > 0) errEl.classList.remove("visible");
+            if (typeof updateProgress === "function") updateProgress();
+          }
+
+          chips.forEach((chip) => {
+            chip.setAttribute("role", "checkbox");
+            chip.setAttribute("aria-pressed", "false");
+            const cb = chip.querySelector('input[type="checkbox"]');
+            cb.addEventListener("change", refresh);
+            chip.addEventListener("keydown", function (e) {
+              if (e.key === " " || e.key === "Enter") {
+                e.preventDefault();
+                cb.checked = !cb.checked;
+                cb.dispatchEvent(new Event("change"));
+              }
+            });
+          });
+
+          refresh();
+        });
+      })();
+
       // ===== PROGRESS CALCULATION =====
       function updateProgress() {
         const requiredFields = [
@@ -1338,7 +1448,7 @@
           "email",
           "deal_volume",
           "team_size",
-          "rate_sheet_process",
+          "growth_goals",
           "loan_products",
           "driving_motivation",
           "one_fix",
@@ -1347,6 +1457,15 @@
         let filled = 0;
 
         requiredFields.forEach((field) => {
+          // Chip group counts as filled when any chip is checked
+          if (field === "loan_products") {
+            const chipsChecked = document.querySelectorAll(
+              '#loan_products_chips input[type="checkbox"]:checked'
+            );
+            if (chipsChecked.length > 0) filled++;
+            return;
+          }
+
           const el = document.querySelector(`[name="${field}"]`);
           if (!el) return;
 
@@ -1390,8 +1509,8 @@
           },
           { id: "phone", msg: "Please enter your phone number." },
           {
-            id: "loan_products",
-            msg: "Please describe the loan products you originate.",
+            id: "growth_goals",
+            msg: "Please share your growth goals.",
           },
           {
             id: "driving_motivation",
@@ -1425,8 +1544,20 @@
           }
         });
 
+        // Loan products chip group (min 1)
+        const chipsChecked = document.querySelectorAll(
+          '#loan_products_chips input[type="checkbox"]:checked'
+        );
+        const chipErr = document.getElementById("err-loan_products");
+        if (chipsChecked.length === 0) {
+          chipErr.classList.add("visible");
+          valid = false;
+        } else {
+          chipErr.classList.remove("visible");
+        }
+
         // Radio groups
-        const radioGroups = ["deal_volume", "team_size", "rate_sheet_process"];
+        const radioGroups = ["deal_volume", "team_size"];
         radioGroups.forEach((name) => {
           const checked = document.querySelector(`[name="${name}"]:checked`);
           const errEl = document.getElementById(`err-${name}`);
@@ -1476,13 +1607,6 @@
           errorBanner.classList.remove("visible");
 
           // Build payload
-          const rateSheetValue = document.querySelector(
-            '[name="rate_sheet_process"]:checked',
-          )?.value;
-          const otherText = document
-            .getElementById("rate_sheet_process_other")
-            .value.trim();
-
           const payload = {
             full_name: document.getElementById("full_name").value.trim(),
             company_name: document.getElementById("company_name").value.trim(),
@@ -1494,12 +1618,18 @@
               "",
             team_size:
               document.querySelector('[name="team_size"]:checked')?.value || "",
-            rate_sheet_process:
-              rateSheetValue === "other" && otherText
-                ? `other: ${otherText}`
-                : rateSheetValue || "",
-            loan_products: document
-              .getElementById("loan_products")
+            growth_goals: document
+              .getElementById("growth_goals")
+              .value.trim(),
+            loan_products: Array.from(
+              document.querySelectorAll(
+                '#loan_products_chips input[type="checkbox"]:checked'
+              )
+            )
+              .map((el) => el.value)
+              .join(", "),
+            loan_products_other: document
+              .getElementById("loan_products_other")
               .value.trim(),
             driving_motivation: document
               .getElementById("driving_motivation")

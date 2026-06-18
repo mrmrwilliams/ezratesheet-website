@@ -1224,6 +1224,186 @@
       grid-column: 1 / -1;
     }
   }
+
+  /* ===== Color Pickers (Brand Colors) ===== */
+  .color-pickers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+  }
+  .color-picker-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+  }
+  .color-picker-row.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .color-picker-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .color-picker-label-name {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .color-picker-label-hint {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+  .color-picker-inputs {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .color-picker-swatch {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: transparent;
+  }
+  .color-picker-swatch::-webkit-color-swatch-wrapper { padding: 0; }
+  .color-picker-swatch::-webkit-color-swatch { border: none; border-radius: 4px; }
+  .color-picker-swatch::-moz-color-swatch { border: none; border-radius: 4px; }
+  .color-picker-hex {
+    flex: 1;
+    min-width: 0;
+    padding: 0.55rem 0.75rem;
+    background: var(--color-surface-2);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: 'SFMono-Regular', Menlo, monospace;
+    font-size: 0.8125rem;
+    color: var(--color-text);
+  }
+  .color-picker-hex:focus {
+    outline: none;
+    border-color: oklch(from var(--color-primary) l c h / 0.5);
+    box-shadow: 0 0 0 3px oklch(from var(--color-primary) l c h / 0.15);
+  }
+  .color-defaults-toggle {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-primary-subtle);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+  }
+  .color-defaults-toggle input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
+  .color-defaults-toggle-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+  .color-defaults-toggle-text strong { font-weight: 600; }
+  .color-defaults-toggle-text .small {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .color-pickers-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== Multi-select chip group (states served, etc.) ===== */
+  .chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  .chip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.85rem;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background var(--transition-interactive),
+                border-color var(--transition-interactive),
+                color var(--transition-interactive),
+                box-shadow var(--transition-interactive);
+    user-select: none;
+    min-width: 52px;
+  }
+  .chip input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .chip:hover {
+    border-color: oklch(from var(--color-primary) l c h / 0.5);
+    background: var(--color-primary-subtle);
+  }
+  .chip:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 3px oklch(from var(--color-primary) l c h / 0.18);
+  }
+  .chip.selected {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-inverse);
+  }
+  .chip.selected:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+  }
+  .chip-helper {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: var(--space-3);
+    font-size: 0.8125rem;
+  }
+  .chip-helper button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .chip-helper button:hover { color: var(--color-primary-hover); }
+  .chip-helper .chip-count {
+    margin-left: auto;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
 </style>
 </head>
 <body>
@@ -1394,11 +1574,11 @@
                     </div>
                   </div>
 
-                  <!-- Legal Business Name -->
+                  <!-- Legal Business Name (→ GHL: Company Name) -->
                   <div class="form-card" id="card-q5">
                     <div class="form-card-num">1.2</div>
                     <p class="form-card-label">Legal business name <span style="color:var(--color-primary)">*</span></p>
-                    <p class="form-card-micro">The official registered name of your business (as it appears on business documents).</p>
+                    <p class="form-card-micro">As it appears on your tax documents and registration. Used for compliance, contracts, and footers.</p>
                     <div class="field-group">
                       <label class="field-label" for="legal_business_name">Legal name <span class="req">*</span></label>
                       <input class="field-input" type="text" id="legal_business_name" name="legal_business_name" placeholder="Acme Lending LLC" required>
@@ -1406,14 +1586,14 @@
                     </div>
                   </div>
 
-                  <!-- DBA -->
+                  <!-- Short Brand Name (→ GHL: Business Short Name) -->
                   <div class="form-card" id="card-q6">
                     <div class="form-card-num">1.3</div>
-                    <p class="form-card-label">DBA / brand name for client-facing materials</p>
-                    <p class="form-card-micro">What name do you want borrowers and partners to see? Leave blank if it's the same as your legal name.</p>
+                    <p class="form-card-label">Short brand name <span class="optional-tag">optional</span></p>
+                    <p class="form-card-micro">The name you want borrowers and partners to see on your website, emails, and rate sheets. If different from your legal name (DBA), enter it here. Leave blank if same.</p>
                     <div class="field-group">
-                      <label class="field-label" for="dba_brand_name">DBA or brand name <span class="optional-tag">if different from legal name</span></label>
-                      <input class="field-input" type="text" id="dba_brand_name" name="dba_brand_name" placeholder="Acme Capital Partners">
+                      <label class="field-label" for="business_short_name">Short name <span class="optional-tag">e.g., “Acme Capital” instead of “Acme Lending LLC”</span></label>
+                      <input class="field-input" type="text" id="business_short_name" name="business_short_name" placeholder="Acme Capital">
                     </div>
                   </div>
 
@@ -1488,10 +1668,20 @@
                     <p class="form-card-label">States you actively lend in <span style="color:var(--color-primary)">*</span></p>
                     <p class="form-card-micro">We'll configure your rate sheets and marketing materials to reflect your active lending footprint.</p>
                     <div class="field-group">
-                      <label class="field-label" for="lending_states">Lending states <span class="req">*</span></label>
-                      <textarea class="field-input" id="lending_states" name="lending_states" rows="3" placeholder="e.g., GA, FL, TX, NC, SC — or just write: All 50 states, Southeast region, etc." required></textarea>
-                      <span class="field-error" id="err-lending_states">Please list your lending states.</span>
-                      <p class="field-micro-help">Just type them in — abbreviations or full names, comma-separated. "All 50" works too.</p>
+                      <label class="field-label" id="lending_states_label">Lending states <span class="req">*</span></label>
+                      <p class="form-card-micro" style="margin-bottom: var(--space-2);">Select every state where you currently originate loans. Use the helpers below to bulk-select.</p>
+
+                      <div class="chip-group" id="lending_states_chips" role="group" aria-labelledby="lending_states_label"></div>
+
+                      <div class="chip-helper">
+                        <button type="button" id="states_select_all">Select all 50 states</button>
+                        <button type="button" id="states_clear_all">Clear all</button>
+                        <span class="chip-count" id="lending_states_count">0 selected</span>
+                      </div>
+
+                      <input type="hidden" id="lending_states" name="lending_states" value="">
+                      <input type="hidden" id="lending_states_count_value" name="lending_states_count" value="0">
+                      <span class="field-error" id="err-lending_states">Please select at least one state where you originate loans.</span>
                     </div>
                   </div>
 
@@ -1576,15 +1766,65 @@
                     </div>
                   </div>
 
-                  <!-- Brand Colors -->
+                  <!-- Brand Colors (→ GHL: Main Color, Accent Color, Background Color, Text Color) -->
                   <div class="form-card">
                     <div class="form-card-num">3.1</div>
-                    <p class="form-card-label">Brand colors</p>
-                    <p class="form-card-micro">Share your brand colors in any format — hex codes are ideal. Include the role of each color (primary, secondary, accent, background, etc.) so we apply them correctly.</p>
-                    <div class="field-group">
-                      <label class="field-label" for="brand_colors">Brand colors <span class="optional-tag">optional</span></label>
-                      <textarea class="field-input" id="brand_colors" name="brand_colors" rows="4" placeholder="Primary: #1a3e6f (navy blue)&#10;Accent: #ffc72c (gold)&#10;Background: #ffffff&#10;Text: #1f2937"></textarea>
+                    <p class="form-card-label">Brand colors <span class="optional-tag">optional</span></p>
+                    <p class="form-card-micro">Click any swatch to open the color picker, or paste a hex code into the field next to it. We&rsquo;ve seeded these with our EZRS defaults &mdash; replace any that don&rsquo;t match your brand.</p>
+
+                    <div class="color-pickers-grid" id="brandColorsGrid">
+                      <div class="color-picker-row" data-color-row>
+                        <div class="color-picker-label">
+                          <span class="color-picker-label-name">Primary</span>
+                          <span class="color-picker-label-hint">Buttons, links, CTAs</span>
+                        </div>
+                        <div class="color-picker-inputs">
+                          <input type="color" class="color-picker-swatch" id="brand_color_primary_swatch" value="#6B4C6E" aria-label="Primary color swatch">
+                          <input type="text" class="color-picker-hex" id="brand_color_primary" name="brand_color_primary" value="#6B4C6E" placeholder="#6B4C6E" maxlength="7" pattern="^#[A-Fa-f0-9]{6}$" aria-label="Primary color hex">
+                        </div>
+                      </div>
+
+                      <div class="color-picker-row" data-color-row>
+                        <div class="color-picker-label">
+                          <span class="color-picker-label-name">Accent</span>
+                          <span class="color-picker-label-hint">Highlights, badges</span>
+                        </div>
+                        <div class="color-picker-inputs">
+                          <input type="color" class="color-picker-swatch" id="brand_color_accent_swatch" value="#C4A053" aria-label="Accent color swatch">
+                          <input type="text" class="color-picker-hex" id="brand_color_accent" name="brand_color_accent" value="#C4A053" placeholder="#C4A053" maxlength="7" pattern="^#[A-Fa-f0-9]{6}$" aria-label="Accent color hex">
+                        </div>
+                      </div>
+
+                      <div class="color-picker-row" data-color-row>
+                        <div class="color-picker-label">
+                          <span class="color-picker-label-name">Background</span>
+                          <span class="color-picker-label-hint">Page background</span>
+                        </div>
+                        <div class="color-picker-inputs">
+                          <input type="color" class="color-picker-swatch" id="brand_color_background_swatch" value="#F8F6F8" aria-label="Background color swatch">
+                          <input type="text" class="color-picker-hex" id="brand_color_background" name="brand_color_background" value="#F8F6F8" placeholder="#F8F6F8" maxlength="7" pattern="^#[A-Fa-f0-9]{6}$" aria-label="Background color hex">
+                        </div>
+                      </div>
+
+                      <div class="color-picker-row" data-color-row>
+                        <div class="color-picker-label">
+                          <span class="color-picker-label-name">Text</span>
+                          <span class="color-picker-label-hint">Body copy</span>
+                        </div>
+                        <div class="color-picker-inputs">
+                          <input type="color" class="color-picker-swatch" id="brand_color_text_swatch" value="#2A2030" aria-label="Text color swatch">
+                          <input type="text" class="color-picker-hex" id="brand_color_text" name="brand_color_text" value="#2A2030" placeholder="#2A2030" maxlength="7" pattern="^#[A-Fa-f0-9]{6}$" aria-label="Text color hex">
+                        </div>
+                      </div>
                     </div>
+
+                    <label class="color-defaults-toggle">
+                      <input type="checkbox" id="brand_colors_use_defaults" name="brand_colors_use_defaults">
+                      <span class="color-defaults-toggle-text">
+                        <strong>I don&rsquo;t know my brand colors &mdash; pick good defaults for me.</strong>
+                        <span class="small">Check this box and we&rsquo;ll apply the EZRS-recommended lender palette. You can change them anytime after launch.</span>
+                      </span>
+                    </label>
                   </div>
 
                   <!-- Brand Tone -->
@@ -1775,48 +2015,11 @@
                     <span class="field-error" id="err-has_existing_referral_partners">Please answer this question.</span>
                   </div>
 
-                  <!-- Partners Repeater (conditional) -->
+                  <!-- Conditional reveal: tiny confirmation that we'll collect details at the next step -->
                   <div class="conditional-reveal" id="partners-reveal">
-                    <div class="form-card" style="margin-top: var(--space-4);">
-                      <div class="form-card-num">5.2</div>
-                      <p class="form-card-label">Add your existing referral partners</p>
-                      <p class="form-card-micro">Include name, email, and company. Real estate agents, mortgage brokers, financial advisors, CPAs, etc.</p>
-                      <div id="partners-list">
-                        <div class="repeater-row" id="partner-1">
-                          <div class="repeater-row-header">
-                            <span class="repeater-row-label">Partner 1</span>
-                          </div>
-                          <div class="fields-row-3">
-                            <div class="field-group">
-                              <label class="field-label" for="partner_1_name">Partner name</label>
-                              <input class="field-input" type="text" id="partner_1_name" name="partners[0][name]" placeholder="John Doe">
-                            </div>
-                            <div class="field-group">
-                              <label class="field-label" for="partner_1_email">Email</label>
-                              <input class="field-input" type="email" id="partner_1_email" name="partners[0][email]" placeholder="john@rerealty.com">
-                            </div>
-                            <div class="field-group">
-                              <label class="field-label" for="partner_1_company">Company</label>
-                              <input class="field-input" type="text" id="partner_1_company" name="partners[0][company]" placeholder="RE Realty Group">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <button type="button" class="btn-add-row" onclick="addRepeaterRow('partners-list', 'partner', 'partners', ['name','email','company'], ['Partner name','Email','Company'], ['John Doe','john@example.com','RE Realty Group'])">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                        Add another partner
-                      </button>
-                    </div>
-
-                    <!-- Commission Structure -->
-                    <div class="form-card" style="margin-top: var(--space-4);">
-                      <div class="form-card-num">5.3</div>
-                      <p class="form-card-label">Referral commission structure</p>
-                      <p class="form-card-micro">Describe how you compensate referral partners. We'll use this to configure your partner portal and commission tracking setup.</p>
-                      <div class="field-group">
-                        <label class="field-label" for="referral_commission_structure">Commission structure <span class="optional-tag">optional</span></label>
-                        <textarea class="field-input" id="referral_commission_structure" name="referral_commission_structure" rows="4" placeholder="e.g., 'We pay 1% of funded loan amount, paid within 10 days of funding. Partners get a unique referral link and can track submissions in the portal. No cap on earnings.'"></textarea>
-                      </div>
+                    <div class="form-card" style="margin-top: var(--space-4); background: var(--color-primary-subtle); border-left: 3px solid var(--color-primary);">
+                      <p class="form-card-label" style="margin-bottom: var(--space-2);">Great &mdash; we&rsquo;ll collect your partner list at the next step.</p>
+                      <p class="form-card-micro" style="margin: 0;">After your buildout begins, you&rsquo;ll receive the Funnel Customization Form where you can paste in your existing referral partners (names, emails, companies) and describe your commission structure. No need to gather that info now.</p>
                     </div>
                   </div>
 
@@ -2300,7 +2503,7 @@ function getRequiredFields() {
     'ein', 'legal_business_name',
     'address_street', 'address_city', 'address_state', 'address_zip',
     'lending_states', 'timezone',
-    'brand_colors', 'has_online_loan_application'
+    'has_online_loan_application'
   ];
   // Show section 7 fields for Growth+ OR if tier is unknown (show-all fallback)
   const tierKnown = currentTier && TIER_ORDER[currentTier];
@@ -2517,7 +2720,7 @@ function validateForm() {
   }
 
   checkField('address_zip', 'err-address_zip', 'Please enter your ZIP code.');
-  checkField('lending_states', 'err-lending_states', 'Please list your lending states.');
+  checkField('lending_states', 'err-lending_states', 'Please select at least one state where you originate loans.');
 
   // Section 2: Calendar
   const timezoneEl = document.getElementById('timezone');
@@ -2587,7 +2790,7 @@ function buildPayload() {
     contact_phone: document.getElementById('contact_phone').value.trim(),
     // Business
     legal_business_name: document.getElementById('legal_business_name').value.trim(),
-    dba_brand_name: document.getElementById('dba_brand_name').value.trim(),
+    business_short_name: document.getElementById('business_short_name').value.trim(),
     ein: document.getElementById('ein').value.trim(),
     address_street: document.getElementById('address_street').value.trim(),
     address_city: document.getElementById('address_city').value.trim(),
@@ -2595,12 +2798,17 @@ function buildPayload() {
     address_zip: document.getElementById('address_zip').value.trim(),
     current_website_url: document.getElementById('current_website_url').value.trim(),
     lending_states: document.getElementById('lending_states').value.trim(),
+    lending_states_count: document.getElementById('lending_states_count_value').value || '0',
     social_media_urls: document.getElementById('social_media_urls').value.trim(),
     // Calendar
     timezone: document.getElementById('timezone').value,
     ...bizHours,
-    // Branding
-    brand_colors: document.getElementById('brand_colors').value.trim(),
+    // Branding — maps to GHL Custom Values: Main Color, Accent Color, Background Color, Text Color
+    brand_color_primary: document.getElementById('brand_color_primary').value.trim(),
+    brand_color_accent: document.getElementById('brand_color_accent').value.trim(),
+    brand_color_background: document.getElementById('brand_color_background').value.trim(),
+    brand_color_text: document.getElementById('brand_color_text').value.trim(),
+    brand_colors_use_defaults: document.getElementById('brand_colors_use_defaults').checked ? 'yes' : 'no',
     brand_tone: document.querySelector('[name="brand_tone"]:checked')?.value || '',
     brand_tone_notes: document.getElementById('brand_tone_notes').value.trim(),
     // CRM Setup
@@ -2609,9 +2817,8 @@ function buildPayload() {
     crm_migration_notes: document.getElementById('crm_migration_notes').value.trim(),
     has_online_loan_application: document.querySelector('[name="has_online_loan_application"]:checked')?.value || '',
     online_loan_application_url: document.getElementById('online_loan_application_url').value.trim(),
-    // Referral Partners
+    // Referral Partners (yes/no only — details collected at Funnel Customization step)
     has_existing_referral_partners: document.querySelector('[name="has_existing_referral_partners"]:checked')?.value || '',
-    referral_commission_structure: (document.getElementById('referral_commission_structure') || {}).value?.trim() || '',
     // Funnel + Bio (Full Stack)
     key_messages: (document.getElementById('key_messages') || {}).value?.trim() || '',
     owner_bio: (document.getElementById('owner_bio') || {}).value?.trim() || '',
@@ -2627,15 +2834,6 @@ function buildPayload() {
       email: row.querySelector(`[name*="[email]"]`)?.value.trim() || '',
       role: row.querySelector(`[name*="[role]"]`)?.value.trim() || '',
     })).filter(u => u.name || u.email)
-  );
-
-  // Partners
-  payload.referral_partners_json = JSON.stringify(
-    Array.from(document.querySelectorAll('#partners-list .repeater-row')).map(row => ({
-      name: row.querySelector(`[id*="_name"]`)?.value.trim() || '',
-      email: row.querySelector(`[id*="_email"]`)?.value.trim() || '',
-      company: row.querySelector(`[id*="_company"]`)?.value.trim() || '',
-    })).filter(p => p.name || p.email)
   );
 
   return payload;
@@ -2763,10 +2961,188 @@ function checkUrlTierParam() {
   }
 }
 
+// ===== CONTACT PREFILL FROM URL PARAMS =====
+// Lets GHL pass contact merge tags via URL: ?fn=Jane&ln=Doe&em=jane@x.com&ph=555-1234&co=Acme&tier=growth_engine
+// Supports both short (fn/ln/em/ph/co) and full (first_name/last_name/email/phone/company) param names.
+function initContactPrefill() {
+  const params = new URLSearchParams(window.location.search);
+  const get = (...keys) => {
+    for (const k of keys) {
+      const v = params.get(k);
+      if (v) return v.trim();
+    }
+    return '';
+  };
+
+  const map = [
+    ['contact_first_name', get('fn', 'first_name', 'firstName', 'first')],
+    ['contact_last_name', get('ln', 'last_name', 'lastName', 'last')],
+    ['contact_email', get('em', 'email', 'e')],
+    ['contact_phone', get('ph', 'phone', 'p')],
+    ['legal_business_name', get('co', 'company', 'business', 'business_name', 'legal_name')],
+  ];
+
+  let prefilledCount = 0;
+  map.forEach(([fieldId, value]) => {
+    if (!value) return;
+    const el = document.getElementById(fieldId);
+    if (el && !el.value) {
+      el.value = value;
+      prefilledCount++;
+    }
+  });
+
+  if (prefilledCount > 0 && typeof updateProgress === 'function') {
+    updateProgress();
+  }
+}
+
+// ===== STATES SERVED CHIP GRID =====
+const US_STATES = [
+  ['AL','Alabama'],['AK','Alaska'],['AZ','Arizona'],['AR','Arkansas'],['CA','California'],
+  ['CO','Colorado'],['CT','Connecticut'],['DE','Delaware'],['FL','Florida'],['GA','Georgia'],
+  ['HI','Hawaii'],['ID','Idaho'],['IL','Illinois'],['IN','Indiana'],['IA','Iowa'],
+  ['KS','Kansas'],['KY','Kentucky'],['LA','Louisiana'],['ME','Maine'],['MD','Maryland'],
+  ['MA','Massachusetts'],['MI','Michigan'],['MN','Minnesota'],['MS','Mississippi'],['MO','Missouri'],
+  ['MT','Montana'],['NE','Nebraska'],['NV','Nevada'],['NH','New Hampshire'],['NJ','New Jersey'],
+  ['NM','New Mexico'],['NY','New York'],['NC','North Carolina'],['ND','North Dakota'],['OH','Ohio'],
+  ['OK','Oklahoma'],['OR','Oregon'],['PA','Pennsylvania'],['RI','Rhode Island'],['SC','South Carolina'],
+  ['SD','South Dakota'],['TN','Tennessee'],['TX','Texas'],['UT','Utah'],['VT','Vermont'],
+  ['VA','Virginia'],['WA','Washington'],['WV','West Virginia'],['WI','Wisconsin'],['WY','Wyoming'],
+  ['DC','District of Columbia']
+];
+
+function initStatesServed() {
+  const grid = document.getElementById('lending_states_chips');
+  if (!grid) return;
+
+  // Render 51 chips (50 states + DC)
+  grid.innerHTML = US_STATES.map(([abbr, name]) => `
+    <label class="chip" tabindex="0" title="${name}" data-state="${abbr}">
+      <input type="checkbox" name="states_served[]" value="${abbr}">
+      <span>${abbr}</span>
+    </label>
+  `).join('');
+
+  const chips = grid.querySelectorAll('.chip');
+  const hiddenInput = document.getElementById('lending_states');
+  const hiddenCount = document.getElementById('lending_states_count_value');
+  const countEl = document.getElementById('lending_states_count');
+  const errEl = document.getElementById('err-lending_states');
+
+  function refresh() {
+    const selected = Array.from(grid.querySelectorAll('input[type="checkbox"]:checked')).map(
+      (cb) => cb.value
+    );
+    chips.forEach((c) => {
+      const cb = c.querySelector('input[type="checkbox"]');
+      c.classList.toggle('selected', cb.checked);
+      c.setAttribute('aria-pressed', cb.checked ? 'true' : 'false');
+    });
+    hiddenInput.value = selected.join(', ');
+    hiddenCount.value = String(selected.length);
+    countEl.textContent = selected.length === 51
+      ? 'All 50 states + DC selected'
+      : `${selected.length} selected`;
+    if (errEl && selected.length > 0) errEl.classList.remove('visible');
+    if (typeof updateProgress === 'function') updateProgress();
+  }
+
+  chips.forEach((chip) => {
+    chip.setAttribute('role', 'checkbox');
+    chip.setAttribute('aria-pressed', 'false');
+    const cb = chip.querySelector('input[type="checkbox"]');
+    cb.addEventListener('change', refresh);
+    chip.addEventListener('keydown', function (e) {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        cb.checked = !cb.checked;
+        cb.dispatchEvent(new Event('change'));
+      }
+    });
+  });
+
+  document.getElementById('states_select_all').addEventListener('click', () => {
+    // "Select all 50 states" — includes DC since most lenders treat it as state-equivalent for compliance
+    chips.forEach((chip) => {
+      chip.querySelector('input[type="checkbox"]').checked = true;
+    });
+    refresh();
+  });
+
+  document.getElementById('states_clear_all').addEventListener('click', () => {
+    chips.forEach((chip) => {
+      chip.querySelector('input[type="checkbox"]').checked = false;
+    });
+    refresh();
+  });
+
+  refresh();
+}
+
+// ===== COLOR PICKER UX =====
+const BRAND_COLOR_DEFAULTS = {
+  brand_color_primary: '#6B4C6E',
+  brand_color_accent: '#C4A053',
+  brand_color_background: '#F8F6F8',
+  brand_color_text: '#2A2030',
+};
+
+function initColorPickers() {
+  Object.keys(BRAND_COLOR_DEFAULTS).forEach((id) => {
+    const hexInput = document.getElementById(id);
+    const swatch = document.getElementById(`${id}_swatch`);
+    if (!hexInput || !swatch) return;
+
+    // Swatch → hex
+    swatch.addEventListener('input', () => {
+      hexInput.value = swatch.value.toUpperCase();
+    });
+
+    // Hex → swatch (with light validation)
+    hexInput.addEventListener('input', () => {
+      let v = hexInput.value.trim();
+      if (!v.startsWith('#')) v = '#' + v;
+      if (/^#[A-Fa-f0-9]{6}$/.test(v)) {
+        swatch.value = v;
+      }
+    });
+
+    // Normalize on blur — uppercase, prepend #
+    hexInput.addEventListener('blur', () => {
+      let v = hexInput.value.trim();
+      if (v && !v.startsWith('#')) v = '#' + v;
+      if (/^#[A-Fa-f0-9]{6}$/.test(v)) hexInput.value = v.toUpperCase();
+    });
+  });
+
+  // "Use defaults" toggle — when checked, disables the pickers visually and resets values
+  const defaultsToggle = document.getElementById('brand_colors_use_defaults');
+  if (defaultsToggle) {
+    defaultsToggle.addEventListener('change', () => {
+      const useDefaults = defaultsToggle.checked;
+      document.querySelectorAll('#brandColorsGrid .color-picker-row').forEach((row) => {
+        row.classList.toggle('disabled', useDefaults);
+      });
+      if (useDefaults) {
+        Object.entries(BRAND_COLOR_DEFAULTS).forEach(([id, val]) => {
+          const hex = document.getElementById(id);
+          const sw = document.getElementById(`${id}_swatch`);
+          if (hex) hex.value = val;
+          if (sw) sw.value = val;
+        });
+      }
+    });
+  }
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   buildBusinessHoursGrid();
   initRadioOptions();
+  initColorPickers();
+  initStatesServed();
+  initContactPrefill();
   attachInputListeners();
   initSidebarObserver();
   checkSavedProgress();
