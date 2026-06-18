@@ -1477,17 +1477,15 @@
       function validateForm() {
         let valid = true;
 
-        // Text fields
+        // Text fields. Section copy reads "Only name and email are required" —
+        // company_name, role_title, and phone are all optional.
         const textFields = [
           { id: "full_name", msg: "Please enter your name." },
-          { id: "company_name", msg: "Please enter your company name." },
-          { id: "role_title", msg: "Please enter your role." },
           {
             id: "email",
             msg: "Please enter a valid email address.",
             type: "email",
           },
-          { id: "phone", msg: "Please enter your phone number." },
           {
             id: "growth_goals",
             msg: "Please share your growth goals.",

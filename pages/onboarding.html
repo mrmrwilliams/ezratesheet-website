@@ -2827,14 +2827,16 @@ function buildPayload() {
     anything_else: document.getElementById('anything_else').value.trim(),
   };
 
-  // RiseHub users
-  payload.risehub_users_json = JSON.stringify(
-    Array.from(document.querySelectorAll('#risehub-users-list .repeater-row')).map(row => ({
-      name: row.querySelector(`[name*="[name]"]`)?.value.trim() || '',
-      email: row.querySelector(`[name*="[email]"]`)?.value.trim() || '',
-      role: row.querySelector(`[name*="[role]"]`)?.value.trim() || '',
-    })).filter(u => u.name || u.email)
-  );
+  // RiseHub users — captured as a JSON array (single GHL CF: "Additional Users (JSON)")
+  // plus a quick-glance count so the buildout team can see "N users to provision"
+  // without parsing JSON.
+  const risehubUsers = Array.from(document.querySelectorAll('#risehub-users-list .repeater-row')).map(row => ({
+    name: row.querySelector(`[name*="[name]"]`)?.value.trim() || '',
+    email: row.querySelector(`[name*="[email]"]`)?.value.trim() || '',
+    role: row.querySelector(`[name*="[role]"]`)?.value.trim() || '',
+  })).filter(u => u.name || u.email);
+  payload.risehub_users_json = JSON.stringify(risehubUsers);
+  payload.risehub_users_count = String(risehubUsers.length);
 
   return payload;
 }
