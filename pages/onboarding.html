@@ -2179,7 +2179,8 @@
 
 <script>
 // ===== CONFIG =====
-const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/6vd0JqcgyHpzEUereM2p/webhook-trigger/7f5726a9-594a-40c7-937c-adc3969ae33a';
+const INTAKE_WEBHOOK_URL = 'https://ezratesheet.app.n8n.cloud/webhook/onboarding-intake';
+const INTAKE_SECRET = 'ezrs_intake_9Tq3XvL5RpM8WdF2Zk7Nc4Jy6HbGs1';
 const LS_KEY = 'ezrs_onboarding_v3';
 
 // Tier hierarchy for section visibility
@@ -2862,9 +2863,9 @@ document.getElementById('onboardingForm').addEventListener('submit', async funct
   const payload = buildPayload();
 
   try {
-    const response = await fetch(GHL_WEBHOOK_URL, {
+    const response = await fetch(INTAKE_WEBHOOK_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Onboard-Secret': INTAKE_SECRET },
       body: JSON.stringify(payload),
     });
 
