@@ -1,3 +1,7 @@
+# Screpy (site monitoring) — explicit allow
+User-agent: ScrepyBot
+Allow: /
+
 User-agent: *
 Allow: /
 
