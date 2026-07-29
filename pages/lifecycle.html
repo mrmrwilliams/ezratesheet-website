@@ -12,7 +12,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Private Lending Lifecycle â€” Reference Guide</title>
+<title>The Private Lending Lifecycle — EZRS Reference Guide</title>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
 <style>
 /* ===== RESET & BASE ===== */
@@ -849,6 +849,41 @@ body {
   .scroll-hint { display: flex; }
 }
 
+/* ===== POWERED-BY-EZRS BADGE ===== */
+.ezrs-badge {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--c-teal), var(--c-blue));
+  color: #0d1117;
+  box-shadow: 0 4px 12px rgba(45,212,191,0.25), 0 0 0 1px rgba(255,255,255,0.1);
+  white-space: nowrap;
+  z-index: 3;
+}
+.ezrs-badge svg { width: 9px; height: 9px; }
+.pipeline-stage.owned .stage-card {
+  border-color: rgba(96,165,250,0.35);
+  background: linear-gradient(180deg, rgba(45,212,191,0.05), var(--bg-card) 40%);
+}
+.detail-panel.owned {
+  border-color: rgba(96,165,250,0.35);
+  background: linear-gradient(180deg, rgba(45,212,191,0.04), var(--bg-card) 30%);
+  position: relative;
+}
+.detail-panel .ezrs-badge {
+  top: 12px;
+  right: 16px;
+}
+
 /* ===== COMBO BADGE ===== */
 .combo-badge {
   display: inline-flex;
@@ -910,10 +945,10 @@ body {
 
   <!-- HERO -->
   <section class="hero fade-in">
-    <div class="hero-eyebrow">Mike Williams â€” Reference Tool</div>
+    <div class="hero-eyebrow">EZRS Reference Tool</div>
     <h1>The Private Lending Lifecycle</h1>
     <p class="hero-desc">
-      End-to-end view of how private/hard money loans move from lead generation through servicing, secondary market, and default management â€” with the software landscape at each stage.
+      End-to-end view of how private/hard money loans move from lead generation through servicing, secondary market, and default management — with the software landscape at each stage, and a clear line between what EZRS + RiseHub own and what your existing stack keeps.
     </p>
     <div class="hero-stats">
       <div class="hero-stat">
@@ -930,7 +965,7 @@ body {
       </div>
       <div class="hero-stat">
         <div class="hero-stat-value" style="color:var(--c-green)">2</div>
-        <div class="hero-stat-label">EZRS Products</div>
+        <div class="hero-stat-label">Stages We Own</div>
       </div>
     </div>
   </section>
@@ -949,11 +984,12 @@ body {
     <div class="pipeline-wrap fade-in">
       <div class="pipeline" role="list">
         <!-- Stage 1 -->
-        <div class="pipeline-stage stage-1" role="listitem" onclick="scrollToDetail('detail-1')">
+        <div class="pipeline-stage stage-1 owned" role="listitem" onclick="scrollToDetail('detail-1')">
           <div class="stage-card">
+            <div class="ezrs-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Powered by EZRS</div>
             <div class="stage-num">1</div>
             <div class="stage-title">Lead Gen &<br>Marketing</div>
-            <div class="stage-subtitle">Finding borrowers and brokers through marketing, referrals, and broker relationships.</div>
+            <div class="stage-subtitle">Finding borrowers and brokers through marketing, referrals, and broker relationships (via RiseHub/GHL).</div>
             <div class="stage-tags">
               <span class="stage-tag">CRM</span>
               <span class="stage-tag">Marketing</span>
@@ -962,14 +998,15 @@ body {
         </div>
         <div class="pipeline-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg></div>
         <!-- Stage 2 -->
-        <div class="pipeline-stage stage-2" role="listitem" onclick="scrollToDetail('detail-2')">
+        <div class="pipeline-stage stage-2 owned" role="listitem" onclick="scrollToDetail('detail-2')">
           <div class="stage-card">
+            <div class="ezrs-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Powered by EZRS</div>
             <div class="stage-num">2</div>
-            <div class="stage-title">Loan<br>Origination</div>
-            <div class="stage-subtitle">Pricing, term sheets, underwriting, credit decisions, and deal approval.</div>
+            <div class="stage-title">Deal Capture<br>& Terms</div>
+            <div class="stage-subtitle">Deal intake, review/approval routing, pricing calculations, and term-sheet generation.</div>
             <div class="stage-tags">
-              <span class="stage-tag">LOS</span>
               <span class="stage-tag">Pricing</span>
+              <span class="stage-tag">Term Sheets</span>
             </div>
           </div>
         </div>
@@ -978,11 +1015,11 @@ body {
         <div class="pipeline-stage stage-3" role="listitem" onclick="scrollToDetail('detail-3')">
           <div class="stage-card">
             <div class="stage-num">3</div>
-            <div class="stage-title">Closing &<br>Funding</div>
-            <div class="stage-subtitle">Document execution, fund disbursement, and recording security instruments.</div>
+            <div class="stage-title">Underwriting,<br>Docs & Funding</div>
+            <div class="stage-subtitle">Credit review, underwriting decisions, document execution, and fund disbursement.</div>
             <div class="stage-tags">
-              <span class="stage-tag">Title</span>
-              <span class="stage-tag">Escrow</span>
+              <span class="stage-tag">Underwriting</span>
+              <span class="stage-tag">Closing</span>
             </div>
           </div>
         </div>
@@ -992,7 +1029,7 @@ body {
           <div class="stage-card">
             <div class="stage-num">4</div>
             <div class="stage-title">Loan<br>Servicing</div>
-            <div class="stage-subtitle">Payment collection, balance tracking, statements â€” where the loan "lives."</div>
+            <div class="stage-subtitle">Payment collection, balance tracking, statements — where the loan "lives."</div>
             <div class="stage-tags">
               <span class="stage-tag">LMS</span>
               <span class="stage-tag">Payments</span>
@@ -1005,7 +1042,7 @@ body {
           <div class="stage-card">
             <div class="stage-num">5</div>
             <div class="stage-title">Secondary<br>Market</div>
-            <div class="stage-subtitle">Selling loans to recycle capital â€” whole loan sales, warehousing, B pieces.</div>
+            <div class="stage-subtitle">Selling loans to recycle capital — whole loan sales, warehousing, B pieces.</div>
             <div class="stage-tags">
               <span class="stage-tag">Capital</span>
               <span class="stage-tag">Buyers</span>
@@ -1039,7 +1076,8 @@ body {
     <div class="stage-details">
 
       <!-- Detail 1 -->
-      <div class="detail-panel stage-1 fade-in" id="detail-1">
+      <div class="detail-panel stage-1 owned fade-in" id="detail-1">
+        <div class="ezrs-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Powered by EZRS</div>
         <div class="detail-panel-header">
           <div class="detail-panel-num" style="background:var(--c-teal-dim);color:var(--c-teal)">1</div>
           <div class="detail-panel-title" style="color:var(--c-teal)">Lead Generation & Marketing</div>
@@ -1057,44 +1095,38 @@ body {
           </ul>
           <h4>Software</h4>
           <ul>
-            <li>GHL / RiseHub â€” CRM & marketing automation</li>
-            <li>HubSpot â€” enterprise CRM/marketing</li>
-            <li>Salesforce â€” enterprise CRM</li>
-            <li>Follow Up Boss â€” real estate CRM</li>
+            <li>GHL / RiseHub — CRM & marketing automation</li>
+            <li>HubSpot — enterprise CRM/marketing</li>
+            <li>Salesforce — enterprise CRM</li>
+            <li>Follow Up Boss — real estate CRM</li>
           </ul>
         </div>
       </div>
 
       <!-- Detail 2 -->
-      <div class="detail-panel stage-2 fade-in" id="detail-2">
+      <div class="detail-panel stage-2 owned fade-in" id="detail-2">
+        <div class="ezrs-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Powered by EZRS</div>
         <div class="detail-panel-header">
           <div class="detail-panel-num" style="background:var(--c-blue-dim);color:var(--c-blue)">2</div>
-          <div class="detail-panel-title" style="color:var(--c-blue)">Loan Origination</div>
+          <div class="detail-panel-title" style="color:var(--c-blue)">Deal Capture & Terms</div>
         </div>
         <div class="detail-panel-body">
           <h4>What Happens</h4>
-          <p>Pricing the deal, generating term sheets, underwriting, and reaching a credit decision. This is where EZRS lives â€” powering the pricing/rate sheet engine.</p>
+          <p>Deal intake, review and approval routing, pricing/term calculations, and term-sheet generation and management. This is the EZRS wheelhouse — everything a lender needs to price a deal and get terms in front of the borrower or broker.</p>
           <h4>Sub-Stages</h4>
           <div class="detail-substage">
-            <span class="detail-substage-item">Application</span>
-            <span class="detail-substage-arrow">â†’</span>
-            <span class="detail-substage-item">Processing</span>
-            <span class="detail-substage-arrow">â†’</span>
-            <span class="detail-substage-item">Underwriting</span>
-            <span class="detail-substage-arrow">â†’</span>
-            <span class="detail-substage-item">Credit Decision</span>
-            <span class="detail-substage-arrow">â†’</span>
+            <span class="detail-substage-item">Deal Capture</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Review & Approval</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Term Calculations</span>
+            <span class="detail-substage-arrow">→</span>
             <span class="detail-substage-item">Term Sheet / Rate Lock</span>
           </div>
           <h4>Software</h4>
           <ul>
-            <li>EZRS â€” rate sheet & pricing engine</li>
-            <li>LendingWise â€” private lending LOS</li>
-            <li>LendingPad â€” LOS platform</li>
-            <li>Lentrix â€” LOS for private lenders</li>
-            <li>Byte Software â€” mortgage LOS</li>
-            <li>Blooma â€” CRE deal analysis</li>
-            <li>TurnKey Lender â€” lending automation</li>
+            <li>EZRS — deal capture, pricing engine & term-sheet generation</li>
+            <li>GHL / RiseHub — lead-to-deal handoff and workflow automation</li>
           </ul>
         </div>
       </div>
@@ -1103,13 +1135,24 @@ body {
       <div class="detail-panel stage-3 fade-in" id="detail-3">
         <div class="detail-panel-header">
           <div class="detail-panel-num" style="background:var(--c-purple-dim);color:var(--c-purple)">3</div>
-          <div class="detail-panel-title" style="color:var(--c-purple)">Closing & Funding</div>
+          <div class="detail-panel-title" style="color:var(--c-purple)">Underwriting, Docs & Funding</div>
         </div>
         <div class="detail-panel-body">
           <h4>What Happens</h4>
-          <p>Document execution, fund disbursement, and recording security instruments. Title, escrow, legal docs, and wire transfers converge here.</p>
+          <p>Credit review, underwriting decisions, legal document preparation and execution, title/escrow coordination, and fund disbursement. Everything between an accepted term sheet and money on the wire.</p>
+          <h4>Sub-Stages</h4>
+          <div class="detail-substage">
+            <span class="detail-substage-item">Underwriting</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Credit Decision</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Docs & Title</span>
+            <span class="detail-substage-arrow">→</span>
+            <span class="detail-substage-item">Funding</span>
+          </div>
           <h4>Key Activities</h4>
           <ul>
+            <li>Credit review and underwriting analysis</li>
             <li>Title search and insurance procurement</li>
             <li>Escrow management and coordination</li>
             <li>Legal document preparation and execution</li>
@@ -1118,10 +1161,15 @@ body {
           </ul>
           <h4>Software</h4>
           <ul>
-            <li>LOS closing modules (LendingWise, etc.)</li>
-            <li>DocuSign â€” electronic signatures</li>
-            <li>Zoho Sign â€” e-signature platform</li>
-            <li>Qualia â€” title & closing platform</li>
+            <li>LendingWise — private lending LOS</li>
+            <li>LendingPad — LOS platform</li>
+            <li>Lentrix — LOS for private lenders</li>
+            <li>Byte Software — mortgage LOS</li>
+            <li>TurnKey Lender — lending automation</li>
+            <li>Blooma — CRE deal analysis / underwriting</li>
+            <li>DocuSign — electronic signatures</li>
+            <li>Zoho Sign — e-signature platform</li>
+            <li>Qualia — title & closing platform</li>
           </ul>
         </div>
       </div>
@@ -1134,7 +1182,7 @@ body {
         </div>
         <div class="detail-panel-body">
           <h4>What Happens</h4>
-          <p>Payment collection, balance tracking, statement generation, and borrower communication. This is the longest phase â€” where the loan "lives" until payoff or disposition.</p>
+          <p>Payment collection, balance tracking, statement generation, and borrower communication. This is the longest phase — where the loan "lives" until payoff or disposition.</p>
           <h4>Key Activities</h4>
           <ul>
             <li>Monthly payment processing (ACH, wire, check)</li>
@@ -1146,12 +1194,12 @@ body {
           </ul>
           <h4>Software</h4>
           <ul>
-            <li>Glass Loans â€” private lending servicing</li>
-            <li>Nortridge â€” loan management system</li>
-            <li>Note Servicing Center â€” note servicing</li>
-            <li>LoanPro â€” modern LMS platform</li>
-            <li>Shaw Systems â€” enterprise LMS</li>
-            <li>Canopy Servicing â€” fintech LMS</li>
+            <li>Glass Loans — private lending servicing</li>
+            <li>Nortridge — loan management system</li>
+            <li>Note Servicing Center — note servicing</li>
+            <li>LoanPro — modern LMS platform</li>
+            <li>Shaw Systems — enterprise LMS</li>
+            <li>Canopy Servicing — fintech LMS</li>
           </ul>
         </div>
       </div>
@@ -1164,7 +1212,7 @@ body {
         </div>
         <div class="detail-panel-body">
           <h4>What Happens</h4>
-          <p>Selling loans to secondary market buyers to recycle capital. Includes warehousing, delivery/packaging, whole loan sales, and B pieces. <strong>Not all lenders do this</strong> â€” balance sheet lenders skip this stage entirely.</p>
+          <p>Selling loans to secondary market buyers to recycle capital. Includes warehousing, delivery/packaging, whole loan sales, and B pieces. <strong>Not all lenders do this</strong> — balance sheet lenders skip this stage entirely.</p>
           <h4>Key Activities</h4>
           <ul>
             <li>Warehouse line management</li>
@@ -1198,7 +1246,7 @@ body {
         </div>
         <div class="detail-panel-body">
           <h4>What Happens</h4>
-          <p>Delinquency monitoring, loss mitigation, foreclosure, and REO disposition. Only triggered when loans go bad â€” the goal is to minimize time here.</p>
+          <p>Delinquency monitoring, loss mitigation, foreclosure, and REO disposition. Only triggered when loans go bad — the goal is to minimize time here.</p>
           <h4>Key Activities</h4>
           <ul>
             <li>Delinquency tracking and early intervention</li>
@@ -1209,8 +1257,8 @@ body {
           </ul>
           <h4>Software</h4>
           <ul>
-            <li>Nortridge â€” collections modules</li>
-            <li>Shaw Systems â€” default management</li>
+            <li>Nortridge — collections modules</li>
+            <li>Shaw Systems — default management</li>
             <li>Specialized default servicers</li>
           </ul>
         </div>
@@ -1224,7 +1272,7 @@ body {
     <div class="section-header fade-in">
       <div class="section-label">Our Footprint</div>
       <h2 class="section-title">Where EZRS + RiseHub <em>fits.</em></h2>
-      <p class="section-desc">Together they cover the "front of the funnel" â€” everything up to closing.</p>
+      <p class="section-desc">Together they own the front of the funnel — lead through signed term sheet. The rest of the lifecycle stays in your existing stack.</p>
     </div>
 
     <div class="coverage-section fade-in">
@@ -1235,9 +1283,9 @@ body {
             RiseHub (GHL)
           </div>
           <div class="coverage-card-title">Lead Gen & CRM Layer</div>
-          <div class="coverage-card-desc">Powers Stage 1 (Lead Generation & Marketing) and provides CRM connectivity across all stages. The marketing automation engine, lead capture, nurture sequences, and broker portal.</div>
+          <div class="coverage-card-desc">Powers Stage 1 (Lead Gen & Marketing) and hands off qualified deals into EZRS. Marketing automation, lead capture, nurture sequences, and broker portal — with CRM connectivity that reaches downstream stages.</div>
           <div class="coverage-stages">
-            <span class="coverage-stage-pill" style="background:var(--c-teal-mid);color:var(--c-teal)">Stage 1 â€” Primary</span>
+            <span class="coverage-stage-pill" style="background:var(--c-teal-mid);color:var(--c-teal)">Stage 1 — Primary</span>
             <span class="coverage-stage-pill" style="background:rgba(255,255,255,0.05);color:var(--text-muted)">CRM across all</span>
           </div>
         </div>
@@ -1246,10 +1294,10 @@ body {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
             EZRS
           </div>
-          <div class="coverage-card-title">Pricing & Rate Sheet Engine</div>
-          <div class="coverage-card-desc">Powers Stage 2 (Loan Origination) â€” specifically the pricing/rate sheet engine. Generates rate sheets, calculates pricing matrices, and handles deal-level pricing scenarios for private lenders.</div>
+          <div class="coverage-card-title">Deal Capture & Terms Engine</div>
+          <div class="coverage-card-desc">Powers Stage 2 (Deal Capture & Terms). Captures deals, routes review/approval, calculates pricing and terms, and generates and manages term sheets — the front-half of origination, up to the signed term sheet. Underwriting and closing stay in your existing LOS.</div>
           <div class="coverage-stages">
-            <span class="coverage-stage-pill" style="background:var(--c-blue-mid);color:var(--c-blue)">Stage 2 â€” Primary</span>
+            <span class="coverage-stage-pill" style="background:var(--c-blue-mid);color:var(--c-blue)">Stage 2 — Primary</span>
           </div>
         </div>
       </div>
@@ -1262,10 +1310,10 @@ body {
             <span>1 LEAD GEN</span>
           </div>
           <div class="coverage-bar-seg covered" style="flex:1;background:var(--c-blue);opacity:0.85">
-            <span>2 ORIGINATION</span>
+            <span>2 DEAL & TERMS</span>
           </div>
           <div class="coverage-bar-seg" style="flex:1;background:rgba(192,132,252,0.2)">
-            <span style="color:var(--c-purple);opacity:0.6">3 CLOSING</span>
+            <span style="color:var(--c-purple);opacity:0.6">3 UW, DOCS & FUNDING</span>
           </div>
           <div class="coverage-bar-seg" style="flex:1;background:rgba(74,222,128,0.2)">
             <span style="color:var(--c-green);opacity:0.6">4 SERVICING</span>
@@ -1296,14 +1344,14 @@ body {
     <div class="section-header fade-in">
       <div class="section-label">Vendor Map</div>
       <h2 class="section-title">Software landscape.</h2>
-      <p class="section-desc">The complete vendor map across all lifecycle stages â€” categorized by function and relationship to EZRS.</p>
+      <p class="section-desc">The complete vendor map across all lifecycle stages — categorized by function and relationship to EZRS.</p>
     </div>
 
     <div class="table-controls fade-in" id="table-filters">
       <button class="filter-btn active" data-filter="all" style="--active-bg:rgba(255,255,255,0.08);--active-border:rgba(255,255,255,0.15);--active-color:var(--text)">All Stages</button>
       <button class="filter-btn" data-filter="1" style="--active-bg:var(--c-teal-dim);--active-border:rgba(45,212,191,0.3);--active-color:var(--c-teal)">1 Lead Gen</button>
-      <button class="filter-btn" data-filter="2" style="--active-bg:var(--c-blue-dim);--active-border:rgba(96,165,250,0.3);--active-color:var(--c-blue)">2 Origination</button>
-      <button class="filter-btn" data-filter="3" style="--active-bg:var(--c-purple-dim);--active-border:rgba(192,132,252,0.3);--active-color:var(--c-purple)">3 Closing</button>
+      <button class="filter-btn" data-filter="2" style="--active-bg:var(--c-blue-dim);--active-border:rgba(96,165,250,0.3);--active-color:var(--c-blue)">2 Deal & Terms</button>
+      <button class="filter-btn" data-filter="3" style="--active-bg:var(--c-purple-dim);--active-border:rgba(192,132,252,0.3);--active-color:var(--c-purple)">3 UW, Docs & Funding</button>
       <button class="filter-btn" data-filter="4" style="--active-bg:var(--c-green-dim);--active-border:rgba(74,222,128,0.3);--active-color:var(--c-green)">4 Servicing</button>
       <button class="filter-btn" data-filter="5" style="--active-bg:var(--c-amber-dim);--active-border:rgba(251,191,36,0.3);--active-color:var(--c-amber)">5 Secondary</button>
       <button class="filter-btn" data-filter="6" style="--active-bg:var(--c-red-dim);--active-border:rgba(248,113,113,0.3);--active-color:var(--c-red)">6 Collections</button>
@@ -1315,11 +1363,11 @@ body {
       <table class="data-table" id="software-table">
         <thead>
           <tr>
-            <th data-col="stage" class="sorted">Stage <span class="sort-icon">â†•</span></th>
-            <th data-col="category">Category <span class="sort-icon">â†•</span></th>
-            <th data-col="vendor">Vendor <span class="sort-icon">â†•</span></th>
-            <th data-col="desc">What It Does <span class="sort-icon">â†•</span></th>
-            <th data-col="rel">Relationship <span class="sort-icon">â†•</span></th>
+            <th data-col="stage" class="sorted">Stage <span class="sort-icon">↕</span></th>
+            <th data-col="category">Category <span class="sort-icon">↕</span></th>
+            <th data-col="vendor">Vendor <span class="sort-icon">↕</span></th>
+            <th data-col="desc">What It Does <span class="sort-icon">↕</span></th>
+            <th data-col="rel">Relationship <span class="sort-icon">↕</span></th>
           </tr>
         </thead>
         <tbody id="table-body">
@@ -1346,11 +1394,11 @@ body {
         <div class="term-list">
           <div class="term-item">
             <span class="term-abbr">LOS</span>
-            <span class="term-def">Loan Origination System â€” software for processing new loans from application through closing</span>
+            <span class="term-def">Loan Origination System — software for processing new loans from application through closing</span>
           </div>
           <div class="term-item">
             <span class="term-abbr">LMS</span>
-            <span class="term-def">Loan Management System â€” software for servicing and managing active loans post-closing</span>
+            <span class="term-def">Loan Management System — software for servicing and managing active loans post-closing</span>
           </div>
         </div>
       </div>
@@ -1363,15 +1411,15 @@ body {
         <div class="term-list">
           <div class="term-item">
             <span class="term-abbr">RTL</span>
-            <span class="term-def">Residential Transition Loan â€” fix-and-flip or bridge loans for residential properties</span>
+            <span class="term-def">Residential Transition Loan — fix-and-flip or bridge loans for residential properties</span>
           </div>
           <div class="term-item">
             <span class="term-abbr">DSCR</span>
-            <span class="term-def">Debt Service Coverage Ratio â€” rental income vs. debt payments; a key metric for investor loans</span>
+            <span class="term-def">Debt Service Coverage Ratio — rental income vs. debt payments; a key metric for investor loans</span>
           </div>
           <div class="term-item">
             <span class="term-abbr">GUC</span>
-            <span class="term-def">Ground-Up Construction â€” new-build loan for constructing a property from scratch</span>
+            <span class="term-def">Ground-Up Construction — new-build loan for constructing a property from scratch</span>
           </div>
         </div>
       </div>
@@ -1384,19 +1432,19 @@ body {
         <div class="term-list">
           <div class="term-item">
             <span class="term-abbr">LTV</span>
-            <span class="term-def">Loan-to-Value â€” loan amount as a percentage of current property value</span>
+            <span class="term-def">Loan-to-Value — loan amount as a percentage of current property value</span>
           </div>
           <div class="term-item">
             <span class="term-abbr">CLTV</span>
-            <span class="term-def">Combined Loan-to-Value â€” total of all liens divided by property value</span>
+            <span class="term-def">Combined Loan-to-Value — total of all liens divided by property value</span>
           </div>
           <div class="term-item">
             <span class="term-abbr">ARV</span>
-            <span class="term-def">After-Repair Value â€” estimated property value after renovations are complete</span>
+            <span class="term-def">After-Repair Value — estimated property value after renovations are complete</span>
           </div>
           <div class="term-item">
             <span class="term-abbr">NOI</span>
-            <span class="term-def">Net Operating Income â€” rental income minus operating expenses (before debt service)</span>
+            <span class="term-def">Net Operating Income — rental income minus operating expenses (before debt service)</span>
           </div>
         </div>
       </div>
@@ -1409,15 +1457,15 @@ body {
         <div class="term-list">
           <div class="term-item">
             <span class="term-abbr">PPP</span>
-            <span class="term-def">Prepayment Penalty â€” fee charged if a borrower pays off the loan early</span>
+            <span class="term-def">Prepayment Penalty — fee charged if a borrower pays off the loan early</span>
           </div>
           <div class="term-item">
             <span class="term-abbr">REO</span>
-            <span class="term-def">Real Estate Owned â€” property acquired by the lender through foreclosure</span>
+            <span class="term-def">Real Estate Owned — property acquired by the lender through foreclosure</span>
           </div>
           <div class="term-item">
             <span class="term-abbr">NPL</span>
-            <span class="term-def">Non-Performing Loan â€” a loan in default or significantly behind on payments</span>
+            <span class="term-def">Non-Performing Loan — a loan in default or significantly behind on payments</span>
           </div>
         </div>
       </div>
@@ -1429,29 +1477,30 @@ body {
 
 <!-- FOOTER -->
 <footer class="footer">
-  Private Lending Lifecycle Reference â€” Mike Williams
+  Private Lending Lifecycle Reference — Mike Williams
 </footer>
 
 <script>
 // ===== DATA =====
 const softwareData = [
   // Stage 1
-  { stage: 1, stageLabel: 'Lead Gen', category: 'CRM / Marketing', vendor: 'GHL / RiseHub', desc: 'CRM and marketing automation platform for private lenders â€” lead capture, nurture, broker portal', rel: 'product', relLabel: 'EZRS' },
+  { stage: 1, stageLabel: 'Lead Gen', category: 'CRM / Marketing', vendor: 'GHL / RiseHub', desc: 'CRM and marketing automation platform for private lenders — lead capture, nurture, broker portal', rel: 'product', relLabel: 'EZRS' },
   { stage: 1, stageLabel: 'Lead Gen', category: 'CRM', vendor: 'HubSpot', desc: 'Enterprise inbound marketing, sales CRM, and marketing automation platform', rel: 'complementary', relLabel: 'Complementary' },
   { stage: 1, stageLabel: 'Lead Gen', category: 'CRM', vendor: 'Salesforce', desc: 'Enterprise CRM platform with customizable lending workflows and integrations', rel: 'complementary', relLabel: 'Complementary' },
   { stage: 1, stageLabel: 'Lead Gen', category: 'CRM', vendor: 'Follow Up Boss', desc: 'Real estate-focused CRM for lead management and automated follow-up', rel: 'complementary', relLabel: 'Complementary' },
-  // Stage 2
-  { stage: 2, stageLabel: 'Origination', category: 'Pricing Engine', vendor: 'EZRS', desc: 'Rate sheet and pricing engine for private lenders â€” pricing matrices, deal-level scenarios', rel: 'product', relLabel: 'EZRS' },
-  { stage: 2, stageLabel: 'Origination', category: 'LOS', vendor: 'LendingWise', desc: 'Loan origination system built for private/hard money and non-QM lenders', rel: 'integration', relLabel: 'Integration Partner' },
-  { stage: 2, stageLabel: 'Origination', category: 'LOS', vendor: 'LendingPad', desc: 'Cloud-based LOS for mortgage origination with compliance and pipeline management', rel: 'competitor', relLabel: 'Competitor' },
-  { stage: 2, stageLabel: 'Origination', category: 'LOS', vendor: 'Lentrix', desc: 'LOS platform designed for private lenders with workflow automation', rel: 'competitor', relLabel: 'Competitor' },
-  { stage: 2, stageLabel: 'Origination', category: 'LOS', vendor: 'Byte Software', desc: 'Established mortgage LOS with document management and compliance tools', rel: 'competitor', relLabel: 'Competitor' },
-  { stage: 2, stageLabel: 'Origination', category: 'Deal Analysis', vendor: 'Blooma', desc: 'AI-powered commercial real estate deal analysis and underwriting platform', rel: 'complementary', relLabel: 'Complementary' },
-  { stage: 2, stageLabel: 'Origination', category: 'Lending Platform', vendor: 'TurnKey Lender', desc: 'End-to-end lending automation from application to decision and beyond', rel: 'competitor', relLabel: 'Competitor' },
-  // Stage 3
-  { stage: 3, stageLabel: 'Closing', category: 'E-Signature', vendor: 'DocuSign', desc: 'Electronic signature platform for loan document execution and management', rel: 'integration', relLabel: 'Integration Partner' },
-  { stage: 3, stageLabel: 'Closing', category: 'E-Signature', vendor: 'Zoho Sign', desc: 'E-signature solution with workflow automation for document signing', rel: 'integration', relLabel: 'Integration Partner' },
-  { stage: 3, stageLabel: 'Closing', category: 'Title & Closing', vendor: 'Qualia', desc: 'Digital title and closing platform connecting lenders, title agents, and buyers', rel: 'complementary', relLabel: 'Complementary' },
+  // Stage 2 — Deal Capture & Terms (EZRS owns this stage)
+  { stage: 2, stageLabel: 'Deal & Terms', category: 'Pricing Engine', vendor: 'EZRS', desc: 'Deal capture, pricing/term calculations, and term-sheet generation for private lenders', rel: 'product', relLabel: 'EZRS' },
+  { stage: 2, stageLabel: 'Deal & Terms', category: 'CRM → Deal Handoff', vendor: 'GHL / RiseHub', desc: 'Lead-to-deal handoff, workflow automation, and broker portal feeding EZRS', rel: 'product', relLabel: 'EZRS' },
+  // Stage 3 — Underwriting, Docs & Funding
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'LOS', vendor: 'LendingWise', desc: 'Loan origination system built for private/hard money and non-QM lenders', rel: 'integration', relLabel: 'Integration Partner' },
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'LOS', vendor: 'LendingPad', desc: 'Cloud-based LOS for mortgage origination with compliance and pipeline management', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'LOS', vendor: 'Lentrix', desc: 'LOS platform designed for private lenders with workflow automation', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'LOS', vendor: 'Byte Software', desc: 'Established mortgage LOS with document management and compliance tools', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'Deal Analysis', vendor: 'Blooma', desc: 'AI-powered commercial real estate deal analysis and underwriting platform', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'Lending Platform', vendor: 'TurnKey Lender', desc: 'End-to-end lending automation from application to decision and beyond', rel: 'complementary', relLabel: 'Complementary' },
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'E-Signature', vendor: 'DocuSign', desc: 'Electronic signature platform for loan document execution and management', rel: 'integration', relLabel: 'Integration Partner' },
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'E-Signature', vendor: 'Zoho Sign', desc: 'E-signature solution with workflow automation for document signing', rel: 'integration', relLabel: 'Integration Partner' },
+  { stage: 3, stageLabel: 'UW, Docs & Funding', category: 'Title & Closing', vendor: 'Qualia', desc: 'Digital title and closing platform connecting lenders, title agents, and buyers', rel: 'complementary', relLabel: 'Complementary' },
   // Stage 4
   { stage: 4, stageLabel: 'Servicing', category: 'LMS', vendor: 'Glass Loans', desc: 'Loan servicing platform built specifically for private/hard money lenders', rel: 'complementary', relLabel: 'Complementary' },
   { stage: 4, stageLabel: 'Servicing', category: 'LMS', vendor: 'Nortridge', desc: 'Configurable loan management system for complex lending portfolios', rel: 'complementary', relLabel: 'Complementary' },
