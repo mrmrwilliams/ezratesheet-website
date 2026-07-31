@@ -13,6 +13,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Private Lending Lifecycle — EZRS Reference Guide</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/logo-icon-purple-transparent.png">
+
+<!-- SEO -->
+<meta name="description" content="The complete 6-stage map of private/hard money lending — from lead gen through collections — with the software landscape at each stage, and a clear line showing where EZ Rate Sheet + RiseHub fit.">
+<meta name="author" content="Mike Williams — EZ Rate Sheet">
+<link rel="canonical" href="https://www.ezratesheet.com/pages/lifecycle">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EZ Rate Sheet">
+<meta property="og:title" content="The Private Lending Lifecycle — EZRS Reference Guide">
+<meta property="og:description" content="The 6-stage map of private lending — lead → term sheet → funded → serviced → sold — and where EZRS fits.">
+<meta property="og:url" content="https://www.ezratesheet.com/pages/lifecycle">
+<meta property="og:image" content="https://www.ezratesheet.com/og-lifecycle.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Private Lending Lifecycle — 6-stage map from lead gen to collections, powered by EZRS">
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Private Lending Lifecycle — EZRS Reference Guide">
+<meta name="twitter:description" content="The 6-stage map of private lending — lead → term sheet → funded → serviced → sold — and where EZRS fits.">
+<meta name="twitter:image" content="https://www.ezratesheet.com/og-lifecycle.png">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
 <style>
 /* ===== RESET & BASE ===== */
@@ -780,7 +806,31 @@ body {
   text-align: center;
   font-size: 12px;
   color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-brand:hover { color: var(--c-teal); }
+.footer-brand-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.85;
+}
+.footer-brand strong {
+  font-weight: 700;
+  color: var(--text);
+}
+.footer-sep { opacity: 0.4; }
 
 /* ===== SCROLL ANIMATION ===== */
 .fade-in {
@@ -1490,7 +1540,12 @@ body {
 
 <!-- FOOTER -->
 <footer class="footer">
-  Private Lending Lifecycle Reference — Mike Williams
+  <a class="footer-brand" href="https://www.ezratesheet.com" aria-label="EZ Rate Sheet home">
+    <img class="footer-brand-icon" src="https://assets.cdn.filesafe.space/6vd0JqcgyHpzEUereM2p/media/69c30e54f5a3896468a5c388.png" alt="" width="20" height="20">
+    <span>Built by <strong>EZ Rate Sheet</strong></span>
+  </a>
+  <span class="footer-sep" aria-hidden="true">•</span>
+  <span>Private Lending Lifecycle Reference — Mike Williams</span>
 </footer>
 
 <script>
