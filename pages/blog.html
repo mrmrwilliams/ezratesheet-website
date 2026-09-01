@@ -5,9 +5,17 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog — EZ Rate Sheet</title>
-<meta name="description" content="Industry insights, product updates, and best practices for real-estate lenders. Coming soon from EZ Rate Sheet.">
+<meta name="description" content="Operator insights for private and hard money lenders: rate sheets vs spreadsheets, pricing discipline, tech-stack cost, and secondary-market readiness. Written by founder Mike Williams.">
 <link rel="canonical" href="https://www.ezratesheet.com/pages/blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ezratesheet.com/pages/blog">
+<meta property="og:title" content="Blog — EZ Rate Sheet">
+<meta property="og:description" content="Operator insights for private and hard money lenders: rate sheets, pricing, tech stack, and secondary-market readiness.">
 <meta property="og:image" content="https://www.ezratesheet.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — EZ Rate Sheet">
+<meta name="twitter:description" content="Rate sheet strategy, tech-stack cost, and operating systems for private lenders. By Mike Williams.">
+<meta name="twitter:image" content="https://www.ezratesheet.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap">
@@ -21,7 +29,27 @@
 <!-- CRITICAL-TOKENS:end -->
 <link rel="stylesheet" href="../base.css">
 <link rel="stylesheet" href="../style.css">
-<!-- BreadcrumbList Schema -->
+<!-- CollectionPage + BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "The EZ Rate Sheet Blog",
+  "url": "https://www.ezratesheet.com/pages/blog",
+  "description": "Operator insights for private and hard money lenders on rate sheets, pricing, CRM, and lending operations.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "EZ Rate Sheet",
+    "url": "https://www.ezratesheet.com"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Mike Williams",
+    "url": "https://www.ezratesheet.com/pages/about",
+    "jobTitle": "Founder"
+  }
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,12 +88,32 @@
     <section class="section container">
       <div class="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-6);max-width:1100px;margin:0 auto;">
 
+        <a href="/pages/blog/hard-money-rate-sheet-vs-spreadsheet" class="blog-card" style="display:flex;flex-direction:column;padding:var(--space-6);background:#fff;border:1px solid var(--color-divider);border-radius:14px;text-decoration:none;color:inherit;transition:transform 0.15s, box-shadow 0.15s;">
+          <div class="section-label" style="margin-bottom:var(--space-3);">Rate Sheet Strategy</div>
+          <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">Hard Money Rate Sheet vs Spreadsheet</h2>
+          <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">Why private lenders outgrow Excel for Fix &amp; Flip, bridge, and DSCR pricing — and what a real rate sheet engine actually replaces.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
+            <span>Mike Williams · Sep 1, 2026</span>
+            <span style="color:var(--color-primary);font-weight:600;">Read →</span>
+          </div>
+        </a>
+
+        <a href="/pages/blog/what-private-lender-rate-sheet-software-does" class="blog-card" style="display:flex;flex-direction:column;padding:var(--space-6);background:#fff;border:1px solid var(--color-divider);border-radius:14px;text-decoration:none;color:inherit;transition:transform 0.15s, box-shadow 0.15s;">
+          <div class="section-label" style="margin-bottom:var(--space-3);">Product</div>
+          <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">What Private Lender Rate Sheet Software Should Actually Do</h2>
+          <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">A practical checklist: loan products, LTV/ARV logic, branded term sheets, deal workflow, and when CRM belongs in the same system.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
+            <span>Mike Williams · Sep 1, 2026</span>
+            <span style="color:var(--color-primary);font-weight:600;">Read →</span>
+          </div>
+        </a>
+
         <a href="/pages/blog/two-questions-private-lending-platform" class="blog-card" style="display:flex;flex-direction:column;padding:var(--space-6);background:#fff;border:1px solid var(--color-divider);border-radius:14px;text-decoration:none;color:inherit;transition:transform 0.15s, box-shadow 0.15s;">
           <div class="section-label" style="margin-bottom:var(--space-3);">Tech &amp; Operations</div>
           <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">Two Questions to Ask Before Signing With Any Private Lending Platform</h2>
           <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">Most demos look great. Most platforms ship a fraction of what they sell. These two questions are the difference between a tool that runs your business and a six-figure mistake.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
-            <span>May 20, 2026</span>
+            <span>Mike Williams · May 20, 2026</span>
             <span style="color:var(--color-primary);font-weight:600;">Read →</span>
           </div>
         </a>
@@ -75,7 +123,7 @@
           <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">Why Private Lenders Leak Margin</h2>
           <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">The 50 bps variance problem is costing private lenders real money. Here are the three structural causes of margin leakage — and how to fix them systematically.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
-            <span>June 2, 2026</span>
+            <span>Mike Williams · June 2, 2026</span>
             <span style="color:var(--color-primary);font-weight:600;">Read →</span>
           </div>
         </a>
@@ -85,7 +133,7 @@
           <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">The Private Lender Tech Tax</h2>
           <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">Most private lending shops are paying $1,377–$12,006/month for software they didn't choose together. Here's how the stack accumulates — and what it actually costs.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
-            <span>June 9, 2026</span>
+            <span>Mike Williams · June 9, 2026</span>
             <span style="color:var(--color-primary);font-weight:600;">Read →</span>
           </div>
         </a>
@@ -95,7 +143,7 @@
           <h2 style="font-family:var(--font-display);font-size:1.5rem;font-style:italic;line-height:1.2;margin-bottom:var(--space-3);color:var(--color-text);">Private Lender Secondary Market: What Aggregators Want</h2>
           <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:var(--space-4);flex-grow:1;">15+ institutional buyers are actively purchasing RTL and DSCR paper. Here's what Toorak, Roc360, Genesis, and others actually evaluate — and the three gaps that cause low bids.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.8125rem;color:var(--color-text-faint);padding-top:var(--space-3);border-top:1px solid var(--color-divider);">
-            <span>June 16, 2026</span>
+            <span>Mike Williams · June 16, 2026</span>
             <span style="color:var(--color-primary);font-weight:600;">Read →</span>
           </div>
         </a>

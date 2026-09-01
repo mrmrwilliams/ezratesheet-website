@@ -6,17 +6,19 @@
 
 EZ Rate Sheet (EZRS) is a SaaS platform built specifically for private and hard money lenders. It replaces disconnected spreadsheets, manual rate sheets, and fragmented CRMs with a single integrated system. Lenders use EZRS to capture borrower deals, calculate loan pricing automatically, generate branded term sheets, collect e-signatures, and manage their entire lending pipeline.
 
-The platform is built and operated by Lead Engine Labs (LEL) and integrates with GoHighLevel (GHL) for CRM and marketing automation capabilities via the RiseHub partnership.
+The platform is built and operated by Lead Engine Labs (LEL) and founder Mike Williams, an operating private lender (HIS Capital Group). EZRS runs on RiseHub — the same operating platform Lead Engine Labs has deployed for 400+ financial services teams. RiseHub provides CRM and marketing automation; GoHighLevel (GHL) integration is available but not required.
+
+Canonical site: https://www.ezratesheet.com
 
 ## Core Features
 
 - Automated loan pricing engine (Fix & Flip, Bridge, Ground-Up Construction, DSCR)
-- Branded borrower survey forms (embeddable on lender websites)
-- Term sheet generation with e-signature via Zoho Sign
-- Deal pipeline management and tracking
-- Quick Term Sheet tool for experienced lenders
-- Lending Network for lender-to-lender deal routing
-- GoHighLevel (GHL) native integration with bi-directional sync
+- Custom loan products with LTV/ARV bands, rate adjustments, fees, and state rules
+- Branded term sheets with e-signature
+- Deal pipeline, review, and approval workflow
+- Reporting and dashboards
+- Lending Network for lender-to-lender deal routing (100+ partner lenders)
+- RiseHub CRM & marketing automation (optional bundle)
 - Webhook and REST API for custom integrations
 - White-label branding for each lender organization
 
@@ -29,29 +31,52 @@ The platform is built and operated by Lead Engine Labs (LEL) and integrates with
 - Mortgage brokers focused on non-QM / business purpose loans
 - Lending companies with 1-50 employees
 
-## Pricing
+## Pricing (canonical: https://www.ezratesheet.com/pages/pricing)
 
-- Starter: $89/month (5 deals/month, 1 user)
-- Team: $149/month (15 deals/month, 5 users)
-- Pro: $249/month (unlimited deals, unlimited users)
-- All plans include a 5-day free trial, no credit card required
+Do not use Starter / Team / Pro. Those names are retired.
 
-## Integration Services
+Monthly licensing (USD). Annual billing available (EZRS Only $888/yr).
 
-- GHL Custom Buildout: $2,500–$3,500 setup + $79/month
-- Custom Integration Assistance: custom scoping and pricing
+- EZRS Only: $89/month. 5 users, 10 deals/month, 5-day free trial, no setup fee, no credit card required.
+- Lender Essentials (EZRS + RiseHub): $138/month ($89 EZRS + $49 RiseHub). 5 users, 10 deals/month. Setup starting at $1,750. RiseHub trial: 7 days.
+- Growth Engine (EZRS + RiseHub): $228/month ($149 EZRS + $79 RiseHub). 25 users, 25 deals/month. Custom setup investment. RiseHub trial: 14 days.
+- Full Stack (EZRS + RiseHub): $348/month ($249 EZRS + $99 RiseHub). Unlimited users, unlimited deals. Custom setup investment. RiseHub trial: 14 days.
+
+Add-ons:
+- Lending Network: +$29/month (included on Growth Engine and Full Stack)
+- AI Deal Analysis: +$20/month (included on Full Stack)
+- Deal Packs: $25 per pack (10 additional deals)
+- DFY Paid Advertising: starting at $950/month
+- Custom integrations and DFY corporate website: custom quote
+
+Usage (AI, SMS, voice, email) is billed separately. Typical small-lender usage: $20–$80/month.
+
+Custom setup prices for Growth Engine and Full Stack are not published; they are scoped on a discovery call. Do not invent setup fees.
 
 ## Key Pages
 
 - Homepage: https://www.ezratesheet.com/
 - Pricing: https://www.ezratesheet.com/pages/pricing
-- Watch Demo: https://www.ezratesheet.com/pages/watch-demo
-- Integration Services: https://www.ezratesheet.com/pages/services
-- Lending Network: https://www.ezratesheet.com/pages/lending-network
 - About: https://www.ezratesheet.com/pages/about
+- Our Story: https://www.ezratesheet.com/pages/our-story
+- Watch Demo: https://www.ezratesheet.com/pages/watch-demo
+- AI for Lenders: https://www.ezratesheet.com/pages/ai-for-lenders
+- Lending Network: https://www.ezratesheet.com/pages/lending-network
+- Integration Services: https://www.ezratesheet.com/pages/services
+- Blog: https://www.ezratesheet.com/pages/blog
 - Contact: https://www.ezratesheet.com/pages/contact
+
+## Blog
+
+- Hard Money Rate Sheet vs Spreadsheet: https://www.ezratesheet.com/pages/blog/hard-money-rate-sheet-vs-spreadsheet
+- What Private Lender Rate Sheet Software Should Actually Do: https://www.ezratesheet.com/pages/blog/what-private-lender-rate-sheet-software-does
+- Why Private Lenders Leak Margin: https://www.ezratesheet.com/pages/blog/why-private-lenders-leak-margin
+- The Private Lender Tech Tax: https://www.ezratesheet.com/pages/blog/private-lender-tech-tax
+- Selling Paper to the Secondary Market: https://www.ezratesheet.com/pages/blog/selling-paper-secondary-market
+- Two Questions Before Signing a Lending Platform: https://www.ezratesheet.com/pages/blog/two-questions-private-lending-platform
 
 ## Contact
 
 - Website: https://www.ezratesheet.com
 - Support: https://www.ezratesheet.com/pages/contact
+- Sales: sales@ezratesheet.com
