@@ -10,6 +10,8 @@ The platform is built and operated by Lead Engine Labs (LEL) and founder Mike Wi
 
 Canonical site: https://www.ezratesheet.com
 
+Related: DealYields (https://www.dealyields.com) is a free investment-property analyzer operated by EZ Rate Sheet LLC. It is for investors, wholesalers, and agents. Ready-to-fund reports can connect into the EZRS lender network. It is not a loan offer.
+
 ## Core Features
 
 - Automated loan pricing engine (Fix & Flip, Bridge, Ground-Up Construction, DSCR)
